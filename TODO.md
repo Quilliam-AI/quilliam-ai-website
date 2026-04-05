@@ -1,13 +1,13 @@
 # Quilliam Digital — SEO Action Plan
 
-Generated from full SEO audit on 3 April 2026. Overall score: **62/100**.
+SEO audit score: **72/100** (5 April 2026). Strong technical foundation. Critical gap: placeholder images.
 
 ---
 
 ## Uncompleted — Critical (Fix Before Launch)
 
 ### 1. Replace all placeholder images with real photography
-**Impact:** E-E-A-T, LCP performance, user trust, CSP compatibility
+**Impact:** E-E-A-T, LCP performance, user trust, CSP compatibility — single most impactful change across the entire audit
 **Current state:** Every image on the site is from `picsum.photos` — a random stock placeholder service. This adds 500ms+ to LCP via redirect chains and destroys credibility for a professional services site.
 
 **Steps:**
@@ -65,7 +65,8 @@ Generated from full SEO audit on 3 April 2026. Overall score: **62/100**.
   ```
 - [ ] Update trust bar "5.0 on Google" to link to GBP review page
 - [ ] Add GBP URL to `sameAs` in schema
-- [ ] Once reviews exist, add real `aggregateRating` with actual `reviewCount` to schema
+- [ ] Once reviews exist, add real `aggregateRating` with actual `reviewCount` to schema (audit item #4)
+- [ ] Update "5.0 on Google" to "5.0 from X reviews on Google" with link to GBP (audit item #18)
 
 **Files to edit:**
 - `src/components/layout/footer.tsx`
@@ -92,6 +93,16 @@ Generated from full SEO audit on 3 April 2026. Overall score: **62/100**.
 
 ---
 
+### A9. Install analytics
+**Impact:** Cannot measure CWV or organic traffic without analytics.
+**Current state:** No analytics installed.
+
+**Steps:**
+- [ ] Install Vercel Analytics or Plausible
+- [ ] Verify CWV tracking is working
+
+---
+
 ### 10. Collect more testimonials
 **Impact:** E-E-A-T Experience + local review signals. One testimonial is insufficient.
 **Current state:** Single testimonial from Dirk Parker, K2 Gym Newquay.
@@ -111,15 +122,16 @@ Generated from full SEO audit on 3 April 2026. Overall score: **62/100**.
     "itemReviewed": { "@id": "https://quilliamdigital.com/#organization" }
   }
   ```
+- [ ] Add a different automation-focused testimonial to the AI Automation page (currently has zero social proof after K2 moved to AI Training)
 
 ---
 
-### 37 (sub-item). Add automation-focused testimonial to AI Automation page
-**Impact:** The AI Automation service page has zero social proof after the K2 Gym testimonial was moved to AI Training.
-**Current state:** Blocked on #10 — need more testimonials.
+### A12. Build Tier 1 UK citations
+**Impact:** Thin external footprint is the biggest systemic ceiling on rankings.
 
 **Steps:**
-- [ ] Add a different automation-focused framing or result quote to the automation page
+- [ ] Submit to Yell, FreeIndex, Bark, Clutch, Apple Business Connect, Bing Places
+- [ ] Ensure NAP is identical across all (Quilliam Digital, Cornwall UK, 07593 121621, levi@quilliamdigital.com)
 
 ---
 
@@ -133,6 +145,26 @@ Generated from full SEO audit on 3 April 2026. Overall score: **62/100**.
 - [ ] Add subtle source citations to digital services stats (e.g., "Source: Google/BrightLocal 2025")
 - [ ] Label automation stats as "typical results" if not from verified client data
 - [ ] Or replace with real K2 Gym / client metrics
+
+---
+
+### A14. Evaluate framer-motion bundle size
+**Impact:** ~30-35KB gzipped, affects TTI.
+
+**Steps:**
+- [ ] Run production build and check framer-motion chunk size
+- [ ] Consider replacing `FadeIn` with CSS `@starting-style` + `IntersectionObserver`
+- [ ] Or switch to `motion` (standalone lightweight package by same author)
+- [ ] Or use `next/dynamic` with `ssr: false` to defer the bundle
+
+---
+
+### A22. Embed Google Maps in footer or about section
+**Impact:** Regional map of Cornwall signals geographic relevance for local SEO.
+
+**Steps:**
+- [ ] Add a regional Cornwall map embed to footer or about section
+- [ ] Ensure it uses `loading="lazy"` to not impact LCP
 
 ---
 
@@ -182,13 +214,6 @@ Generated from full SEO audit on 3 April 2026. Overall score: **62/100**.
 - [ ] Plan additional verticals: `/industries/trades`, `/industries/hospitality`, etc.
 - [ ] Each page: targeted H1, industry-specific pain points, relevant case study, FAQ, schema
 
-### 19. Evaluate framer-motion bundle size
-**Steps:**
-- [ ] Run production build and check framer-motion chunk size (~150-200KB gzip)
-- [ ] Consider replacing `FadeIn` with CSS `@starting-style` + `IntersectionObserver`
-- [ ] Or switch to `motion` (standalone lightweight package by same author)
-- [ ] Or use `next/dynamic` with `ssr: false` to defer the bundle
-
 ### 21. Add social profile links
 **Steps:**
 - [ ] Create LinkedIn, Instagram profiles
@@ -215,6 +240,13 @@ Generated from full SEO audit on 3 April 2026. Overall score: **62/100**.
 ### 30. Add `datePublished` / `dateModified` to page-level schema
 ### 31. Promote CSP from Report-Only to enforcing mode (after images are local — blocked on #1)
 ### 32. Create /service-areas page listing served regions
+### A25. Add HSTS preload directive and submit to hstspreload.org
+### A26. Add Person schema image once real photo exists
+### A31. Add postalCode (e.g., "TR1") to schema address
+### A32. Convert WhatsAppButton to server component
+### A33. Add /.well-known/security.txt
+### A29. Add WebPage schema to each page with isPartOf -> WebSite
+### A30. Reduce backdrop-blur-2xl on mobile nav for scroll performance
 
 ---
 
@@ -230,59 +262,179 @@ Generated from full SEO audit on 3 April 2026. Overall score: **62/100**.
 
 ## Completed
 
-### ~~2. Merge Organization/LocalBusiness schema into single entity~~ DONE
-**Impact:** Google knowledge graph — two separate nodes for the same business dilutes entity signal
+### ~~A2. Remove FadeIn from above-fold LCP elements~~ DONE
 **Steps:**
-- [x] In `layout.tsx`, replace both `organizationSchema` and `localBusinessSchema` with a single combined node
-- [x] Upgrade `LocalBusiness` to `ProfessionalService` (Schema.org subtype, better for consulting)
-- [x] Add `image` property (use OG image or real business photo)
-- [x] Upgrade `logo` from bare URL string to `ImageObject` with width/height
-- [x] Change `priceRange` from `"$$"` to `"££"` (UK convention)
-- [x] Add `geo` with Cornwall coordinates
-- [x] Add `openingHoursSpecification`
-- [x] Add `sameAs` array (populate as profiles are created)
+- [x] Verified: H1 and hero image are not wrapped in `FadeIn` — no LCP penalty
+
+---
+
+### ~~A3. Fix homepage/automation keyword cannibalization~~ DONE
+**Steps:**
+- [x] Changed homepage title from "AI Automation for UK Small Businesses" to "AI Solutions for UK Small Businesses"
+- [x] Automation page retains "AI Automation for Small Businesses" — no keyword overlap
+
+**File edited:** `src/app/layout.tsx`
+
+---
+
+### ~~A5. Fix sitemap static dates and remove noise~~ DONE
+**Steps:**
+- [x] Replaced `new Date()` with static date strings reflecting actual content changes
+- [x] Removed `priority`, `changeFrequency` (Google ignores these)
+- [x] Removed `host` from robots.ts
+
+**Files edited:** `src/app/sitemap.ts`, `src/app/robots.ts`
+
+---
+
+### ~~A6. Fix service page breadcrumbs to 3-level~~ DONE
+**Steps:**
+- [x] Changed from `[{name: "AI Training", href: "/services/ai-training"}]` to `[{name: "Services", href: "/#services"}, {name: "AI Training", href: "/services/ai-training"}]`
+- [x] Applied to all 3 service pages
+
+**Files edited:** `src/app/services/ai-training/page.tsx`, `src/app/services/ai-automation/page.tsx`, `src/app/services/digital-services/page.tsx`
+
+---
+
+### ~~A7. Fix logo schema URL~~ DONE
+**Steps:**
+- [x] Changed logo URL from OG image (1200x630) to `/og-logo.png` (260x260 actual logo)
+
+**File edited:** `src/app/layout.tsx`
+
+---
+
+### ~~A8. Create custom 404 page~~ DONE
+**Steps:**
+- [x] Created `src/app/not-found.tsx` with nav links and CTA, matching site design system
+
+**File created:** `src/app/not-found.tsx`
+
+---
+
+### ~~A10. Add "Cornwall" to service page title tags~~ DONE
+**Steps:**
+- [x] All 3 service pages now include "Cornwall & UK-Wide" in title
+
+**Files edited:** `src/app/services/ai-training/page.tsx`, `src/app/services/ai-automation/page.tsx`, `src/app/services/digital-services/page.tsx`
+
+---
+
+### ~~A11. Fix duplicate Service @ids~~ DONE
+**Steps:**
+- [x] Removed less-complete Service schemas from homepage `page.tsx`
+- [x] Service pages retain the authoritative `Service` + `Offer` schemas
+
+**File edited:** `src/app/page.tsx`
+
+---
+
+### ~~A15. Remove priority/changeFrequency/host from sitemap/robots~~ DONE (addressed in A5)
+
+---
+
+### ~~A17. Add privacy consent to booking form~~ DONE
+**Steps:**
+- [x] Added required checkbox with link to privacy policy before submit button
+
+**File edited:** `src/components/book/booking-form.tsx`
+
+---
+
+### ~~A19. Expand homepage FAQ answers to 100-150 words~~ DONE
+**Steps:**
+- [x] All 5 FAQ answers expanded to 100-150 words
+- [x] Added "Quilliam Digital" entity name and specific examples in each answer
+- [x] Embedded K2 Gym stats and pricing in natural prose
+
+**File edited:** `src/lib/content.ts`
+
+---
+
+### ~~A20. Rewrite H2 headings as questions for AI citation matching~~ DONE
+**Steps:**
+- [x] "How it works" → "How does Quilliam Digital's free AI Audit work?"
+- [x] "AI Services for Small Businesses" → "What AI services does Quilliam Digital offer?"
+- [x] "AI built for your industry" → "How does Quilliam Digital tailor AI for your industry?"
+- [x] "I make AI work / for real businesses" → "Who is behind / Quilliam Digital?"
+
+**Files edited:** `src/components/home/sprint-process.tsx`, `src/components/home/services-cards.tsx`, `src/components/home/industry-tabs.tsx`, `src/components/home/about-preview.tsx`
+
+---
+
+### ~~A21. Add @id to FAQPage schemas on service pages~~ DONE
+**Steps:**
+- [x] Added `"@id": "{url}/services/{slug}#faq"` to FAQPage schema in `shared.tsx`
+
+**File edited:** `src/components/services/shared.tsx`
+
+---
+
+### ~~A23. Fix llms.txt — add link to full version and last-updated date~~ DONE
+**Steps:**
+- [x] Added `> Full version:` link and `> Last updated: 2026-04-05`
+- [x] Added cross-link from llms-full.txt back to short version
+
+**Files edited:** `public/llms.txt`, `public/llms-full.txt`
+
+---
+
+### ~~A24. Fix llms-full.txt quote inconsistency~~ DONE
+**Steps:**
+- [x] Aligned K2 Gym quote to match `content.ts` source of truth
+
+**File edited:** `public/llms-full.txt`
+
+---
+
+### ~~2. Merge Organization/LocalBusiness schema into single entity~~ DONE
+**Steps:**
+- [x] In `layout.tsx`, replaced both `organizationSchema` and `localBusinessSchema` with a single combined node
+- [x] Upgraded `LocalBusiness` to `ProfessionalService` (Schema.org subtype, better for consulting)
+- [x] Added `image` property (use OG image or real business photo)
+- [x] Upgraded `logo` from bare URL string to `ImageObject` with width/height
+- [x] Changed `priceRange` from `"$$"` to `"££"` (UK convention)
+- [x] Added `geo` with Cornwall coordinates
+- [x] Added `openingHoursSpecification`
+- [x] Added `sameAs` array (populate as profiles are created)
 
 **File edited:** `src/app/layout.tsx`
 
 ---
 
 ### ~~4. Add visible, clickable phone number~~ DONE
-**Impact:** Core NAP element for local SEO.
 **Steps:**
-- [x] Add phone number to footer contact section
-- [x] Add phone number to `/book` page (near the WhatsApp link in the body copy)
-- [x] Add `telephone` property to Organization node in schema
+- [x] Added phone number to footer contact section
+- [x] Added phone number to `/book` page (near the WhatsApp link in the body copy)
+- [x] Added `telephone` property to Organization node in schema
 
-**Files edited:**
-- `src/components/layout/footer.tsx`
-- `src/app/book/page.tsx`
-- `src/app/layout.tsx`
+**Files edited:** `src/components/layout/footer.tsx`, `src/app/book/page.tsx`, `src/app/layout.tsx`
 
 ---
 
 ### ~~5. Create llms.txt for AI crawlers~~ DONE
 **Steps:**
-- [x] Create `/public/llms.txt` with structured business summary
-- [x] Create `/public/llms-full.txt` with expanded content
+- [x] Created `/public/llms.txt` with structured business summary
+- [x] Created `/public/llms-full.txt` with expanded content
 
 ---
 
 ### ~~6. Fix OG tag inheritance on subpages~~ DONE
 **Steps:**
-- [x] Add `openGraph` + `twitter` to `/book` page metadata
-- [x] Add `openGraph` + `twitter` to `/privacy` page metadata
-- [x] Add `openGraph` + `twitter` to `/terms` page metadata
+- [x] Added `openGraph` + `twitter` to `/book` page metadata
+- [x] Added `openGraph` + `twitter` to `/privacy` page metadata
+- [x] Added `openGraph` + `twitter` to `/terms` page metadata
 
 ---
 
 ### ~~7. Create dedicated service pages~~ DONE
 **Steps:**
-- [x] Create route group: `src/app/services/[slug]/page.tsx`
-- [x] Create pages for `/services/ai-training`, `/services/ai-automation`, `/services/digital-services`
+- [x] Created route group: `src/app/services/[slug]/page.tsx`
+- [x] Created pages for `/services/ai-training`, `/services/ai-automation`, `/services/digital-services`
 - [x] Each page includes unique H1, 800+ words, features, FAQ, CTA, schema
-- [x] Update service card CTAs on homepage to link to individual pages
-- [x] Add service pages to sitemap.ts
-- [x] Add "Services" dropdown or links to nav
+- [x] Updated service card CTAs on homepage to link to individual pages
+- [x] Added service pages to sitemap.ts
+- [x] Added "Services" dropdown or links to nav
 - [x] Internal link from each service page to the other two
 
 ---
