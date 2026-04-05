@@ -12,6 +12,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: "2026-04-04",
     },
     {
+      url: `${siteConfig.url}/contact`,
+      lastModified: "2026-04-05",
+    },
+    {
+      url: `${siteConfig.url}/about`,
+      lastModified: "2026-04-05",
+    },
+    {
+      url: `${siteConfig.url}/service-areas`,
+      lastModified: "2026-04-05",
+    },
+    {
       url: `${siteConfig.url}/services/ai-training`,
       lastModified: "2026-04-04",
     },

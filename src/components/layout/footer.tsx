@@ -105,6 +105,14 @@ export function Footer() {
                   {siteConfig.email}
                 </a>
               </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
+                >
+                  Contact Page
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -114,6 +122,11 @@ export function Footer() {
             &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
             reserved.
           </p>
+          {siteConfig.companyNumber && (
+            <p className="text-xs text-stone-400">
+              Company No. {siteConfig.companyNumber}
+            </p>
+          )}
           <div className="flex gap-6">
             <Link
               href="/privacy"

@@ -14,6 +14,10 @@ export const siteConfig = {
     "https://www.linkedin.com/company/quilliamdigital",
     "https://g.page/quilliamdigital",
   ],
+  // Company registration number — update when registered with Companies House
+  companyNumber: "" as string,
+  // Founder photo path — add the image to /public and set this path (e.g. "/founder.jpg")
+  founderImage: "" as string,
 } as const;
 
 /** Build a WhatsApp click-to-chat URL with a pre-filled message. */
@@ -25,7 +29,8 @@ export const navigation = [
   { name: "Services", href: "/#services" },
   { name: "How It Works", href: "/#process" },
   { name: "Industries", href: "/#industries" },
-  { name: "About", href: "/#about" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ] as const;
 
 export const serviceLinks = [

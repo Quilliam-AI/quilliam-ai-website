@@ -58,13 +58,16 @@ export const metadata: Metadata = {
 };
 
 function JsonLd() {
-  const personSchema = {
+  const personSchema: Record<string, unknown> = {
     "@type": "Person",
     "@id": `${siteConfig.url}/#founder`,
     name: "Levi Quilliam",
     jobTitle: "Founder",
     worksFor: { "@id": `${siteConfig.url}/#organization` },
-    url: `${siteConfig.url}/#about`,
+    url: `${siteConfig.url}/about`,
+    ...(siteConfig.founderImage && {
+      image: `${siteConfig.url}${siteConfig.founderImage}`,
+    }),
   };
 
   const organizationSchema = {
@@ -91,6 +94,7 @@ function JsonLd() {
       "@type": "PostalAddress",
       addressRegion: "Cornwall",
       addressCountry: "GB",
+      postalCode: "TR1",
     },
     geo: {
       "@type": "GeoCoordinates",
@@ -104,6 +108,9 @@ function JsonLd() {
       closes: "17:00",
     },
     priceRange: "££",
+    ...(siteConfig.companyNumber && {
+      taxID: siteConfig.companyNumber,
+    }),
     ...(siteConfig.socialLinks.length > 0 && {
       sameAs: [...siteConfig.socialLinks],
     }),

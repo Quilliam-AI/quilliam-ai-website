@@ -88,9 +88,11 @@ We work with any small business, but have particular experience with service bus
 
 ## Founder — Levi Quilliam
 
-Levi Quilliam is the founder of Quilliam Digital. Based in Cornwall, UK, Levi works directly with every client — this isn't an agency where you get passed to a junior team member.
+Levi Quilliam is the founder of Quilliam Digital, based in Cornwall, UK. He holds a Bachelor's degree in Economics and a Graduate Certificate in Computer Science. Levi has over eight years of programming experience. He began his career at Deloitte in turnaround and restructuring, where he developed deep understanding of how businesses operate and where inefficiencies hide. He then moved into tech — first at an AgriTech company, then at a software startup building AI-first products for businesses across the UK and Middle East.
 
-Levi's approach: understand the business first, then apply the right technology. Not the other way around.
+Levi started Quilliam Digital after a conversation with a gym owner who said: "I see AI everywhere — agents, orchestration, automation — but I cannot connect the dots to my actual business." That insight drives the agency's mission: bridging the gap between AI technology and the practical needs of small business owners.
+
+Levi works directly with every client — no handoffs to junior team members. His approach: understand the business first, then apply the right technology. Outside work, he's into surfing, climbing, and hiking around the Cornish coast.
 
 ---
 
@@ -115,7 +117,10 @@ We give you a clear recommendation and a fixed-price quote with no surprises. Mo
 
 ## Pages
 - Home: https://quilliamdigital.com
+- About: https://quilliamdigital.com/about
 - Book a Free AI Audit: https://quilliamdigital.com/book
+- Contact: https://quilliamdigital.com/contact
+- Service Areas: https://quilliamdigital.com/service-areas
 - AI Training: https://quilliamdigital.com/services/ai-training
 - AI Automation: https://quilliamdigital.com/services/ai-automation
 - Digital Services: https://quilliamdigital.com/services/digital-services

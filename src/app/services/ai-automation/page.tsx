@@ -11,6 +11,7 @@ import {
 import { getWhatsAppUrl } from "@/lib/content";
 import { NodeNetworkPattern } from "@/components/shared/pattern-overlay";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
+import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { FadeIn } from "@/components/shared/fade-in";
 import {
   ServiceJsonLd,
@@ -157,6 +158,13 @@ export default function AiAutomationPage() {
         faqs={automationFaqs}
       />
       <BreadcrumbJsonLd items={[{ name: "Services", href: "/#services" }, { name: "AI Automation", href: "/services/ai-automation" }]} />
+      <WebPageJsonLd
+        path="/services/ai-automation"
+        name="AI Automation for Small Businesses | Cornwall & UK-Wide | Quilliam Digital"
+        description="Custom AI automation systems that save UK small businesses 10+ hours per week. Chatbots, workflow automation, and AI-powered tools."
+        datePublished="2025-03-01"
+        dateModified="2026-04-05"
+      />
 
       <ServiceHero
         pattern={<NodeNetworkPattern className="text-emerald-400" />}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { BookingForm } from "@/components/book/booking-form";
 import { CircuitPattern } from "@/components/shared/pattern-overlay";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
+import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { FadeIn } from "@/components/shared/fade-in";
 import { Clock, MessageSquare, Zap, CheckCircle2 } from "lucide-react";
 import { siteConfig, getWhatsAppUrl } from "@/lib/content";
@@ -56,6 +57,13 @@ export default function BookPage() {
   return (
     <section className="relative min-h-[100dvh] bg-stone-950 overflow-hidden">
       <BreadcrumbJsonLd items={[{ name: "Book Your Free AI Audit", href: "/book" }]} />
+      <WebPageJsonLd
+        path="/book"
+        name="Book Your Free AI Audit | Quilliam Digital"
+        description="Book a free, no-obligation AI Audit with Quilliam Digital. We'll show you exactly where AI can save your business time and win more customers."
+        datePublished="2025-03-01"
+        dateModified="2026-04-05"
+      />
       <CircuitPattern className="text-emerald-400" />
 
       {/* Atmospheric glow */}

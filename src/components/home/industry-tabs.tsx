@@ -19,7 +19,7 @@ export function IndustrySection() {
               How does Quilliam Digital tailor AI for your industry?
             </h2>
             <p className="mt-4 text-base text-stone-500 leading-relaxed">
-              We don't do one-size-fits-all. Every business is different. Here is
+              No one-size-fits-all. Every business is different. Here is
               how AI works for yours.
             </p>
           </div>

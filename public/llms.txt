@@ -29,7 +29,10 @@ https://quilliamdigital.com/book
 
 ## Pages
 - Home: https://quilliamdigital.com
+- About: https://quilliamdigital.com/about
 - Book: https://quilliamdigital.com/book
+- Contact: https://quilliamdigital.com/contact
+- Service Areas: https://quilliamdigital.com/service-areas
 - AI Training: https://quilliamdigital.com/services/ai-training
 - AI Automation: https://quilliamdigital.com/services/ai-automation
 - Digital Services: https://quilliamdigital.com/services/digital-services

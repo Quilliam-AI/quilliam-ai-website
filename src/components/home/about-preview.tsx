@@ -55,9 +55,9 @@ export function AboutPreview() {
                 businesses compete with larger rivals through smart automation.
               </p>
 
-              <Button asChild variant="outline" className="mt-8 rounded-full">
-                <Link href="/book">
-                  Chat with Levi
+              <Button asChild variant="outline-light" className="mt-8 rounded-full">
+                <Link href="/about">
+                  More About Levi
                   <ArrowRight size={16} className="ml-2" />
                 </Link>
               </Button>

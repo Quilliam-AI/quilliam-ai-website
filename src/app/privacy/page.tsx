@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
+import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { siteConfig } from "@/lib/content";
 import {
   LegalSection,
@@ -32,6 +33,13 @@ export default function PrivacyPage() {
   return (
     <article className="min-h-screen">
       <BreadcrumbJsonLd items={[{ name: "Privacy Policy", href: "/privacy" }]} />
+      <WebPageJsonLd
+        path="/privacy"
+        name="Privacy Policy | Quilliam Digital"
+        description="Quilliam Digital's privacy policy. How we collect, use, and protect your personal information."
+        datePublished="2025-03-01"
+        dateModified="2026-04-04"
+      />
       <LegalHero title="Privacy Policy" lastUpdated={lastUpdated} />
 
       <LegalContent>

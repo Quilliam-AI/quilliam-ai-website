@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
+import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { siteConfig } from "@/lib/content";
 import {
   LegalSection,
@@ -33,6 +34,13 @@ export default function TermsPage() {
   return (
     <article className="min-h-screen">
       <BreadcrumbJsonLd items={[{ name: "Terms of Service", href: "/terms" }]} />
+      <WebPageJsonLd
+        path="/terms"
+        name="Terms of Service | Quilliam Digital"
+        description="Terms of service for using the Quilliam Digital website and services."
+        datePublished="2025-03-01"
+        dateModified="2026-04-04"
+      />
       <LegalHero title="Terms of Service" lastUpdated={lastUpdated} />
 
       <LegalContent>

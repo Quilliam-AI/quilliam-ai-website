@@ -83,8 +83,8 @@ export function Nav() {
       <header
         className={`w-full max-w-[1200px] transition-all duration-500 rounded-2xl ${
           scrolled
-            ? "bg-stone-950/80 backdrop-blur-2xl border border-stone-800/60 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.06)]"
-            : "bg-white/5 backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+            ? "bg-stone-950/80 backdrop-blur-md md:backdrop-blur-2xl border border-stone-800/60 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.06)]"
+            : "bg-white/5 backdrop-blur-md md:backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
         }`}
       >
         <nav className="flex items-center justify-between px-5 h-14">

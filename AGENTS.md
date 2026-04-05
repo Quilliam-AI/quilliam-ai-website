@@ -53,8 +53,13 @@ src/
     sitemap.ts              # Programmatic sitemap
     robots.ts               # Programmatic robots.txt (blocks training scrapers, allows search AI)
     book/page.tsx           # Booking form page
+    about/page.tsx          # About the founder page
+    contact/page.tsx        # Contact page with all methods
+    not-found.tsx           # Custom 404 page
     privacy/page.tsx        # Privacy policy (legal layout)
     terms/page.tsx          # Terms of service (legal layout)
+    service-areas/page.tsx  # UK service regions page
+    api/indexnow/route.ts   # IndexNow URL submission endpoint
     services/
       ai-training/page.tsx
       ai-automation/page.tsx
@@ -64,9 +69,9 @@ src/
       booking-form.tsx      # Client component — form with state
       booking-action.ts     # Server action — validates + sends via Resend
     home/                   # Homepage section components (hero, trust-bar, sprint-process, services-cards, industry-tabs, about-preview, faq-section)
-    layout/                 # Nav (client), Footer (server), StickyCta (client), WhatsAppButton (client)
+    layout/                 # Nav (client), Footer (server), StickyCta (client), WhatsAppButton (server)
     services/shared.tsx     # Reusable service page building blocks (Hero, ProcessSteps, FAQ, OtherServices, CTA, JSON-LD)
-    shared/                 # Cross-cutting: FadeIn, PatternOverlay, BreadcrumbJsonLd, CtaSection, LegalLayout
+    shared/                 # Cross-cutting: FadeIn, PatternOverlay, BreadcrumbJsonLd, WebPageJsonLd, VideoJsonLd, CtaSection, LegalLayout
     ui/button.tsx           # shadcn Button (cva variants)
   lib/
     content.ts              # All site copy, config, navigation, service data — single source of truth
@@ -78,11 +83,16 @@ public/
     logo-dark.svg           # Footer logo (light backgrounds)
     og-logo.png             # Used by opengraph-image.tsx
     site.webmanifest        # PWA manifest
+    .well-known/security.txt  # Security contact info
+    3d99157d...txt          # IndexNow verification key
 ```
 
 ---
 
 ## Architecture Decisions
+
+### Reusable Components First
+Always prefer shared, reusable components over one-off inline styles. If a UI pattern appears more than once (buttons, cards, section layouts), it should be a variant or shared component — not ad-hoc className overrides. Add new variants to existing components (e.g., `outline-light` on Button) rather than applying inline style fixes directly at the call site. Only edit a component's usage directly if it is strictly a one-off with no reuse potential.
 
 ### Server Components First
 Default to RSC. Only add `"use client"` when the component uses hooks, event handlers, or browser APIs. Current client components: `Nav`, `FadeIn`, `BookingForm`, `StickyCta`, `WhatsAppButton`, `error.tsx`. Everything else is a server component — keep it that way.

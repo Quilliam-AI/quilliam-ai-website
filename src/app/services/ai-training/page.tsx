@@ -10,6 +10,7 @@ import {
 import { getWhatsAppUrl } from "@/lib/content";
 import { CircuitPattern } from "@/components/shared/pattern-overlay";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
+import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { FadeIn } from "@/components/shared/fade-in";
 import {
   ServiceJsonLd,
@@ -138,6 +139,13 @@ export default function AiTrainingPage() {
         faqs={trainingFaqs}
       />
       <BreadcrumbJsonLd items={[{ name: "Services", href: "/#services" }, { name: "AI Training", href: "/services/ai-training" }]} />
+      <WebPageJsonLd
+        path="/services/ai-training"
+        name="AI Training for Small Businesses | Cornwall & UK-Wide | Quilliam Digital"
+        description="Practical AI training workshops for UK small business teams. Learn ChatGPT, automation tools, and AI strategy — no jargon, no fluff."
+        datePublished="2025-03-01"
+        dateModified="2026-04-05"
+      />
 
       <ServiceHero
         pattern={<CircuitPattern className="text-emerald-400" />}
