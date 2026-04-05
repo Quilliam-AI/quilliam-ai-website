@@ -144,26 +144,26 @@ export const faqs = [
   {
     question: "What is the free AI Audit?",
     answer:
-      "A free, focused session where we look at how your business actually runs, find your biggest time-waster, and show you how AI can fix it. No commitment, no jargon — just a practical demonstration of what AI can do for your specific business.",
+      "Quilliam Digital's free AI Audit is a focused 30-minute session where we look at how your business actually runs day-to-day and identify the specific tasks where AI and automation would save you the most time. We ask about your workflows, your team size, and where the bottlenecks are — then we show you exactly which tools and automations could help. For example, if you spend two hours a day answering the same customer questions, we might recommend an AI receptionist that handles those enquiries automatically. There is no commitment, no jargon, and no sales pitch. You walk away with a clear, practical recommendation you can act on immediately, whether or not you choose to work with us afterwards.",
   },
   {
-    question: "What types of businesses do you work with?",
+    question: "What types of businesses does Quilliam Digital work with?",
     answer:
-      "We work with UK small businesses across a range of industries including gyms, trades, hospitality, professional services, and retail. If you have a team of 1 to 50 people and spend time on repetitive tasks, we can almost certainly help. Our AI Audit is the best way to find out what's possible for your specific business.",
+      "Quilliam Digital works with UK small businesses across a wide range of industries including gyms and fitness studios, trades and construction, hospitality and food service, professional services, retail, and health and wellbeing. Our sweet spot is businesses with 1 to 50 employees that rely on repetitive manual tasks — answering the same enquiries, chasing invoices, managing reviews, following up with leads, or manually posting to social media. If your team is spending hours on work that could be automated, we can almost certainly help. We have worked with gym owners in Cornwall, tradespeople across the South West, and professional services firms UK-wide. The free AI Audit is the best way to find out what is possible for your specific business.",
   },
   {
     question: "What results can I expect from working with Quilliam Digital?",
     answer:
-      "Most clients save 10 or more hours per week on repetitive tasks after implementation. That includes faster customer response times, automated follow-ups, review management, and quoting. The exact results depend on your business, which is why we start with a free AI Audit to identify your highest-impact opportunities.",
+      "Most Quilliam Digital clients save 10 or more hours per week on repetitive tasks after we implement their automations. That time saving comes from faster customer response times (under 2 minutes with an AI receptionist), automated follow-up sequences that bring back lapsed customers, review management that runs without you touching it, and quoting and invoicing that happens in seconds instead of hours. For example, K2 Gym in Newquay saved over 12 hours per week after their first session with us. The exact results depend on your business and which automations we implement, which is why we always start with a free AI Audit to identify your highest-impact opportunities before quoting anything.",
   },
   {
     question: "How is Quilliam Digital different from other AI consultancies?",
     answer:
-      "We focus exclusively on small businesses with 1 to 50 employees. We don't sell generic enterprise software or charge thousands for a strategy document. We build practical, working automations and train you to use AI tools yourself. Everything starts with a free AI Audit so you can see the value before spending anything.",
+      "Quilliam Digital focuses exclusively on small businesses with 1 to 50 employees. We are not an enterprise consultancy that charges thousands for a strategy document and then leaves you to figure out the implementation. We do the hands-on work: we audit your workflows, build the automations, train your team, and provide ongoing support. Every project starts with a free AI Audit so you see real value before spending anything. Automation packages start from £500, and most clients see return on investment within the first month. Because our founder Levi works directly with every client, you get senior expertise and personal attention rather than being handed off to a junior team member.",
   },
   {
     question: "What happens after the AI Audit?",
     answer:
-      "After your AI Audit, we give you a clear recommendation on the highest-impact automation or training for your business. If you want to go ahead, we provide a fixed-price quote with no surprises. Most automations are live within 1 to 2 weeks. If you decide not to proceed, you still walk away with actionable insights you can use immediately.",
+      "After your free AI Audit with Quilliam Digital, we give you a clear recommendation on the single highest-impact automation or training for your business. If you want to go ahead, we provide a fixed-price quote with no hidden fees or surprises — automation packages start from £500 depending on complexity. Most automations are designed, built, and live within 1 to 2 weeks, so you see results quickly. We also provide hands-on training so your team understands how everything works and can use the new systems confidently. If you decide not to proceed, that is completely fine — you still walk away with actionable insights and specific recommendations you can implement yourself or come back to later.",
   },
 ] as const;

@@ -16,7 +16,7 @@ export function IndustrySection() {
               Built for your industry
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-stone-950 leading-tight">
-              AI built for your industry
+              How does Quilliam Digital tailor AI for your industry?
             </h2>
             <p className="mt-4 text-base text-stone-500 leading-relaxed">
               We don't do one-size-fits-all. Every business is different. Here is

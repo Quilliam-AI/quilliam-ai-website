@@ -32,9 +32,9 @@ export function AboutPreview() {
                 About Levi Quilliam
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-stone-950 leading-tight">
-                I make AI work
+                Who is behind
                 <br />
-                for real businesses
+                Quilliam Digital?
               </h2>
               <p className="mt-6 text-base text-stone-500 leading-relaxed max-w-[56ch]">
                 Levi Quilliam is the founder of Quilliam Digital, an AI

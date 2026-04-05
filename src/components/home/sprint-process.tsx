@@ -21,7 +21,7 @@ export function SprintProcess() {
               The Free AI Audit
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-white leading-tight">
-              How it works
+              How does Quilliam Digital&apos;s free AI Audit work?
             </h2>
             <p className="mt-4 text-base text-stone-400 leading-relaxed">
               A focused 2-hour session. We find your biggest time-waster and

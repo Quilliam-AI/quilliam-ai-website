@@ -28,7 +28,7 @@ export function ServicesCards() {
               Services
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-white leading-tight">
-              AI Services for Small Businesses
+              What AI services does Quilliam Digital offer?
             </h2>
             <p className="mt-4 text-base text-stone-400 leading-relaxed max-w-[64ch]">
               Quilliam Digital offers three core services for UK small
