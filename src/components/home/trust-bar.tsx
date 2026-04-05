@@ -22,7 +22,7 @@ const trustItems = [
   },
   {
     icon: Users,
-    label: "SMB Focused",
+    label: "Small Business Focused",
     detail: "Built for small business",
     accent: false,
   },

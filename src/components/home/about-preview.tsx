@@ -4,9 +4,10 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/shared/fade-in";
 
+
 export function AboutPreview() {
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section id="about" className="py-20 md:py-28 bg-white">
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Photo */}
@@ -28,31 +29,35 @@ export function AboutPreview() {
           <FadeIn delay={0.15} direction="right">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 mb-3">
-                About Levi
+                About Levi Quilliam
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-stone-950 leading-tight">
-                The bridge between
+                I make AI work
                 <br />
-                you and AI
+                for real businesses
               </h2>
-              <p className="mt-6 text-base text-stone-500 leading-relaxed max-w-[48ch]">
-                I started Quilliam Digital because I kept meeting brilliant
-                business owners who knew they should be using AI but had no idea
-                where to start.
-              </p>
-              <p className="mt-4 text-base text-stone-500 leading-relaxed max-w-[48ch]">
-                I'm not a consultant who talks in jargon. I'm the person who
-                sits down with you, looks at how your business actually works,
-                and shows you exactly which AI tools will save you time and make
-                you money.
-              </p>
-              <p className="mt-4 text-sm text-stone-400 italic">
-                Based in Cornwall. Working with small businesses across the UK.
+              <p className="mt-6 text-base text-stone-500 leading-relaxed max-w-[56ch]">
+                Levi Quilliam is the founder of Quilliam Digital, an AI
+                automation consultancy based in Cornwall that works with small
+                businesses across the United Kingdom. After years of seeing
+                talented business owners struggle to adopt AI tools, Levi
+                started Quilliam Digital to bridge the gap between powerful AI
+                technology and the practical needs of businesses with 1 to 50
+                employees. His approach is hands-on and jargon-free: he sits
+                down with each client, audits how their business actually
+                operates, and identifies exactly which AI tools and automations
+                will save them time and generate more revenue. Clients working
+                with Levi have reported saving over 10 hours per week on
+                repetitive tasks and achieving customer response times under
+                2 minutes through AI-powered systems. As a BNI member and active
+                participant in the Cornwall business community, Levi brings
+                local knowledge and a genuine commitment to helping small
+                businesses compete with larger rivals through smart automation.
               </p>
 
               <Button asChild variant="outline" className="mt-8 rounded-full">
-                <Link href="/about">
-                  More about Levi
+                <Link href="/book">
+                  Chat with Levi
                   <ArrowRight size={16} className="ml-2" />
                 </Link>
               </Button>

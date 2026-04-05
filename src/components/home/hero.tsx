@@ -1,11 +1,10 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CircuitPattern } from "@/components/shared/pattern-overlay";
 import { FadeIn } from "@/components/shared/fade-in";
+import { siteConfig, getWhatsAppUrl } from "@/lib/content";
 
 export function Hero() {
   return (
@@ -20,31 +19,24 @@ export function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[100dvh]">
           {/* Left: content */}
           <div className="flex flex-col justify-center px-6 md:px-12 lg:px-16 pt-28 pb-16 lg:pt-28 lg:pb-16">
-            <FadeIn delay={0.1}>
-              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-900/40 px-4 py-1.5 text-xs font-medium text-emerald-400 border border-emerald-800/40 w-fit">
-                <Zap size={13} className="fill-emerald-400 text-emerald-400" />
-                Free AI Impact Sprint
+            <span className="inline-flex items-center gap-2 rounded-full bg-emerald-900/40 px-4 py-1.5 text-xs font-medium text-emerald-400 border border-emerald-800/40 w-fit">
+              <Zap size={13} className="fill-emerald-400 text-emerald-400" />
+              Free AI Audit
+            </span>
+
+            <h1 className="mt-8 text-4xl md:text-5xl lg:text-[4rem] font-semibold tracking-tighter leading-[1.08] text-white">
+              Save Hours with AI.
+              <br />
+              <span className="text-emerald-400">
+                Built for UK Small Businesses.
               </span>
-            </FadeIn>
+            </h1>
 
-            <FadeIn delay={0.2} className="mt-8">
-              <h1 className="text-4xl md:text-5xl lg:text-[4rem] font-semibold tracking-tighter leading-[1.08] text-white">
-                Your Business Runs
-                <br />
-                on Your Time.
-                <span className="block mt-2 text-emerald-400">
-                  We Give You Hours Back.
-                </span>
-              </h1>
-            </FadeIn>
-
-            <FadeIn delay={0.35} className="mt-6">
-              <p className="text-base md:text-lg text-stone-400 leading-relaxed max-w-[48ch]">
-                We help UK small businesses use AI to automate the boring stuff,
-                win more customers, and stop getting left behind. No jargon. No
-                fluff. Just results.
-              </p>
-            </FadeIn>
+            <p className="mt-6 text-base md:text-lg text-stone-400 leading-relaxed max-w-[56ch]">
+              We audit your workflows, build custom AI automations, and train
+              your team — so you can stop doing repetitive work and focus on
+              growing your business.
+            </p>
 
             <FadeIn delay={0.45} className="mt-8">
               <div className="flex flex-col sm:flex-row gap-3">
@@ -53,8 +45,8 @@ export function Hero() {
                   size="lg"
                   className="rounded-full h-12 px-8 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
                 >
-                  <Link href="/contact">
-                    Book Your Free Sprint
+                  <Link href="/book">
+                    Book Your Free AI Audit
                     <ArrowRight size={18} className="ml-2" />
                   </Link>
                 </Button>
@@ -64,7 +56,13 @@ export function Hero() {
                   size="lg"
                   className="rounded-full h-12 px-8 text-base text-white"
                 >
-                  <Link href="/quiz">Take the AI Quiz</Link>
+                  <a
+                    href={getWhatsAppUrl("Hi Levi, I'd like to chat about AI for my business.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Message on WhatsApp
+                  </a>
                 </Button>
               </div>
             </FadeIn>

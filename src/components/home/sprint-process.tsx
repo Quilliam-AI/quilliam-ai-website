@@ -10,7 +10,7 @@ const IMAGES = [
 
 export function SprintProcess() {
   return (
-    <section className="relative py-20 md:py-28 bg-stone-950 overflow-hidden">
+    <section id="process" className="relative py-20 md:py-28 bg-stone-950 overflow-hidden">
       {/* Subtle emerald glow */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-emerald-500/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
@@ -18,7 +18,7 @@ export function SprintProcess() {
         <FadeIn>
           <div className="max-w-xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 mb-3">
-              The AI Impact Sprint
+              The Free AI Audit
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-white leading-tight">
               How it works

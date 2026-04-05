@@ -15,7 +15,7 @@ const IMAGES = [
 
 export function ServicesCards() {
   return (
-    <section className="relative py-20 md:py-28 bg-stone-950 overflow-hidden">
+    <section id="services" className="relative py-20 md:py-28 bg-stone-950 overflow-hidden">
       <NodeNetworkPattern className="text-emerald-400" />
 
       {/* Atmospheric glow */}
@@ -28,11 +28,23 @@ export function ServicesCards() {
               Services
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-white leading-tight">
-              Three ways we help
+              AI Services for Small Businesses
             </h2>
-            <p className="mt-4 text-base text-stone-400 leading-relaxed">
-              From a free training session to full automation and digital
-              services. Pick what fits.
+            <p className="mt-4 text-base text-stone-400 leading-relaxed max-w-[64ch]">
+              Quilliam Digital offers three core services for UK small
+              businesses. AI Training provides free, hands-on workshops covering
+              ChatGPT, Claude, and industry-specific AI tools, delivered
+              in-person or remotely for individuals and teams. AI Automation is
+              our core service, where we audit your existing workflows, identify
+              the highest-impact opportunities, and build custom automations
+              including automated quoting, AI receptionists, review management,
+              and customer follow-up sequences, with packages starting from
+              &pound;500 and most clients seeing return on investment within the
+              first month. Digital Services rounds out the offering with
+              professional websites, search engine optimisation, Google Business
+              Profile management, and booking systems, giving small businesses a
+              complete online presence that generates leads without manual
+              effort.
             </p>
           </div>
         </FadeIn>
@@ -45,7 +57,7 @@ export function ServicesCards() {
 
             return (
               <FadeIn key={service.slug} delay={i * 0.1}>
-                <Link href={`/services/${service.slug}`} className="group block">
+                <div className="group block">
                   <div
                     className={`grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl overflow-hidden bg-stone-900 border border-stone-800/60 hover:border-stone-700 transition-colors ${
                       isReversed ? "md:direction-rtl" : ""
@@ -90,7 +102,7 @@ export function ServicesCards() {
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-semibold tracking-tight text-white">
+                      <h3 className="text-xl font-semibold tracking-tight text-white">
                         {service.title}
                       </h3>
                       <p className="mt-3 text-sm text-stone-400 leading-relaxed max-w-[45ch]">
@@ -109,16 +121,19 @@ export function ServicesCards() {
                         ))}
                       </ul>
 
-                      <div className="mt-6 flex items-center gap-2 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-emerald-400 hover:gap-3 transition-all py-3"
+                      >
                         Learn more
                         <ArrowRight
                           size={14}
                           className="group-hover:translate-x-1 transition-transform"
                         />
-                      </div>
+                      </Link>
                     </div>
                   </div>
-                </Link>
+                </div>
               </FadeIn>
             );
           })}

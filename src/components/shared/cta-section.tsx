@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/lib/content";
+import { siteConfig, getWhatsAppUrl } from "@/lib/content";
 import { DotGridPattern } from "@/components/shared/pattern-overlay";
 import { FadeIn } from "@/components/shared/fade-in";
 
@@ -13,9 +13,9 @@ interface CtaSectionProps {
 
 export function CtaSection({
   title = "Ready to see what AI can do for your business?",
-  description = "Book a free 30-minute AI Impact Sprint. We will find your biggest time-waster and show you how to fix it. No commitment. No jargon.",
+  description = "Book a free AI Audit. We will find your biggest time-waster and show you how to fix it. No commitment. No jargon.",
 }: CtaSectionProps) {
-  const whatsappHref = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Hi Levi, I'm interested in the AI Impact Sprint.")}`;
+  const whatsappHref = getWhatsAppUrl("Hi Levi, I'm interested in the free AI Audit.");
 
   return (
     <section className="relative py-24 md:py-32 overflow-hidden bg-stone-950">
@@ -54,8 +54,8 @@ export function CtaSection({
               size="lg"
               className="rounded-full h-12 px-10 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
             >
-              <Link href="/contact">
-                Book Your Free Sprint
+              <Link href="/book">
+                Book Your Free AI Audit
                 <ArrowRight size={18} className="ml-2" />
               </Link>
             </Button>

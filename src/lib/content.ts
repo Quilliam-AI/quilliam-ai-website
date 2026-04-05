@@ -2,18 +2,36 @@ export const siteConfig = {
   name: "Quilliam Digital",
   tagline: "AI for Small Business",
   description:
-    "We help UK small businesses use AI to save time, win more customers, and stop getting left behind.",
+    "We help UK small businesses use AI to save time, win more customers, and automate repetitive work. Based in Cornwall, working UK-wide. Book a free AI Audit.",
   url: "https://quilliamdigital.com",
   whatsapp: "447593121621",
+  phone: "+447593121621",
+  phoneDisplay: "07593 121 621",
   email: "levi@quilliamdigital.com",
   location: "Cornwall, UK",
+  // Social/profile links for schema.org sameAs — add URLs only when the profiles exist and are public
+  socialLinks: [
+    "https://www.linkedin.com/company/quilliamdigital",
+    "https://g.page/quilliamdigital",
+  ],
 } as const;
 
+/** Build a WhatsApp click-to-chat URL with a pre-filled message. */
+export function getWhatsAppUrl(message: string): string {
+  return `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(message)}`;
+}
+
 export const navigation = [
-  { name: "Services", href: "/services" },
-  { name: "Industries", href: "/industries/gyms" },
-  { name: "About", href: "/about" },
-  { name: "Resources", href: "/resources" },
+  { name: "Services", href: "/#services" },
+  { name: "How It Works", href: "/#process" },
+  { name: "Industries", href: "/#industries" },
+  { name: "About", href: "/#about" },
+] as const;
+
+export const serviceLinks = [
+  { name: "AI Training", href: "/services/ai-training" },
+  { name: "AI Automation", href: "/services/ai-automation" },
+  { name: "Digital Services", href: "/services/digital-services" },
 ] as const;
 
 export const services = [
@@ -107,11 +125,6 @@ export const gymVertical = {
       solution:
         "AI receptionist handles pricing, class times, and booking enquiries instantly.",
     },
-    {
-      problem: "I never ask for reviews",
-      solution:
-        "Automated review requests at the perfect moment. More 5-star Google reviews without asking.",
-    },
   ],
   caseStudy: {
     business: "K2 Gym",
@@ -125,9 +138,32 @@ export const gymVertical = {
       period: "per week",
     },
   },
-  demo: {
-    title: "Try the AI Receptionist",
-    description:
-      "This is a live demo of what we built for K2 Gym. Ask about membership, classes, or booking.",
-  },
 } as const;
+
+export const faqs = [
+  {
+    question: "What is the free AI Audit?",
+    answer:
+      "A free, focused session where we look at how your business actually runs, find your biggest time-waster, and show you how AI can fix it. No commitment, no jargon — just a practical demonstration of what AI can do for your specific business.",
+  },
+  {
+    question: "What types of businesses do you work with?",
+    answer:
+      "We work with UK small businesses across a range of industries including gyms, trades, hospitality, professional services, and retail. If you have a team of 1 to 50 people and spend time on repetitive tasks, we can almost certainly help. Our AI Audit is the best way to find out what's possible for your specific business.",
+  },
+  {
+    question: "What results can I expect from working with Quilliam Digital?",
+    answer:
+      "Most clients save 10 or more hours per week on repetitive tasks after implementation. That includes faster customer response times, automated follow-ups, review management, and quoting. The exact results depend on your business, which is why we start with a free AI Audit to identify your highest-impact opportunities.",
+  },
+  {
+    question: "How is Quilliam Digital different from other AI consultancies?",
+    answer:
+      "We focus exclusively on small businesses with 1 to 50 employees. We don't sell generic enterprise software or charge thousands for a strategy document. We build practical, working automations and train you to use AI tools yourself. Everything starts with a free AI Audit so you can see the value before spending anything.",
+  },
+  {
+    question: "What happens after the AI Audit?",
+    answer:
+      "After your AI Audit, we give you a clear recommendation on the highest-impact automation or training for your business. If you want to go ahead, we provide a fixed-price quote with no surprises. Most automations are live within 1 to 2 weeks. If you decide not to proceed, you still walk away with actionable insights you can use immediately.",
+  },
+] as const;

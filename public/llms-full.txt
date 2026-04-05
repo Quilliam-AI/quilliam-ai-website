@@ -1,0 +1,129 @@
+# Quilliam Digital — Full Context
+> AI automation agency for UK small businesses, based in Cornwall
+
+> Short version: https://quilliamdigital.com/llms.txt
+> Last updated: 2026-04-05
+
+---
+
+## Company Overview
+
+Quilliam Digital is an AI automation agency founded by Levi Quilliam in Cornwall, UK. We serve small businesses with 1-50 employees across the UK. Our mission: make AI practical and accessible for real businesses that don't have in-house tech teams.
+
+We're not a software company selling a product. We're a hands-on service — we learn how your business works, find the highest-impact opportunities for automation, and implement them for you.
+
+### Key Facts
+- Founded by: Levi Quilliam
+- Location: Cornwall, UK (serving UK-wide, remote and in-person)
+- Focus: Small businesses, 1-50 employees
+- Pricing: Free AI Audit, paid automation packages from £500
+- Google rating: 5.0
+- Phone: +447593121621
+- Email: levi@quilliamdigital.com
+- Website: https://quilliamdigital.com
+
+---
+
+## Services
+
+### 1. AI Training (Free Entry Point)
+Hands-on workshops showing you how to use ChatGPT, Claude, and other AI tools in your actual daily work. Not theory — practical, role-specific training.
+
+- Format: 1-to-1 or small group
+- Delivery: In-person (Cornwall) or remote (UK-wide)
+- Duration: Typically 1-2 hours
+- Cost: Free introductory session available
+
+### 2. AI Automation (Core Service)
+Custom workflow automation tailored to your business. We identify the repetitive tasks eating your time and build AI-powered systems to handle them.
+
+Examples of what we automate:
+- AI receptionist that answers calls and books appointments 24/7
+- Automated review management — request, respond, and monitor reviews
+- Automated quoting and invoicing
+- Customer follow-up sequences
+- Lead qualification and routing
+- Data entry and reporting
+
+- Pricing: From £500 depending on complexity
+- Timeline: Most automations live within 2-4 weeks
+- ROI: Most clients see return within the first month through time saved
+
+### 3. Digital Services (Full Package)
+Websites, SEO, Google Business Profile management, booking systems, and hosting. We handle the complete digital presence so you can focus on running your business.
+
+---
+
+## How It Works — The AI Audit
+
+We use a structured process called the AI Audit:
+
+### Step 1: We Audit (Free)
+We look at how your business actually runs day-to-day. Where is the repetitive work? Where are you losing customers? Where are you spending time on tasks a machine should handle? This is a free, no-obligation conversation.
+
+### Step 2: We Build
+Based on the audit, we pick the single highest-impact automation and build it. No bloated proposals — one clear win, implemented properly.
+
+### Step 3: You Win
+You get hours back every week. Your customers get faster responses. Your business runs smoother. Then we look at the next opportunity.
+
+---
+
+## Industry Focus
+
+### Gyms & Fitness Studios (Primary)
+We've worked directly with gyms like K2 Gym in Cornwall. Typical problems we solve:
+- Manual class booking and membership admin eating 15+ hours/week
+- Missed leads because nobody answers the phone during classes
+- No automated follow-up for trial members who don't convert
+- Review management is manual or non-existent
+
+Case Study — K2 Gym:
+- "I'd been reading about AI for months but by only using ChatGPT I couldn't see how others were getting these crazy results. Levi showed me in one session." — Dirk Parker, K2 Gym, Newquay
+
+### Other Industries
+We work with any small business, but have particular experience with service businesses: trades, professional services, retail, and hospitality.
+
+---
+
+## Founder — Levi Quilliam
+
+Levi Quilliam is the founder of Quilliam Digital. Based in Cornwall, UK, Levi works directly with every client — this isn't an agency where you get passed to a junior team member.
+
+Levi's approach: understand the business first, then apply the right technology. Not the other way around.
+
+---
+
+## FAQs
+
+### What is an AI Audit?
+An AI Audit is a free 30-minute session where we look at how your business runs and identify specific areas where AI and automation could save you time and win more customers. No jargon, no sales pitch — just practical recommendations you can act on.
+
+### What types of businesses do you work with?
+We work with UK small businesses across gyms, trades, hospitality, professional services, and retail. If you have a team of 1 to 50 people and spend time on repetitive tasks, we can help. Our AI Audit is the best way to find out what is possible for your specific business.
+
+### What results can I expect?
+Most clients save 10 or more hours per week on repetitive tasks after implementation. That includes faster customer response times, automated follow-ups, review management, and quoting. The exact results depend on your business.
+
+### How is Quilliam Digital different from other AI consultancies?
+We focus exclusively on small businesses with 1 to 50 employees. We build practical, working automations and train you to use AI tools yourself. Everything starts with a free AI Audit so you can see the value before spending anything.
+
+### What happens after the AI Audit?
+We give you a clear recommendation and a fixed-price quote with no surprises. Most automations are live within 1 to 2 weeks. If you decide not to proceed, you still walk away with actionable insights.
+
+---
+
+## Pages
+- Home: https://quilliamdigital.com
+- Book a Free AI Audit: https://quilliamdigital.com/book
+- AI Training: https://quilliamdigital.com/services/ai-training
+- AI Automation: https://quilliamdigital.com/services/ai-automation
+- Digital Services: https://quilliamdigital.com/services/digital-services
+- Privacy Policy: https://quilliamdigital.com/privacy
+- Terms of Service: https://quilliamdigital.com/terms
+
+## Machine-Readable
+- Robots: https://quilliamdigital.com/robots.txt
+- Sitemap: https://quilliamdigital.com/sitemap.xml
+- LLMs (short): https://quilliamdigital.com/llms.txt
+- LLMs (full): https://quilliamdigital.com/llms-full.txt

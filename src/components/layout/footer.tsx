@@ -1,20 +1,30 @@
 import Link from "next/link";
-import { siteConfig, navigation, services } from "@/lib/content";
+import Image from "next/image";
+import { siteConfig, getWhatsAppUrl } from "@/lib/content";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-stone-50">
+    <footer className="border-t border-stone-200 bg-stone-50">
       <div className="max-w-[1400px] mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           {/* Brand */}
           <div className="md:col-span-5">
             <Link
               href="/"
-              className="text-lg font-semibold tracking-tight text-foreground"
+              className="flex items-center gap-2.5 text-stone-900"
             >
-              {siteConfig.name}
+              <Image
+                src="/logo-dark.svg"
+                alt=""
+                width={28}
+                height={28}
+                className="w-7 h-7"
+              />
+              <span className="text-lg font-semibold tracking-tight">
+                {siteConfig.name}
+              </span>
             </Link>
-            <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-[40ch]">
+            <p className="mt-3 text-sm text-stone-500 leading-relaxed max-w-[40ch]">
               {siteConfig.description}
             </p>
             <p className="mt-4 text-xs text-stone-400">
@@ -22,75 +32,98 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Navigation */}
+          {/* Services */}
           <div className="md:col-span-3">
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-4">
-              Navigate
-            </h3>
+            <p className="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-4">
+              Services
+            </p>
             <ul className="space-y-3">
-              {navigation.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
               <li>
                 <Link
-                  href="/contact"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  href="/services/ai-training"
+                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
                 >
-                  Contact
+                  AI Training
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/ai-automation"
+                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
+                >
+                  AI Automation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/digital-services"
+                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
+                >
+                  Digital Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/book"
+                  className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
+                >
+                  Book a Free AI Audit
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Contact */}
           <div className="md:col-span-4">
-            <h3 className="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-4">
-              Services
-            </h3>
+            <p className="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-4">
+              Get in Touch
+            </p>
             <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service.slug}>
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {service.title}
-                  </Link>
-                </li>
-              ))}
               <li>
-                <Link
-                  href="/quiz"
-                  className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium"
+                <a
+                  href={getWhatsAppUrl("Hi Levi, I'd like to chat about AI for my business.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
                 >
-                  Take the AI Readiness Quiz
-                </Link>
+                  Message on WhatsApp
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${siteConfig.phone}`}
+                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
+                >
+                  {siteConfig.phoneDisplay}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
+                >
+                  {siteConfig.email}
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-16 pt-8 border-t border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-stone-400">
-            {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+            &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
+            reserved.
           </p>
           <div className="flex gap-6">
             <Link
               href="/privacy"
-              className="text-xs text-stone-400 hover:text-foreground transition-colors"
+              className="text-xs text-stone-400 hover:text-stone-600 transition-colors py-1 inline-block"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms"
-              className="text-xs text-stone-400 hover:text-foreground transition-colors"
+              className="text-xs text-stone-400 hover:text-stone-600 transition-colors py-1 inline-block"
             >
               Terms of Service
             </Link>

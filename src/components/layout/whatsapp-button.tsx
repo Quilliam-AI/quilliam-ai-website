@@ -1,13 +1,12 @@
 "use client";
 
 import { MessageCircle } from "lucide-react";
-import { siteConfig } from "@/lib/content";
+import { getWhatsAppUrl } from "@/lib/content";
 
 export function WhatsAppButton() {
-  const message = encodeURIComponent(
+  const href = getWhatsAppUrl(
     "Hi Levi, I'm interested in learning more about how AI can help my business."
   );
-  const href = `https://wa.me/${siteConfig.whatsapp}?text=${message}`;
 
   return (
     <a

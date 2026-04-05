@@ -5,9 +5,10 @@ import { Button } from "@/components/ui/button";
 import { gymVertical } from "@/lib/content";
 import { FadeIn } from "@/components/shared/fade-in";
 
+
 export function IndustrySection() {
   return (
-    <section className="py-20 md:py-28 bg-stone-50">
+    <section id="industries" className="py-20 md:py-28 bg-stone-50">
       <div className="max-w-[1400px] mx-auto px-6">
         <FadeIn>
           <div className="max-w-xl">
@@ -15,7 +16,7 @@ export function IndustrySection() {
               Built for your industry
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-stone-950 leading-tight">
-              AI that speaks your language
+              AI built for your industry
             </h2>
             <p className="mt-4 text-base text-stone-500 leading-relaxed">
               We don't do one-size-fits-all. Every business is different. Here is
@@ -46,7 +47,7 @@ export function IndustrySection() {
 
               {/* Content side */}
               <div className="p-8 md:p-12 lg:p-14 flex flex-col justify-center">
-                <h3 className="text-2xl md:text-3xl font-semibold tracking-tight text-stone-950 leading-tight">
+                <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-stone-950 leading-tight">
                   {gymVertical.hero.title}
                 </h3>
                 <p className="mt-3 text-sm text-stone-500 leading-relaxed">
@@ -55,7 +56,7 @@ export function IndustrySection() {
 
                 {/* Pain points */}
                 <div className="mt-8 space-y-3">
-                  {gymVertical.painPoints.slice(0, 3).map((point) => (
+                  {gymVertical.painPoints.map((point) => (
                     <div key={point.problem} className="flex items-start gap-3">
                       <span className="mt-2 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
                       <div>
@@ -71,8 +72,8 @@ export function IndustrySection() {
                 </div>
 
                 <Button asChild className="mt-8 rounded-full w-fit">
-                  <Link href="/industries/gyms">
-                    See the full gym playbook
+                  <Link href="/book">
+                    Talk to us about your gym
                     <ArrowRight size={16} className="ml-2" />
                   </Link>
                 </Button>
@@ -122,22 +123,6 @@ export function IndustrySection() {
                 </div>
               </div>
             </div>
-          </div>
-        </FadeIn>
-
-        {/* Coming soon verticals */}
-        <FadeIn delay={0.3} className="mt-6">
-          <div className="flex gap-3 flex-wrap">
-            {["Tradespeople", "Health & Beauty", "Professional Services"].map(
-              (v) => (
-                <span
-                  key={v}
-                  className="inline-flex items-center rounded-full bg-white px-4 py-1.5 text-xs text-stone-400 border border-stone-200/60"
-                >
-                  {v} ... coming soon
-                </span>
-              )
-            )}
           </div>
         </FadeIn>
       </div>
