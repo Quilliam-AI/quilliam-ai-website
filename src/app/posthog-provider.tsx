@@ -2,9 +2,7 @@
 
 import { useEffect } from "react";
 import posthog from "posthog-js";
-import { PostHogProvider as PHProvider, usePostHog } from "posthog-js/react";
-import { usePathname, useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import { PostHogProvider as PHProvider } from "posthog-js/react";
 
 /**
  * Initialise PostHog once on mount.
@@ -42,35 +40,10 @@ function initPostHog() {
   }
 }
 
-/** Track client-side navigations as $pageview events. */
-function PostHogPageView() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const ph = usePostHog();
-
-  useEffect(() => {
-    if (pathname && ph) {
-      let url = window.origin + pathname;
-      const search = searchParams?.toString();
-      if (search) url += `?${search}`;
-      ph.capture("$pageview", { $current_url: url });
-    }
-  }, [pathname, searchParams, ph]);
-
-  return null;
-}
-
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     initPostHog();
   }, []);
 
-  return (
-    <PHProvider client={posthog}>
-      <Suspense>
-        <PostHogPageView />
-      </Suspense>
-      {children}
-    </PHProvider>
-  );
+  return <PHProvider client={posthog}>{children}</PHProvider>;
 }

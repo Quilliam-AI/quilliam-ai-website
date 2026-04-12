@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, type FormEvent } from "react";
+import posthog from "posthog-js";
 import { ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { submitBooking } from "./booking-action";
@@ -85,6 +86,17 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
       const result = await submitBooking(formData);
       if (result.success) {
         setStatus("success");
+
+        const email = formData.get("email") as string;
+        const name = formData.get("name") as string;
+        const business = formData.get("business") as string;
+        posthog.identify(email, {
+          email,
+          name,
+          business,
+          business_type: businessType,
+        });
+
         trackBookingFormSuccess({
           intent: interest,
           interest: INTERESTS[interest].value,
