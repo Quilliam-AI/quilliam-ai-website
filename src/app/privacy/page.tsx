@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPage() {
-  const lastUpdated = "11 April 2026";
+  const lastUpdated = "12 April 2026";
 
   return (
     <article className="min-h-screen">
@@ -38,7 +38,7 @@ export default function PrivacyPage() {
         name="Privacy Policy | Quilliam AI"
         description="Quilliam AI's privacy policy. How we collect, use, and protect your personal information."
         datePublished="2026-04-11"
-        dateModified="2026-04-11"
+        dateModified="2026-04-12"
       />
       <LegalHero title="Privacy Policy" lastUpdated={lastUpdated} />
 
@@ -75,9 +75,10 @@ export default function PrivacyPage() {
               message content.
             </li>
             <li>
-              <strong>Analytics data</strong> &mdash; anonymised usage data
-              such as pages visited, time on site, and referring URL. We do
-              not use cookies for tracking.
+              <strong>Analytics data</strong> &mdash; usage data such as
+              pages visited, buttons clicked, time on site, and referring
+              URL. With your consent, we also record browsing sessions
+              (with passwords masked). See the Cookies section below.
             </li>
             <li>
               <strong>Communication records</strong> &mdash; emails,
@@ -155,6 +156,20 @@ export default function PrivacyPage() {
             We do not use Google Analytics, Facebook Pixel, or any
             advertising trackers.
           </p>
+          <p>
+            <strong>PostHog</strong> &mdash; we use PostHog (EU Cloud,
+            data hosted in Frankfurt) for website analytics and session
+            recordings. PostHog processes data as a processor on our behalf.
+            Their{" "}
+            <a
+              href="https://posthog.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              privacy policy
+            </a>
+            .
+          </p>
         </LegalSection>
 
         <LegalSection title="Data retention">
@@ -172,8 +187,9 @@ export default function PrivacyPage() {
               duration of the engagement plus 24 months.
             </li>
             <li>
-              <strong>Analytics data</strong> &mdash; anonymised and
-              aggregated, with no personal identifiers retained.
+              <strong>Analytics data</strong> &mdash; retained for 12
+              months, then automatically deleted. Session recordings
+              are retained for 30 days.
             </li>
           </ul>
         </LegalSection>
@@ -220,11 +236,37 @@ export default function PrivacyPage() {
           </p>
         </LegalSection>
 
-        <LegalSection title="Cookies">
+        <LegalSection title="Cookies" id="cookies">
           <p>
-            This website does not use tracking cookies. We may use strictly
-            necessary cookies for functionality (e.g. form submission state).
-            These do not require consent under UK cookie regulations.
+            When you first visit our website, we show a cookie consent
+            banner. You can choose to accept or reject non-essential cookies.
+          </p>
+          <ul>
+            <li>
+              <strong>If you accept</strong> &mdash; we set cookies and use
+              localStorage to track your session across pages and visits.
+              This enables session recordings (a replay of how you
+              interacted with the site, with passwords masked) and
+              persistent analytics that help us improve the website. We use
+              PostHog for this, hosted on EU infrastructure (Frankfurt).
+            </li>
+            <li>
+              <strong>If you reject</strong> &mdash; we do not set any
+              cookies or use localStorage for tracking. Analytics events
+              (page views, button clicks) are still captured in memory
+              during your visit but cannot be linked across sessions or
+              identified to you. Session recordings are disabled.
+            </li>
+          </ul>
+          <p>
+            Your preference is stored in your browser&rsquo;s localStorage
+            as <code>cookie_consent</code>. To change your preference,
+            clear your browser&rsquo;s localStorage for this site and
+            refresh the page &mdash; the consent banner will reappear.
+          </p>
+          <p>
+            We do not use any advertising cookies, third-party tracking
+            pixels, or retargeting tools.
           </p>
         </LegalSection>
 

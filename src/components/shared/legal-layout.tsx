@@ -7,13 +7,15 @@ import { DotGridPattern } from "@/components/shared/pattern-overlay";
  */
 export function LegalSection({
   title,
+  id,
   children,
 }: {
   title: string;
+  id?: string;
   children: React.ReactNode;
 }) {
   return (
-    <div className="mb-12">
+    <div id={id} className="mb-12 scroll-mt-24">
       <h2 className="text-2xl mb-4">{title}</h2>
       {children}
     </div>
