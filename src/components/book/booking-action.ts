@@ -1,6 +1,7 @@
 "use server";
 
 import { siteConfig } from "@/lib/content";
+import { createLeadNote } from "@/lib/create-lead-note";
 
 interface BookingResult {
   success: boolean;
@@ -79,6 +80,17 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
         </table>
       `,
     });
+
+    // Create lead note in Obsidian vault (fire-and-forget, never blocks)
+    createLeadNote({
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone?.trim(),
+      business: business.trim(),
+      businessType: businessType.trim(),
+      interest: interestLabel,
+      message: message?.trim(),
+    }).catch(() => {});
 
     return { success: true };
   } catch (error) {
