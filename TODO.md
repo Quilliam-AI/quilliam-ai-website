@@ -111,6 +111,19 @@ Many items below have been rewritten for v3. The pre-rebrand Completed section i
 
 ## Uncompleted — High Priority (Fix Within 1 Week)
 
+### 4b. Set up Resend API key for booking form emails
+**Impact:** The booking form submits but **no email is sent** without a `RESEND_API_KEY` env var. Leads are silently lost.
+**Current state:** No Resend key configured in Vercel.
+
+**Steps:**
+- [ ] Create a Resend account at resend.com
+- [ ] Verify the sending domain (`quilliam.ai`) — add the DNS records Resend provides
+- [ ] Create an API key
+- [ ] Add `RESEND_API_KEY` to Vercel environment variables (All Environments)
+- [ ] Test by submitting the booking form on the live site and confirming email arrives at levi@quilliam.ai
+
+---
+
 ### 5. ~~Install analytics~~ DONE (2026-04-12)
 PostHog (EU Cloud, Frankfurt) installed with:
 - Reverse proxy via Next.js rewrites (`/ph/*`)
