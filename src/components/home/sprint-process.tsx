@@ -3,9 +3,9 @@ import { sprintSteps } from "@/lib/content";
 import { FadeIn } from "@/components/shared/fade-in";
 
 const IMAGES = [
-  "https://picsum.photos/seed/audit-work/800/600",
-  "https://picsum.photos/seed/build-auto/600/400",
-  "https://picsum.photos/seed/win-results/600/400",
+  "https://picsum.photos/seed/ai-audit-listen/800/600",
+  "https://picsum.photos/seed/ai-teach-build/600/400",
+  "https://picsum.photos/seed/ai-handoff-support/600/400",
 ];
 
 export function SprintProcess() {
@@ -21,11 +21,12 @@ export function SprintProcess() {
               The Free AI Audit
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-white leading-tight">
-              How does Quilliam Digital&apos;s free AI Audit work?
+              How does Quilliam AI&apos;s free AI Audit work?
             </h2>
             <p className="mt-4 text-base text-stone-400 leading-relaxed">
-              A focused 2-hour session. We find your biggest time-waster and
-              build an AI solution for it. Free. No commitment.
+              A focused conversation. We listen, figure out whether training,
+              implementation, or both would help you most, then we either
+              teach or build — or both. Free to start. No commitment.
             </p>
           </div>
         </FadeIn>

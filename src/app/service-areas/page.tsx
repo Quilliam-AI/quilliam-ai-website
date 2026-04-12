@@ -9,73 +9,61 @@ import { FadeIn } from "@/components/shared/fade-in";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Service Areas — Cornwall & UK-Wide",
+  title: "Where We Work — Cornwall, UK & Remote",
   description:
-    "Quilliam Digital provides AI automation, training, and digital services across the UK. Based in Cornwall, serving businesses in Devon, Somerset, Bristol, London, and nationwide.",
+    "Quilliam AI works with UK businesses nationwide. Based in Cornwall, delivering AI training, AI implementation, and digital services on-site in the South West and remotely UK-wide.",
   alternates: {
     canonical: "/service-areas",
   },
   openGraph: {
-    title: "Service Areas — Cornwall & UK-Wide | Quilliam Digital",
+    title: "Where We Work — Cornwall, UK & Remote | Quilliam AI",
     description:
-      "AI automation, training, and digital services across the UK. Based in Cornwall, serving businesses nationwide.",
+      "AI education and implementation for UK businesses. Cornwall-based, working UK-wide and remote.",
     url: "/service-areas",
     images: ["/opengraph-image"],
   },
   twitter: {
-    title: "Service Areas — Cornwall & UK-Wide | Quilliam Digital",
+    title: "Where We Work — Cornwall, UK & Remote | Quilliam AI",
     description:
-      "AI automation, training, and digital services across the UK. Based in Cornwall, serving businesses nationwide.",
+      "Cornwall-based UK AI agency. AI training and implementation for businesses nationwide.",
   },
 };
 
 const regions = [
   {
-    name: "Cornwall",
+    name: "Cornwall & South West",
     description:
-      "Our home base. We work face-to-face with businesses across Cornwall — Truro, Falmouth, Penzance, Newquay, St Austell, Bodmin, and surrounding areas.",
+      "Our home base. Training and implementation delivered in-person across Cornwall, Devon, Bristol, and the wider South West. On-site visits as often as you need them.",
     highlight: true,
-  },
-  {
-    name: "Devon",
-    description:
-      "Regular in-person visits to Plymouth, Exeter, Torquay, and Barnstaple. Close enough for on-site workshops and meetings.",
-    highlight: false,
-  },
-  {
-    name: "Somerset & Dorset",
-    description:
-      "We support businesses in Taunton, Bath, Bournemouth, and Yeovil with a mix of on-site and remote delivery.",
-    highlight: false,
-  },
-  {
-    name: "Bristol & South West",
-    description:
-      "Bristol, Gloucester, Swindon, and the wider South West region. On-site available, remote always included.",
-    highlight: false,
   },
   {
     name: "London & South East",
     description:
-      "Remote-first delivery for London businesses, with periodic on-site visits for training workshops and setup.",
+      "Regular in-person visits to London for both training workshops and implementation work. Great connectivity, easy day trips from Cornwall.",
     highlight: false,
   },
   {
-    name: "Midlands & North",
+    name: "Midlands & Thames Valley",
     description:
-      "Birmingham, Manchester, Leeds, and beyond. All services delivered remotely with the same hands-on support.",
+      "Birmingham, Oxford, Cambridge, Reading, and beyond. On-site for workshops and kick-offs, remote for ongoing work.",
     highlight: false,
   },
   {
-    name: "Wales & Scotland",
+    name: "North & Scotland",
     description:
-      "Cardiff, Edinburgh, Glasgow, and across Wales and Scotland. Full remote delivery with video calls and screen sharing.",
+      "Manchester, Leeds, Edinburgh, Glasgow. Remote-first delivery with occasional on-site visits for team training or handoff sessions.",
     highlight: false,
   },
   {
-    name: "Northern Ireland",
+    name: "Wales & Northern Ireland",
     description:
-      "Belfast and wider Northern Ireland. Remote AI automation and training delivered with full UK support.",
+      "Cardiff, Belfast, and across Wales and Northern Ireland. Full remote delivery for both training and implementation work.",
+    highlight: false,
+  },
+  {
+    name: "Remote — anywhere in the UK",
+    description:
+      "Most of our work can be delivered remotely over video, shared docs, and async comms. Same quality, zero travel overhead for you.",
     highlight: false,
   },
 ];
@@ -84,17 +72,17 @@ const deliveryMethods = [
   {
     title: "In-Person",
     description:
-      "Available across Cornwall, Devon, and the wider South West. Face-to-face workshops, audits, and setup sessions.",
+      "Available across Cornwall, the South West, and London as standard. Ideal for team training workshops, kick-off sessions, and explicit handoff visits. We come to you.",
   },
   {
     title: "Remote",
     description:
-      "Video calls, screen sharing, and remote access for businesses anywhere in the UK. Same quality, no travel needed.",
+      "Default mode for clients outside the South West. Full training and implementation delivered over video, shared docs, and async comms. Same output, zero travel overhead.",
   },
   {
     title: "Hybrid",
     description:
-      "Initial setup in person, ongoing support remote. The best of both — most of our clients work this way.",
+      "Most common arrangement. Kick-off or training on-site, ongoing implementation work remote. Best of both — and what most clients prefer.",
   },
 ];
 
@@ -103,7 +91,7 @@ function ServiceAreasJsonLd() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${siteConfig.url}/service-areas#service-areas`,
-    name: "AI Automation & Digital Services — UK-Wide",
+    name: "AI Education and Implementation — UK-wide & remote",
     provider: {
       "@id": `${siteConfig.url}/#organization`,
     },
@@ -112,7 +100,7 @@ function ServiceAreasJsonLd() {
       name: region.name,
     })),
     description:
-      "Quilliam Digital provides AI automation, AI training, and digital services to small businesses across the United Kingdom. Based in Cornwall with nationwide remote delivery.",
+      "Quilliam AI provides AI training, AI implementation, and digital services to UK businesses nationwide. Based in Cornwall with in-person delivery across the South West and London plus full remote delivery UK-wide.",
   };
 
   return (
@@ -127,14 +115,14 @@ export default function ServiceAreasPage() {
   return (
     <>
       <BreadcrumbJsonLd
-        items={[{ name: "Service Areas", href: "/service-areas" }]}
+        items={[{ name: "Where We Work", href: "/service-areas" }]}
       />
       <WebPageJsonLd
         path="/service-areas"
-        name="Service Areas — Cornwall & UK-Wide | Quilliam Digital"
-        description="Quilliam Digital provides AI automation, training, and digital services across the UK. Based in Cornwall, serving businesses nationwide."
-        datePublished="2026-04-05"
-        dateModified="2026-04-05"
+        name="Where We Work — Cornwall, UK & Remote | Quilliam AI"
+        description="Quilliam AI works with UK businesses nationwide. Cornwall-based, delivering AI training, implementation, and digital services on-site and remote."
+        datePublished="2026-04-11"
+        dateModified="2026-04-11"
       />
       <ServiceAreasJsonLd />
 
@@ -148,16 +136,17 @@ export default function ServiceAreasPage() {
         <div className="relative max-w-[1400px] mx-auto px-6 pt-28 pb-16 md:pt-36 md:pb-20">
           <FadeIn>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 mb-3">
-              Where We Work
+              Where we work
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold tracking-tighter leading-[1.08] text-white max-w-[18ch]">
               Based in Cornwall.{" "}
-              <span className="text-emerald-400">Serving the UK.</span>
+              <span className="text-emerald-400">Working everywhere.</span>
             </h1>
             <p className="mt-6 text-base md:text-lg text-stone-400 leading-relaxed max-w-[56ch]">
-              Quilliam Digital works with small businesses across the United
-              Kingdom. We offer in-person delivery in the South West and
-              full remote support nationwide — same quality, same results.
+              Quilliam AI Ltd is based in Cornwall, UK (Companies House{" "}
+              {siteConfig.companyNumber}). AI training, implementation, and
+              digital services delivered in-person across the South West and
+              London, and remotely for businesses anywhere else in the UK.
             </p>
           </FadeIn>
         </div>
@@ -237,8 +226,8 @@ export default function ServiceAreasPage() {
                 Wherever you are, we can help
               </h2>
               <p className="mt-4 text-base text-stone-400 leading-relaxed max-w-[48ch] mx-auto">
-                Book a free AI Audit and find out how AI can save your
-                business time. No commitment. No jargon.
+                Book a free AI Audit and find out exactly what we would fix
+                first. No commitment. No jargon.
               </p>
               <Link href="/book" className="mt-8 inline-block">
                 <Button className="rounded-full h-12 px-8 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)] transition-all">

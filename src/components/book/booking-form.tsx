@@ -6,18 +6,54 @@ import { Button } from "@/components/ui/button";
 import { submitBooking } from "./booking-action";
 
 const BUSINESS_TYPES = [
-  "Gym / Fitness",
-  "Trades / Construction",
-  "Hospitality / Food",
-  "Retail / E-commerce",
-  "Professional Services",
-  "Health & Wellbeing",
+  "Small business (1–10)",
+  "Growing business (10–50)",
+  "Agency / consultancy",
+  "Startup / scale-up",
+  "University spin-out",
+  "Team inside a larger organisation",
   "Other",
 ] as const;
 
-export function BookingForm() {
+const INTERESTS = {
+  training: {
+    value: "AI Training / Education",
+    label: "AI Training / Education",
+  },
+  audit: {
+    value: "AI Audit / Implementation",
+    label: "AI Audit / Implementation",
+  },
+  either: {
+    value: "Not sure yet / both",
+    label: "Not sure yet",
+  },
+} as const;
+
+type InterestKey = keyof typeof INTERESTS;
+
+interface BookingFormProps {
+  defaultInterest?: InterestKey;
+}
+
+export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [interest, setInterest] = useState<InterestKey>(defaultInterest);
+
+  const submitLabel =
+    interest === "training"
+      ? "Book Free AI Training"
+      : interest === "audit"
+        ? "Book Free AI Audit"
+        : "Book My Free Session";
+
+  const successLabel =
+    interest === "training"
+      ? "free AI training session"
+      : interest === "audit"
+        ? "free AI Audit"
+        : "free session";
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -50,8 +86,8 @@ export function BookingForm() {
           You&apos;re booked in
         </h2>
         <p className="mt-3 text-sm text-stone-400 leading-relaxed max-w-[36ch]">
-          We will get back to you within 24 hours to arrange your free AI
-          Audit. Check your email for a confirmation.
+          We will get back to you within 24 hours to arrange your{" "}
+          {successLabel}. Check your email for a confirmation.
         </p>
       </div>
     );
@@ -67,6 +103,35 @@ export function BookingForm() {
       </h2>
 
       <div className="space-y-5">
+        {/* Interest — hidden when coming with explicit intent, visible otherwise */}
+        <div>
+          <label className="block text-xs font-medium text-stone-400 uppercase tracking-widest mb-2">
+            I&apos;m interested in
+          </label>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            {(Object.keys(INTERESTS) as InterestKey[]).map((key) => (
+              <label
+                key={key}
+                className={`flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl cursor-pointer text-xs font-medium transition-all border ${
+                  interest === key
+                    ? "bg-emerald-900/40 border-emerald-700/60 text-emerald-400"
+                    : "bg-stone-950 border-stone-800/60 text-stone-400 hover:border-stone-700"
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="interest"
+                  value={INTERESTS[key].value}
+                  checked={interest === key}
+                  onChange={() => setInterest(key)}
+                  className="sr-only"
+                />
+                {key === "either" ? "Not sure yet" : INTERESTS[key].label}
+              </label>
+            ))}
+          </div>
+        </div>
+
         {/* Name */}
         <div>
           <label
@@ -80,7 +145,7 @@ export function BookingForm() {
             name="name"
             type="text"
             required
-            placeholder="e.g. Dirk Parker"
+            placeholder="e.g. Jane Smith"
             className="w-full rounded-xl bg-stone-950 border border-stone-800/60 px-4 py-3 text-sm text-white placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-700 transition-all"
           />
         </div>
@@ -98,7 +163,7 @@ export function BookingForm() {
             name="email"
             type="email"
             required
-            placeholder="dirk@k2gym.co.uk"
+            placeholder="jane@yourbusiness.co.uk"
             className="w-full rounded-xl bg-stone-950 border border-stone-800/60 px-4 py-3 text-sm text-white placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-700 transition-all"
           />
         </div>
@@ -136,7 +201,7 @@ export function BookingForm() {
             name="business"
             type="text"
             required
-            placeholder="K2 Gym"
+            placeholder="Your business"
             className="w-full rounded-xl bg-stone-950 border border-stone-800/60 px-4 py-3 text-sm text-white placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-700 transition-all"
           />
         </div>
@@ -157,7 +222,7 @@ export function BookingForm() {
             className="w-full rounded-xl bg-stone-950 border border-stone-800/60 px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-700 transition-all appearance-none cursor-pointer"
           >
             <option value="" disabled className="text-stone-600">
-              Select your industry
+              Select the closest match
             </option>
             {BUSINESS_TYPES.map((type) => (
               <option key={type} value={type} className="bg-stone-950">
@@ -173,7 +238,7 @@ export function BookingForm() {
             htmlFor="message"
             className="block text-xs font-medium text-stone-400 uppercase tracking-widest mb-2"
           >
-            What&apos;s your biggest time-waster?{" "}
+            What are you hoping AI can help with?{" "}
             <span className="text-stone-600 normal-case tracking-normal">
               (optional)
             </span>
@@ -182,7 +247,7 @@ export function BookingForm() {
             id="message"
             name="message"
             rows={3}
-            placeholder="e.g. I spend 2 hours a day answering the same questions on Instagram..."
+            placeholder="e.g. We spend hours on repetitive customer emails, or our team wants to learn AI tools but doesn't know where to start..."
             className="w-full rounded-xl bg-stone-950 border border-stone-800/60 px-4 py-3 text-sm text-white placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-700 transition-all resize-none"
           />
         </div>
@@ -205,7 +270,7 @@ export function BookingForm() {
           className="mt-0.5 h-4 w-4 shrink-0 rounded border-stone-700 bg-stone-950 text-emerald-600 focus:ring-emerald-500/40 accent-emerald-600"
         />
         <label htmlFor="privacy" className="text-xs text-stone-500 leading-relaxed">
-          I agree to Quilliam Digital&apos;s{" "}
+          I agree to Quilliam AI&apos;s{" "}
           <a href="/privacy" className="text-stone-400 underline underline-offset-2 hover:text-white transition-colors">
             Privacy Policy
           </a>
@@ -226,7 +291,7 @@ export function BookingForm() {
           </>
         ) : (
           <>
-            Book Your Free AI Audit
+            {submitLabel}
             <ArrowRight size={18} className="ml-2" />
           </>
         )}

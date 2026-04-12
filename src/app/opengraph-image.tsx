@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const alt =
-  "Quilliam Digital — AI Automation for UK Small Businesses";
+  "Quilliam AI — AI Education and Implementation for UK Businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -107,7 +107,7 @@ export default async function Image() {
               display: "flex",
             }}
           >
-            QUILLIAM DIGITAL
+            QUILLIAM AI
           </div>
 
           {/* Headline */}
@@ -122,8 +122,8 @@ export default async function Image() {
               flexDirection: "column",
             }}
           >
-            <span>AI Automation for</span>
-            <span>UK Small Businesses</span>
+            <span>We teach AI.</span>
+            <span>We build with AI.</span>
           </div>
 
           {/* Tagline */}
@@ -135,7 +135,7 @@ export default async function Image() {
               display: "flex",
             }}
           >
-            Save time. Win more customers. Get hours back.
+            A UK AI agency. Education + Implementation. Handoff-first.
           </div>
 
           {/* URL */}
@@ -149,7 +149,7 @@ export default async function Image() {
               display: "flex",
             }}
           >
-            quilliamdigital.com
+            quilliam.ai
           </div>
         </div>
 

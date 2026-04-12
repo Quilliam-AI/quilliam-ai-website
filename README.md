@@ -1,19 +1,24 @@
 ```
-                 _ _ _ _                     _ _       _ _        _
-   __ _ _  _ _ _| | (_) __ _ _ __    __| (_) __ _ (_) |_ __ _| |
-  / _` | || | | | | | / _` | '  \  / _` | / _` || |  _/ _` | |
-  \__, |\_,_|_|_|_|_|_\__,_|_|_|_| \__,_|_\__, ||_|\__\__,_|_|
-     |_|                                    |___/
+                 _ _ _ _                        _
+   __ _ _  _ _ _| | (_) __ _ _ __    __ _ (_)
+  / _` | || | | | | | / _` | '  \  / _` || |
+  \__, |\_,_|_|_|_|_|_\__,_|_|_|_| \__,_||_|
+     |_|
 ```
 
 <p align="center">
-  <strong>AI automation agency for UK small businesses.</strong><br>
-  <sub>Based in Cornwall. Serving businesses across the UK.</sub>
+  <strong>AI education and implementation for UK businesses.</strong><br>
+  <sub>We teach AI. We build with AI. Based in Cornwall, working UK-wide and remote.</sub>
 </p>
 
 <p align="center">
-  <a href="https://quilliamdigital.com">quilliamdigital.com</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-  <a href="https://quilliamdigital.com/book">Book a Free AI Audit</a>
+  <a href="https://quilliam.ai">quilliam.ai</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+  <a href="https://quilliam.ai/book?intent=training">Free AI Training</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+  <a href="https://quilliam.ai/book?intent=audit">Free AI Audit</a>
+</p>
+
+<p align="center">
+  <sub>Quilliam AI Ltd · UK Companies House 17151006 · Incorporated 2026-04-11</sub>
 </p>
 
 ---
@@ -91,8 +96,8 @@ External runtime deps  0 API calls at build time (Resend is runtime-only)
 
 ```bash
 # Clone
-git clone git@github.com-personal:Levy787/quilliam-digital.git
-cd quilliam-digital
+git clone git@github.com-personal:Levy787/quilliam-ai-site.git
+cd quilliam-ai-site
 
 # Install
 bun install
@@ -198,8 +203,10 @@ Content-Security-Policy-Report-Only: default-src 'self'; ...
 
 - **RSC by default.** Only add `"use client"` when you absolutely need hooks, event handlers, or browser APIs.
 - **British English.** "optimise", "colour", "organise", pound signs, UK conventions.
-- **No jargon.** Write like you're explaining to a small business owner, not a developer.
-- **"AI Audit"** is always capitalised. Never "sprint", "consultation", or "discovery call".
+- **No jargon.** Write like you're explaining to a UK business owner who is smart and short on time, not a marketing agency lead.
+- **"AI Audit"** (implementation-side) and **"AI Training"** (education-side) are always capitalised. Never "sprint", "consultation", or "discovery call".
+- **Education AND implementation** is the core differentiator — most AI agencies do one or the other. Every service page and every CTA should make both sides visible.
+- **Handoff-first** is the operating principle — every engagement should land on "your team owns the skill or system after we leave".
 - **Every page** must export `metadata` with title, description, canonical, OG, Twitter, and `openGraph.images: ["/opengraph-image"]`.
 - **New pages** must be added to `sitemap.ts`, nav/footer if user-facing, and `llms.txt`/`llms-full.txt`.
 - **Do not add animation libraries.** Everything goes through `<FadeIn>`. The migration point is one file: `src/components/shared/fade-in.tsx`.

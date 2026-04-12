@@ -4,14 +4,14 @@ import { ArrowRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CircuitPattern } from "@/components/shared/pattern-overlay";
 import { FadeIn } from "@/components/shared/fade-in";
-import { siteConfig, getWhatsAppUrl } from "@/lib/content";
+import { getWhatsAppUrl } from "@/lib/content";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-stone-950">
       <CircuitPattern className="text-emerald-400" />
 
-      {/* Atmospheric emerald glow — inspired by Cravion/Automind references */}
+      {/* Atmospheric emerald glow */}
       <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-emerald-500/[0.07] rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] bg-emerald-600/[0.04] rounded-full blur-[120px] pointer-events-none" />
 
@@ -21,21 +21,21 @@ export function Hero() {
           <div className="flex flex-col justify-center px-6 md:px-12 lg:px-16 pt-28 pb-16 lg:pt-28 lg:pb-16">
             <span className="inline-flex items-center gap-2 rounded-full bg-emerald-900/40 px-4 py-1.5 text-xs font-medium text-emerald-400 border border-emerald-800/40 w-fit">
               <Zap size={13} className="fill-emerald-400 text-emerald-400" />
-              Free AI Audit
+              AI Education + Implementation
             </span>
 
             <h1 className="mt-8 text-4xl md:text-5xl lg:text-[4rem] font-semibold tracking-tighter leading-[1.08] text-white">
-              Save Hours with AI.
+              We teach AI.
               <br />
               <span className="text-emerald-400">
-                Built for UK Small Businesses.
+                We build with AI.
               </span>
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-stone-400 leading-relaxed max-w-[56ch]">
-              We audit your workflows, build custom AI automations, and train
-              your team — so you can stop doing repetitive work and focus on
-              growing your business.
+              A UK AI agency. We train your team to use AI properly in their
+              daily work, and we build the automations, agents, and tools that
+              save you hours every week. Do one. Do the other. Do both.
             </p>
 
             <FadeIn delay={0.45} className="mt-8">
@@ -45,8 +45,8 @@ export function Hero() {
                   size="lg"
                   className="rounded-full h-12 px-8 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
                 >
-                  <Link href="/book">
-                    Book Your Free AI Audit
+                  <Link href="/book?intent=training">
+                    Book Free AI Training
                     <ArrowRight size={18} className="ml-2" />
                   </Link>
                 </Button>
@@ -56,35 +56,44 @@ export function Hero() {
                   size="lg"
                   className="rounded-full h-12 px-8 text-base text-white"
                 >
-                  <a
-                    href={getWhatsAppUrl("Hi Levi, I'd like to chat about AI for my business.")}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Message on WhatsApp
-                  </a>
+                  <Link href="/book?intent=audit">
+                    Book Free AI Audit
+                    <ArrowRight size={18} className="ml-2" />
+                  </Link>
                 </Button>
               </div>
+              <p className="mt-4 text-xs text-stone-500">
+                Not sure which?{" "}
+                <a
+                  href={getWhatsAppUrl("Hi Levi, I'd like to chat about whether training or implementation is right for my team.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-stone-400 underline underline-offset-4 hover:text-white transition-colors"
+                >
+                  Message on WhatsApp
+                </a>{" "}
+                and we&apos;ll help you work it out.
+              </p>
             </FadeIn>
 
-            {/* Stats row — scaled up to match reference boldness */}
+            {/* Stats row */}
             <FadeIn delay={0.55} className="mt-10">
               <div className="flex items-center gap-10">
                 <div>
                   <span className="block text-3xl font-semibold text-white font-mono tabular-nums">
-                    10+
+                    2
                   </span>
                   <span className="text-stone-500 text-xs uppercase tracking-widest">
-                    hours saved weekly
+                    sides, one agency
                   </span>
                 </div>
                 <div className="w-px h-12 bg-stone-800" />
                 <div>
                   <span className="block text-3xl font-semibold text-white font-mono tabular-nums">
-                    {"<"}2m
+                    100%
                   </span>
                   <span className="text-stone-500 text-xs uppercase tracking-widest">
-                    response time
+                    handoff-first
                   </span>
                 </div>
                 <div className="w-px h-12 bg-stone-800 hidden sm:block" />
@@ -93,7 +102,7 @@ export function Hero() {
                     Cornwall
                   </span>
                   <span className="text-stone-500 text-xs uppercase tracking-widest">
-                    based, UK-wide
+                    working UK &amp; remote
                   </span>
                 </div>
               </div>
@@ -103,8 +112,8 @@ export function Hero() {
           {/* Right: hero image */}
           <div className="relative hidden lg:block">
             <Image
-              src="https://picsum.photos/seed/quilliam-hero/800/1000"
-              alt="Business owner working with AI tools on laptop in a modern workspace"
+              src="https://picsum.photos/seed/quilliam-ai-hero/800/1000"
+              alt="AI education and implementation session in progress"
               fill
               className="object-cover"
               priority
@@ -119,12 +128,12 @@ export function Hero() {
             <FadeIn delay={0.6} direction="left" className="absolute bottom-12 left-8">
               <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] px-6 py-4">
                 <p className="text-xs text-stone-400 uppercase tracking-widest">
-                  K2 Gym, Newquay
+                  Two Halves of One Job
                 </p>
                 <p className="mt-1 text-2xl font-semibold font-mono text-white">
-                  12+ hrs
+                  Teach + Build
                 </p>
-                <p className="text-sm text-emerald-400">saved every week</p>
+                <p className="text-sm text-emerald-400">under one agency</p>
               </div>
             </FadeIn>
           </div>
@@ -132,8 +141,8 @@ export function Hero() {
           {/* Mobile hero image */}
           <div className="relative h-64 lg:hidden">
             <Image
-              src="https://picsum.photos/seed/quilliam-hero/800/400"
-              alt="Business owner working with AI tools"
+              src="https://picsum.photos/seed/quilliam-ai-hero/800/400"
+              alt="AI education and implementation session in progress"
               fill
               className="object-cover"
               priority

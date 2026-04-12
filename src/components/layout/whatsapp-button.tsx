@@ -3,7 +3,7 @@ import { getWhatsAppUrl } from "@/lib/content";
 
 export function WhatsAppButton() {
   const href = getWhatsAppUrl(
-    "Hi Levi, I'm interested in learning more about how AI can help my business."
+    "Hi Levi, I'm interested in learning more about Quilliam AI's marketing and AI infrastructure consulting."
   );
 
   return (

@@ -4,40 +4,81 @@ import { CircuitPattern } from "@/components/shared/pattern-overlay";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
 import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { FadeIn } from "@/components/shared/fade-in";
-import { Clock, MessageSquare, Zap, CheckCircle2 } from "lucide-react";
+import { Clock, MessageSquare, Zap, CheckCircle2, GraduationCap, Wrench } from "lucide-react";
 import { siteConfig, getWhatsAppUrl } from "@/lib/content";
 
+type Intent = "training" | "audit" | "either";
+
+function resolveIntent(raw: string | string[] | undefined): Intent {
+  if (raw === "training") return "training";
+  if (raw === "audit") return "audit";
+  return "either";
+}
+
+const INTENT_CONTENT: Record<Intent, {
+  badge: string;
+  title: string;
+  accent: string;
+  description: string;
+  BadgeIcon: typeof Zap;
+}> = {
+  training: {
+    badge: "Free AI Training Session",
+    title: "Book your free",
+    accent: "AI Training",
+    description:
+      "Tell us a bit about your team and we'll arrange a free session where we train you and your people using your actual work. No slides, no theory, just practical AI skills you can use the next day.",
+    BadgeIcon: GraduationCap,
+  },
+  audit: {
+    badge: "Free AI Audit",
+    title: "Book your free",
+    accent: "AI Audit",
+    description:
+      "Tell us a bit about your business and we'll arrange a free session where we look at where AI can save you hours and make you money. Walk away with a clear recommendation, whether or not we work together.",
+    BadgeIcon: Wrench,
+  },
+  either: {
+    badge: "Free AI Session",
+    title: "Book your free",
+    accent: "AI Session",
+    description:
+      "Tell us a bit about your business and we'll arrange a free session — training, audit, or both. Walk away with a clear plan for what AI can do for you, whether we work together afterwards or not.",
+    BadgeIcon: Zap,
+  },
+};
+
 export const metadata: Metadata = {
-  title: "Book Your Free AI Audit",
+  title: "Book Your Free AI Session",
   description:
-    "Book a free AI Audit with Quilliam Digital. We look at your business, find your biggest time-waster, and show you how AI can fix it. No commitment.",
+    "Book a free AI training session or AI Audit with Quilliam AI. We'll show you what AI can do for your team or your business in 30–60 minutes. No commitment.",
   alternates: {
     canonical: "/book",
   },
   openGraph: {
-    title: "Book Your Free AI Audit | Quilliam Digital",
+    title: "Book Your Free AI Session | Quilliam AI",
     description:
-      "Book a free AI Audit with Quilliam Digital. We look at your business, find your biggest time-waster, and show you how AI can fix it.",
+      "Book a free AI training session or AI Audit with Quilliam AI. No commitment, no jargon.",
     url: "/book",
     images: ["/opengraph-image"],
   },
   twitter: {
-    title: "Book Your Free AI Audit | Quilliam Digital",
+    title: "Book Your Free AI Session | Quilliam AI",
     description:
-      "Book a free AI Audit with Quilliam Digital. We look at your business, find your biggest time-waster, and show you how AI can fix it.",
+      "Book a free AI training session or AI Audit with Quilliam AI.",
   },
 };
 
 const benefits = [
   {
     icon: Clock,
-    title: "30 minutes",
+    title: "30–60 minutes",
     description: "A focused session, not a rambling sales call",
   },
   {
     icon: Zap,
-    title: "Actionable insight",
-    description: "You leave with a clear plan, even if we never work together",
+    title: "Actionable plan",
+    description: "Leave with a clear recommendation you can act on",
   },
   {
     icon: MessageSquare,
@@ -51,18 +92,33 @@ const benefits = [
   },
 ];
 
-export default function BookPage() {
-  const whatsappHref = getWhatsAppUrl("Hi Levi, I'd like to book a free AI Audit.");
+interface BookPageProps {
+  searchParams: Promise<{ intent?: string | string[] }>;
+}
+
+export default async function BookPage({ searchParams }: BookPageProps) {
+  const params = await searchParams;
+  const intent = resolveIntent(params.intent);
+  const copy = INTENT_CONTENT[intent];
+  const BadgeIcon = copy.BadgeIcon;
+
+  const whatsappHref = getWhatsAppUrl(
+    intent === "training"
+      ? "Hi Levi, I'd like to book a free AI training session for my team."
+      : intent === "audit"
+        ? "Hi Levi, I'd like to book a free AI Audit for my business."
+        : "Hi Levi, I'd like to book a free AI session.",
+  );
 
   return (
     <section className="relative min-h-[100dvh] bg-stone-950 overflow-hidden">
-      <BreadcrumbJsonLd items={[{ name: "Book Your Free AI Audit", href: "/book" }]} />
+      <BreadcrumbJsonLd items={[{ name: "Book Your Free AI Session", href: "/book" }]} />
       <WebPageJsonLd
         path="/book"
-        name="Book Your Free AI Audit | Quilliam Digital"
-        description="Book a free, no-obligation AI Audit with Quilliam Digital. We'll show you exactly where AI can save your business time and win more customers."
-        datePublished="2025-03-01"
-        dateModified="2026-04-05"
+        name="Book Your Free AI Session | Quilliam AI"
+        description="Book a free AI training session or AI Audit with Quilliam AI. We'll show you what AI can do for your team or your business in 30-60 minutes."
+        datePublished="2026-04-11"
+        dateModified="2026-04-11"
       />
       <CircuitPattern className="text-emerald-400" />
 
@@ -76,25 +132,23 @@ export default function BookPage() {
           <div className="flex flex-col justify-center">
             <FadeIn delay={0.1}>
               <span className="inline-flex items-center gap-2 rounded-full bg-emerald-900/40 px-4 py-1.5 text-xs font-medium text-emerald-400 border border-emerald-800/40 w-fit">
-                <Zap size={13} className="fill-emerald-400 text-emerald-400" />
-                Free — No Obligation
+                <BadgeIcon size={13} className="fill-emerald-400 text-emerald-400" />
+                {copy.badge}
               </span>
             </FadeIn>
 
             <FadeIn delay={0.2} className="mt-8">
               <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold tracking-tighter leading-[1.08] text-white">
-                Book your free
+                {copy.title}
                 <span className="block text-emerald-400">
-                  AI Audit
+                  {copy.accent}
                 </span>
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.3} className="mt-6">
               <p className="text-base md:text-lg text-stone-400 leading-relaxed max-w-[48ch]">
-                Tell us a bit about your business and we will get back to you
-                within 24 hours to arrange your free audit. Or get in touch
-                directly:
+                {copy.description}
               </p>
               <ul className="mt-4 space-y-2">
                 <li>
@@ -155,7 +209,7 @@ export default function BookPage() {
             <FadeIn delay={0.5} className="mt-10">
               <div className="flex items-center gap-3 px-5 py-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
                 <div className="flex -space-x-2">
-                  {["K", "D", "S"].map((initial) => (
+                  {["V", "Q", "U"].map((initial) => (
                     <div
                       key={initial}
                       className="w-8 h-8 rounded-full bg-emerald-900/60 border-2 border-stone-950 flex items-center justify-center"
@@ -168,10 +222,10 @@ export default function BookPage() {
                 </div>
                 <div>
                   <p className="text-sm text-white font-medium">
-                    5.0 on Google
+                    Education + Implementation
                   </p>
                   <p className="text-xs text-stone-500">
-                    Trusted by businesses across Cornwall and the UK
+                    UK AI agency doing both sides under one roof
                   </p>
                 </div>
               </div>
@@ -180,7 +234,7 @@ export default function BookPage() {
 
           {/* Right: booking form */}
           <FadeIn delay={0.3} direction="left">
-            <BookingForm />
+            <BookingForm defaultInterest={intent} />
           </FadeIn>
         </div>
       </div>

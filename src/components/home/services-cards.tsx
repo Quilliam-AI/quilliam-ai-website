@@ -1,17 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, GraduationCap, Bot, Globe } from "lucide-react";
+import { ArrowRight, Globe, Wrench, GraduationCap } from "lucide-react";
 import { services } from "@/lib/content";
 import { NodeNetworkPattern } from "@/components/shared/pattern-overlay";
 import { FadeIn } from "@/components/shared/fade-in";
 
-const ICONS = [GraduationCap, Bot, Globe] as const;
+// Icons are keyed to slug so that re-ordering services doesn't break the mapping
+const ICONS: Record<string, typeof Globe> = {
+  "ai-training": GraduationCap,
+  "ai-automation": Wrench,
+  "digital-services": Globe,
+};
 
-const IMAGES = [
-  "https://picsum.photos/seed/training-work/700/500",
-  "https://picsum.photos/seed/automation-dash/700/500",
-  "https://picsum.photos/seed/digital-web/700/500",
-];
+const IMAGES: Record<string, string> = {
+  "ai-training": "https://picsum.photos/seed/ai-education/700/500",
+  "ai-automation": "https://picsum.photos/seed/ai-implementation/700/500",
+  "digital-services": "https://picsum.photos/seed/digital-services/700/500",
+};
 
 export function ServicesCards() {
   return (
@@ -28,23 +33,24 @@ export function ServicesCards() {
               Services
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-white leading-tight">
-              What AI services does Quilliam Digital offer?
+              What services does Quilliam AI offer?
             </h2>
             <p className="mt-4 text-base text-stone-400 leading-relaxed max-w-[64ch]">
-              Quilliam Digital offers three core services for UK small
-              businesses. AI Training provides free, hands-on workshops covering
-              ChatGPT, Claude, and industry-specific AI tools, delivered
-              in-person or remotely for individuals and teams. AI Automation is
-              our core service, where we audit your existing workflows, identify
-              the highest-impact opportunities, and build custom automations
-              including automated quoting, AI receptionists, review management,
-              and customer follow-up sequences, with packages starting from
-              &pound;500 and most clients seeing return on investment within the
-              first month. Digital Services rounds out the offering with
-              professional websites, search engine optimisation, Google Business
-              Profile management, and booking systems, giving small businesses a
-              complete online presence that generates leads without manual
-              effort.
+              Quilliam AI is a UK AI agency offering three complementary
+              services. AI Education covers hands-on workshops, role-tailored
+              training, and optional knowledge systems (Claude Code + Obsidian
+              &ldquo;Company Brain&rdquo;) so your team can use ChatGPT,
+              Claude, and tailored AI tools confidently in their actual daily
+              work. AI Implementation is where we build things for you:
+              custom automations, AI agents, n8n workflows, API integrations,
+              and bespoke ChatGPT or Claude tools that save your team hours
+              every week and run with ongoing support from us. Digital
+              Services rounds out the offering with professional websites,
+              SEO, Google Business Profile setup, and content production —
+              the digital foundation that supports your AI work. Most
+              clients pick one or two; some pick all three. Every engagement
+              starts with a free AI Audit and is handoff-first — the
+              deliverable is a skill or system your team actually owns.
             </p>
           </div>
         </FadeIn>
@@ -52,7 +58,7 @@ export function ServicesCards() {
         {/* Zig-zag layout on desktop */}
         <div className="mt-14 space-y-6">
           {services.map((service, i) => {
-            const Icon = ICONS[i];
+            const Icon = ICONS[service.slug] ?? Globe;
             const isReversed = i % 2 === 1;
 
             return (
@@ -70,7 +76,7 @@ export function ServicesCards() {
                       }`}
                     >
                       <Image
-                        src={IMAGES[i]}
+                        src={IMAGES[service.slug] ?? "https://picsum.photos/seed/quilliam-fallback/700/500"}
                         alt={service.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-700"

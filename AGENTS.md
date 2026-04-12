@@ -4,13 +4,13 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
-# Quilliam Digital — Agent Guidelines
+# Quilliam AI — Agent Guidelines
 
 ## What This Is
 
-Marketing website for Quilliam Digital, an AI automation agency serving UK small businesses (1-50 employees). Founded by Levi Quilliam, based in Cornwall, working UK-wide. Three services: AI Training, AI Automation, Digital Services. Lead funnel is a free AI Audit booked via form or WhatsApp.
+Marketing website for **Quilliam AI Ltd** (UK Companies House 17151006, incorporated 2026-04-11, registered office 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB). A general-purpose UK AI agency offering AI education and AI implementation under one roof, plus complementary digital services (websites, SEO, content). Founded by Levi Quilliam, based in Cornwall, working UK-wide and remote. Three services: **AI Education** (`/services/ai-training`) — training, workshops, knowledge systems; **AI Implementation** (`/services/ai-automation`) — automations, agents, n8n workflows, custom tools; **Digital Services** (`/services/digital-services`) — websites, SEO, content, GBP. Day-rate consulting £300–£400/day plus fixed-price packages from £500. Lead funnel is **dual** — "Book Free AI Training" and "Book Free AI Audit", both routing to `/book?intent=training|audit`.
 
-Production URL: `https://quilliamdigital.com`
+Production URL: `https://quilliam.ai`
 
 ---
 
@@ -101,7 +101,7 @@ Default to RSC. Only add `"use client"` when the component uses hooks, event han
 All copy, config, navigation, service definitions, FAQ data, and contact details live in `src/lib/content.ts`. Import `siteConfig` for any URL, email, phone, or business name reference. Never hardcode these values in components.
 
 ### Metadata Pattern
-- Root `layout.tsx` sets `metadataBase`, template title (`%s | Quilliam Digital`), and default OG/Twitter tags
+- Root `layout.tsx` sets `metadataBase`, template title (`%s | Quilliam AI`), and default OG/Twitter tags
 - Subpages export their own `metadata` object with relative `canonical` and `openGraph.url` — `metadataBase` resolves them to absolute URLs automatically
 - Every subpage must include `openGraph.images: ["/opengraph-image"]` since Next.js metadata doesn't deep-merge from layout
 
@@ -160,24 +160,35 @@ All scroll-triggered animations use the `FadeIn` wrapper (framer-motion). Direct
 ## Copy & Content Rules
 
 ### Voice
-- Direct, no-bullshit, founder-led tone. Write as if Levi is speaking to a local business owner over coffee.
-- Short sentences. Plain English. No marketing jargon ("leverage", "synergy", "cutting-edge").
+- Direct, no-bullshit, founder-led tone. Write like Levi talking to a UK business owner or team lead who's smart and short on time.
+- Short sentences. Plain English. No marketing jargon ("leverage", "synergy", "cutting-edge", "strategy deck").
 - Use contractions naturally. Use "we" for the business, "you" for the customer.
-- British English spelling and conventions: "optimise", "colour", "organise", "£", "UK-wide".
+- British English spelling and conventions: "optimise", "colour", "organise", "£".
 
 ### Key Phrases (use consistently)
-- "AI Audit" (not "AI audit", "sprint", "consultation", or "discovery call")
-- "small businesses" (not "SMEs", "SMBs", or "enterprises")
-- "save time" and "win more customers" (core value props)
-- "No jargon", "No commitment", "No spam" (trust phrases)
-- "Based in Cornwall. Serving businesses across the UK." (geographic positioning)
+- "AI Audit" (not "AI audit", "sprint", "consultation", or "discovery call") — the implementation-side free session
+- "AI Training" / "free intro training session" — the education-side free session
+- "AI Education" and "AI Implementation" — the two core services (plus Digital Services as a complement)
+- "UK businesses" / "your team" / "your business" (not "B2B SaaS", "GTM lead", "startups" — too narrow)
+- "handoff-first" (the core positioning — the deliverable is a skill or system the client's team owns)
+- "fix before flourish" (the ordering principle — trust gaps before glossy work)
+- "education AND implementation" (the differentiator — most agencies do one or the other)
+- "day-rate" (not "retainer" or "SOW") for hourly work; fixed-price for scoped packages
+- "No jargon", "No commitment", "No lock-in" (trust phrases)
+- "Based in Cornwall. Working UK-wide and remote." (geographic positioning)
 
 ### Stats (verified, use as-is)
-- "10+ hours saved per week" — K2 Gym verified
-- "Under 2 minutes response time" — K2 Gym verified
-- "From £500" — automation entry price
-- "1-50 employees" — target business size
+- Day rate: £300–£400/day (range, not fixed)
+- Website packages from £500
+- Implementation packages from £500 depending on scope
+- Free AI Audit + free introductory AI training session
+- Current engagement: VetVision AI (University of Nottingham spin-out, uses all three services — most clients pick one or two)
 - Do not fabricate statistics. If citing an unattributed stat, label it clearly.
+
+### CTAs
+- **Dual primary CTAs**: "Book Free AI Training" (`/book?intent=training`) and "Book Free AI Audit" (`/book?intent=audit`).
+- The `/book` page reads the `intent` query param and changes its hero copy, submit button, and success message to match.
+- When in doubt which to promote, lead with AI Training on the education-side of copy and AI Audit on the implementation-side.
 
 ### CTAs
 - Primary: "Book Your Free AI Audit" (links to `/book`)

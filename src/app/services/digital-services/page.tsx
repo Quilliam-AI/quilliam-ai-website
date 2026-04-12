@@ -6,6 +6,7 @@ import {
   Calendar,
   Palette,
   Shield,
+  FileText,
 } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/content";
 import { DotGridPattern } from "@/components/shared/pattern-overlay";
@@ -22,23 +23,23 @@ import {
 } from "@/components/services/shared";
 
 export const metadata: Metadata = {
-  title: "Digital Services for Small Businesses | Cornwall & UK-Wide",
+  title: "Digital Services — Websites, SEO, Brand & Content",
   description:
-    "Websites, SEO, Google Business Profile management, and booking systems for UK small businesses. Professional online presence built and managed for you. From £500.",
+    "Professional websites, SEO, Google Business Profile, and content production for UK businesses. The digital foundation that supports your AI work. From £500.",
   alternates: {
     canonical: "/services/digital-services",
   },
   openGraph: {
-    title: "Digital Services for Small Businesses | Quilliam Digital",
+    title: "Digital Services — Websites, SEO, Brand & Content | Quilliam AI",
     description:
-      "Websites, SEO, Google Business Profile management, and booking systems for UK small businesses. Professional online presence built and managed for you.",
+      "Professional websites, SEO, Google Business Profile, and content for UK businesses. The digital foundation that supports your AI work.",
     url: "/services/digital-services",
     images: ["/opengraph-image"],
   },
   twitter: {
-    title: "Digital Services for Small Businesses | Quilliam Digital",
+    title: "Digital Services — Websites, SEO, Brand & Content | Quilliam AI",
     description:
-      "Websites, SEO, Google Business Profile management, and booking systems for UK small businesses.",
+      "Professional websites, SEO, Google Business Profile, and content for UK businesses.",
   },
 };
 
@@ -46,7 +47,7 @@ const digitalFaqs = [
   {
     question: "How much does a website cost?",
     answer:
-      "Website packages start from £500 for a professional, mobile-responsive site with SEO built in. More complex sites with booking systems, e-commerce, or custom features are priced accordingly. We give you a clear, fixed quote upfront.",
+      "Website packages start from £500 for a professional, mobile-responsive site with SEO built in. More complex sites with booking systems, e-commerce, or custom features are priced accordingly. We give you a clear, fixed quote upfront — no surprises. We also offer website polish and conversion fixes on your existing site on a day-rate basis (£300–£400/day) if you don't need a full rebuild.",
   },
   {
     question: "Do you manage hosting and updates?",
@@ -56,17 +57,22 @@ const digitalFaqs = [
   {
     question: "How long does a website take to build?",
     answer:
-      "A standard business website takes 1 to 2 weeks from start to launch. More complex sites with booking systems or custom features typically take 2 to 3 weeks. We keep you involved at every step so there are no surprises.",
+      "A standard business website takes 1 to 2 weeks from start to launch. More complex sites with booking systems, custom AI features, or integrations typically take 2 to 3 weeks. We keep you involved at every step so there are no surprises.",
   },
   {
-    question: "Can you help with Google Business Profile?",
+    question: "Can you help with Google Business Profile and local SEO?",
     answer:
-      "Absolutely. We set up, optimise, and manage your Google Business Profile so you show up in local search results. This includes photos, posts, review responses, and regular updates. For most local businesses, GBP is more important than the website itself.",
+      "Absolutely. We set up, optimise, and manage your Google Business Profile so you show up in local search results. This includes photos, posts, review responses, and regular updates. For most local businesses, GBP is more important than the website itself — and the two work together to drive customers to you.",
   },
   {
-    question: "What about SEO — can you help me rank on Google?",
+    question: "Do you do content production too?",
     answer:
-      "Yes. Every website we build has SEO fundamentals built in from day one: proper heading structure, meta tags, schema markup, fast loading speeds, and mobile responsiveness. We also offer ongoing SEO services for businesses that want to actively compete for local search rankings.",
+      "Yes. We produce articles, blog posts, landing page copy, and thought leadership grounded in your team's real expertise. We interview your subject experts and turn the transcripts into content that actually sounds like you — not generic AI slop. Real expertise is what makes content rank on Google and convert readers.",
+  },
+  {
+    question: "How does this fit with your AI services?",
+    answer:
+      "Digital Services is the foundation that supports everything else. A brilliant AI automation behind a broken website still loses customers. A smart team trained on AI still needs a professional brand to sell to clients. Most of our clients do Digital Services alongside AI Education or AI Implementation because the two reinforce each other — the website drives customers to your AI systems, and the AI systems make your business run smoother.",
   },
 ];
 
@@ -75,7 +81,7 @@ const digitalServices = [
     icon: Palette,
     title: "Professional Websites",
     description:
-      "Fast, mobile-responsive websites that look professional and convert visitors into customers. Built with modern technology, not WordPress templates. Every site is custom-designed for your brand.",
+      "Fast, mobile-responsive websites that look professional and convert visitors into customers. Built with modern tech (Next.js, Tailwind), not WordPress templates. Every site is custom-designed for your brand.",
     features: [
       "Custom design tailored to your brand",
       "Mobile-responsive on all devices",
@@ -87,11 +93,11 @@ const digitalServices = [
     icon: Search,
     title: "SEO & Local Search",
     description:
-      "Get found on Google when people search for businesses like yours. We optimise your site and content for the keywords your customers actually use. Focused on local search for UK small businesses.",
+      "Get found on Google when people search for businesses like yours. We optimise your site and content for the keywords your customers actually use. Focused on local search plus AI Overview readiness (llms.txt, schema, citations).",
     features: [
       "Keyword research for your industry",
       "On-page SEO optimisation",
-      "Local search targeting",
+      "AI-crawler and llms.txt setup",
       "Monthly performance reports",
     ],
   },
@@ -99,12 +105,24 @@ const digitalServices = [
     icon: MapPin,
     title: "Google Business Profile",
     description:
-      "Your Google Business Profile is often the first thing people see. We set it up properly, keep it updated, and help you get more reviews. For local businesses, this is the single most important digital asset.",
+      "Your Google Business Profile is often the first thing people see. We set it up properly, keep it updated, and help you get more reviews. For local businesses this is the single most important digital asset.",
     features: [
       "Complete profile setup and optimisation",
       "Regular posts and photo updates",
       "Review management and response",
       "Local SEO integration",
+    ],
+  },
+  {
+    icon: FileText,
+    title: "Content Production",
+    description:
+      "Articles, blog posts, landing pages, and thought leadership grounded in your team's real expertise. We interview your subject experts and produce content that sounds like them, not generic AI slop.",
+    features: [
+      "Subject-expert interviews → articles",
+      "Editorial polish on your team's drafts",
+      "SEO-aware content structure",
+      "Publishing playbook for ongoing output",
     ],
   },
   {
@@ -131,18 +149,6 @@ const digitalServices = [
       "Regular performance monitoring",
     ],
   },
-  {
-    icon: Globe,
-    title: "Complete Online Presence",
-    description:
-      "Everything together: website, SEO, Google Business Profile, booking, and hosting. One point of contact for your entire digital presence. We build it, manage it, and report on it.",
-    features: [
-      "Website + SEO + GBP as one package",
-      "Single point of contact",
-      "Monthly reporting on all channels",
-      "Ongoing improvements and updates",
-    ],
-  },
 ];
 
 const processSteps = [
@@ -156,7 +162,7 @@ const processSteps = [
     number: "02",
     title: "Design & Build",
     description:
-      "We design and build everything: website, GBP, SEO, booking. You see drafts at every stage and nothing goes live without your approval.",
+      "We design and build everything: website, GBP, SEO, content. You see drafts at every stage and nothing goes live without your approval.",
   },
   {
     number: "03",
@@ -173,38 +179,38 @@ const processSteps = [
 ];
 
 export default function DigitalServicesPage() {
-  const whatsappHref = getWhatsAppUrl("Hi Levi, I'm interested in digital services for my business.");
+  const whatsappHref = getWhatsAppUrl("Hi Levi, I'm interested in digital services (website, SEO, content) for my business.");
 
   return (
     <>
       <ServiceJsonLd
         slug="digital-services"
-        name="Digital Services for Small Businesses"
-        description="Websites, SEO, Google Business Profile management, and booking systems for UK small businesses."
+        name="Digital Services — Websites, SEO, Brand & Content"
+        description="Professional websites, SEO, Google Business Profile, and content production for UK businesses. The digital foundation that supports your AI work."
         serviceType="Digital Marketing"
         price="500"
-        offerDescription="Digital services packages from £500"
+        offerDescription="Website packages from £500; day-rate consulting from £300–£400/day"
         faqs={digitalFaqs}
       />
       <BreadcrumbJsonLd items={[{ name: "Services", href: "/#services" }, { name: "Digital Services", href: "/services/digital-services" }]} />
       <WebPageJsonLd
         path="/services/digital-services"
-        name="Digital Services for Small Businesses | Cornwall & UK-Wide | Quilliam Digital"
-        description="Professional websites, local SEO, and Google Business Profile management for UK small businesses. Affordable digital services from Quilliam Digital."
-        datePublished="2025-03-01"
-        dateModified="2026-04-05"
+        name="Digital Services — Websites, SEO, Brand & Content | Quilliam AI"
+        description="Professional websites, SEO, Google Business Profile management, and content production for UK businesses. The digital foundation that supports your AI work."
+        datePublished="2026-04-11"
+        dateModified="2026-04-11"
       />
 
       <ServiceHero
         pattern={<DotGridPattern className="text-emerald-400" />}
         icon={Globe}
         badge="Digital Services"
-        titleLine1="Digital Services for"
-        titleLine2="UK Small Businesses"
-        description="Your customers search online before they pick up the phone. If they cannot find you, they find your competitor. We build and manage your entire online presence: website, SEO, Google Business Profile, and booking systems. One team. One point of contact. Everything handled."
+        titleLine1="Your digital foundation,"
+        titleLine2="built and maintained."
+        description="A brilliant AI system behind a broken website still loses customers. Digital Services is the foundation that supports everything else: professional websites, SEO, Google Business Profile, content production, and hosting. One team. One point of contact. Everything handled — so you can focus on the AI work that moves the needle."
         ctaText="Get a Free Quote"
         whatsappHref={whatsappHref}
-        trustBadges={["From £500", "Live in 1-2 weeks", "Hosting included"]}
+        trustBadges={["From £500", "Live in 1–2 weeks", "Hosting included"]}
       />
 
       {/* Services grid */}
@@ -264,24 +270,28 @@ export default function DigitalServicesPage() {
                 Your customers are searching right now
               </h2>
               <p className="mt-6 text-base text-stone-400 leading-relaxed">
-                97% of people search online before visiting a local business. If your
-                website is slow, your Google profile is empty, or you do not show up in
-                local search results, you are losing customers to competitors who do.
+                97% of people search online before visiting a local business.
+                If your website is slow, your Google profile is empty, or you
+                do not show up in local search results, you&apos;re losing
+                customers to competitors who do. And increasingly, people are
+                also asking AI tools like ChatGPT and Google AI Overviews —
+                which is why we set up llms.txt, schema markup, and AI-crawler
+                readiness as standard on every site.
               </p>
               <p className="mt-4 text-base text-stone-400 leading-relaxed">
-                We do not just build websites. We build a complete digital presence that
-                makes customers find you, trust you, and book with you. Every element
-                works together: the website feeds into Google, Google drives bookings,
-                bookings drive reviews, and reviews drive more customers.
+                We do not just build websites. We build a complete digital
+                presence that makes customers find you, trust you, and book
+                with you — on Google and increasingly on ChatGPT, Claude,
+                and Perplexity too.
               </p>
             </FadeIn>
             <FadeIn delay={0.2}>
               <div className="space-y-4">
                 {[
-                  { stat: "97%", label: "of people search online before visiting a local business" },
-                  { stat: "46%", label: "of all Google searches have local intent" },
-                  { stat: "76%", label: "of people who search nearby visit within a day" },
-                  { stat: "88%", label: "of consumers trust online reviews as much as personal recommendations" },
+                  { stat: "97%", label: "of people search online before visiting a local business (Source: BrightLocal)" },
+                  { stat: "46%", label: "of all Google searches have local intent (Source: GoGulf)" },
+                  { stat: "76%", label: "of people who search nearby visit within a day (Source: Google)" },
+                  { stat: "AI", label: "search is growing fast — llms.txt and schema are now table stakes" },
                 ].map((item) => (
                   <div key={item.stat} className="flex items-start gap-4 p-5 rounded-xl bg-stone-900 border border-stone-800/60">
                     <span className="text-2xl font-bold text-emerald-400 font-mono shrink-0 w-16 text-right">
@@ -313,7 +323,7 @@ export default function DigitalServicesPage() {
 
       <ServiceCta
         heading="Ready to get found online?"
-        description="Book a free consultation. We will look at your current online presence and show you exactly what needs fixing."
+        description="Book a free consultation. We'll look at your current online presence and show you exactly what needs fixing."
         ctaText="Get a Free Quote"
         tagline="Based in Cornwall. Building for businesses across the UK."
         whatsappHref={whatsappHref}

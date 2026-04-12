@@ -15,7 +15,7 @@ export function AboutPreview() {
             <div className="relative rounded-2xl overflow-hidden aspect-[4/5] lg:aspect-[3/4]">
               <Image
                 src="https://picsum.photos/seed/levi-portrait/600/800"
-                alt="Levi, founder of Quilliam Digital"
+                alt="Levi Quilliam, founder of Quilliam AI"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -34,25 +34,22 @@ export function AboutPreview() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-stone-950 leading-tight">
                 Who is behind
                 <br />
-                Quilliam Digital?
+                Quilliam AI?
               </h2>
               <p className="mt-6 text-base text-stone-500 leading-relaxed max-w-[56ch]">
-                Levi Quilliam is the founder of Quilliam Digital, an AI
-                automation consultancy based in Cornwall that works with small
-                businesses across the United Kingdom. After years of seeing
-                talented business owners struggle to adopt AI tools, Levi
-                started Quilliam Digital to bridge the gap between powerful AI
-                technology and the practical needs of businesses with 1 to 50
-                employees. His approach is hands-on and jargon-free: he sits
-                down with each client, audits how their business actually
-                operates, and identifies exactly which AI tools and automations
-                will save them time and generate more revenue. Clients working
-                with Levi have reported saving over 10 hours per week on
-                repetitive tasks and achieving customer response times under
-                2 minutes through AI-powered systems. As a BNI member and active
-                participant in the Cornwall business community, Levi brings
-                local knowledge and a genuine commitment to helping small
-                businesses compete with larger rivals through smart automation.
+                Levi Quilliam is the founder of Quilliam AI, a UK AI agency
+                that does education and implementation under one roof. An
+                Economics graduate, ex-Deloitte in turnaround and
+                restructuring, and eight-plus years shipping software — most
+                recently building AI-first products at a startup serving the
+                UK and Middle East. Levi founded Quilliam AI Ltd (Companies
+                House 17151006) on 2026-04-11 to do two things really well:
+                teach teams how to use AI properly, and build the
+                automations, agents, and tools that save businesses hours
+                every week. Every engagement starts with a free AI Audit and
+                is handoff-first — the deliverable is a skill or system your
+                team actually owns, not a bespoke framework that locks you
+                into needing us forever.
               </p>
 
               <Button asChild variant="outline-light" className="mt-8 rounded-full">

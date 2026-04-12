@@ -11,44 +11,52 @@ import {
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Quilliam Digital collects, uses, and protects your personal data. GDPR-compliant privacy practices for our AI automation services.",
+    "How Quilliam AI collects, uses, and protects your personal data. GDPR-compliant privacy practices for our AI education, implementation, and digital services.",
   alternates: { canonical: "/privacy" },
   openGraph: {
-    title: "Privacy Policy | Quilliam Digital",
+    title: "Privacy Policy | Quilliam AI",
     description:
-      "How Quilliam Digital collects, uses, and protects your personal data. GDPR-compliant privacy practices.",
+      "How Quilliam AI collects, uses, and protects your personal data. GDPR-compliant privacy practices.",
     url: "/privacy",
     images: ["/opengraph-image"],
   },
   twitter: {
-    title: "Privacy Policy | Quilliam Digital",
+    title: "Privacy Policy | Quilliam AI",
     description:
-      "How Quilliam Digital collects, uses, and protects your personal data. GDPR-compliant privacy practices.",
+      "How Quilliam AI collects, uses, and protects your personal data. GDPR-compliant privacy practices.",
   },
 };
 
 export default function PrivacyPage() {
-  const lastUpdated = "4 April 2026";
+  const lastUpdated = "11 April 2026";
 
   return (
     <article className="min-h-screen">
       <BreadcrumbJsonLd items={[{ name: "Privacy Policy", href: "/privacy" }]} />
       <WebPageJsonLd
         path="/privacy"
-        name="Privacy Policy | Quilliam Digital"
-        description="Quilliam Digital's privacy policy. How we collect, use, and protect your personal information."
-        datePublished="2025-03-01"
-        dateModified="2026-04-04"
+        name="Privacy Policy | Quilliam AI"
+        description="Quilliam AI's privacy policy. How we collect, use, and protect your personal information."
+        datePublished="2026-04-11"
+        dateModified="2026-04-11"
       />
       <LegalHero title="Privacy Policy" lastUpdated={lastUpdated} />
 
       <LegalContent>
         <LegalSection title="Who we are">
           <p>
-            Quilliam Digital is an AI automation consultancy based in
-            Cornwall, UK. When this policy mentions &ldquo;we&rdquo;,
-            &ldquo;us&rdquo;, or &ldquo;our&rdquo;, it refers to Quilliam
-            Digital.
+            Quilliam AI is the trading name of{" "}
+            <strong>Quilliam AI Ltd</strong>, a UK private limited company
+            registered in England and Wales (Companies House number{" "}
+            {siteConfig.companyNumber}), with registered office at{" "}
+            {siteConfig.registeredOffice.street},{" "}
+            {siteConfig.registeredOffice.locality},{" "}
+            {siteConfig.registeredOffice.region},{" "}
+            {siteConfig.registeredOffice.postalCode}. We are a UK AI agency
+            offering AI education, AI implementation, and digital services
+            to businesses nationwide. When this policy mentions
+            &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;, it
+            refers to Quilliam AI Ltd.
           </p>
           <p>
             <strong>Contact:</strong>{" "}
@@ -82,7 +90,7 @@ export default function PrivacyPage() {
           <p>We use the data we collect to:</p>
           <ul>
             <li>Respond to your enquiries and booking requests.</li>
-            <li>Deliver and improve our AI automation services.</li>
+            <li>Deliver and improve our AI education, implementation, and digital services.</li>
             <li>Send project updates and follow-ups you have requested.</li>
             <li>
               Understand how visitors use our website so we can improve it.
@@ -242,7 +250,14 @@ export default function PrivacyPage() {
               </a>
             </li>
             <li>
-              <strong>Location:</strong> Cornwall, UK
+              <strong>Registered office:</strong>{" "}
+              {siteConfig.registeredOffice.street},{" "}
+              {siteConfig.registeredOffice.locality},{" "}
+              {siteConfig.registeredOffice.region},{" "}
+              {siteConfig.registeredOffice.postalCode}
+            </li>
+            <li>
+              <strong>Company No.:</strong> {siteConfig.companyNumber} (England &amp; Wales)
             </li>
           </ul>
         </LegalSection>

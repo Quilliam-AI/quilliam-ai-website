@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { siteConfig, getWhatsAppUrl } from "@/lib/content";
 import { DotGridPattern } from "@/components/shared/pattern-overlay";
 import { FadeIn } from "@/components/shared/fade-in";
 
@@ -13,10 +12,8 @@ interface CtaSectionProps {
 
 export function CtaSection({
   title = "Ready to see what AI can do for your business?",
-  description = "Book a free AI Audit. We will find your biggest time-waster and show you how to fix it. No commitment. No jargon.",
+  description = "Start with a free AI Audit. We'll listen, figure out whether training, implementation, or both is the right fit, and give you a clear recommendation. No commitment. No jargon.",
 }: CtaSectionProps) {
-  const whatsappHref = getWhatsAppUrl("Hi Levi, I'm interested in the free AI Audit.");
-
   return (
     <section className="relative py-24 md:py-32 overflow-hidden bg-stone-950">
       <DotGridPattern className="text-emerald-400" />
@@ -43,7 +40,7 @@ export function CtaSection({
           </h2>
         </FadeIn>
         <FadeIn delay={0.1} className="mt-5">
-          <p className="text-base md:text-lg text-stone-400 leading-relaxed max-w-[48ch] mx-auto">
+          <p className="text-base md:text-lg text-stone-400 leading-relaxed max-w-[52ch] mx-auto">
             {description}
           </p>
         </FadeIn>
@@ -54,8 +51,8 @@ export function CtaSection({
               size="lg"
               className="rounded-full h-12 px-10 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
             >
-              <Link href="/book">
-                Book Your Free AI Audit
+              <Link href="/book?intent=training">
+                Book Free AI Training
                 <ArrowRight size={18} className="ml-2" />
               </Link>
             </Button>
@@ -65,15 +62,16 @@ export function CtaSection({
               size="lg"
               className="rounded-full h-12 px-10 text-base text-white"
             >
-              <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-                Message on WhatsApp
-              </a>
+              <Link href="/book?intent=audit">
+                Book Free AI Audit
+                <ArrowRight size={18} className="ml-2" />
+              </Link>
             </Button>
           </div>
         </FadeIn>
         <FadeIn delay={0.3} className="mt-8">
           <p className="text-xs text-stone-500">
-            Based in Cornwall. Serving small businesses across the UK.
+            Based in Cornwall. Working with UK businesses nationwide and remote.
           </p>
         </FadeIn>
       </div>

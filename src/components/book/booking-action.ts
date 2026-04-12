@@ -14,6 +14,7 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
   const business = formData.get("business") as string | null;
   const businessType = formData.get("businessType") as string | null;
   const message = formData.get("message") as string | null;
+  const interest = formData.get("interest") as string | null;
 
   // Validate required fields
   if (!name?.trim() || !email?.trim() || !business?.trim() || !businessType?.trim()) {
@@ -26,19 +27,31 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
     return { success: false, error: "Please enter a valid email address." };
   }
 
+  const interestLabel = interest?.trim() || "Not specified";
+  const subjectTag =
+    interestLabel.includes("Training") || interestLabel.includes("Education")
+      ? "AI Training"
+      : interestLabel.includes("Audit") || interestLabel.includes("Implementation")
+        ? "AI Audit"
+        : "AI Session";
+
   try {
     // Dynamic import to avoid issues if RESEND_API_KEY isn't set during build
     const { Resend } = await import("resend");
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
-      from: "Quilliam Digital <bookings@quilliamdigital.com>",
+      from: "Quilliam AI <bookings@quilliam.ai>",
       to: [siteConfig.email],
       replyTo: email.trim(),
-      subject: `New AI Audit Booking: ${name.trim()} — ${business.trim()}`,
+      subject: `New ${subjectTag} Booking: ${name.trim()} — ${business.trim()}`,
       html: `
-        <h2>New AI Audit Booking</h2>
+        <h2>New ${escapeHtml(subjectTag)} Booking</h2>
         <table style="border-collapse:collapse;width:100%;max-width:500px">
+          <tr>
+            <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">Interest</td>
+            <td style="padding:8px 12px;border-bottom:1px solid #eee">${escapeHtml(interestLabel)}</td>
+          </tr>
           <tr>
             <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">Name</td>
             <td style="padding:8px 12px;border-bottom:1px solid #eee">${escapeHtml(name.trim())}</td>
@@ -56,11 +69,11 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
             <td style="padding:8px 12px;border-bottom:1px solid #eee">${escapeHtml(business.trim())}</td>
           </tr>
           <tr>
-            <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">Industry</td>
+            <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">Business type</td>
             <td style="padding:8px 12px;border-bottom:1px solid #eee">${escapeHtml(businessType.trim())}</td>
           </tr>
           ${message?.trim() ? `<tr>
-            <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">Biggest time-waster</td>
+            <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">What they need</td>
             <td style="padding:8px 12px;border-bottom:1px solid #eee">${escapeHtml(message.trim())}</td>
           </tr>` : ""}
         </table>

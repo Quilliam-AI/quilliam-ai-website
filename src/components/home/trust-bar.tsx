@@ -1,29 +1,29 @@
-import { Star, MapPin, Users, Shield } from "lucide-react";
+import { GraduationCap, Wrench, MapPin, Shield } from "lucide-react";
 import { FadeIn } from "@/components/shared/fade-in";
 
 const trustItems = [
   {
-    icon: Star,
-    label: "5.0 on Google",
-    detail: "Trusted by local businesses",
+    icon: GraduationCap,
+    label: "AI Education",
+    detail: "Training, workshops, knowledge systems",
     accent: true,
   },
   {
+    icon: Wrench,
+    label: "AI Implementation",
+    detail: "Automation, agents, custom tools",
+    accent: false,
+  },
+  {
     icon: Shield,
-    label: "BNI Member",
-    detail: "Referral network",
+    label: "Handoff-First",
+    detail: "No lock-in, your team owns it",
     accent: false,
   },
   {
     icon: MapPin,
     label: "Cornwall Based",
-    detail: "Working UK-wide",
-    accent: false,
-  },
-  {
-    icon: Users,
-    label: "Small Business Focused",
-    detail: "Built for small business",
+    detail: "Working UK-wide and remote",
     accent: false,
   },
 ];
@@ -44,7 +44,7 @@ export function TrustBar() {
                     size={15}
                     className={
                       item.accent
-                        ? "text-amber-400 fill-amber-400"
+                        ? "text-amber-400"
                         : "text-emerald-400"
                     }
                     strokeWidth={1.5}

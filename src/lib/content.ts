@@ -1,21 +1,27 @@
 export const siteConfig = {
-  name: "Quilliam Digital",
-  tagline: "AI for Small Business",
+  name: "Quilliam AI",
+  legalName: "Quilliam AI Ltd",
+  tagline: "AI education and implementation",
   description:
-    "We help UK small businesses use AI to save time, win more customers, and automate repetitive work. Based in Cornwall, working UK-wide. Book a free AI Audit.",
-  url: "https://quilliamdigital.com",
+    "Quilliam AI is a UK AI agency. We teach your team how to use AI properly, and we build the automations, agents, and tools that save you hours every week. Based in Cornwall, working UK-wide and remote.",
+  url: "https://quilliam.ai",
   whatsapp: "447593121621",
   phone: "+447593121621",
   phoneDisplay: "07593 121 621",
-  email: "levi@quilliamdigital.com",
+  email: "levi@quilliam.ai",
   location: "Cornwall, UK",
+  // Registered office of Quilliam AI Ltd (Companies House)
+  registeredOffice: {
+    street: "25 Red Cove Close",
+    locality: "St. Eval",
+    region: "Wadebridge",
+    postalCode: "PL27 7GB",
+    country: "GB",
+  },
   // Social/profile links for schema.org sameAs — add URLs only when the profiles exist and are public
-  socialLinks: [
-    "https://www.linkedin.com/company/quilliamdigital",
-    "https://g.page/quilliamdigital",
-  ],
-  // Company registration number — update when registered with Companies House
-  companyNumber: "" as string,
+  socialLinks: [] as string[],
+  // Companies House registration — Quilliam AI Ltd, incorporated 2026-04-11
+  companyNumber: "17151006" as string,
   // Founder photo path — add the image to /public and set this path (e.g. "/founder.jpg")
   founderImage: "" as string,
 } as const;
@@ -28,119 +34,120 @@ export function getWhatsAppUrl(message: string): string {
 export const navigation = [
   { name: "Services", href: "/#services" },
   { name: "How It Works", href: "/#process" },
-  { name: "Industries", href: "/#industries" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ] as const;
 
 export const serviceLinks = [
-  { name: "AI Training", href: "/services/ai-training" },
-  { name: "AI Automation", href: "/services/ai-automation" },
+  { name: "AI Education", href: "/services/ai-training" },
+  { name: "AI Implementation", href: "/services/ai-automation" },
   { name: "Digital Services", href: "/services/digital-services" },
 ] as const;
 
 export const services = [
   {
     slug: "ai-training",
-    title: "AI Training",
-    subtitle: "Free entry point",
+    title: "AI Education",
+    subtitle: "Training, workshops, knowledge systems",
     description:
-      "Hands-on workshops for you and your team. Learn to use ChatGPT, Claude, and AI tools to write proposals, create content, and respond to customers in minutes.",
+      "Hands-on workshops for you and your team. Practical AI skills your people can use the next day — not theory, not slides. Plus AI knowledge systems (Claude Code + Obsidian \"Company Brain\") that compound over time so your team gets more productive every month.",
     features: [
-      "In-person or remote sessions",
-      "1-to-1 or group workshops",
-      "No jargon, no fluff",
-      "Covers ChatGPT, Claude, and industry tools",
+      "In-person or remote workshops",
+      "Role-tailored training, not generic slides",
+      "Covers ChatGPT, Claude, and the tools that matter",
+      "Optional knowledge-system setup for ongoing use",
     ],
-    outcome: "Your team using AI confidently within one session",
+    outcome: "Your team using AI confidently in their actual work",
   },
   {
     slug: "ai-automation",
-    title: "AI Automation",
-    subtitle: "Core service",
+    title: "AI Implementation",
+    subtitle: "Automation, agents, tools built for you",
     description:
-      "We build systems that run while you sleep. Automated quoting, AI receptionists, review management, invoicing, customer follow-ups. We audit, build, and maintain.",
+      "We build the AI systems that run while you work. Custom automations, AI agents, workflow integrations, and tools tailored to your business. You tell us the problem, we ship the solution — then we maintain it so you never have to think about it.",
     features: [
-      "Workflow audit and optimisation",
-      "Custom AI automations",
-      "Ongoing support and maintenance",
-      "Monthly reporting on time saved",
+      "Custom AI automations and agents",
+      "n8n workflows and API integrations",
+      "ChatGPT / Claude custom tools for your team",
+      "Ongoing support, monitoring, and maintenance",
     ],
-    outcome: "10+ hours saved per week on repetitive tasks",
+    outcome: "Hours back every week on work that runs itself",
   },
   {
     slug: "digital-services",
     title: "Digital Services",
-    subtitle: "Full package",
+    subtitle: "Websites, brand, content",
     description:
-      "Websites, SEO, Google Business Profile, booking systems. Your complete online presence, built and managed by people who understand your business.",
+      "Everything else your business needs online: websites, SEO, Google Business Profile, content production. The digital foundation that supports your AI work — because a brilliant AI system behind a broken website still loses customers.",
     features: [
-      "Professional websites",
-      "SEO and local search",
-      "Google Business Profile management",
-      "Booking systems and hosting",
+      "Professional websites with SEO built in",
+      "Local search and Google Business Profile",
+      "Content production and brand consistency",
+      "Hosting and ongoing maintenance",
     ],
-    outcome: "Customers find you and book without you lifting a finger",
+    outcome: "A professional online presence that works alongside your AI",
   },
 ] as const;
 
 export const sprintSteps = [
   {
     number: "01",
-    title: "We Audit",
+    title: "We Listen",
     description:
-      "We look at how your business actually runs. Where is the repetitive work? Where are you losing customers? Where is the bottleneck?",
+      "A focused session where we understand your business, your team, and where you want AI to help. No jargon. No sales pitch. One clear conversation.",
   },
   {
     number: "02",
-    title: "We Build",
+    title: "We Teach or Build",
     description:
-      "We pick the highest-impact automation and set it up. Could be automated quoting, review follow-ups, or an AI receptionist.",
+      "We recommend education, implementation, or both — whatever fits. If it's training, we run it tailored to your team. If it's building, we ship the first version fast.",
   },
   {
     number: "03",
-    title: "You Win",
+    title: "You Run With It",
     description:
-      "You get hours back. Your customers get faster responses. Your business runs smoother. And you understand exactly what happened.",
+      "You get skills and systems you can actually use. We document everything, hand it over, and provide ongoing support when you need it. No lock-in. No dependency.",
   },
 ] as const;
 
-export const gymVertical = {
-  slug: "gyms",
-  industry: "Gyms & Fitness",
+export const featuredEngagement = {
+  slug: "vetvision",
+  label: "Example engagement",
+  industry: "AI SaaS (University of Nottingham spin-out)",
   hero: {
-    title: "Your Gym Runs on Your Energy.",
-    titleAccent: "AI Gives You More of It.",
+    title: "Education and Implementation,",
+    titleAccent: "In Parallel, On a Day-Rate.",
     description:
-      "Stop spending hours on member follow-ups, social media, and answering the same questions. We set up AI systems that handle the repetitive work so you can focus on your members.",
+      "VetVision AI is one example of the work we do. It's a University of Nottingham spin-out building veterinary computer vision AI. Over a day-a-week engagement we're training their team on practical AI use, consolidating their brand, producing content grounded in their clinical expertise, and automating customer onboarding with n8n. Most clients use one or two of these workstreams — VetVision happens to use them all.",
   },
-  painPoints: [
+  workstreams: [
     {
-      problem: "I spend 2 hours a day on Instagram",
+      problem: "Team wanted to use AI day-to-day but didn't know where to start",
       solution:
-        "AI generates posts from your phone photos and schedules them. 10 minutes instead of 2 hours.",
+        "Hands-on role-specific training. Founder, GTM, and engineering each got sessions tailored to their actual work — not a generic seminar.",
     },
     {
-      problem: "Members ghost after the first month",
+      problem: "Two overlapping brands diluting each other in the market",
       solution:
-        "Automated follow-up sequences when attendance drops. Personal, not spammy.",
+        "Consolidated Vet Vision AI + EquiConnect into one coherent brand surface — site, decks, outreach, social. One voice, one identity.",
     },
     {
-      problem: "I answer the same questions 20 times a day",
+      problem: "Customer onboarding eating the GTM lead's week",
       solution:
-        "AI receptionist handles pricing, class times, and booking enquiries instantly.",
+        "n8n workflows that take a signed contract to a live account without manual chasing. Documented so their team can maintain it.",
     },
   ],
-  caseStudy: {
-    business: "K2 Gym",
-    location: "Newquay",
-    owner: "Dirk Parker",
+  client: {
+    business: "VetVision AI",
+    location: "University of Nottingham spin-out",
+    owner: "James, Head of GTM",
     quote:
-      "I'd been reading about AI for months but by only using ChatGPT I couldn't see how others were getting these crazy results. Levi showed me in one session.",
+      "Quilliam AI is the rare agency that does both sides — they trained our team on AI tools AND built the automations we needed. One engagement instead of three.",
     stats: {
-      hoursSaved: "12+",
-      responseTime: "Under 2 minutes",
-      period: "per week",
+      primary: "3",
+      primaryLabel: "workstreams in parallel",
+      secondary: "1 day/wk",
+      secondaryLabel: "engagement cadence",
     },
   },
 } as const;
@@ -149,26 +156,26 @@ export const faqs = [
   {
     question: "What is the free AI Audit?",
     answer:
-      "Quilliam Digital's free AI Audit is a focused 30-minute session where we look at how your business actually runs day-to-day and identify the specific tasks where AI and automation would save you the most time. We ask about your workflows, your team size, and where the bottlenecks are — then we show you exactly which tools and automations could help. For example, if you spend two hours a day answering the same customer questions, we might recommend an AI receptionist that handles those enquiries automatically. There is no commitment, no jargon, and no sales pitch. You walk away with a clear, practical recommendation you can act on immediately, whether or not you choose to work with us afterwards.",
+      "Quilliam AI's free AI Audit is a focused session where we look at how your business actually runs, talk to you about where AI could help, and give you a clear, practical recommendation. We ask about your team, your workflows, and the tasks that eat the most time — then we show you exactly which AI tools, training, or automations would move the needle for you specifically. It's not a strategy deck, it's not a sales pitch, and there is no commitment to work with us afterwards. You walk away with a concrete plan you can act on, whether we end up working together or not. Most audits take 30 to 60 minutes and can be run in-person in Cornwall or remotely anywhere in the UK.",
   },
   {
-    question: "What types of businesses does Quilliam Digital work with?",
+    question: "What types of businesses do you work with?",
     answer:
-      "Quilliam Digital works with UK small businesses across a wide range of industries including gyms and fitness studios, trades and construction, hospitality and food service, professional services, retail, and health and wellbeing. Our sweet spot is businesses with 1 to 50 employees that rely on repetitive manual tasks — answering the same enquiries, chasing invoices, managing reviews, following up with leads, or manually posting to social media. If your team is spending hours on work that could be automated, we can almost certainly help. We have worked with gym owners in Cornwall, tradespeople across the South West, and professional services firms UK-wide. The free AI Audit is the best way to find out what is possible for your specific business.",
+      "Quilliam AI works with UK businesses of all shapes and sizes — small businesses, startups, agencies, charities, and teams inside larger organisations. What our clients have in common is not their industry or size, it's a genuine desire to use AI properly rather than either ignoring it or throwing money at generic ChatGPT subscriptions and hoping something sticks. We've worked with university spin-outs, fitness studios, professional services firms, and creative agencies. The through-line is that every engagement starts with understanding the business first and applying technology second, which is why the free AI Audit is always the right place to start.",
   },
   {
-    question: "What results can I expect from working with Quilliam Digital?",
+    question: "Do you do AI training, AI implementation, or both?",
     answer:
-      "Most Quilliam Digital clients save 10 or more hours per week on repetitive tasks after we implement their automations. That time saving comes from faster customer response times (under 2 minutes with an AI receptionist), automated follow-up sequences that bring back lapsed customers, review management that runs without you touching it, and quoting and invoicing that happens in seconds instead of hours. For example, K2 Gym in Newquay saved over 12 hours per week after their first session with us. The exact results depend on your business and which automations we implement, which is why we always start with a free AI Audit to identify your highest-impact opportunities before quoting anything.",
+      "Both — and we encourage most clients to do both because they reinforce each other. AI Education means hands-on workshops and training where your team learns to use tools like ChatGPT, Claude, and custom agents in their actual work — no theory, no slides, just practical skills people can apply the next day. AI Implementation means we build the automations, agents, workflows, and custom tools your business needs — we do the work, you get the outcomes. Some clients come to us for training only because they want to build the skills internally; others come for implementation only because they want the systems without learning the details; most end up doing both in sequence or parallel. The free AI Audit is where we figure out which mix is right for you.",
   },
   {
-    question: "How is Quilliam Digital different from other AI consultancies?",
+    question: "How is Quilliam AI different from other AI agencies?",
     answer:
-      "Quilliam Digital focuses exclusively on small businesses with 1 to 50 employees. We are not an enterprise consultancy that charges thousands for a strategy document and then leaves you to figure out the implementation. We do the hands-on work: we audit your workflows, build the automations, train your team, and provide ongoing support. Every project starts with a free AI Audit so you see real value before spending anything. Automation packages start from £500, and most clients see return on investment within the first month. Because our founder Levi works directly with every client, you get senior expertise and personal attention rather than being handed off to a junior team member.",
+      "Two differences. First, we do education AND implementation under one roof, which most AI agencies don't — they either run workshops and leave, or they build systems and bill you forever. We believe teaching your team to use AI and building AI systems for your business are two halves of the same job, and doing both together is cheaper and more durable than doing them separately. Second, every engagement is handoff-first: the deliverable is not a report or a bespoke framework that only we can maintain, it's a skill or system your team actually owns. We use industry-standard tools and document everything as we go. If Quilliam AI disappeared tomorrow, our clients would still have working skills, working systems, and the ability to extend them.",
   },
   {
     question: "What happens after the AI Audit?",
     answer:
-      "After your free AI Audit with Quilliam Digital, we give you a clear recommendation on the single highest-impact automation or training for your business. If you want to go ahead, we provide a fixed-price quote with no hidden fees or surprises — automation packages start from £500 depending on complexity. Most automations are designed, built, and live within 1 to 2 weeks, so you see results quickly. We also provide hands-on training so your team understands how everything works and can use the new systems confidently. If you decide not to proceed, that is completely fine — you still walk away with actionable insights and specific recommendations you can implement yourself or come back to later.",
+      "After your Quilliam AI Audit you get a clear recommendation on the highest-impact next step for your business — training, implementation, or a mix of the two — along with honest pricing (day-rate consulting, typically £300–£400 per day, with clear scoping for any fixed-price engagements). If you want to go ahead we can usually start within a couple of weeks, and most education engagements deliver their first session within the first visit while implementation engagements ship a first working version by visit two. Every engagement includes documentation and a handoff so your team can run with what we build. If you decide not to proceed that is completely fine — you still walk away with the plan and can come back when the timing is right.",
   },
 ] as const;

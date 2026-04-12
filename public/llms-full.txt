@@ -1,134 +1,206 @@
-# Quilliam Digital — Full Context
-> AI automation agency for UK small businesses, based in Cornwall
+# Quilliam AI — Full Context
+> A UK AI agency offering education and implementation, based in Cornwall
 
-> Short version: https://quilliamdigital.com/llms.txt
-> Last updated: 2026-04-05
+> Short version: https://quilliam.ai/llms.txt
+> Last updated: 2026-04-11
 
 ---
 
 ## Company Overview
 
-Quilliam Digital is an AI automation agency founded by Levi Quilliam in Cornwall, UK. We serve small businesses with 1-50 employees across the UK. Our mission: make AI practical and accessible for real businesses that don't have in-house tech teams.
+Quilliam AI is the trading name of Quilliam AI Ltd, a UK private limited company registered in England and Wales (Companies House number 17151006), incorporated on 2026-04-11. Registered office: 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB. Sole director and shareholder: Levi Lachlan Quilliam.
 
-We're not a software company selling a product. We're a hands-on service — we learn how your business works, find the highest-impact opportunities for automation, and implement them for you.
+Quilliam AI is a general-purpose UK AI agency with two core specialisms: AI Education (teaching teams how to use AI properly) and AI Implementation (building AI automations, agents, and custom tools). We also offer Digital Services (websites, SEO, content) as a complementary third service — because a brilliant AI system behind a broken website still loses customers.
+
+We are not a strategy consultancy and we are not a dev shop. We do the hands-on work: we train your team, we build your automations, and we hand everything over documented so your team can run with it. Every engagement starts with a free AI Audit.
 
 ### Key Facts
-- Founded by: Levi Quilliam
-- Location: Cornwall, UK (serving UK-wide, remote and in-person)
-- Focus: Small businesses, 1-50 employees
-- Pricing: Free AI Audit, paid automation packages from £500
-- Google rating: 5.0
+- Trading name: Quilliam AI
+- Legal name: Quilliam AI Ltd
+- UK Companies House number: 17151006
+- Incorporated: 2026-04-11
+- Registered office: 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB (England and Wales)
+- Founder & sole director: Levi Lachlan Quilliam
+- Location: Cornwall, UK (working UK-wide with in-person delivery in the South West and London, remote delivery nationwide)
+- Target client: UK businesses of all shapes and sizes — small businesses, startups, agencies, charities, teams inside larger organisations
+- Free AI Audit and introductory training sessions
+- Day rate: £300–£400/day for consulting and implementation
+- Website packages from £500
 - Phone: +447593121621
-- Email: levi@quilliamdigital.com
-- Website: https://quilliamdigital.com
+- Email: levi@quilliam.ai
+- Website: https://quilliam.ai
 
 ---
 
 ## Services
 
-### 1. AI Training (Free Entry Point)
-Hands-on workshops showing you how to use ChatGPT, Claude, and other AI tools in your actual daily work. Not theory — practical, role-specific training.
+### 1. AI Education (URL: /services/ai-training)
+Hands-on workshops, role-tailored training, and optional AI knowledge systems for UK teams.
 
-- Format: 1-to-1 or small group
-- Delivery: In-person (Cornwall) or remote (UK-wide)
-- Duration: Typically 1-2 hours
-- Cost: Free introductory session available
+What's in scope:
+- Free introductory training session (30–60 minutes, using your actual work as the material)
+- Paid day-rate training (£300–£400/day) for deeper dives or whole-team rollouts
+- 1-to-1 or group workshops (typically up to 10 people per session)
+- Role-specific training — founders, managers, sales, operations, engineering, marketing, creative
+- Coverage of ChatGPT, Claude, Gemini, and built-in AI features in common tools
+- Prompting patterns, context management, tool selection
+- Optional "Company Brain" setup: Obsidian vault + Claude Code + per-role agents, so your team has a knowledge system that compounds over time
+- Cheat sheets, prompt libraries, and ongoing support after the session
 
-### 2. AI Automation (Core Service)
-Custom workflow automation tailored to your business. We identify the repetitive tasks eating your time and build AI-powered systems to handle them.
+Out of scope:
+- Generic "AI for business" seminars with no hands-on practice on your real work
+- Certification courses (we focus on practical skills, not credentials)
+- Training a team on a specific proprietary tool nobody else uses
 
-Examples of what we automate:
-- AI receptionist that answers calls and books appointments 24/7
-- Automated review management — request, respond, and monitor reviews
-- Automated quoting and invoicing
-- Customer follow-up sequences
-- Lead qualification and routing
-- Data entry and reporting
+### 2. AI Implementation (URL: /services/ai-automation)
+Custom AI automations, agents, n8n workflows, and bespoke ChatGPT/Claude tools built for your business.
 
-- Pricing: From £500 depending on complexity
-- Timeline: Most automations live within 2-4 weeks
-- ROI: Most clients see return within the first month through time saved
+What's in scope:
+- AI agents and assistants tuned to your business voice and rules (built on ChatGPT, Claude, or Gemini)
+- n8n workflow automation (self-hostable, open source, no per-execution pricing) for customer onboarding, lead routing, data enrichment, content pipelines, notifications, invoicing, review management
+- API and tool integrations (CRM ↔ email, form ↔ database, Stripe ↔ accounting, Slack ↔ Linear, etc.)
+- Custom GPTs and Claude Projects with your pricing rules, brand voice, or product docs
+- Follow-up and lifecycle automation sequences
+- AI receptionists and chat assistants (website, WhatsApp, phone)
+- Ongoing support and maintenance after launch
 
-### 3. Digital Services (Full Package)
-Websites, SEO, Google Business Profile management, booking systems, and hosting. We handle the complete digital presence so you can focus on running your business.
+Out of scope:
+- Enterprise RPA or SAP integration work
+- Building full SaaS products from scratch
+- Cold email agency services (we build the infrastructure, you run the campaigns)
+
+### 3. Digital Services (URL: /services/digital-services)
+Professional websites, SEO, Google Business Profile, and content production.
+
+What's in scope:
+- Custom-designed websites (Next.js, Tailwind) with SEO built in from day one
+- Fast loading speeds, mobile-responsive, accessibility-aware
+- Technical SEO: schema markup, sitemap, llms.txt for AI crawlers, Core Web Vitals
+- On-page SEO and local search optimisation
+- Google Business Profile setup, optimisation, and management
+- Content production: articles, blog posts, landing page copy, thought leadership grounded in your team's real expertise
+- Booking systems with calendar sync and automated confirmations
+- Hosting, SSL, security updates, performance monitoring
+
+Out of scope:
+- WordPress template installs (we build custom, modern sites)
+- Generic link-building or spammy SEO
+- E-commerce platforms at large scale (we can point you at specialists)
 
 ---
 
 ## How It Works — The AI Audit
 
-We use a structured process called the AI Audit:
+### Step 1: We Listen (Free)
+A focused 30–60 minute conversation where we understand your business, your team, and where you want AI to help. No jargon, no sales pitch, no commitment. We ask about your workflows, your team's current comfort with AI tools, and the biggest pain points eating time or losing customers.
 
-### Step 1: We Audit (Free)
-We look at how your business actually runs day-to-day. Where is the repetitive work? Where are you losing customers? Where are you spending time on tasks a machine should handle? This is a free, no-obligation conversation.
+### Step 2: We Teach or Build
+Based on the conversation we recommend AI Education, AI Implementation, or both. If it's training, we run a session tailored to your team. If it's building, we ship the first working version fast — not after three weeks of scoping.
 
-### Step 2: We Build
-Based on the audit, we pick the single highest-impact automation and build it. No bloated proposals — one clear win, implemented properly.
-
-### Step 3: You Win
-You get hours back every week. Your customers get faster responses. Your business runs smoother. Then we look at the next opportunity.
+### Step 3: You Run With It
+You get skills and systems your team can actually use. We document everything (runbooks, cheat sheets, playbooks), hand it over properly, and provide ongoing support when you need it. No lock-in. No bespoke framework that requires us to maintain it.
 
 ---
 
-## Industry Focus
+## Pricing
 
-### Gyms & Fitness Studios (Primary)
-We've worked directly with gyms like K2 Gym in Cornwall. Typical problems we solve:
-- Manual class booking and membership admin eating 15+ hours/week
-- Missed leads because nobody answers the phone during classes
-- No automated follow-up for trial members who don't convert
-- Review management is manual or non-existent
+- **Free AI Audit**: 30–60 minute session, no commitment.
+- **Free introductory AI training**: 30–60 minute session using your actual work.
+- **Paid day-rate**: £300–£400/day for training, implementation, or digital services consulting.
+- **Fixed-price packages**: Website packages from £500. Implementation packages (specific automations) from £500 depending on scope.
+- **Ongoing support**: Available as a monthly retainer or ad-hoc day rate.
 
-Case Study — K2 Gym:
-- "I'd been reading about AI for months but by only using ChatGPT I couldn't see how others were getting these crazy results. Levi showed me in one session." — Dirk Parker, K2 Gym, Newquay
+Every paid engagement is quoted clearly in writing before work starts — no surprises, no hidden fees.
 
-### Other Industries
-We work with any small business, but have particular experience with service businesses: trades, professional services, retail, and hospitality.
+---
+
+## Operating Principles
+
+### Education AND Implementation
+Most AI agencies do one or the other. Quilliam AI does both because they reinforce each other. A team that's been trained but has no real systems ends up back at generic ChatGPT. A team with a custom AI system but no training ends up afraid of it. Both halves together compound.
+
+### Handoff-first
+The deliverable is a skill or system your team actually owns. Industry-standard tools. Documented workflows. Runbooks for when things break. No custom frameworks only we can maintain. If Quilliam AI disappeared tomorrow, our clients would still have working skills and working systems.
+
+### Fix before flourish
+Trust gaps — missing contact pages, stale copyright, broken schema, 404s — get fixed before anything glossy goes on top. Polishing a landing page that has a 404 on the pricing link is a waste of everyone's time.
+
+### Business first, technology second
+Years at Deloitte in turnaround taught the founder to understand a business before touching its technology. Every engagement starts with questions about how the business actually works, not with a product to sell.
+
+---
+
+## Ideal Client Profile
+
+UK businesses of any size that want to use AI properly rather than ignoring it or throwing money at generic subscriptions. Examples:
+
+- Small businesses (1–10 people) wanting to introduce AI to save time on repetitive work
+- Growing businesses (10–50 people) with teams ready to learn and systems that need building
+- Agencies and consultancies that want to offer AI to their own clients
+- Startups and scale-ups building AI-native operations from day one
+- University spin-outs with credentialed founders and a GTM lead who needs infrastructure
+- Teams inside larger organisations piloting AI adoption for their department
+
+The through-line is not industry or size — it's a genuine intent to adopt AI seriously, plus a willingness to run with what we build after handoff.
+
+---
+
+## Example Engagement: VetVision AI
+
+VetVision AI is one example of the work we do. It's a University of Nottingham spin-out building veterinary computer vision AI. Over a day-a-week engagement we're:
+
+- Training their team on practical AI use (role-tailored sessions for founder, GTM, and engineering)
+- Consolidating two overlapping brands (Vet Vision AI + EquiConnect) into one coherent surface
+- Producing content grounded in real clinical pedigree
+- Automating customer onboarding with n8n workflows
+
+Most engagements are smaller — clients usually pick one service, not three. VetVision happens to use all three in parallel.
 
 ---
 
 ## Founder — Levi Quilliam
 
-Levi Quilliam is the founder of Quilliam Digital, based in Cornwall, UK. He holds a Bachelor's degree in Economics and a Graduate Certificate in Computer Science. Levi has over eight years of programming experience. He began his career at Deloitte in turnaround and restructuring, where he developed deep understanding of how businesses operate and where inefficiencies hide. He then moved into tech — first at an AgriTech company, then at a software startup building AI-first products for businesses across the UK and Middle East.
+Levi Quilliam is the founder and sole director of Quilliam AI Ltd. He holds a Bachelor's degree in Economics and a Graduate Certificate in Computer Science. He has over eight years of programming experience. He began his career at Deloitte in turnaround and restructuring, where he developed deep understanding of how businesses operate and where inefficiencies hide. He then moved into tech — first at an AgriTech company, then at a software startup building AI-first products for businesses across the UK and Middle East.
 
-Levi started Quilliam Digital after a conversation with a gym owner who said: "I see AI everywhere — agents, orchestration, automation — but I cannot connect the dots to my actual business." That insight drives the agency's mission: bridging the gap between AI technology and the practical needs of small business owners.
+Levi founded Quilliam AI because he kept having the same conversation with business owners and team leads: "I see AI everywhere, but I can't connect the dots to my actual work" or "I know I should be using this but I have no idea where to start." Those two framings describe the same gap — and the solution is different for each. Some clients need education to close that gap. Some need implementation. Most need both.
 
-Levi works directly with every client — no handoffs to junior team members. His approach: understand the business first, then apply the right technology. Outside work, he's into surfing, climbing, and hiking around the Cornish coast.
+Levi works directly on every engagement — no junior team, no project manager, no account handler. You get senior expertise end-to-end. Outside work, he surfs, climbs, and hikes around the Cornish coast.
 
 ---
 
 ## FAQs
 
 ### What is an AI Audit?
-An AI Audit is a free 30-minute session where we look at how your business runs and identify specific areas where AI and automation could save you time and win more customers. No jargon, no sales pitch — just practical recommendations you can act on.
+A focused free session (30–60 minutes) where we look at how your business runs, talk to you about where AI could help, and give you a clear, practical recommendation. No jargon, no strategy deck, no commitment. You walk away with a concrete plan you can act on whether or not we end up working together.
 
 ### What types of businesses do you work with?
-We work with UK small businesses across gyms, trades, hospitality, professional services, and retail. If you have a team of 1 to 50 people and spend time on repetitive tasks, we can help. Our AI Audit is the best way to find out what is possible for your specific business.
+UK businesses of all shapes and sizes. Small businesses, startups, agencies, charities, teams inside larger organisations. What our clients have in common is not industry or size — it's a genuine desire to adopt AI properly rather than ignoring it or throwing money at generic ChatGPT subscriptions.
 
-### What results can I expect?
-Most clients save 10 or more hours per week on repetitive tasks after implementation. That includes faster customer response times, automated follow-ups, review management, and quoting. The exact results depend on your business.
+### Do you do AI training, AI implementation, or both?
+Both — and we encourage most clients to do both because they reinforce each other. AI Education is hands-on workshops and training where your team learns to use AI tools in their actual work. AI Implementation is where we build the automations, agents, and custom tools for you. Some clients come for training only, some for implementation only, most end up doing both in sequence or parallel.
 
-### How is Quilliam Digital different from other AI consultancies?
-We focus exclusively on small businesses with 1 to 50 employees. We build practical, working automations and train you to use AI tools yourself. Everything starts with a free AI Audit so you can see the value before spending anything.
+### How is Quilliam AI different from other AI agencies?
+Two differences. First, we do education AND implementation under one roof — most agencies do one or the other. Second, every engagement is handoff-first: the deliverable is a skill or system your team actually owns, not a bespoke framework that locks you into needing us forever. We use industry-standard tools and document everything as we go.
 
 ### What happens after the AI Audit?
-We give you a clear recommendation and a fixed-price quote with no surprises. Most automations are live within 1 to 2 weeks. If you decide not to proceed, you still walk away with actionable insights.
+You get a clear recommendation on the highest-impact next step — training, implementation, or a mix — along with honest pricing. If you want to go ahead we can usually start within a couple of weeks. Every engagement includes documentation and a proper handoff. If you decide not to proceed that's completely fine — you still walk away with the plan.
 
 ---
 
 ## Pages
-- Home: https://quilliamdigital.com
-- About: https://quilliamdigital.com/about
-- Book a Free AI Audit: https://quilliamdigital.com/book
-- Contact: https://quilliamdigital.com/contact
-- Service Areas: https://quilliamdigital.com/service-areas
-- AI Training: https://quilliamdigital.com/services/ai-training
-- AI Automation: https://quilliamdigital.com/services/ai-automation
-- Digital Services: https://quilliamdigital.com/services/digital-services
-- Privacy Policy: https://quilliamdigital.com/privacy
-- Terms of Service: https://quilliamdigital.com/terms
+- Home: https://quilliam.ai
+- About: https://quilliam.ai/about
+- Book a Free Session: https://quilliam.ai/book
+- Contact: https://quilliam.ai/contact
+- Where We Work: https://quilliam.ai/service-areas
+- AI Education: https://quilliam.ai/services/ai-training
+- AI Implementation: https://quilliam.ai/services/ai-automation
+- Digital Services: https://quilliam.ai/services/digital-services
+- Privacy Policy: https://quilliam.ai/privacy
+- Terms of Service: https://quilliam.ai/terms
 
 ## Machine-Readable
-- Robots: https://quilliamdigital.com/robots.txt
-- Sitemap: https://quilliamdigital.com/sitemap.xml
-- LLMs (short): https://quilliamdigital.com/llms.txt
-- LLMs (full): https://quilliamdigital.com/llms-full.txt
+- Robots: https://quilliam.ai/robots.txt
+- Sitemap: https://quilliam.ai/sitemap.xml
+- LLMs (short): https://quilliam.ai/llms.txt
+- LLMs (full): https://quilliam.ai/llms-full.txt

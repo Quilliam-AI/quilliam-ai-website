@@ -30,6 +30,16 @@ export function Footer() {
             <p className="mt-4 text-xs text-stone-400">
               Based in {siteConfig.location}
             </p>
+            <p className="mt-2 text-[11px] text-stone-400 leading-relaxed">
+              {siteConfig.legalName} · Registered in England &amp; Wales ·
+              Company No. {siteConfig.companyNumber}
+            </p>
+            <p className="text-[11px] text-stone-400 leading-relaxed">
+              Registered office: {siteConfig.registeredOffice.street},{" "}
+              {siteConfig.registeredOffice.locality},{" "}
+              {siteConfig.registeredOffice.region},{" "}
+              {siteConfig.registeredOffice.postalCode}
+            </p>
           </div>
 
           {/* Services */}
@@ -43,7 +53,7 @@ export function Footer() {
                   href="/services/ai-training"
                   className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
                 >
-                  AI Training
+                  AI Education
                 </Link>
               </li>
               <li>
@@ -51,7 +61,7 @@ export function Footer() {
                   href="/services/ai-automation"
                   className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
                 >
-                  AI Automation
+                  AI Implementation
                 </Link>
               </li>
               <li>
@@ -64,10 +74,18 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/book"
+                  href="/book?intent=training"
                   className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
                 >
-                  Book a Free AI Audit
+                  Book Free AI Training
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/book?intent=audit"
+                  className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
+                >
+                  Book Free AI Audit
                 </Link>
               </li>
             </ul>
@@ -119,14 +137,9 @@ export function Footer() {
 
         <div className="mt-16 pt-8 border-t border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-stone-400">
-            &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} {siteConfig.legalName}. All
+            rights reserved.
           </p>
-          {siteConfig.companyNumber && (
-            <p className="text-xs text-stone-400">
-              Company No. {siteConfig.companyNumber}
-            </p>
-          )}
           <div className="flex gap-6">
             <Link
               href="/privacy"

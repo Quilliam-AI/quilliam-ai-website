@@ -12,69 +12,93 @@ import {
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Terms and conditions for using Quilliam Digital's website and AI automation services.",
+    "Terms and conditions for using Quilliam AI's website and AI automation services.",
   alternates: { canonical: "/terms" },
   openGraph: {
-    title: "Terms of Service | Quilliam Digital",
+    title: "Terms of Service | Quilliam AI",
     description:
-      "Terms and conditions for using Quilliam Digital's website and AI automation services.",
+      "Terms and conditions for using Quilliam AI's website and AI automation services.",
     url: "/terms",
     images: ["/opengraph-image"],
   },
   twitter: {
-    title: "Terms of Service | Quilliam Digital",
+    title: "Terms of Service | Quilliam AI",
     description:
-      "Terms and conditions for using Quilliam Digital's website and AI automation services.",
+      "Terms and conditions for using Quilliam AI's website and AI automation services.",
   },
 };
 
 export default function TermsPage() {
-  const lastUpdated = "4 April 2026";
+  const lastUpdated = "11 April 2026";
 
   return (
     <article className="min-h-screen">
       <BreadcrumbJsonLd items={[{ name: "Terms of Service", href: "/terms" }]} />
       <WebPageJsonLd
         path="/terms"
-        name="Terms of Service | Quilliam Digital"
-        description="Terms of service for using the Quilliam Digital website and services."
-        datePublished="2025-03-01"
-        dateModified="2026-04-04"
+        name="Terms of Service | Quilliam AI"
+        description="Terms of service for using the Quilliam AI website and services."
+        datePublished="2026-04-11"
+        dateModified="2026-04-11"
       />
       <LegalHero title="Terms of Service" lastUpdated={lastUpdated} />
 
       <LegalContent>
         <LegalSection title="1. Agreement to terms">
           <p>
-            By accessing or using the Quilliam Digital website
-            (quilliamdigital.com) or engaging our services, you agree to be
-            bound by these terms. If you do not agree, please do not use
-            our website or services.
+            By accessing or using the Quilliam AI website (quilliam.ai) or
+            engaging our services, you agree to be bound by these terms.
+            &ldquo;Quilliam AI&rdquo; is the trading name of{" "}
+            <strong>Quilliam AI Ltd</strong>, a UK private limited company
+            registered in England and Wales under Companies House number{" "}
+            {siteConfig.companyNumber}, with registered office at{" "}
+            {siteConfig.registeredOffice.street},{" "}
+            {siteConfig.registeredOffice.locality},{" "}
+            {siteConfig.registeredOffice.region},{" "}
+            {siteConfig.registeredOffice.postalCode}. If you do not agree
+            to these terms, please do not use our website or services.
           </p>
         </LegalSection>
 
         <LegalSection title="2. Our services">
           <p>
-            Quilliam Digital provides AI automation consulting, workflow
-            automation, and related digital services for small businesses.
-            Our services include but are not limited to:
+            Quilliam AI provides AI education, AI implementation, and
+            digital services to UK businesses. Our services include but are
+            not limited to:
           </p>
           <ul>
-            <li>AI Audits (discovery and implementation sessions).</li>
-            <li>Workflow automation setup and integration.</li>
-            <li>AI chatbot development and deployment.</li>
-            <li>Ongoing automation support and optimisation.</li>
+            <li>AI Audits and free introductory sessions.</li>
+            <li>
+              AI training and workshops (in-person or remote), including
+              optional knowledge-system setup.
+            </li>
+            <li>
+              Custom AI automations, agents, n8n workflows, and API
+              integrations.
+            </li>
+            <li>
+              Bespoke ChatGPT, Claude, and Gemini tools configured for your
+              team.
+            </li>
+            <li>
+              Websites, SEO, Google Business Profile management, and
+              content production.
+            </li>
+            <li>Ongoing support, maintenance, and advisory work.</li>
           </ul>
           <p>
-            Specific deliverables, timelines, and fees will be agreed in
-            writing before any paid work begins.
+            Specific deliverables, timelines, and fees are agreed in
+            writing before any paid work begins. Engagements are
+            handoff-first: the deliverable is a skill or system the
+            client&apos;s own team can run after the engagement ends.
           </p>
         </LegalSection>
 
         <LegalSection title="3. Booking and payment">
           <p>
-            <strong>Free consultations:</strong> The AI Audit is free
-            and carries no obligation.
+            <strong>Free consultations:</strong> The AI Audit and the
+            introductory AI Training session are both free and carry no
+            obligation.
           </p>
           <p>
             <strong>Paid engagements:</strong> For any paid work, we will
@@ -93,7 +117,7 @@ export default function TermsPage() {
           <p>
             <strong>Our IP:</strong> All content on this website &mdash;
             including text, design, code, and graphics &mdash; is owned by
-            Quilliam Digital and protected by UK copyright law. You may not
+            Quilliam AI and protected by UK copyright law. You may not
             reproduce, distribute, or modify any content without our
             written permission.
           </p>
@@ -230,7 +254,14 @@ export default function TermsPage() {
               </a>
             </li>
             <li>
-              <strong>Location:</strong> Cornwall, UK
+              <strong>Registered office:</strong>{" "}
+              {siteConfig.registeredOffice.street},{" "}
+              {siteConfig.registeredOffice.locality},{" "}
+              {siteConfig.registeredOffice.region},{" "}
+              {siteConfig.registeredOffice.postalCode}
+            </li>
+            <li>
+              <strong>Company No.:</strong> {siteConfig.companyNumber} (England &amp; Wales)
             </li>
           </ul>
         </LegalSection>

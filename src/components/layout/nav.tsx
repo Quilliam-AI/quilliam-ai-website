@@ -156,13 +156,23 @@ export function Nav() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-2">
             <Button
               asChild
               size="sm"
-              className="rounded-xl px-5 h-8 text-[13px] font-medium bg-emerald-600 hover:bg-emerald-500 text-white transition-all duration-500"
+              variant="outline"
+              className="rounded-xl px-4 h-8 text-[13px] font-medium text-white/80 border-white/20 hover:text-white hover:border-white/40 transition-all duration-500"
             >
-              <Link href="/book">
+              <Link href="/book?intent=training">
+                Free Training
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="sm"
+              className="rounded-xl px-4 h-8 text-[13px] font-medium bg-emerald-600 hover:bg-emerald-500 text-white transition-all duration-500"
+            >
+              <Link href="/book?intent=audit">
                 Free AI Audit
               </Link>
             </Button>
@@ -230,13 +240,25 @@ export function Nav() {
             ))}
             <Button
               asChild
+              variant="outline"
+              className="rounded-xl mt-2 w-full h-10 text-white/80 border-white/20"
+            >
+              <Link
+                href="/book?intent=training"
+                onClick={() => setOpen(false)}
+              >
+                Book Free AI Training
+              </Link>
+            </Button>
+            <Button
+              asChild
               className="rounded-xl mt-2 w-full bg-emerald-600 hover:bg-emerald-700 h-10"
             >
               <Link
-                href="/book"
+                href="/book?intent=audit"
                 onClick={() => setOpen(false)}
               >
-                Book a Free AI Audit
+                Book Free AI Audit
               </Link>
             </Button>
           </div>

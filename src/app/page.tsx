@@ -26,10 +26,10 @@ function HomeJsonLd() {
   const howToSchema = {
     "@type": "HowTo",
     "@id": `${siteConfig.url}/#howto`,
-    name: "How to get a free AI Audit from Quilliam Digital",
+    name: "How to get a free AI Audit from Quilliam AI",
     description:
-      "A focused session where we find your biggest time-waster and build an AI solution for it. Free. No commitment.",
-    totalTime: "PT2H",
+      "A focused conversation where we listen to your business, figure out whether AI training, implementation, or both would help you most, and give you a clear, practical recommendation. Free. No commitment.",
+    totalTime: "PT1H",
     step: sprintSteps.map((step, i) => ({
       "@type": "HowToStep",
       position: i + 1,
@@ -56,10 +56,10 @@ export default function HomePage() {
     <>
       <WebPageJsonLd
         path="/"
-        name="AI Solutions for UK Small Businesses | Quilliam Digital"
-        description="Quilliam Digital helps UK small businesses save time and win more customers with AI automation, training, and digital services. Based in Cornwall, serving businesses UK-wide."
-        datePublished="2025-03-01"
-        dateModified="2026-04-05"
+        name="AI Education and Implementation for UK Businesses | Quilliam AI"
+        description="Quilliam AI is a UK AI agency that teaches your team how to use AI properly and builds the automations, agents, and tools that save you hours every week. Based in Cornwall, working UK-wide."
+        datePublished="2026-04-11"
+        dateModified="2026-04-11"
       />
       <HomeJsonLd />
       <Hero />

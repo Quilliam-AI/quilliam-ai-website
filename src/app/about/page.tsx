@@ -16,26 +16,26 @@ import { FadeIn } from "@/components/shared/fade-in";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
 import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { NodeNetworkPattern } from "@/components/shared/pattern-overlay";
-import { siteConfig, getWhatsAppUrl } from "@/lib/content";
+import { getWhatsAppUrl } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "About Levi Quilliam — Founder of Quilliam Digital",
+  title: "About Levi Quilliam — Founder of Quilliam AI",
   description:
-    "Meet Levi Quilliam, founder of Quilliam Digital. Economics graduate, ex-Deloitte, 8+ years building software. Based in Cornwall, helping UK small businesses use AI to save time and win more customers.",
+    "Meet Levi Quilliam, founder of Quilliam AI Ltd. Economics graduate, ex-Deloitte, 8+ years shipping software. Based in Cornwall, teaching AI and building AI systems for UK businesses.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Levi Quilliam — Founder of Quilliam Digital",
+    title: "About Levi Quilliam — Founder of Quilliam AI",
     description:
-      "Economics graduate, ex-Deloitte, 8+ years building software. Based in Cornwall, helping UK small businesses use AI to save time and win more customers.",
+      "Economics graduate, ex-Deloitte, 8+ years shipping software. Based in Cornwall, teaching AI and building AI systems for UK businesses.",
     url: "/about",
     images: ["/opengraph-image"],
   },
   twitter: {
-    title: "About Levi Quilliam — Founder of Quilliam Digital",
+    title: "About Levi Quilliam — Founder of Quilliam AI",
     description:
-      "Economics graduate, ex-Deloitte, 8+ years building software. Based in Cornwall, helping UK small businesses use AI to save time and win more customers.",
+      "Economics graduate, ex-Deloitte, 8+ years shipping software. Teaching AI and building AI systems for UK businesses.",
   },
 };
 
@@ -52,33 +52,33 @@ const journey = [
     period: "Deloitte",
     title: "Turnaround & Restructuring",
     description:
-      "Spent years at Deloitte taking apart businesses that were broken and figuring out how to fix them. Learned what makes a business tick, where the waste hides, and what actually moves the needle.",
+      "Spent years at Deloitte taking apart businesses that were broken and figuring out how to fix them. Learned what makes a business tick, where the waste hides, and what actually moves the needle for a scaling team.",
   },
   {
     icon: Cpu,
-    period: "AgriTech \u2192 Software Startup",
-    title: "Building with AI, daily",
+    period: "AgriTech → SaaS",
+    title: "Shipping AI-first products",
     description:
       "Moved into tech — first at an AgriTech company, now at a software startup building AI-first products for businesses across the UK and Middle East. Eight years of writing code, shipping products, and watching AI reshape the industry from the inside.",
   },
   {
     icon: Rocket,
     period: "Now",
-    title: "Quilliam Digital",
+    title: "Quilliam AI Ltd",
     description:
-      "Started after a gym owner said: \"I see AI everywhere — agents, orchestration, automation — but I cannot connect the dots to my actual business.\" That stuck. Now I help small business owners make that connection.",
+      "Incorporated 2026-04-11 (Companies House 17151006). A UK AI agency that does education AND implementation under one roof. I teach teams how to use AI properly, and I build the automations and custom AI tools they need. Handoff-first, no lock-in.",
   },
 ];
 
 const cornwallFacts = [
   { icon: Waves, label: "5 min from the best surf in the UK" },
   { icon: Mountain, label: "Climbing, hiking, coasteering" },
-  { icon: MapPin, label: "Cornwall-based, serving UK-wide" },
+  { icon: MapPin, label: "Cornwall-based, working UK-wide + remote" },
 ];
 
 export default function AboutPage() {
   const whatsappHref = getWhatsAppUrl(
-    "Hi Levi, I saw your about page and I'd like to chat about AI for my business."
+    "Hi Levi, I saw your about page and I'd like to chat about GTM infrastructure for my B2B SaaS."
   );
 
   return (
@@ -86,10 +86,10 @@ export default function AboutPage() {
       <BreadcrumbJsonLd items={[{ name: "About", href: "/about" }]} />
       <WebPageJsonLd
         path="/about"
-        name="About Levi Quilliam — Founder of Quilliam Digital"
-        description="Levi Quilliam is the founder of Quilliam Digital. Economics graduate, ex-Deloitte, 8+ years building software. Based in Cornwall, helping UK small businesses use AI to save time and win more customers."
-        datePublished="2026-04-05"
-        dateModified="2026-04-05"
+        name="About Levi Quilliam — Founder of Quilliam AI"
+        description="Levi Quilliam is the founder of Quilliam AI Ltd. Economics graduate, ex-Deloitte, 8+ years shipping software. Based in Cornwall, building marketing and AI infrastructure for small B2B SaaS teams."
+        datePublished="2026-04-11"
+        dateModified="2026-04-11"
       />
 
       {/* ── Hero — asymmetric split ── */}
@@ -110,21 +110,21 @@ export default function AboutPage() {
 
               <FadeIn delay={0.2}>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold tracking-tighter leading-[1.08] text-white">
-                  I help small businesses
+                  I teach AI.
                   <span className="block text-emerald-400">
-                    stop overthinking AI.
+                    I build with AI.
                   </span>
                 </h1>
               </FadeIn>
 
               <FadeIn delay={0.3} className="mt-6">
                 <p className="text-base md:text-lg text-stone-400 leading-relaxed max-w-[52ch]">
-                  I&apos;m Levi Quilliam. I&apos;ve spent 8+ years building
-                  software and I&apos;m currently building AI-first products at
-                  a startup. I founded Quilliam Digital because too many small
-                  business owners are being left behind by the AI wave — not
-                  because they&apos;re not smart enough, but because nobody is
-                  showing them how it applies to their day-to-day.
+                  I&apos;m Levi Quilliam. I&apos;ve spent 8+ years shipping
+                  software and I&apos;m currently building AI-first products
+                  at a startup. I founded Quilliam AI because too many UK
+                  businesses either ignore AI completely or throw money at
+                  generic subscriptions and hope something sticks. There&apos;s
+                  a middle path: proper training, then proper implementation.
                 </p>
               </FadeIn>
 
@@ -165,7 +165,7 @@ export default function AboutPage() {
                       8+
                     </span>
                     <span className="text-stone-500 text-xs uppercase tracking-widest">
-                      years in software
+                      years shipping software
                     </span>
                   </div>
                   <div className="w-px h-10 bg-stone-800 hidden sm:block" />
@@ -183,7 +183,7 @@ export default function AboutPage() {
                       Cornwall
                     </span>
                     <span className="text-stone-500 text-xs uppercase tracking-widest">
-                      based, UK-wide
+                      based, UK + remote
                     </span>
                   </div>
                 </div>
@@ -194,7 +194,7 @@ export default function AboutPage() {
             <div className="relative hidden lg:block">
               <Image
                 src="https://picsum.photos/seed/levi-about-hero/800/1000"
-                alt="Levi Quilliam, founder of Quilliam Digital, in Cornwall"
+                alt="Levi Quilliam, founder of Quilliam AI, in Cornwall"
                 fill
                 className="object-cover"
                 priority
@@ -208,7 +208,7 @@ export default function AboutPage() {
             <div className="relative h-72 sm:h-80 lg:hidden">
               <Image
                 src="https://picsum.photos/seed/levi-about-hero/800/400"
-                alt="Levi Quilliam, founder of Quilliam Digital"
+                alt="Levi Quilliam, founder of Quilliam AI"
                 fill
                 className="object-cover"
                 priority
@@ -229,39 +229,46 @@ export default function AboutPage() {
               The short version
             </p>
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tighter text-white leading-tight">
-              Why I started this
+              Why I started Quilliam AI
             </h2>
           </FadeIn>
 
           <FadeIn delay={0.1} className="mt-8 space-y-6">
             <p className="text-base text-stone-400 leading-relaxed">
-              I grew up on a farm in the UK. Studied economics at university.
-              Worked at Deloitte in turnaround and restructuring — taking
-              businesses that were struggling and figuring out what needed to
-              change. That gave me a deep understanding of how businesses
-              actually operate, where the waste is, and what makes the
-              difference between surviving and growing.
+              Studied economics. Worked at Deloitte in turnaround and
+              restructuring — taking businesses that were struggling and
+              figuring out what needed to change. That gave me a deep
+              understanding of how businesses actually operate, where the
+              waste hides, and what makes the difference between a team that
+              scales and one that stalls.
             </p>
             <p className="text-base text-stone-400 leading-relaxed">
               I moved into tech because I&apos;d always been passionate about
               it — I&apos;d been coding for years on the side, building
-              websites, apps, and automations. Eventually that became the main
-              thing. I worked at an AgriTech company, then joined a software
-              startup where we build AI-first products for businesses across the
-              UK and the Middle East. I see every day how fast this technology
-              is moving.
+              websites, apps, and automations. Eventually that became the
+              main thing. I worked at an AgriTech company, then joined a
+              software startup where we build AI-first products for
+              businesses across the UK and the Middle East. I see every day
+              how fast this technology is moving.
             </p>
             <p className="text-base text-stone-400 leading-relaxed">
-              Then I had a conversation that changed everything. A gym owner —
-              sharp bloke, runs a great business — said to me:{" "}
+              Then a gym owner said something that stuck:{" "}
               <span className="text-white font-medium">
                 &ldquo;I see AI everywhere. Everyone is talking about agents,
-                orchestration, automation. But I just cannot connect the dots and
-                figure out how this applies to my actual business.&rdquo;
-              </span>
+                orchestration, automation. But I just cannot connect the dots
+                and figure out how this applies to my actual business.&rdquo;
+              </span>{" "}
+              And then a few weeks later a GTM lead at a university spin-out
+              said something similar — except they needed someone to{" "}
+              <span className="text-white font-medium">build</span> the
+              systems, not just explain them.
             </p>
             <p className="text-base text-stone-400 leading-relaxed">
-              That is a problem I can fix. And that&apos;s Quilliam Digital.
+              Those two conversations told me the same thing: there&apos;s a
+              huge gap between &ldquo;I&apos;ve heard about AI&rdquo; and
+              &ldquo;my team uses AI every day to do real work.&rdquo; Some
+              clients need education to close that gap. Some need
+              implementation. Most need both. That&apos;s Quilliam AI.
             </p>
           </FadeIn>
         </div>
@@ -276,7 +283,7 @@ export default function AboutPage() {
               The journey
             </p>
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tighter text-white leading-tight">
-              From farm to founder
+              From consulting to teaching and shipping
             </h2>
           </FadeIn>
 
@@ -320,9 +327,9 @@ export default function AboutPage() {
                   What I believe
                 </p>
                 <h2 className="text-3xl md:text-4xl font-semibold tracking-tighter text-white leading-tight">
-                  Most small businesses have already tried AI.
+                  Education and implementation
                   <span className="block text-emerald-400 mt-1">
-                    They just tried it wrong.
+                    are two halves of the same job.
                   </span>
                 </h2>
               </div>
@@ -331,29 +338,28 @@ export default function AboutPage() {
             <FadeIn delay={0.15}>
               <div className="space-y-6">
                 <p className="text-base text-stone-400 leading-relaxed">
-                  I hear this constantly:{" "}
-                  <span className="text-white font-medium">
-                    &ldquo;I tried ChatGPT and it got things wrong, so I stopped
-                    using it.&rdquo;
-                  </span>{" "}
-                  It blows my mind every time. That is like buying a van and
-                  deciding transport does not work because you drove it into a
-                  ditch on day one.
+                  Most AI agencies do one or the other. Workshops and
+                  training, or building custom systems. I think that&apos;s
+                  a mistake. A team that&apos;s been trained but has no
+                  real systems ends up back at generic ChatGPT. A team
+                  that has a custom AI system but has never been trained
+                  ends up afraid of it. Both halves together compound —
+                  the training makes the systems more valuable, and the
+                  systems give the training somewhere to land.
                 </p>
                 <p className="text-base text-stone-400 leading-relaxed">
-                  AI has transformed the software industry in ways nobody
-                  expected. Every day at my day job I see new capabilities that
-                  genuinely shock me. But most small business owners are still
-                  stuck on the &ldquo;it got things wrong&rdquo; moment from
-                  2024 — and nobody is bridging that gap for them.
+                  Every engagement is also built for handoff. Industry-standard
+                  tools. Documented workflows. Runbooks for when things break.
+                  No custom frameworks only I can maintain. No lock-in.
+                  If Quilliam AI disappeared tomorrow, my clients would
+                  still have working skills and working systems.
                 </p>
                 <p className="text-base text-stone-400 leading-relaxed">
-                  It is only a matter of time before AI works its way into
-                  every business. The ones who figure it out early will have a
-                  massive advantage. I want to help small business owners be
-                  those ones — not because they need to become technical, but
-                  because they deserve a guide who actually understands both
-                  the technology and the business.
+                  And: fix before you flourish. Trust gaps — missing contact
+                  pages, stale copyright, broken schema, 404s — get fixed
+                  before anything glossy goes on top. Polishing a landing
+                  page that has a 404 on the pricing link is a waste of
+                  everyone&apos;s time.
                 </p>
               </div>
             </FadeIn>
@@ -377,31 +383,37 @@ export default function AboutPage() {
           <div className="mt-10 space-y-6">
             <FadeIn delay={0.1}>
               <p className="text-base text-stone-400 leading-relaxed">
-                My time at Deloitte taught me something that most tech people
+                My time at Deloitte taught me something most tech people
                 never learn: you have to understand the business before you
-                touch the technology. I do not show up with a product to sell.
-                I show up with questions to ask.
+                touch the technology. I don&apos;t show up with a product to
+                sell. I show up with questions to ask. Where are you
+                spending hours on tasks a machine should handle? Where is
+                your team stuck because nobody knows how to use the tools?
+                Once I understand that, the technology part is
+                straightforward.
               </p>
             </FadeIn>
 
             <FadeIn delay={0.15}>
               <p className="text-base text-stone-400 leading-relaxed">
-                Where are you spending hours on tasks a machine should handle?
-                Where are you losing customers because you cannot respond fast
-                enough? Where is the bottleneck that is stopping you from
-                growing? Once I understand that, the technology part is
-                straightforward.
+                Engagements are usually day-rate (£300–£400/day) for
+                implementation and ongoing support work, or fixed-price
+                for well-scoped packages like a website rebuild or a full
+                team training. We start with a free AI Audit so you see
+                real value before spending anything, and we agree scope
+                clearly before any paid work begins.
               </p>
             </FadeIn>
 
             <FadeIn delay={0.2}>
               <p className="text-base text-stone-400 leading-relaxed">
-                I work directly with every client. You will not get handed off
-                to a junior team member. You will not get a strategy document
-                and a handshake. You will get practical, working automations
-                and training that your team can actually use — built by
-                someone who writes code for a living and genuinely loves
-                watching businesses grow.
+                I work directly on every engagement. You won&apos;t get
+                handed off to a junior team member. You won&apos;t get a
+                project manager who emails you updates. You get senior
+                expertise end-to-end because there isn&apos;t a junior
+                team — there&apos;s one person who writes the code,
+                delivers the training, and genuinely cares whether your
+                team actually adopts what we build.
               </p>
             </FadeIn>
           </div>
@@ -412,9 +424,9 @@ export default function AboutPage() {
               {[
                 "BSc Economics",
                 "Grad. Cert. Computer Science",
-                "8+ Years Programming",
+                "8+ Years Shipping Software",
                 "Ex-Deloitte",
-                "BNI Member",
+                "Quilliam AI Ltd · Co. No. 17151006",
               ].map((qual) => (
                 <span
                   key={qual}
@@ -447,21 +459,21 @@ export default function AboutPage() {
                 <p className="text-base text-stone-400 leading-relaxed max-w-[56ch]">
                   I chose Cornwall because I love the outdoors — surfing,
                   climbing, hiking. Life is better when your morning commute
-                  involves checking the swell forecast. But Cornwall also has a
-                  brilliant small business community, and being here means I
-                  can work face-to-face with local businesses while serving
-                  clients UK-wide remotely.
+                  involves checking the swell forecast. Quilliam AI works
+                  remotely with clients across the UK (and sometimes
+                  internationally), with periodic on-site visits where it
+                  makes sense.
                 </p>
               </FadeIn>
 
               <FadeIn delay={0.15} className="mt-6">
                 <p className="text-base text-stone-400 leading-relaxed max-w-[56ch]">
-                  Clients say I always have a big grin on my face. I will take
-                  that. I genuinely love this work and I love seeing people
-                  grow. If you are a small business owner wondering whether AI
-                  is worth the hype — let&apos;s talk. The AI Audit is free.
-                  The worst that happens is you walk away with a clear idea of
-                  what is possible.
+                  If you run a UK business and you&apos;re wondering whether
+                  AI is worth the hype, or whether your team should learn
+                  it, or whether you should have someone just build the
+                  systems for you — let&apos;s talk. The AI Audit is free.
+                  The worst that happens is you walk away with a clear idea
+                  of what&apos;s possible.
                 </p>
               </FadeIn>
 
@@ -490,7 +502,7 @@ export default function AboutPage() {
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
                   <Image
                     src="https://picsum.photos/seed/cornwall-surf/600/750"
-                    alt="Cornwall coastline — home of Quilliam Digital"
+                    alt="Cornwall coastline — home of Quilliam AI"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 40vw"
@@ -518,9 +530,9 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={0.1} className="mt-5">
             <p className="text-base md:text-lg text-stone-400 leading-relaxed max-w-[48ch] mx-auto">
-              Book a free AI Audit. I will look at how your business runs and
-              show you the highest-impact opportunity. No jargon. No
-              commitment.
+              Book a free session. We&apos;ll talk about your business and
+              I&apos;ll recommend training, implementation, or both — whatever
+              actually fits. No jargon. No commitment.
             </p>
           </FadeIn>
           <FadeIn delay={0.2} className="mt-10">
@@ -530,8 +542,8 @@ export default function AboutPage() {
                 size="lg"
                 className="rounded-full h-12 px-10 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
               >
-                <Link href="/book">
-                  Book Your Free AI Audit
+                <Link href="/book?intent=training">
+                  Book Free AI Training
                   <ArrowRight size={18} className="ml-2" />
                 </Link>
               </Button>
@@ -541,19 +553,28 @@ export default function AboutPage() {
                 size="lg"
                 className="rounded-full h-12 px-10 text-base text-white"
               >
-                <a
-                  href={whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Message on WhatsApp
-                </a>
+                <Link href="/book?intent=audit">
+                  Book Free AI Audit
+                  <ArrowRight size={18} className="ml-2" />
+                </Link>
               </Button>
             </div>
+            <p className="mt-4 text-xs text-stone-500">
+              Not sure which?{" "}
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-stone-400 underline underline-offset-4 hover:text-white transition-colors"
+              >
+                Message on WhatsApp
+              </a>{" "}
+              and we&apos;ll work it out.
+            </p>
           </FadeIn>
           <FadeIn delay={0.3} className="mt-8">
             <p className="text-xs text-stone-500">
-              Based in Cornwall. Serving small businesses across the UK.
+              Quilliam AI Ltd · Company No. 17151006 · Cornwall, UK
             </p>
           </FadeIn>
         </div>
@@ -561,18 +582,26 @@ export default function AboutPage() {
 
       {/* Citable paragraph for AI crawlers — sr-only */}
       <p className="sr-only">
-        Levi Quilliam is the founder of Quilliam Digital, an AI automation
-        agency based in Cornwall, UK. Levi holds a Bachelor&apos;s degree in
-        Economics and a Graduate Certificate in Computer Science. He has over
-        eight years of programming experience, including work at Deloitte in
-        turnaround and restructuring, an AgriTech company, and a current role
-        at a software startup building AI-first products for businesses across
-        the UK and Middle East. Levi founded Quilliam Digital to help UK small
-        businesses with 1 to 50 employees understand and implement practical
-        AI solutions — from hands-on AI training workshops to custom workflow
-        automation and complete digital services. He works directly with every
-        client. Automation packages start from five hundred pounds, and every
-        engagement begins with a free AI Audit.
+        Levi Quilliam is the founder of Quilliam AI Ltd, a UK private
+        limited company incorporated on 2026-04-11 (Companies House number
+        17151006). Quilliam AI is a UK AI agency offering two complementary
+        services: AI Education (training, workshops, and knowledge systems)
+        and AI Implementation (building automations, agents, n8n workflows,
+        and custom ChatGPT or Claude tools), alongside Digital Services
+        (websites, SEO, and content production) as the digital foundation
+        that supports the AI work. Levi holds a Bachelor&apos;s degree in
+        Economics and a Graduate Certificate in Computer Science. He has
+        over eight years of programming experience, including work at
+        Deloitte in turnaround and restructuring, an AgriTech company, and
+        a current role at a software startup building AI-first products
+        for businesses across the UK and Middle East. Every engagement
+        starts with a free AI Audit and is handoff-first: the deliverable
+        is a skill or system the client&apos;s own team actually owns, not
+        a bespoke framework that locks the client into permanent
+        dependency. Quilliam AI works with UK businesses of all shapes and
+        sizes, from small businesses and startups to agencies and teams
+        inside larger organisations. Day-rate consulting sits in the
+        £300–£400 range and fixed-price packages start from £500.
       </p>
     </>
   );

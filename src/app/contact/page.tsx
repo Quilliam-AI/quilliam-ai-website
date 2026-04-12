@@ -11,21 +11,21 @@ import { Button } from "@/components/ui/button";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Quilliam Digital. Phone, email, or WhatsApp — we reply within 24 hours. Based in Cornwall, serving businesses across the UK.",
+    "Get in touch with Quilliam AI. Phone, email, or WhatsApp — we reply within 24 hours. Based in Cornwall, working with UK businesses nationwide and remote.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
-    title: "Contact Quilliam Digital",
+    title: "Contact Quilliam AI",
     description:
-      "Get in touch with Quilliam Digital. Phone, email, or WhatsApp — we reply within 24 hours.",
+      "Get in touch with Quilliam AI. Phone, email, or WhatsApp — we reply within 24 hours.",
     url: "/contact",
     images: ["/opengraph-image"],
   },
   twitter: {
-    title: "Contact Quilliam Digital",
+    title: "Contact Quilliam AI",
     description:
-      "Get in touch with Quilliam Digital. Phone, email, or WhatsApp — we reply within 24 hours.",
+      "Get in touch with Quilliam AI. Phone, email, or WhatsApp — we reply within 24 hours.",
   },
 };
 
@@ -65,10 +65,10 @@ export default function ContactPage() {
       <BreadcrumbJsonLd items={[{ name: "Contact", href: "/contact" }]} />
       <WebPageJsonLd
         path="/contact"
-        name="Contact Quilliam Digital"
-        description="Get in touch with Quilliam Digital. Phone, email, or WhatsApp — we reply within 24 hours. Based in Cornwall, serving businesses across the UK."
-        datePublished="2026-04-05"
-        dateModified="2026-04-05"
+        name="Contact Quilliam AI"
+        description="Get in touch with Quilliam AI. Phone, email, or WhatsApp — we reply within 24 hours. Based in Cornwall, working with UK businesses nationwide and remote."
+        datePublished="2026-04-11"
+        dateModified="2026-04-11"
       />
 
       <section className="relative min-h-[100dvh] bg-stone-950 overflow-hidden">
@@ -97,9 +97,10 @@ export default function ContactPage() {
 
               <FadeIn delay={0.3} className="mt-6">
                 <p className="text-base md:text-lg text-stone-400 leading-relaxed max-w-[48ch]">
-                  Whether you have a question about AI, want to discuss a
-                  project, or are ready to book your free AI Audit — we are
-                  here to help. No sales pressure, no jargon.
+                  Whether you have a question about AI training, want to
+                  discuss an implementation project, or are ready to book
+                  your free AI Audit — we are here to help. No sales
+                  pressure, no jargon.
                 </p>
               </FadeIn>
 
@@ -119,7 +120,13 @@ export default function ContactPage() {
                         {siteConfig.location}
                       </p>
                       <p className="text-xs text-stone-500 mt-0.5 leading-relaxed">
-                        Based in Cornwall. Serving businesses across the UK.
+                        Quilliam AI Ltd · Company No. {siteConfig.companyNumber}
+                      </p>
+                      <p className="text-[11px] text-stone-600 mt-0.5 leading-relaxed">
+                        Registered office: {siteConfig.registeredOffice.street},{" "}
+                        {siteConfig.registeredOffice.locality},{" "}
+                        {siteConfig.registeredOffice.region},{" "}
+                        {siteConfig.registeredOffice.postalCode}
                       </p>
                     </div>
                   </div>
@@ -151,15 +158,22 @@ export default function ContactPage() {
                     Ready to see what AI can do for you?
                   </p>
                   <p className="text-xs text-stone-500 mt-1 leading-relaxed">
-                    Book a free, no-obligation AI Audit and get a clear plan
-                    — even if we never work together.
+                    Book a free, no-obligation session — training or audit,
+                    your choice. Walk away with a clear plan either way.
                   </p>
-                  <Link href="/book" className="mt-4 inline-block">
-                    <Button className="rounded-full h-10 px-6 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)] transition-all">
-                      Book Your Free AI Audit
-                      <ArrowRight size={14} className="ml-2" />
-                    </Button>
-                  </Link>
+                  <div className="mt-4 flex flex-col sm:flex-row gap-2">
+                    <Link href="/book?intent=training" className="flex-1">
+                      <Button variant="outline" className="w-full rounded-full h-10 px-4 text-white/90 border-white/20 text-sm font-medium transition-all">
+                        Free Training
+                      </Button>
+                    </Link>
+                    <Link href="/book?intent=audit" className="flex-1">
+                      <Button className="w-full rounded-full h-10 px-4 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)] transition-all">
+                        Free AI Audit
+                        <ArrowRight size={14} className="ml-2" />
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </FadeIn>
             </div>

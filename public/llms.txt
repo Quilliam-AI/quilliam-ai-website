@@ -1,40 +1,55 @@
-# Quilliam Digital
-> AI automation agency for UK small businesses
+# Quilliam AI
+> A UK AI agency offering education and implementation under one roof
 
-> Full version: https://quilliamdigital.com/llms-full.txt
-> Last updated: 2026-04-05
+> Full version: https://quilliam.ai/llms-full.txt
+> Last updated: 2026-04-11
 
 ## About
-Quilliam Digital is an AI automation agency based in Cornwall, UK, founded by Levi Quilliam. We help small businesses implement practical AI solutions to save time and win more customers. We focus exclusively on small businesses with 1-50 employees, offering hands-on AI training, custom workflow automation, and complete digital services. Paid automation packages start from £500.
+Quilliam AI is the trading name of Quilliam AI Ltd (UK Companies House number 17151006, incorporated 2026-04-11, registered office in Cornwall, England). Founded by Levi Quilliam, it operates as a UK AI agency offering two complementary services: AI Education (training, workshops, and knowledge systems so your team can use AI properly) and AI Implementation (building automations, agents, n8n workflows, and custom ChatGPT or Claude tools), plus Digital Services (websites, SEO, content production) as the digital foundation that supports the AI work. We work with UK businesses of all shapes and sizes. Every engagement starts with a free AI Audit and is handoff-first — the deliverable is a skill or system your team actually owns, not a bespoke framework.
 
 ## Services
-- AI Training: Hands-on workshops for ChatGPT, Claude, and AI tools. In-person or remote, 1-to-1 or group sessions. Free entry point.
-- AI Automation: Custom workflow automation, AI receptionists, review management, automated quoting, invoicing, and customer follow-ups. Core service.
-- Digital Services: Websites, SEO, Google Business Profile management, booking systems and hosting. Full package.
+- AI Education: Hands-on workshops, role-tailored training, and optional AI knowledge systems (Claude Code + Obsidian "Company Brain") so your team can use ChatGPT, Claude, and custom AI tools confidently in their daily work. URL slug: /services/ai-training
+- AI Implementation: Custom AI automations, agents, n8n workflows, API integrations, and bespoke ChatGPT/Claude tools built for your business. We do the work, you get the outcomes. URL slug: /services/ai-automation
+- Digital Services: Professional websites, SEO, Google Business Profile, and content production — the digital foundation that supports your AI work. URL slug: /services/digital-services
 
 ## How It Works — The AI Audit
-1. We Audit: We look at how your business actually runs. Where is the repetitive work? Where are you losing customers?
-2. We Build: We pick the highest-impact automation and set it up.
-3. You Win: You get hours back. Your customers get faster responses. Your business runs smoother.
+1. We Listen: A focused conversation where we understand your business, your team, and where AI could help.
+2. We Teach or Build: We recommend education, implementation, or both — whatever fits. If training, we run it tailored to your team. If building, we ship fast.
+3. You Run With It: You get skills and systems you can actually use. We document everything, hand it over, and provide ongoing support when you need it. No lock-in.
+
+## Pricing
+- Free AI Audit (intro session, 30-60 minutes)
+- Day-rate consulting: £300–£400 per day
+- Website packages from £500
+- Fixed-price implementation packages from £500 depending on scope
 
 ## Contact
-- Web: https://quilliamdigital.com
-- Email: levi@quilliamdigital.com
+- Web: https://quilliam.ai
+- Email: levi@quilliam.ai
 - Phone: +447593121621
 - WhatsApp: +447593121621
-- Location: Cornwall, UK (serving UK-wide)
+- Location: Cornwall, UK (working UK-wide and remote)
+- Registered office: 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB, England
 
-## Book a Free AI Audit
-https://quilliamdigital.com/book
+## Company
+- Trading name: Quilliam AI
+- Legal name: Quilliam AI Ltd
+- UK Companies House: 17151006
+- Incorporated: 2026-04-11
+- Sole director: Levi Lachlan Quilliam
+
+## Book a Free AI Audit or Training Session
+https://quilliam.ai/book?intent=training  (AI Training)
+https://quilliam.ai/book?intent=audit  (AI Audit)
 
 ## Pages
-- Home: https://quilliamdigital.com
-- About: https://quilliamdigital.com/about
-- Book: https://quilliamdigital.com/book
-- Contact: https://quilliamdigital.com/contact
-- Service Areas: https://quilliamdigital.com/service-areas
-- AI Training: https://quilliamdigital.com/services/ai-training
-- AI Automation: https://quilliamdigital.com/services/ai-automation
-- Digital Services: https://quilliamdigital.com/services/digital-services
-- Privacy: https://quilliamdigital.com/privacy
-- Terms: https://quilliamdigital.com/terms
+- Home: https://quilliam.ai
+- About: https://quilliam.ai/about
+- Book: https://quilliam.ai/book
+- Contact: https://quilliam.ai/contact
+- Where We Work: https://quilliam.ai/service-areas
+- AI Education: https://quilliam.ai/services/ai-training
+- AI Implementation: https://quilliam.ai/services/ai-automation
+- Digital Services: https://quilliam.ai/services/digital-services
+- Privacy: https://quilliam.ai/privacy
+- Terms: https://quilliam.ai/terms

@@ -23,8 +23,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "AI Solutions for UK Small Businesses | Quilliam Digital",
-    template: `%s | Quilliam Digital`,
+    default: "AI Education and Implementation for UK Businesses | Quilliam AI",
+    template: `%s | Quilliam AI`,
   },
   description: siteConfig.description,
   metadataBase: new URL(siteConfig.url),
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "AI Solutions for UK Small Businesses | Quilliam Digital",
+    title: "AI Education and Implementation for UK Businesses | Quilliam AI",
     description:
-      "We help UK small businesses use AI to save time, win more customers, and automate repetitive work. Based in Cornwall, working UK-wide.",
+      "A UK AI agency that teaches your team how to use AI properly and builds the automations, agents, and tools that save you hours every week. Based in Cornwall, working UK-wide.",
     url: siteConfig.url,
     siteName: siteConfig.name,
     locale: "en_GB",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Solutions for UK Small Businesses | Quilliam Digital",
+    title: "AI Education and Implementation for UK Businesses | Quilliam AI",
     description:
-      "We help UK small businesses use AI to save time, win more customers, and automate repetitive work.",
+      "A UK AI agency: we teach your team how to use AI, and we build the systems that save you hours every week.",
   },
   manifest: "/site.webmanifest",
   icons: {
@@ -62,7 +62,7 @@ function JsonLd() {
     "@type": "Person",
     "@id": `${siteConfig.url}/#founder`,
     name: "Levi Quilliam",
-    jobTitle: "Founder",
+    jobTitle: "Founder & Principal Consultant",
     worksFor: { "@id": `${siteConfig.url}/#organization` },
     url: `${siteConfig.url}/about`,
     ...(siteConfig.founderImage && {
@@ -74,11 +74,13 @@ function JsonLd() {
     "@type": ["ProfessionalService", "Organization"],
     "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
+    legalName: siteConfig.legalName,
     url: siteConfig.url,
     email: siteConfig.email,
     telephone: `+${siteConfig.whatsapp}`,
     description: siteConfig.description,
     founder: { "@id": `${siteConfig.url}/#founder` },
+    foundingDate: "2026-04-11",
     logo: {
       "@type": "ImageObject",
       url: `${siteConfig.url}/og-logo.png`,
@@ -92,14 +94,16 @@ function JsonLd() {
     },
     address: {
       "@type": "PostalAddress",
-      addressRegion: "Cornwall",
-      addressCountry: "GB",
-      postalCode: "TR1",
+      streetAddress: siteConfig.registeredOffice.street,
+      addressLocality: siteConfig.registeredOffice.locality,
+      addressRegion: siteConfig.registeredOffice.region,
+      postalCode: siteConfig.registeredOffice.postalCode,
+      addressCountry: siteConfig.registeredOffice.country,
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: "50.26600",
-      longitude: "-5.05100",
+      latitude: "50.49630",
+      longitude: "-4.99830",
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -107,10 +111,14 @@ function JsonLd() {
       opens: "09:00",
       closes: "17:00",
     },
-    priceRange: "££",
-    ...(siteConfig.companyNumber && {
-      taxID: siteConfig.companyNumber,
-    }),
+    priceRange: "£££",
+    // UK Companies House registration number — published in the footer as required under
+    // s.82 Companies Act 2006 for the trading name of a UK Ltd company.
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "UK Companies House",
+      value: siteConfig.companyNumber,
+    },
     ...(siteConfig.socialLinks.length > 0 && {
       sameAs: [...siteConfig.socialLinks],
     }),

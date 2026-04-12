@@ -1,33 +1,42 @@
-# Quilliam Digital — SEO Action Plan
+# Quilliam AI — Launch & SEO Action Plan
 
-SEO audit score: **72/100** (5 April 2026). Strong technical foundation. Critical gap: placeholder images.
+**Current positioning (2026-04-11):** Quilliam AI is a **general-purpose UK AI agency** offering AI Education (training, workshops, knowledge systems), AI Implementation (automations, agents, n8n workflows, custom tools), and Digital Services (websites, SEO, content). Target: UK businesses of all shapes and sizes. Dual CTA funnel — "Book Free AI Training" and "Book Free AI Audit".
+
+**Rebrand history:**
+- **v1 (pre-rebrand):** Quilliam Digital — "AI automation agency for UK small businesses" (gyms, trades, hospitality). SEO audit score 72/100 (5 April 2026). K2 Gym case study. Single "Book Free AI Audit" CTA.
+- **v2 (first rebrand, 2026-04-11 AM):** Quilliam AI narrowed to "marketing and AI infrastructure for small B2B SaaS teams". VetVision AI positioned as target market. **Incorrect** — see v3.
+- **v3 (second rebrand, 2026-04-11 PM):** Quilliam AI broadened to general UK AI agency doing education + implementation. VetVision reframed as example engagement. Dual CTA funnel introduced. **Current.**
+
+Many items below have been rewritten for v3. The pre-rebrand Completed section is preserved as historical record — ignore its "Quilliam Digital" and "K2 Gym" references.
 
 ---
 
 ## Uncompleted — Critical (Fix Before Launch)
 
 ### 1. Replace all placeholder images with real photography
-**Impact:** E-E-A-T, LCP performance, user trust, CSP compatibility — single most impactful change across the entire audit
-**Current state:** Every image on the site is from `picsum.photos` — a random stock placeholder service. This adds 500ms+ to LCP via redirect chains and destroys credibility for a professional services site.
+**Impact:** E-E-A-T, LCP performance, user trust, CSP compatibility — still the single most impactful change before launch.
+**Current state:** Every image still uses `picsum.photos` with themed seeds. Credibility-destroying for a professional services site and adds 500ms+ to LCP via redirect chains.
+
+**Shot list (rewritten for v3 services):**
+- [ ] Homepage hero — Levi working with a client or running a workshop (suggests both halves)
+- [ ] Sprint-process "We Listen" — conversation shot (whiteboard, laptop, notebook)
+- [ ] Sprint-process "We Teach or Build" — workshop or coding shot
+- [ ] Sprint-process "You Run With It" — client using what was built / trained
+- [ ] AI Education service card — training session in progress (laptops, real people)
+- [ ] AI Implementation service card — automation workflow, n8n canvas, or agent screenshot
+- [ ] Digital Services service card — website on screen / mockup / SEO tool
+- [ ] VetVision featured engagement — real shot if permitted, or abstract veterinary/university visual
+- [ ] Levi portrait — professional headshot for about + about-preview
+- [ ] Cornwall coast background — real Cornwall photo for CTA section
 
 **Steps:**
-- [ ] Shoot or source real photos for each placeholder:
-  - Hero image (business owner / Levi working with client)
-  - "We Audit" process step (laptop with analytics, meeting, whiteboard)
-  - "We Build" process step (automation dashboard, workflow builder)
-  - "You Win" process step (happy client, results dashboard)
-  - AI Training service card (workshop, training session)
-  - AI Automation service card (automation workflow, dashboard)
-  - Digital Services service card (website on screen, SEO tools)
-  - K2 Gym case study (K2 Gym interior, Dirk Parker if possible)
-  - Levi portrait (professional headshot for About section)
-  - Cornwall coast background (CTA section — real Cornwall photo)
-- [ ] Optimise images: WebP or AVIF format, appropriate dimensions (hero: 1200x1500, cards: 800x600, portrait: 600x800)
+- [ ] Shoot or source real photos per shot list above
+- [ ] Optimise images: WebP or AVIF format, appropriate dimensions (hero 1200×1500, cards 800×600, portrait 600×800)
 - [ ] Save to `/public/images/` with descriptive filenames
 - [ ] Update all `src` props in components to use local paths
 - [ ] Remove `picsum.photos` from `next.config.ts` `remotePatterns`
-- [ ] Update CSP `img-src` to remove need for external image domains
-- [ ] Update alt text on process images ("We Audit" → describe what the actual photo shows)
+- [ ] Remove `picsum.photos` from CSP `img-src` in `next.config.ts`
+- [ ] Update alt text to describe what each real photo shows (currently generic)
 
 **Files to edit:**
 - `src/components/home/hero.tsx`
@@ -36,82 +45,96 @@ SEO audit score: **72/100** (5 April 2026). Strong technical foundation. Critica
 - `src/components/home/industry-tabs.tsx`
 - `src/components/home/about-preview.tsx`
 - `src/components/shared/cta-section.tsx`
+- `src/app/about/page.tsx` (hero + Cornwall shot)
 - `next.config.ts`
+
+---
+
+### 2. Fix pre-existing `nav.tsx` lint error
+**Impact:** `bun run lint` currently exits with code 1 because of this single error. Blocks any CI check that gates on lint.
+**Current state:** `src/components/layout/nav.tsx:37` calls `setActiveHash("")` synchronously inside a `useEffect`, tripping `react-hooks/set-state-in-effect`. Pre-existing — wasn't introduced by the rebrand but has been red through both rebrand passes and should be fixed before launch.
+
+**Steps:**
+- [ ] Refactor the pathname-change effect to derive `activeHash` from `pathname` rather than setting state inside the effect body. Options: move to `useMemo`, use a `useLayoutEffect`, or reset via a ref + event handler.
+- [ ] Verify the nav section-highlighting still works when navigating between home-hash links and subpages.
+- [ ] Run `bun run lint` — exit code 0.
+
+**Files to edit:**
+- `src/components/layout/nav.tsx`
 
 ---
 
 ### 3. Set up and link Google Business Profile
 **Impact:** #1 local ranking factor for SABs. Currently no GBP linked anywhere on the site.
-**Current state:** Trust bar claims "5.0 on Google" with no link to verify. No GBP URL in schema or on-page.
+**Current state:** No GBP listing exists. The trust bar no longer claims "5.0 on Google" (removed in v3), but we still need a GBP for local signals.
 
 **Steps:**
 - [ ] Create GBP listing at business.google.com
-  - Business name: "Quilliam Digital"
-  - Primary category: "Internet marketing service" or "Business management consultant"
-  - Business type: SAB (Service Area Business) — hide address, set service area to United Kingdom
-  - Phone: 07593 121621
-  - Email: levi@quilliamdigital.com
-  - Website: https://quilliamdigital.com
-  - Description: Use the site's meta description
-  - Hours: Mon-Fri 9am-5pm (adjust as needed)
+  - **Business name:** Quilliam AI (trading name of Quilliam AI Ltd)
+  - **Primary category:** Business management consultant OR IT consultant (pick the one with lower competition in Cornwall)
+  - **Secondary category:** Computer training school (for the AI Education side)
+  - **Business type:** SAB (Service Area Business) — hide address, set service area to United Kingdom
+  - **Phone:** 07593 121621
+  - **Email:** levi@quilliam.ai
+  - **Website:** https://quilliam.ai
+  - **Description:** Use siteConfig.description from `content.ts`
+  - **Hours:** Mon–Fri 9am–5pm
 - [ ] Verify the listing (postcard, phone, or video verification)
-- [ ] Upload real photos to GBP (same ones used on the site)
-- [ ] Add all 3 services to GBP
-- [ ] Add GBP link to footer (next to email):
-  ```tsx
-  <a href="https://g.page/quilliamdigital" target="_blank" rel="noopener noreferrer">
-    Google Reviews
-  </a>
-  ```
-- [ ] Update trust bar "5.0 on Google" to link to GBP review page
-- [ ] Add GBP URL to `sameAs` in schema
-- [ ] Once reviews exist, add real `aggregateRating` with actual `reviewCount` to schema (audit item #4)
-- [ ] Update "5.0 on Google" to "5.0 from X reviews on Google" with link to GBP (audit item #18)
+- [ ] Upload real photos once #1 is complete
+- [ ] Add all 3 services to GBP (AI Education, AI Implementation, Digital Services)
+- [ ] Add GBP URL to `siteConfig.socialLinks` in `content.ts` — flows into JSON-LD `sameAs` automatically
+- [ ] Add visible "Google Reviews" link in footer contact column
+- [ ] Once reviews exist, add real `aggregateRating` with actual `reviewCount` to Organization schema in `layout.tsx`
 
 **Files to edit:**
+- `src/lib/content.ts` (add GBP URL to `socialLinks`)
+- `src/components/layout/footer.tsx` (add visible link)
+- `src/app/layout.tsx` (add aggregateRating once reviews exist)
+
+---
+
+### 4. Populate social profile links
+**Impact:** Schema `sameAs` is currently an empty array. Every entity recommendation engine (Google knowledge graph, AI crawlers, Bing) uses `sameAs` to disambiguate and rank the business.
+**Current state:** `siteConfig.socialLinks` is `[] as string[]` in `content.ts`.
+
+**Steps:**
+- [ ] Create Quilliam AI profiles on: LinkedIn company page, X/Twitter, GitHub org (optional), YouTube (if doing demo videos)
+- [ ] Ensure each profile links back to https://quilliam.ai
+- [ ] Populate `siteConfig.socialLinks` in `content.ts` with the full URLs — they flow into `sameAs` automatically
+- [ ] Add visible social icons to the footer
+
+**Files to edit:**
+- `src/lib/content.ts`
 - `src/components/layout/footer.tsx`
-- `src/components/home/trust-bar.tsx`
-- `src/app/layout.tsx` (schema sameAs + aggregateRating)
 
 ---
 
 ## Uncompleted — High Priority (Fix Within 1 Week)
 
-### 9. Add citable definition paragraphs
-**Impact:** AI citation readiness. Current content paragraphs are 15-30 words — too short for AI extraction (optimal: 134-167 words).
-**Current state:** Hero has short visible subtitle. Services and about sections have full-length definition paragraphs with embedded stats.
-
-**Steps:**
-- [x] Add a definition paragraph below the hero H1 (sr-only for crawlers, short visible subtitle for users)
-- [x] Add similar summary paragraphs to each section (services, process, about)
-- [x] Ensure key statistics are embedded in full prose sentences, not just UI counters
-- [ ] Review hero sr-only approach — consider whether citable content should be visible elsewhere on the page instead
-
-**Files edited:**
-- `src/components/home/services-cards.tsx`
-- `src/components/home/about-preview.tsx`
-
----
-
-### A9. Install analytics
-**Impact:** Cannot measure CWV or organic traffic without analytics.
+### 5. Install analytics
+**Impact:** Cannot measure CWV, organic traffic, or conversion funnel (training vs audit intent split) without analytics.
 **Current state:** No analytics installed.
 
 **Steps:**
-- [ ] Install Vercel Analytics or Plausible
+- [ ] Install Vercel Analytics or Plausible (Plausible preferred — privacy-first, simpler CSP compliance, no cookie banner)
 - [ ] Verify CWV tracking is working
+- [ ] Set up a goal for `/book` form submissions
+- [ ] Optional: tag `?intent=training` vs `?intent=audit` as separate conversion events so we can see which funnel performs better
 
 ---
 
-### 10. Collect more testimonials
-**Impact:** E-E-A-T Experience + local review signals. One testimonial is insufficient.
-**Current state:** Single testimonial from Dirk Parker, K2 Gym Newquay.
+### 6. Collect testimonials across both service halves
+**Impact:** E-E-A-T Experience signal. Currently only one example engagement (VetVision) visible on the site and no actual pull-quotes from other clients.
+**Current state:** VetVision quote on homepage + AI Education page. Nothing else.
 
 **Steps:**
-- [ ] Reach out to existing/past clients for quotes (aim for 3-5 total)
-- [ ] Get permission to use their name, business, and location
-- [ ] Diversify across industries (not just gyms)
-- [ ] Add testimonials to homepage (new section or expand existing)
+- [ ] Reach out to past / current clients for pull-quotes (aim for 3–5 total)
+- [ ] Ask for permission to use name, business, and location
+- [ ] **Diversify by service side** — at least one testimonial per service:
+  - One for AI Education (training / workshops)
+  - One for AI Implementation (automation / agents)
+  - One for Digital Services (website / content)
+- [ ] Add a testimonials section to the homepage (either expand the existing VetVision card or add a dedicated row below it)
 - [ ] Add individual `Review` schema for each testimonial:
   ```json
   {
@@ -119,579 +142,314 @@ SEO audit score: **72/100** (5 April 2026). Strong technical foundation. Critica
     "author": { "@type": "Person", "name": "..." },
     "reviewRating": { "@type": "Rating", "ratingValue": "5" },
     "reviewBody": "...",
-    "itemReviewed": { "@id": "https://quilliamdigital.com/#organization" }
+    "itemReviewed": { "@id": "https://quilliam.ai/#organization" }
   }
   ```
-- [ ] Add a different automation-focused testimonial to the AI Automation page (currently has zero social proof after K2 moved to AI Training)
+- [ ] Add a testimonial to each of the 3 service pages (currently none on AI Implementation or Digital Services)
 
 ---
 
-### A12. Build Tier 1 UK citations
-**Impact:** Thin external footprint is the biggest systemic ceiling on rankings.
+### 7. Build Tier 1 UK citations
+**Impact:** Thin external footprint is the biggest systemic ceiling on rankings. NAP consistency across directories is a foundational local SEO signal.
+**Current state:** No citations exist. `sameAs` is empty.
 
 **Steps:**
-- [ ] Submit to Yell, FreeIndex, Bark, Clutch, Apple Business Connect, Bing Places
-- [ ] Ensure NAP is identical across all (Quilliam Digital, Cornwall UK, 07593 121621, levi@quilliamdigital.com)
+- [ ] Submit to: Yell.com, FreeIndex, Bark, Clutch, Apple Business Connect, Bing Places, Thomson Local, Trustpilot, Yelp UK
+- [ ] Ensure NAP is **identical** across all:
+  - Name: `Quilliam AI` (trading name; use `Quilliam AI Ltd` only where the legal name is required)
+  - Address: `25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB, United Kingdom`
+  - Phone: `07593 121621`
+  - Email: `levi@quilliam.ai`
+  - Website: `https://quilliam.ai`
+- [ ] Once profiles exist, add each canonical URL to `siteConfig.socialLinks` so they flow into JSON-LD `sameAs`
+
+---
+
+### 8. Review citable paragraphs for AI extraction
+**Impact:** AI citation readiness. Long `sr-only` paragraphs may be penalised as hidden content; visible citable paragraphs rank better.
+**Current state:** `/about` has an sr-only citable paragraph (updated for v3). Homepage services-cards has a visible ~150-word definition paragraph. About-preview has a ~130-word paragraph.
+
+**Steps:**
+- [ ] Review whether the about page sr-only block should be surfaced visibly somewhere (e.g. as an expanded intro, or moved into the hero subheading)
+- [ ] Check that every H2 on the homepage is answered in full prose within the section (not just a heading + UI grid)
+- [ ] Confirm AI Education / AI Implementation / Digital Services pages each have a 100–170 word definition paragraph near the top
+
+**Files to check:**
+- `src/app/about/page.tsx`
+- `src/app/services/ai-training/page.tsx`
+- `src/app/services/ai-automation/page.tsx`
+- `src/app/services/digital-services/page.tsx`
+
+---
+
+### 9. Source or remove unattributed stats on Digital Services page
+**Impact:** Credibility — unsourced statistics undermine trust.
+**Current state:** Digital Services page still cites "97%", "46%", "76%" with no inline source. (AI Automation page stats were removed during the v3 rewrite — no action needed there.)
+
+**Steps:**
+- [ ] Add subtle source attributions to each stat on the Digital Services "Why this matters" section (e.g. "Source: BrightLocal 2025")
+- [ ] Or replace with verified first-party metrics once available
+
+**File to edit:**
+- `src/app/services/digital-services/page.tsx`
 
 ---
 
 ## Uncompleted — Medium Priority (Fix Within 1 Month)
 
-### 46. Add unattributed stat sources on service pages
-**Impact:** Credibility — unsourced statistics undermine trust
-**Current state:** Digital Services page cites "97%", "46%", "76%", "88%" with no source. AI Automation page claims "3x more Google reviews", "40% more repeat business", "90% fewer no-shows" without clarifying if these are real client results or projections.
+### 10. Consider renaming service URL slugs to match display names
+**Impact:** SEO (slug matches the keyword), cleaner sharing, less cognitive friction when reading the sitemap. Also eliminates the current mismatch between slug and display name.
+**Current state:** Slugs are legacy from the pre-rebrand site:
+- `/services/ai-training` → displays as "AI Education"
+- `/services/ai-automation` → displays as "AI Implementation"
+- `/services/digital-services` → displays as "Digital Services" (slug matches)
 
-**Steps:**
-- [ ] Add subtle source citations to digital services stats (e.g., "Source: Google/BrightLocal 2025")
-- [ ] Label automation stats as "typical results" if not from verified client data
-- [ ] Or replace with real K2 Gym / client metrics
+**Decision to make before touching:** Has the site been indexed by Google yet? If yes, rename needs 301 redirects. If no (`quilliam.ai` domain is new), straight rename is safe.
+
+**Steps (if renaming):**
+- [ ] Rename folders:
+  - `src/app/services/ai-training/` → `src/app/services/ai-education/`
+  - `src/app/services/ai-automation/` → `src/app/services/ai-implementation/`
+- [ ] Update all internal references: `serviceLinks` in `content.ts`, footer, `OtherServicesSection`, any hardcoded hrefs
+- [ ] Update `sitemap.ts`
+- [ ] Update `llms.txt` + `llms-full.txt`
+- [ ] Update schema `@id` URLs on service pages (`ServiceJsonLd`)
+- [ ] Add 301 redirects in `next.config.ts` from old → new slugs just in case anything was shared
+- [ ] Update service-specific JSON-LD slug prop
+- [ ] Test all internal links
+
+**Files to touch:** 3 service page folders, `content.ts`, `footer.tsx`, `sitemap.ts`, `llms.txt`, `llms-full.txt`, `next.config.ts`, and the `services/shared.tsx` icon mapping
 
 ---
 
-### A14. Evaluate framer-motion bundle size
-**Impact:** ~30-35KB gzipped, affects TTI.
+### 11. Start a blog with v3-aligned pillar articles
+**Impact:** Ranking opportunity + E-E-A-T + content grounding for AI crawlers. A general AI agency needs content that demonstrates expertise on both sides (education + implementation).
+**Current state:** No blog exists.
 
 **Steps:**
-- [ ] Run production build and check framer-motion chunk size
+- [ ] Set up `src/app/blog/` with MDX
+- [ ] Write 3–5 pillar articles — drafts below, all targeting the general-AI-agency positioning:
+  - **"AI Education vs AI Implementation: which does your team need first?"** — flagship article, maps directly to the dual CTA funnel
+  - **"A UK business owner's guide to ChatGPT, Claude, and Gemini (2026)"** — comparison table, when-to-use-which, embedded in real work examples
+  - **"How much does it cost to build an AI automation in 2026?"** — pricing transparency article, great for commercial-intent search
+  - **"How to roll AI out across your team without it flopping"** — education-angle, linking to the AI Education service
+  - **"What is an AI Audit? Everything you need to know"** — funnel-top article with direct CTA to `/book?intent=audit`
+- [ ] Each article: 1,500+ words, H2/H3 structure, comparison tables where relevant, internal links to 2–3 service pages, FAQ schema
+- [ ] Add blog to `sitemap.ts` and navigation
+
+---
+
+### 12. Replace K2 Gym case-study plan with VetVision case study
+**Impact:** Single most-valuable E-E-A-T asset — a full case study with real outcomes.
+**Current state:** VetVision is featured as an "example engagement" on the homepage but there's no dedicated page. The old plan was for a K2 Gym case study which is no longer relevant.
+
+**Steps:**
+- [ ] Create `src/app/case-studies/vetvision/page.tsx`
+- [ ] Include: the problem (two brands, one GTM lead, manual onboarding), the work across all three service workstreams (Education / Implementation / Digital Services), before/after metrics where available, quote from James, permission to use business name
+- [ ] Add `CaseStudy` or `Article` schema
+- [ ] Link from homepage `industry-tabs` (change "Talk to us about your business" CTA to "Read the full VetVision case study")
+- [ ] Add to `sitemap.ts`
+- [ ] **Get James's written permission** before publishing (important — this is an active client relationship)
+
+---
+
+### 13. Replace industry vertical pages with use-case pages
+**Impact:** The old plan (`/industries/gyms`, `/industries/trades`) was built around the narrow pre-rebrand positioning and doesn't fit a general AI agency. Use-case pages are a better fit for the new framing — they target buyer intent instead of demographics.
+**Current state:** No vertical or use-case pages exist.
+
+**Steps:**
+- [ ] Build `src/app/use-cases/` with individual pages targeting specific buyer intents:
+  - `/use-cases/team-ai-training` — for "how do I train my team on AI" queries
+  - `/use-cases/customer-onboarding-automation` — the VetVision workstream as a standalone use case
+  - `/use-cases/ai-receptionist` — high commercial intent
+  - `/use-cases/custom-chatgpt-for-business` — another high commercial intent query
+- [ ] Each page: targeted H1 matching the primary keyword, 800+ words, real example (ideally VetVision), relevant FAQ, schema (`Service` with targeted `serviceType`)
+- [ ] Link from relevant service pages (e.g. AI Implementation page → use-cases/customer-onboarding-automation)
+
+---
+
+### 14. Embed Cornwall map in footer or about section
+**Impact:** Regional map embed is a signal of geographic relevance for local SEO.
+**Current state:** No map embed.
+
+**Steps:**
+- [ ] Add a small regional Cornwall map to the footer or about-page Cornwall section
+- [ ] Use `loading="lazy"` to protect LCP
+- [ ] Use a static Google Maps embed or an OpenStreetMap tile (OSM is better for CSP)
+
+---
+
+### 15. Add comparison tables
+**Impact:** Comparison tables rank well for "X vs Y" searches and feed AI citations cleanly.
+**Current state:** Zero `<table>` elements on the site.
+
+**Steps:**
+- [ ] Add a service comparison table somewhere on the homepage or a `/services` index page:
+  - AI Education vs AI Implementation vs Digital Services
+  - Columns: "Best for", "Starts from", "Timeline", "Your team's role"
+- [ ] Use semantic HTML `<table>` elements — not CSS grids
+
+---
+
+### 16. Implement review generation system
+**Impact:** Reviews drive GBP ranking and schema `aggregateRating`. 18-day review velocity cliff means momentum matters.
+**Current state:** No review flow.
+
+**Steps:**
+- [ ] Add "Leave us a review" CTA to the booking confirmation success screen
+- [ ] Create direct links to GBP review form once #3 is done
+- [ ] Add review request to post-engagement follow-up emails
+- [ ] Aim for 2+ reviews per month
+
+---
+
+### 17. Evaluate framer-motion bundle cost
+**Impact:** ~30–35KB gzipped. Affects TTI and is only used in one file (`FadeIn`).
+**Current state:** `framer-motion` imported for a single scroll-triggered wrapper.
+
+**Steps:**
+- [ ] Measure actual chunk size in `bun run build` output
 - [ ] Consider replacing `FadeIn` with CSS `@starting-style` + `IntersectionObserver`
-- [ ] Or switch to `motion` (standalone lightweight package by same author)
+- [ ] Or switch to `motion` (standalone lightweight package by the same author)
 - [ ] Or use `next/dynamic` with `ssr: false` to defer the bundle
 
----
-
-### A22. Embed Google Maps in footer or about section
-**Impact:** Regional map of Cornwall signals geographic relevance for local SEO.
-
-**Steps:**
-- [ ] Add a regional Cornwall map embed to footer or about section
-- [ ] Ensure it uses `loading="lazy"` to not impact LCP
-
----
-
-### 13. Create /about page
-**Steps:**
-- [ ] Create `src/app/about/page.tsx`
-- [ ] Include: Levi's background, credentials, story, methodology, photo
-- [ ] Add to sitemap and navigation
-- [ ] Update Person schema `url` from `/#about` to `/about`
-
-### 14. Start a blog
-**Steps:**
-- [ ] Set up `src/app/blog/` with MDX or CMS integration
-- [ ] Write 3-5 pillar articles targeting high-intent queries:
-  - "AI Automation for UK Small Businesses: The Complete Guide (2026)"
-  - "How AI Saves Gym Owners 10+ Hours Per Week"
-  - "How Much Does AI Automation Cost for a Small Business?"
-  - "AI Tools for Small Businesses: ChatGPT vs Claude Compared"
-  - "What is an AI Audit? Everything You Need to Know"
-- [ ] Each article: 1,500+ words, H2/H3 structure, comparison tables, internal links
-- [ ] Add blog to sitemap and navigation
-
-### 15. Expand K2 Gym into full case study
-**Steps:**
-- [ ] Create `/case-studies/k2-gym` page
-- [ ] Include: before/after metrics table, specific automations implemented, timeline, tools used, full quote
-- [ ] Add CaseStudy or Article schema
-- [ ] Link from homepage industry section
-
-### 16. Add comparison tables
-**Steps:**
-- [ ] Service comparison table (AI Training vs AI Automation vs Digital Services — what's included, price range, timeline, best for)
-- [ ] Before/after metrics table for case study
-- [ ] Use semantic HTML `<table>` elements (currently zero on the site)
-
-### 17. Build Tier 1 citations
-**Steps:**
-- [ ] Create consistent listings on: Yell.com, Thomson Local, FreeIndex, Trustpilot, Yelp UK
-- [ ] Create LinkedIn company page
-- [ ] Create Facebook business page
-- [ ] Ensure NAP is identical across all (Quilliam Digital, Cornwall UK, 07593 121621, levi@quilliamdigital.com)
-- [ ] Link BNI member profile from trust bar
-
-### 18. Create industry vertical pages
-**Steps:**
-- [ ] Build `/industries/gyms` as dedicated landing page (move K2 case study here)
-- [ ] Plan additional verticals: `/industries/trades`, `/industries/hospitality`, etc.
-- [ ] Each page: targeted H1, industry-specific pain points, relevant case study, FAQ, schema
-
-### 21. Add social profile links
-**Steps:**
-- [ ] Create LinkedIn, Instagram profiles
-- [ ] Add social links to footer
-- [ ] Add all profile URLs to `sameAs` in schema
-
-### 22. Implement review generation system
-**Steps:**
-- [ ] Add "Leave us a review" CTA to booking confirmation screen
-- [ ] Create direct link to GBP review form
-- [ ] Add review request to follow-up emails
-- [ ] Aim for 2+ reviews per month (18-day review velocity cliff)
-
----
-
-## Uncompleted — Low Priority (Backlog)
-
-*(Empty — all items implemented. See Completed section.)*
+**File to touch:** `src/components/shared/fade-in.tsx` — single migration point
 
 ---
 
 ## Uncompleted — Future Enhancements
 
-### 6 (sub-item). Verify OG tags render correctly after deploy
-- [ ] Verify each page's OG tags render correctly after deploy
+### 18. Verify OG tags after deploy
+- [ ] Verify each page's OG tags render correctly in production (Twitter card validator, LinkedIn post inspector, Facebook sharing debugger)
+- [ ] Confirm the dynamic `/opengraph-image` route returns the v3 headline
 
-### 38 (sub-item). Create service-specific OG images
-- [ ] Create service-specific OG images via per-route `opengraph-image.tsx` (future enhancement)
+### 19. Create service-specific OG images
+- [ ] Create per-service OG images via per-route `opengraph-image.tsx` so shared service URLs get branded previews (AI Education / AI Implementation / Digital Services)
+
+### 20. Split `/book` into dedicated training + audit routes
+**Consider later:** Currently `/book` is dynamic, reading `?intent=` query params. For SEO, separate routes (`/book/training`, `/book/audit`) would be stronger — each with their own static metadata, schema, and indexable content. Keep the query-param version as a fallback redirect. Only worth doing once there's real traffic to measure against.
 
 ---
 
-## Completed
+## Completed — v3 rebrand session (2026-04-11)
+
+### ~~Rebrand Quilliam Digital → Quilliam AI (v1 → v2)~~ DONE
+- [x] Full rewrite of `content.ts`: siteConfig, services, sprintSteps, featured engagement, FAQs
+- [x] New domain (`quilliam.ai`) and email (`levi@quilliam.ai`)
+- [x] Root metadata + JSON-LD graph updated
+- [x] All 3 service pages rewritten
+- [x] All homepage sections rewritten (hero, trust-bar, services-cards, sprint-process, industry-tabs, about-preview, faq-section)
+- [x] About, contact, book, service-areas, privacy, terms pages all updated
+- [x] Company details wired through: `legalName`, `companyNumber: 17151006`, `registeredOffice`
+- [x] Footer surfaces CRN and registered office (s.82 Companies Act 2006 compliance)
+- [x] Privacy + terms updated with new legal entity details
+- [x] llms.txt + llms-full.txt rewritten
+- [x] `opengraph-image.tsx` headline updated
+- [x] `site.webmanifest`, `security.txt` updated
+- [x] README + AGENTS.md updated
+
+### ~~Reposition from B2B SaaS specialist → general UK AI agency (v2 → v3)~~ DONE
+- [x] siteConfig tagline and description broadened
+- [x] Services renamed: AI Education (was AI Training), AI Implementation (was AI Automation), Digital Services (back to generalist framing)
+- [x] Target audience broadened from B2B SaaS to UK businesses of all shapes and sizes
+- [x] VetVision reframed as "example engagement", not target market
+- [x] Dual CTA funnel introduced: "Book Free AI Training" + "Book Free AI Audit"
+- [x] `/book` page reads `?intent=training|audit` and swaps hero copy, badge, submit button, success message
+- [x] Booking form gains three-way radio (training/audit/either), defaults from URL intent
+- [x] `booking-action.ts` reflects interest in email subject line (`New AI Training Booking:` vs `New AI Audit Booking:`)
+- [x] Nav (desktop + mobile), sticky CTA, hero, about CTA, CTA section, contact block, footer all expose both CTAs
+- [x] All 3 service pages rewritten for v3 display names
+- [x] Homepage sections updated (hero "We teach AI. We build with AI.", trust-bar, services-cards copy, industry-tabs example framing, about-preview)
+- [x] About page narrative rebuilt around "two halves of one job"
+- [x] Service-areas page de-narrowed (no more B2B SaaS region framing)
+- [x] Contact page dual quick-book block
+- [x] Privacy + terms service lists updated
+- [x] llms.txt + llms-full.txt rewritten
+- [x] OG image headline updated
+- [x] AGENTS.md + README voice rules, key phrases, CTA guidance updated
+- [x] Build passes, no new lint errors introduced
+
+### ~~#13. Create /about page~~ DONE (from v2 rebrand)
+Created and rewritten twice across v2 + v3.
+
+### ~~#27. Populate company registration number~~ DONE (from v2 rebrand)
+`siteConfig.companyNumber` now set to real Companies House number `17151006`. Wired into footer, JSON-LD `identifier`, privacy page, terms page.
+
+---
+
+## Completed — Pre-rebrand (historical record)
+
+> The items below were completed during the Quilliam Digital phase. They reference "Quilliam Digital", "quilliamdigital.com", and "K2 Gym" — those references are stale, but the *work* they represent is still present in the codebase and didn't need redoing. Preserved for audit history.
 
 ### ~~#23 + A29. Add WebPage schema per route with isPartOf → WebSite~~ DONE
-**Steps:**
 - [x] Created reusable `WebPageJsonLd` component in `src/components/shared/webpage-jsonld.tsx`
-- [x] Added to all 7 pages (homepage, book, privacy, terms, ai-training, ai-automation, digital-services)
+- [x] Added to all pages (homepage, book, privacy, terms, about, contact, service-areas, all 3 service pages)
 - [x] Each includes `isPartOf` → `WebSite`, `datePublished`, `dateModified`, and `publisher` → `Organization`
 
-**Files:** `src/components/shared/webpage-jsonld.tsx` (new), all 7 page files
-
----
-
 ### ~~#24. Add HowTo schema for the 3-step audit process~~ DONE
-**Steps:**
 - [x] Added `HowTo` schema to homepage JSON-LD graph
-- [x] Maps all 3 sprint steps (Book, Audit, Implement) with descriptions
-
-**File edited:** `src/app/page.tsx`
-
----
+- [x] Maps all 3 sprint steps with descriptions
 
 ### ~~#25. IndexNow integration~~ DONE
-**Steps:**
-- [x] Created verification key file `public/3d99157dbd521de3c44fefb4153555d6.txt`
-- [x] Created API route `src/app/api/indexnow/route.ts` for on-demand URL submission
-- [x] Supports single URL or batch submission via POST
-
-**Files:** `public/3d99157dbd521de3c44fefb4153555d6.txt`, `src/app/api/indexnow/route.ts`
-
----
+- [x] Verification key file at `public/3d99157dbd521de3c44fefb4153555d6.txt`
+- [x] API route at `src/app/api/indexnow/route.ts` for on-demand URL submission
 
 ### ~~#26. Create /contact page with all contact methods~~ DONE
-**Steps:**
-- [x] Created `src/app/contact/page.tsx` with phone, email, WhatsApp, and address
-- [x] Includes business hours, BreadcrumbJsonLd, WebPageJsonLd
-- [x] Added to sitemap, nav, and footer
-- [x] Full metadata with OG tags
 
-**Files:** `src/app/contact/page.tsx` (new), `src/app/sitemap.ts`, `src/lib/content.ts`, `src/components/layout/footer.tsx`
+### ~~#28. VideoJsonLd component prepared~~ DONE
+Ready to embed once a YouTube channel + video exist.
 
----
+### ~~#30. datePublished / dateModified on page-level schema~~ DONE
 
-### ~~#27. Add company registration number to footer and schema~~ DONE
-**Steps:**
-- [x] Added `companyNumber` field to `siteConfig` in `content.ts` (placeholder — needs real number)
-- [x] Added conditional `taxID` to Organization schema in `layout.tsx`
-- [x] Added conditional display in footer
+### ~~#31. CSP promoted from Report-Only to enforcing~~ DONE
 
-**Files edited:** `src/lib/content.ts`, `src/app/layout.tsx`, `src/components/layout/footer.tsx`
+### ~~#32. Create /service-areas page~~ DONE
 
----
+### ~~A25. HSTS preload directive~~ DONE
+### ~~A26. Conditional Person schema image~~ DONE
+### ~~A31. postalCode on schema address~~ DONE (now the real registered office postal code)
+### ~~A32. WhatsAppButton as server component~~ DONE
+### ~~A33. /.well-known/security.txt~~ DONE
+### ~~A30. Reduced backdrop-blur on mobile nav~~ DONE
+### ~~A2. FadeIn removed from above-fold LCP elements~~ DONE
+### ~~A5. Sitemap static dates + noise removal~~ DONE
+### ~~A6. Service page breadcrumbs 3-level~~ DONE
+### ~~A7. Logo schema URL fix~~ DONE
+### ~~A8. Custom 404 page~~ DONE
+### ~~A11. Dedupe Service `@id`s across homepage + service pages~~ DONE
+### ~~A17. Privacy consent on booking form~~ DONE
+### ~~A21. `@id` on FAQPage schemas on service pages~~ DONE
 
-### ~~#28. Video schema infrastructure prepared~~ DONE
-**Steps:**
-- [x] Created reusable `VideoJsonLd` component in `src/components/shared/video-jsonld.tsx`
-- [x] Ready to embed once YouTube channel + video exist
-
-**Note:** Creating the YouTube channel and recording the video are external tasks.
-
-**File:** `src/components/shared/video-jsonld.tsx` (new)
-
----
-
-### ~~#30. Add datePublished / dateModified to page-level schema~~ DONE (addressed in #23/A29)
-**Steps:**
-- [x] All `WebPageJsonLd` instances include `datePublished` and `dateModified` props
-
----
-
-### ~~#31. Promote CSP from Report-Only to enforcing mode~~ DONE
-**Steps:**
-- [x] Changed `Content-Security-Policy-Report-Only` to `Content-Security-Policy`
-- [x] `picsum.photos` temporarily in `img-src` — remove when images are local
-
-**File edited:** `next.config.ts`
-
----
-
-### ~~#32. Create /service-areas page listing served regions~~ DONE
-**Steps:**
-- [x] Created `src/app/service-areas/page.tsx` with 6 UK regions + Cornwall spotlight
-- [x] Includes BreadcrumbJsonLd, WebPageJsonLd, full metadata
-- [x] Added to sitemap
-
-**Files:** `src/app/service-areas/page.tsx` (new), `src/app/sitemap.ts`
+### ~~#2. Merge Organization + LocalBusiness into ProfessionalService~~ DONE
+### ~~#4. Visible clickable phone number~~ DONE
+### ~~#5. Create llms.txt + llms-full.txt~~ DONE
+### ~~#6. OG tag inheritance on subpages~~ DONE
+### ~~#7. Dedicated service pages~~ DONE
+### ~~#8. robots.txt AI crawler rules~~ DONE
+### ~~#11. WebSite schema~~ DONE
+### ~~#12. BreadcrumbList schema on subpages~~ DONE
+### ~~#20. Remove X-Powered-By header~~ DONE
+### ~~#33. Fix nested `<main>` on legal pages~~ DONE
+### ~~#34. Canonical URL consistency on legal pages~~ DONE
+### ~~#35. Relative OG URLs on subpages~~ DONE
+### ~~#36. Deduplicate homepage ↔ service page FAQs~~ DONE
+### ~~#38. OG images on service pages~~ DONE
+### ~~#39. Unused imports + mobile overflow fixes~~ DONE
+### ~~#41. Remove dead components and unused dependencies~~ DONE
+### ~~#42. Hero as Server Component~~ DONE
+### ~~#44. `aria-live` on form error messages~~ DONE
+### ~~#45. Update deprecated security headers~~ DONE
+### ~~#47. Remove dead data + add error boundary~~ DONE
+### ~~#48. Anchor IDs on service page sections~~ DONE
 
 ---
 
-### ~~A25. Add HSTS preload directive~~ DONE
-**Steps:**
-- [x] Added `preload` to HSTS header value in `next.config.ts`
-
-**File edited:** `next.config.ts`
-
----
-
-### ~~A26. Add Person schema image (conditional)~~ DONE
-**Steps:**
-- [x] Added `founderImage` to `siteConfig` (empty string — set to `/images/levi.jpg` when photo exists)
-- [x] Person schema conditionally includes `image` when `founderImage` is set
-
-**Files edited:** `src/lib/content.ts`, `src/app/layout.tsx`
-
----
-
-### ~~A31. Add postalCode to schema address~~ DONE
-**Steps:**
-- [x] Added `"postalCode": "TR1"` to Organization address in schema
-
-**File edited:** `src/app/layout.tsx`
-
----
-
-### ~~A32. Convert WhatsAppButton to server component~~ DONE
-**Steps:**
-- [x] Removed `"use client"` directive — component uses no hooks, handlers, or browser APIs
-
-**File edited:** `src/components/layout/whatsapp-button.tsx`
-
----
-
-### ~~A33. Add /.well-known/security.txt~~ DONE
-**Steps:**
-- [x] Created `public/.well-known/security.txt` with contact, preferred languages, canonical URL, and expiry
-
-**File:** `public/.well-known/security.txt` (new)
-
----
-
-### ~~A30. Reduce backdrop-blur on mobile nav for scroll performance~~ DONE
-**Steps:**
-- [x] Changed from `backdrop-blur-2xl` to `backdrop-blur-lg md:backdrop-blur-2xl` on main nav bar
-- [x] Desktop retains full blur, mobile uses lighter blur for scroll performance
-
-**File edited:** `src/components/layout/nav.tsx`
-
----
-
-### ~~A2. Remove FadeIn from above-fold LCP elements~~ DONE
-**Steps:**
-- [x] Verified: H1 and hero image are not wrapped in `FadeIn` — no LCP penalty
-
----
-
-### ~~A3. Fix homepage/automation keyword cannibalization~~ DONE
-**Steps:**
-- [x] Changed homepage title from "AI Automation for UK Small Businesses" to "AI Solutions for UK Small Businesses"
-- [x] Automation page retains "AI Automation for Small Businesses" — no keyword overlap
-
-**File edited:** `src/app/layout.tsx`
-
----
-
-### ~~A5. Fix sitemap static dates and remove noise~~ DONE
-**Steps:**
-- [x] Replaced `new Date()` with static date strings reflecting actual content changes
-- [x] Removed `priority`, `changeFrequency` (Google ignores these)
-- [x] Removed `host` from robots.ts
-
-**Files edited:** `src/app/sitemap.ts`, `src/app/robots.ts`
-
----
-
-### ~~A6. Fix service page breadcrumbs to 3-level~~ DONE
-**Steps:**
-- [x] Changed from `[{name: "AI Training", href: "/services/ai-training"}]` to `[{name: "Services", href: "/#services"}, {name: "AI Training", href: "/services/ai-training"}]`
-- [x] Applied to all 3 service pages
-
-**Files edited:** `src/app/services/ai-training/page.tsx`, `src/app/services/ai-automation/page.tsx`, `src/app/services/digital-services/page.tsx`
-
----
-
-### ~~A7. Fix logo schema URL~~ DONE
-**Steps:**
-- [x] Changed logo URL from OG image (1200x630) to `/og-logo.png` (260x260 actual logo)
-
-**File edited:** `src/app/layout.tsx`
-
----
-
-### ~~A8. Create custom 404 page~~ DONE
-**Steps:**
-- [x] Created `src/app/not-found.tsx` with nav links and CTA, matching site design system
-
-**File created:** `src/app/not-found.tsx`
-
----
-
-### ~~A10. Add "Cornwall" to service page title tags~~ DONE
-**Steps:**
-- [x] All 3 service pages now include "Cornwall & UK-Wide" in title
-
-**Files edited:** `src/app/services/ai-training/page.tsx`, `src/app/services/ai-automation/page.tsx`, `src/app/services/digital-services/page.tsx`
-
----
-
-### ~~A11. Fix duplicate Service @ids~~ DONE
-**Steps:**
-- [x] Removed less-complete Service schemas from homepage `page.tsx`
-- [x] Service pages retain the authoritative `Service` + `Offer` schemas
-
-**File edited:** `src/app/page.tsx`
-
----
-
-### ~~A15. Remove priority/changeFrequency/host from sitemap/robots~~ DONE (addressed in A5)
-
----
-
-### ~~A17. Add privacy consent to booking form~~ DONE
-**Steps:**
-- [x] Added required checkbox with link to privacy policy before submit button
-
-**File edited:** `src/components/book/booking-form.tsx`
-
----
-
-### ~~A19. Expand homepage FAQ answers to 100-150 words~~ DONE
-**Steps:**
-- [x] All 5 FAQ answers expanded to 100-150 words
-- [x] Added "Quilliam Digital" entity name and specific examples in each answer
-- [x] Embedded K2 Gym stats and pricing in natural prose
-
-**File edited:** `src/lib/content.ts`
-
----
-
-### ~~A20. Rewrite H2 headings as questions for AI citation matching~~ DONE
-**Steps:**
-- [x] "How it works" → "How does Quilliam Digital's free AI Audit work?"
-- [x] "AI Services for Small Businesses" → "What AI services does Quilliam Digital offer?"
-- [x] "AI built for your industry" → "How does Quilliam Digital tailor AI for your industry?"
-- [x] "I make AI work / for real businesses" → "Who is behind / Quilliam Digital?"
-
-**Files edited:** `src/components/home/sprint-process.tsx`, `src/components/home/services-cards.tsx`, `src/components/home/industry-tabs.tsx`, `src/components/home/about-preview.tsx`
-
----
-
-### ~~A21. Add @id to FAQPage schemas on service pages~~ DONE
-**Steps:**
-- [x] Added `"@id": "{url}/services/{slug}#faq"` to FAQPage schema in `shared.tsx`
-
-**File edited:** `src/components/services/shared.tsx`
-
----
-
-### ~~A23. Fix llms.txt — add link to full version and last-updated date~~ DONE
-**Steps:**
-- [x] Added `> Full version:` link and `> Last updated: 2026-04-05`
-- [x] Added cross-link from llms-full.txt back to short version
-
-**Files edited:** `public/llms.txt`, `public/llms-full.txt`
-
----
-
-### ~~A24. Fix llms-full.txt quote inconsistency~~ DONE
-**Steps:**
-- [x] Aligned K2 Gym quote to match `content.ts` source of truth
-
-**File edited:** `public/llms-full.txt`
-
----
-
-### ~~2. Merge Organization/LocalBusiness schema into single entity~~ DONE
-**Steps:**
-- [x] In `layout.tsx`, replaced both `organizationSchema` and `localBusinessSchema` with a single combined node
-- [x] Upgraded `LocalBusiness` to `ProfessionalService` (Schema.org subtype, better for consulting)
-- [x] Added `image` property (use OG image or real business photo)
-- [x] Upgraded `logo` from bare URL string to `ImageObject` with width/height
-- [x] Changed `priceRange` from `"$$"` to `"££"` (UK convention)
-- [x] Added `geo` with Cornwall coordinates
-- [x] Added `openingHoursSpecification`
-- [x] Added `sameAs` array (populate as profiles are created)
-
-**File edited:** `src/app/layout.tsx`
-
----
-
-### ~~4. Add visible, clickable phone number~~ DONE
-**Steps:**
-- [x] Added phone number to footer contact section
-- [x] Added phone number to `/book` page (near the WhatsApp link in the body copy)
-- [x] Added `telephone` property to Organization node in schema
-
-**Files edited:** `src/components/layout/footer.tsx`, `src/app/book/page.tsx`, `src/app/layout.tsx`
-
----
-
-### ~~5. Create llms.txt for AI crawlers~~ DONE
-**Steps:**
-- [x] Created `/public/llms.txt` with structured business summary
-- [x] Created `/public/llms-full.txt` with expanded content
-
----
-
-### ~~6. Fix OG tag inheritance on subpages~~ DONE
-**Steps:**
-- [x] Added `openGraph` + `twitter` to `/book` page metadata
-- [x] Added `openGraph` + `twitter` to `/privacy` page metadata
-- [x] Added `openGraph` + `twitter` to `/terms` page metadata
-
----
-
-### ~~7. Create dedicated service pages~~ DONE
-**Steps:**
-- [x] Created route group: `src/app/services/[slug]/page.tsx`
-- [x] Created pages for `/services/ai-training`, `/services/ai-automation`, `/services/digital-services`
-- [x] Each page includes unique H1, 800+ words, features, FAQ, CTA, schema
-- [x] Updated service card CTAs on homepage to link to individual pages
-- [x] Added service pages to sitemap.ts
-- [x] Added "Services" dropdown or links to nav
-- [x] Internal link from each service page to the other two
-
----
-
-### ~~8. Update robots.txt with AI crawler rules~~ DONE
-**Steps:**
-- [x] Wildcard allow + 5 training-only scrapers blocked (CCBot, anthropic-ai, cohere-ai, Google-Extended, Bytespider)
-
----
-
-### ~~11. Add WebSite schema~~ DONE
-**Steps:**
-- [x] Added WebSite node to `layout.tsx` JSON-LD graph
-
----
-
-### ~~12. Add BreadcrumbList schema on subpages~~ DONE
-**Steps:**
-- [x] Created shared `BreadcrumbJsonLd` component
-- [x] Added to /book, /privacy, /terms, and all service pages
-
----
-
-### ~~20. Remove X-Powered-By header~~ DONE (addressed in #45)
-**Steps:**
-- [x] Added `poweredByHeader: false` to `next.config.ts`
-
----
-
-### ~~29. Update privacy/terms "Last updated" dates~~ DONE (addressed in #40)
-**Steps:**
-- [x] Updated to "4 April 2026"
-
----
-
-### ~~33. Fix nested `<main>` elements on legal pages~~ DONE
-**Steps:**
-- [x] Changed `<main>` to `<article>` in `src/app/privacy/page.tsx`
-- [x] Changed `<main>` to `<article>` in `src/app/terms/page.tsx`
-
----
-
-### ~~34. Fix canonical URL inconsistency on legal pages~~ DONE
-**Steps:**
-- [x] Changed to relative canonical paths on both pages
-
----
-
-### ~~35. Standardise hardcoded OG URLs across all subpages~~ DONE
-**Steps:**
-- [x] All subpages now use relative OG URLs resolved via `metadataBase`
-
----
-
-### ~~36. Deduplicate near-duplicate FAQs between homepage and service pages~~ DONE
-**Steps:**
-- [x] Homepage FAQs replaced with 5 broader business-level questions
-- [x] Zero overlap with any service page FAQs
-- [x] Updated llms.txt files to match
-
----
-
-### ~~37. Move K2 Gym testimonial to AI Training page~~ DONE
-**Steps:**
-- [x] Testimonial + stats moved from AI Automation to AI Training page
-- [x] Fixed FAQ bg to `bg-stone-950` with `bg-stone-900` cards (addresses #43)
-
----
-
-### ~~38. Add OG images to service pages~~ DONE
-**Steps:**
-- [x] All 6 subpages now reference the root OG image via `images: ["/opengraph-image"]`
-
----
-
-### ~~39. Fix unused import and mobile overflow on AI Training page~~ DONE
-**Steps:**
-- [x] Removed unused `Zap` import
-- [x] Added responsive layout fixes to trust badges
-
----
-
-### ~~40. Update stale legal page dates~~ DONE
-**Steps:**
-- [x] Updated `lastUpdated` to "4 April 2026" in both files
-
----
-
-### ~~41. Remove dead components and unused dependencies~~ DONE
-**Steps:**
-- [x] Deleted `bento-hero.tsx`, `text-scramble.tsx`, `ui/badge.tsx`
-- [x] Removed 6 unused npm packages
-
----
-
-### ~~42. Remove `"use client"` from hero component~~ DONE
-**Steps:**
-- [x] Hero renders as a Server Component, reducing client JS bundle
-
----
-
-### ~~43. Fix FAQ section background inconsistency on AI Training page~~ DONE (addressed in #37)
-**Steps:**
-- [x] All service pages now use `bg-stone-950` section with `bg-stone-900` cards via shared `ServiceFaqSection` component
-
----
-
-### ~~44. Add `aria-live` to form error messages~~ DONE
-**Steps:**
-- [x] Error messages wrapped in persistent `aria-live="polite"` container with `role="alert"`
-- [x] Success state has `role="status"`
-
----
-
-### ~~45. Update deprecated security headers~~ DONE
-**Steps:**
-- [x] Removed `X-XSS-Protection`
-- [x] Replaced `interest-cohort=()` with `browsing-topics=()`
-- [x] Added `poweredByHeader: false`
-
----
-
-### ~~47. Remove dead data and add error boundaries~~ DONE
-**Steps:**
-- [x] Removed unused `gymVertical.demo` data
-- [x] Added `error.tsx` error boundary at root level
-
----
-
-### ~~48. Add anchor IDs to service page sections for deep linking~~ DONE
-**Steps:**
-- [x] Added `id` attributes to major sections on all 3 service pages
-
----
-
-### Already Done (Earlier Session)
-- [x] Fixed title double-template on /privacy and /terms
-- [x] Renamed "Sprint" to "AI Audit" across all ~30 occurrences
-- [x] Changed hero secondary CTA to "Message on WhatsApp"
+## Stale items from pre-rebrand (no longer applicable)
+
+The items below were in the previous TODO but no longer apply to the v3 positioning. Preserved here briefly so anyone reading git history understands why they disappeared:
+
+- **~~Expand K2 Gym into full case study~~** — K2 Gym is no longer on the site. Replaced by item #12 (VetVision case study).
+- **~~Create /industries/gyms, /industries/trades, /industries/hospitality~~** — doesn't fit general AI agency. Replaced by item #13 (use-case pages).
+- **~~Blog articles about UK small businesses, gym owners, small business AI~~** — doesn't fit general positioning. Replaced by item #11 (v3 pillar articles).
+- **~~Collect more testimonials in gym / small-business verticals~~** — refocused into item #6 (diversify by service side).
+- **~~Build Tier 1 UK citations with `Quilliam Digital` NAP~~** — refocused into item #7 with new NAP (`Quilliam AI`, `quilliam.ai`, `levi@quilliam.ai`).
