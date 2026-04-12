@@ -4,6 +4,7 @@ import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { StickyCta } from "@/components/layout/sticky-cta";
+import { PostHogProvider } from "@/app/posthog-provider";
 import { siteConfig } from "@/lib/content";
 import "./globals.css";
 
@@ -160,11 +161,13 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body className="min-h-[100dvh] flex flex-col">
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <StickyCta />
+        <PostHogProvider>
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <WhatsAppButton />
+          <StickyCta />
+        </PostHogProvider>
       </body>
     </html>
   );

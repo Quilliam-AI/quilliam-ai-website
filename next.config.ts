@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // Required for PostHog reverse proxy — prevents Next.js from redirecting
+  // /ph/e/ to /ph/e which breaks the ingestion endpoint.
+  skipTrailingSlashRedirect: true,
   images: {
     remotePatterns: [
       {
@@ -9,6 +12,22 @@ const nextConfig: NextConfig = {
         hostname: "picsum.photos",
       },
     ],
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/ph/static/:path*",
+        destination: "https://us-assets.i.posthog.com/static/:path*",
+      },
+      {
+        source: "/ph/array/:path*",
+        destination: "https://us-assets.i.posthog.com/array/:path*",
+      },
+      {
+        source: "/ph/:path*",
+        destination: "https://us.i.posthog.com/:path*",
+      },
+    ];
   },
   async headers() {
     return [
@@ -40,7 +59,7 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://picsum.photos; font-src 'self'; connect-src 'self'; frame-ancestors 'none'",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://picsum.photos; font-src 'self'; connect-src 'self' https://us.posthog.com; worker-src 'self' blob:; frame-ancestors 'none'",
           },
         ],
       },
