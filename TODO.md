@@ -111,15 +111,37 @@ Many items below have been rewritten for v3. The pre-rebrand Completed section i
 
 ## Uncompleted — High Priority (Fix Within 1 Week)
 
-### 5. Install analytics
-**Impact:** Cannot measure CWV, organic traffic, or conversion funnel (training vs audit intent split) without analytics.
-**Current state:** No analytics installed.
+### 5. ~~Install analytics~~ DONE (2026-04-12)
+PostHog (EU Cloud, Frankfurt) installed with:
+- Reverse proxy via Next.js rewrites (`/ph/*`)
+- GDPR cookie consent banner with memory-only fallback
+- Session recording (password-masked, consent-gated)
+- Full booking form funnel: viewed → started → submitted → success/error
+- CTA click tracking by type and location across all pages
+- Contact method tracking (WhatsApp / phone / email)
+- Service card discovery tracking
+- `identify()` on successful booking with email/name/business
+- Localhost traffic filtered in code
+- 8 reusable actions, 6 insights on pinned "Quilliam AI — Conversions" dashboard
+- Privacy policy updated with PostHog disclosure and cookie consent explanation
+- "Manage Cookies" link in footer
+
+**Still TODO:**
+- [ ] Add conversion goals in PostHog Web Analytics UI (click "Add conversion goal" → select Booking Form Submitted, WhatsApp Clicked, CTA Clicked actions)
+
+---
+
+### 5b. Error reporting pipeline (PostHog → GitHub → AI resolution)
+**Impact:** Client and server errors caught automatically, reported to PostHog error tracking and GitHub Issues. Simple errors resolved by AI with a PR.
+**Current state:** Not implemented.
 
 **Steps:**
-- [ ] Install Vercel Analytics or Plausible (Plausible preferred — privacy-first, simpler CSP compliance, no cookie banner)
-- [ ] Verify CWV tracking is working
-- [ ] Set up a goal for `/book` form submissions
-- [ ] Optional: tag `?intent=training` vs `?intent=audit` as separate conversion events so we can see which funnel performs better
+- [ ] Enable PostHog error tracking (client-side JS errors captured automatically by the SDK)
+- [ ] Add server-side error reporting via `posthog-node` in the booking form server action and API routes
+- [ ] Set up PostHog webhook on error events → triggers a GitHub Action
+- [ ] GitHub Action creates an issue with error details, stack trace, and session recording link
+- [ ] AI agent (Claude Code) picks up the issue, investigates, and if the fix is straightforward, opens a PR
+- [ ] PR requires human approval before merge
 
 ---
 
