@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { trackBookTrainingClicked, trackBookAuditClicked } from "@/lib/analytics";
 
 export function StickyCta() {
   const [visible, setVisible] = useState(false);
@@ -25,10 +26,10 @@ export function StickyCta() {
           variant="outline"
           className="flex-1 rounded-full h-11 text-sm text-white/90 border-white/20"
         >
-          <Link href="/book?intent=training">Free Training</Link>
+          <Link href="/book?intent=training" onClick={() => trackBookTrainingClicked("sticky_cta")}>Free Training</Link>
         </Button>
         <Button asChild className="flex-1 rounded-full h-11 text-sm">
-          <Link href="/book?intent=audit">Free AI Audit</Link>
+          <Link href="/book?intent=audit" onClick={() => trackBookAuditClicked("sticky_cta")}>Free AI Audit</Link>
         </Button>
       </div>
     </div>

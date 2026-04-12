@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { CircuitPattern } from "@/components/shared/pattern-overlay";
 import { FadeIn } from "@/components/shared/fade-in";
 import { getWhatsAppUrl } from "@/lib/content";
+import { TrackClick } from "@/components/shared/track-click";
 
 export function Hero() {
   return (
@@ -40,38 +41,44 @@ export function Hero() {
 
             <FadeIn delay={0.45} className="mt-8">
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button
-                  asChild
-                  size="lg"
-                  className="rounded-full h-12 px-8 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
-                >
-                  <Link href="/book?intent=training">
-                    Book Free AI Training
-                    <ArrowRight size={18} className="ml-2" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="rounded-full h-12 px-8 text-base text-white"
-                >
-                  <Link href="/book?intent=audit">
-                    Book Free AI Audit
-                    <ArrowRight size={18} className="ml-2" />
-                  </Link>
-                </Button>
+                <TrackClick event="cta_clicked" properties={{ cta_type: "book_training", location: "hero" }}>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-full h-12 px-8 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
+                  >
+                    <Link href="/book?intent=training">
+                      Book Free AI Training
+                      <ArrowRight size={18} className="ml-2" />
+                    </Link>
+                  </Button>
+                </TrackClick>
+                <TrackClick event="cta_clicked" properties={{ cta_type: "book_audit", location: "hero" }}>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="rounded-full h-12 px-8 text-base text-white"
+                  >
+                    <Link href="/book?intent=audit">
+                      Book Free AI Audit
+                      <ArrowRight size={18} className="ml-2" />
+                    </Link>
+                  </Button>
+                </TrackClick>
               </div>
               <p className="mt-4 text-xs text-stone-500">
                 Not sure which?{" "}
-                <a
-                  href={getWhatsAppUrl("Hi Levi, I'd like to chat about whether training or implementation is right for my team.")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-stone-400 underline underline-offset-4 hover:text-white transition-colors"
-                >
-                  Message on WhatsApp
-                </a>{" "}
+                <TrackClick event="contact_clicked" properties={{ method: "whatsapp", location: "hero" }}>
+                  <a
+                    href={getWhatsAppUrl("Hi Levi, I'd like to chat about whether training or implementation is right for my team.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-stone-400 underline underline-offset-4 hover:text-white transition-colors"
+                  >
+                    Message on WhatsApp
+                  </a>
+                </TrackClick>{" "}
                 and we&apos;ll help you work it out.
               </p>
             </FadeIn>

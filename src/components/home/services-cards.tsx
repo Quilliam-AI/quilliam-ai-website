@@ -4,6 +4,7 @@ import { ArrowRight, Globe, Wrench, GraduationCap } from "lucide-react";
 import { services } from "@/lib/content";
 import { NodeNetworkPattern } from "@/components/shared/pattern-overlay";
 import { FadeIn } from "@/components/shared/fade-in";
+import { TrackClick } from "@/components/shared/track-click";
 
 // Icons are keyed to slug so that re-ordering services doesn't break the mapping
 const ICONS: Record<string, typeof Globe> = {
@@ -127,16 +128,18 @@ export function ServicesCards() {
                         ))}
                       </ul>
 
-                      <Link
-                        href={`/services/${service.slug}`}
-                        className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-emerald-400 hover:gap-3 transition-all py-3"
-                      >
-                        Learn more
-                        <ArrowRight
-                          size={14}
-                          className="group-hover:translate-x-1 transition-transform"
-                        />
-                      </Link>
+                      <TrackClick event="service_card_clicked" properties={{ service: service.slug }}>
+                        <Link
+                          href={`/services/${service.slug}`}
+                          className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-emerald-400 hover:gap-3 transition-all py-3"
+                        >
+                          Learn more
+                          <ArrowRight
+                            size={14}
+                            className="group-hover:translate-x-1 transition-transform"
+                          />
+                        </Link>
+                      </TrackClick>
                     </div>
                   </div>
                 </div>

@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { siteConfig, navigation, serviceLinks } from "@/lib/content";
 import { Button } from "@/components/ui/button";
+import { trackBookTrainingClicked, trackBookAuditClicked } from "@/lib/analytics";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -163,7 +164,7 @@ export function Nav() {
               variant="outline"
               className="rounded-xl px-4 h-8 text-[13px] font-medium text-white/80 border-white/20 hover:text-white hover:border-white/40 transition-all duration-500"
             >
-              <Link href="/book?intent=training">
+              <Link href="/book?intent=training" onClick={() => trackBookTrainingClicked("nav")}>
                 Free Training
               </Link>
             </Button>
@@ -172,7 +173,7 @@ export function Nav() {
               size="sm"
               className="rounded-xl px-4 h-8 text-[13px] font-medium bg-emerald-600 hover:bg-emerald-500 text-white transition-all duration-500"
             >
-              <Link href="/book?intent=audit">
+              <Link href="/book?intent=audit" onClick={() => trackBookAuditClicked("nav")}>
                 Free AI Audit
               </Link>
             </Button>
@@ -245,7 +246,7 @@ export function Nav() {
             >
               <Link
                 href="/book?intent=training"
-                onClick={() => setOpen(false)}
+                onClick={() => { trackBookTrainingClicked("nav"); setOpen(false); }}
               >
                 Book Free AI Training
               </Link>
@@ -256,7 +257,7 @@ export function Nav() {
             >
               <Link
                 href="/book?intent=audit"
-                onClick={() => setOpen(false)}
+                onClick={() => { trackBookAuditClicked("nav"); setOpen(false); }}
               >
                 Book Free AI Audit
               </Link>

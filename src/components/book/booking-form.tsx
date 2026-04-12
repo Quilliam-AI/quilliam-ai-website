@@ -1,9 +1,16 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useRef, useEffect, type FormEvent } from "react";
 import { ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { submitBooking } from "./booking-action";
+import {
+  trackBookingFormViewed,
+  trackBookingFormStarted,
+  trackBookingFormSubmitted,
+  trackBookingFormSuccess,
+  trackBookingFormError,
+} from "@/lib/analytics";
 
 const BUSINESS_TYPES = [
   "Small business (1–10)",
@@ -40,6 +47,11 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [interest, setInterest] = useState<InterestKey>(defaultInterest);
+  const hasStarted = useRef(false);
+
+  useEffect(() => {
+    trackBookingFormViewed(defaultInterest);
+  }, [defaultInterest]);
 
   const submitLabel =
     interest === "training"
@@ -61,18 +73,32 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
     setErrorMessage("");
 
     const formData = new FormData(e.currentTarget);
+    const businessType = formData.get("businessType") as string;
+
+    trackBookingFormSubmitted({
+      intent: interest,
+      interest: INTERESTS[interest].value,
+      business_type: businessType,
+    });
 
     try {
       const result = await submitBooking(formData);
       if (result.success) {
         setStatus("success");
+        trackBookingFormSuccess({
+          intent: interest,
+          interest: INTERESTS[interest].value,
+          business_type: businessType,
+        });
       } else {
         setErrorMessage(result.error || "Something went wrong. Please try again.");
         setStatus("error");
+        trackBookingFormError({ intent: interest, error: result.error || "unknown" });
       }
     } catch {
       setErrorMessage("Something went wrong. Please try again or message us on WhatsApp.");
       setStatus("error");
+      trackBookingFormError({ intent: interest, error: "network_error" });
     }
   }
 
@@ -96,6 +122,12 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
+      onFocusCapture={() => {
+        if (!hasStarted.current) {
+          hasStarted.current = true;
+          trackBookingFormStarted(interest);
+        }
+      }}
       className="rounded-2xl bg-stone-900 border border-stone-800/60 p-8 md:p-10"
     >
       <h2 className="text-xl font-semibold tracking-tight text-white mb-8">

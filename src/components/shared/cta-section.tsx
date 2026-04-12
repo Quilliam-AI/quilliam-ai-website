@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { DotGridPattern } from "@/components/shared/pattern-overlay";
 import { FadeIn } from "@/components/shared/fade-in";
+import { TrackClick } from "@/components/shared/track-click";
 
 interface CtaSectionProps {
   title?: string;
@@ -46,27 +47,31 @@ export function CtaSection({
         </FadeIn>
         <FadeIn delay={0.2} className="mt-10">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-full h-12 px-10 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
-            >
-              <Link href="/book?intent=training">
-                Book Free AI Training
-                <ArrowRight size={18} className="ml-2" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="rounded-full h-12 px-10 text-base text-white"
-            >
-              <Link href="/book?intent=audit">
-                Book Free AI Audit
-                <ArrowRight size={18} className="ml-2" />
-              </Link>
-            </Button>
+            <TrackClick event="cta_clicked" properties={{ cta_type: "book_training", location: "cta_section" }}>
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full h-12 px-10 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
+              >
+                <Link href="/book?intent=training">
+                  Book Free AI Training
+                  <ArrowRight size={18} className="ml-2" />
+                </Link>
+              </Button>
+            </TrackClick>
+            <TrackClick event="cta_clicked" properties={{ cta_type: "book_audit", location: "cta_section" }}>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="rounded-full h-12 px-10 text-base text-white"
+              >
+                <Link href="/book?intent=audit">
+                  Book Free AI Audit
+                  <ArrowRight size={18} className="ml-2" />
+                </Link>
+              </Button>
+            </TrackClick>
           </div>
         </FadeIn>
         <FadeIn delay={0.3} className="mt-8">

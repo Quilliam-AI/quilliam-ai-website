@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig, getWhatsAppUrl } from "@/lib/content";
+import { TrackClick } from "@/components/shared/track-click";
 
 export function Footer() {
   return (
@@ -73,20 +74,24 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/book?intent=training"
-                  className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
-                >
-                  Book Free AI Training
-                </Link>
+                <TrackClick event="cta_clicked" properties={{ cta_type: "book_training", location: "footer" }}>
+                  <Link
+                    href="/book?intent=training"
+                    className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
+                  >
+                    Book Free AI Training
+                  </Link>
+                </TrackClick>
               </li>
               <li>
-                <Link
-                  href="/book?intent=audit"
-                  className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
-                >
-                  Book Free AI Audit
-                </Link>
+                <TrackClick event="cta_clicked" properties={{ cta_type: "book_audit", location: "footer" }}>
+                  <Link
+                    href="/book?intent=audit"
+                    className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
+                  >
+                    Book Free AI Audit
+                  </Link>
+                </TrackClick>
               </li>
             </ul>
           </div>
@@ -98,30 +103,36 @@ export function Footer() {
             </p>
             <ul className="space-y-3">
               <li>
-                <a
-                  href={getWhatsAppUrl("Hi Levi, I'd like to chat about AI for my business.")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
-                >
-                  Message on WhatsApp
-                </a>
+                <TrackClick event="contact_clicked" properties={{ method: "whatsapp", location: "footer" }}>
+                  <a
+                    href={getWhatsAppUrl("Hi Levi, I'd like to chat about AI for my business.")}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
+                  >
+                    Message on WhatsApp
+                  </a>
+                </TrackClick>
               </li>
               <li>
-                <a
-                  href={`tel:${siteConfig.phone}`}
-                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
-                >
-                  {siteConfig.phoneDisplay}
-                </a>
+                <TrackClick event="contact_clicked" properties={{ method: "phone", location: "footer" }}>
+                  <a
+                    href={`tel:${siteConfig.phone}`}
+                    className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
+                  >
+                    {siteConfig.phoneDisplay}
+                  </a>
+                </TrackClick>
               </li>
               <li>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
-                >
-                  {siteConfig.email}
-                </a>
+                <TrackClick event="contact_clicked" properties={{ method: "email", location: "footer" }}>
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
+                  >
+                    {siteConfig.email}
+                  </a>
+                </TrackClick>
               </li>
               <li>
                 <Link
