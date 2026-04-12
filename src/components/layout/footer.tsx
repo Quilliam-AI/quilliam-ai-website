@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig, getWhatsAppUrl } from "@/lib/content";
 import { TrackClick } from "@/components/shared/track-click";
+import { ManageCookies } from "@/components/layout/manage-cookies";
 
 export function Footer() {
   return (
@@ -164,6 +165,7 @@ export function Footer() {
             >
               Terms of Service
             </Link>
+            <ManageCookies />
           </div>
         </div>
       </div>

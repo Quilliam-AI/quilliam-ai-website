@@ -259,10 +259,10 @@ export default function PrivacyPage() {
             </li>
           </ul>
           <p>
-            Your preference is stored in your browser&rsquo;s localStorage
-            as <code>cookie_consent</code>. To change your preference,
-            clear your browser&rsquo;s localStorage for this site and
-            refresh the page &mdash; the consent banner will reappear.
+            Your preference is stored in your browser&rsquo;s localStorage.
+            To change your preference, click &ldquo;Manage Cookies&rdquo;
+            in the footer of any page &mdash; the consent banner will
+            reappear.
           </p>
           <p>
             We do not use any advertising cookies, third-party tracking
