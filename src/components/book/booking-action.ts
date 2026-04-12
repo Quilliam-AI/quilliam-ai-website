@@ -41,6 +41,14 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
     const { Resend } = await import("resend");
     const resend = new Resend(process.env.RESEND_API_KEY);
 
+    const sessionLabel =
+      subjectTag === "AI Training"
+        ? "free AI training session"
+        : subjectTag === "AI Audit"
+          ? "free AI Audit"
+          : "free AI session";
+
+    // Send internal notification email
     await resend.emails.send({
       from: "Quilliam AI <bookings@quilliam.ai>",
       to: [siteConfig.email],
@@ -80,6 +88,20 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
         </table>
       `,
     });
+
+    // Send confirmation email to the lead
+    resend.emails.send({
+      from: "Levi at Quilliam AI <levi@quilliam.ai>",
+      to: [email.trim()],
+      replyTo: siteConfig.email,
+      subject: `Your ${sessionLabel} with Quilliam AI is booked`,
+      html: `
+        <p>Hi ${escapeHtml(name.trim().split(" ")[0])},</p>
+        <p>Thanks for booking a ${escapeHtml(sessionLabel)}. I'll get back to you within 24 hours to arrange a time.</p>
+        <p>In the meantime, if you have any questions, just reply to this email or <a href="https://wa.me/${siteConfig.whatsapp}">message me on WhatsApp</a>.</p>
+        <p>Speak soon,<br>Levi Quilliam<br>Quilliam AI</p>
+      `,
+    }).catch((err) => console.error("Confirmation email failed:", err));
 
     // Create lead note in Obsidian vault (fire-and-forget, never blocks)
     createLeadNote({
