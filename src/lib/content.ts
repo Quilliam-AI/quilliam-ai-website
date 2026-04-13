@@ -110,41 +110,6 @@ export const sprintSteps = [
   },
 ] as const;
 
-export const featuredEngagement = {
-  slug: "vetvision",
-  label: "Example engagement",
-  industry: "AI SaaS (University of Nottingham spin-out)",
-  hero: {
-    title: "Education and Implementation,",
-    titleAccent: "In Parallel, On a Day-Rate.",
-    description:
-      "VetVision AI is one example of the work we do. It's a University of Nottingham spin-out building veterinary computer vision AI. Over a day-a-week engagement we're training their team on practical AI use, consolidating their brand, producing content grounded in their clinical expertise, and automating customer onboarding with n8n. Most clients use one or two of these workstreams — VetVision happens to use them all.",
-  },
-  workstreams: [
-    {
-      problem: "Team wanted to use AI day-to-day but didn't know where to start",
-      solution:
-        "Hands-on role-specific training. Founder, GTM, and engineering each got sessions tailored to their actual work — not a generic seminar.",
-    },
-    {
-      problem: "Two overlapping brands diluting each other in the market",
-      solution:
-        "Consolidated Vet Vision AI + EquiConnect into one coherent brand surface — site, decks, outreach, social. One voice, one identity.",
-    },
-    {
-      problem: "Customer onboarding eating the GTM lead's week",
-      solution:
-        "n8n workflows that take a signed contract to a live account without manual chasing. Documented so their team can maintain it.",
-    },
-  ],
-  stats: {
-    primary: "3",
-    primaryLabel: "workstreams in parallel",
-    secondary: "1 day/wk",
-    secondaryLabel: "engagement cadence",
-  },
-} as const;
-
 export const faqs = [
   {
     question: "What is the free AI Audit?",
