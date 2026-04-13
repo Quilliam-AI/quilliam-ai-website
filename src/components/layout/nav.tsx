@@ -12,9 +12,11 @@ import { trackBookTrainingClicked, trackBookAuditClicked } from "@/lib/analytics
 export function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeHash, setActiveHash] = useState("");
+  const [observedHash, setObservedHash] = useState("");
   const pathname = usePathname();
   const isHome = pathname === "/";
+  // Only show active hash highlighting on the homepage
+  const activeHash = isHome ? observedHash : "";
 
   // Resolve hash links: on homepage use bare "#section" for native scroll,
   // on subpages use "/#section" to navigate home first.
@@ -32,12 +34,9 @@ export function Nav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Track which homepage section is in view
+  // Track which homepage section is in view via IntersectionObserver
   useEffect(() => {
-    if (pathname !== "/") {
-      setActiveHash("");
-      return;
-    }
+    if (pathname !== "/") return;
 
     const sectionIds = navigation
       .map((item) => item.href)
@@ -48,7 +47,7 @@ export function Nav() {
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            setActiveHash(`/#${entry.target.id}`);
+            setObservedHash(`/#${entry.target.id}`);
           }
         }
       },

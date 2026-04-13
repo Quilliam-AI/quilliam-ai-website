@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider } from "posthog-js/react";
 
@@ -8,48 +8,39 @@ const CONSENT_KEY = "cookie_consent";
 
 type Consent = "accepted" | "rejected" | null;
 
-function getStoredConsent(): Consent {
+function readAndInitPostHog(): Consent {
   if (typeof window === "undefined") return null;
-  const value = localStorage.getItem(CONSENT_KEY);
-  if (value === "accepted" || value === "rejected") return value;
-  return null;
-}
 
-function initPostHog(consent: Consent) {
+  const value = localStorage.getItem(CONSENT_KEY);
+  const consent: Consent =
+    value === "accepted" || value === "rejected" ? value : null;
+
   if (
-    typeof window === "undefined" ||
-    posthog.__loaded ||
-    !process.env.NEXT_PUBLIC_POSTHOG_KEY ||
-    window.location.hostname.includes("localhost")
+    !posthog.__loaded &&
+    process.env.NEXT_PUBLIC_POSTHOG_KEY &&
+    !window.location.hostname.includes("localhost")
   ) {
-    return;
+    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+      api_host: "/ph",
+      ui_host: "https://eu.posthog.com",
+      defaults: "2026-01-30",
+      person_profiles: "identified_only",
+      capture_pageleave: true,
+      persistence: consent === "accepted" ? "localStorage+cookie" : "memory",
+      disable_session_recording: consent !== "accepted",
+      session_recording: {
+        maskAllInputs: false,
+        maskInputOptions: { password: true },
+      },
+    });
   }
 
-  posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-    api_host: "/ph",
-    ui_host: "https://eu.posthog.com",
-    defaults: "2026-01-30",
-    person_profiles: "identified_only",
-    capture_pageleave: true,
-    // Start in memory-only mode unless the user has already accepted
-    persistence: consent === "accepted" ? "localStorage+cookie" : "memory",
-    // Only enable session recording if consent was given
-    disable_session_recording: consent !== "accepted",
-    session_recording: {
-      maskAllInputs: false,
-      maskInputOptions: { password: true },
-    },
-  });
+  return consent;
 }
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
-  const [consent, setConsent] = useState<Consent>(null);
-
-  useEffect(() => {
-    const stored = getStoredConsent();
-    setConsent(stored);
-    initPostHog(stored);
-  }, []);
+  // Lazy initializer: reads consent + inits PostHog exactly once
+  const [consent, setConsent] = useState<Consent>(readAndInitPostHog);
 
   const handleAccept = useCallback(() => {
     localStorage.setItem(CONSENT_KEY, "accepted");
@@ -63,7 +54,6 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
   const handleReject = useCallback(() => {
     localStorage.setItem(CONSENT_KEY, "rejected");
     setConsent("rejected");
-    // persistence stays as 'memory', recording stays off
   }, []);
 
   return (
