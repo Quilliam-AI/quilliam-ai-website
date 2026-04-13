@@ -26,7 +26,7 @@ import {
 export const metadata: Metadata = {
   title: "AI Implementation — Automation, Agents & Custom Tools",
   description:
-    "We build AI automations, agents, n8n workflows, and custom ChatGPT/Claude tools for UK businesses. From £300/day. Ongoing support and maintenance. Free AI Audit to start.",
+    "We build AI automations, agents, n8n workflows, and custom ChatGPT/Claude tools for UK businesses. From £300/day. Ongoing support and maintenance. AI Audit to start.",
   alternates: {
     canonical: "/services/ai-automation",
   },
@@ -48,12 +48,12 @@ const automationFaqs = [
   {
     question: "How much does AI implementation cost?",
     answer:
-      "Day-rate consulting at £300–£400/day depending on scope and complexity, or fixed-price packages for well-scoped automations (typically starting around £500–£2,000 depending on what's being built). Simple workflows like review requests or follow-up emails are at the lower end. More complex systems like custom AI agents, multi-step n8n workflows, or AI receptionists are higher. Every engagement starts with a free AI Audit and a clear, fixed quote — no surprises.",
+      "Day-rate consulting at £300–£400/day depending on scope and complexity, or fixed-price packages for well-scoped automations (typically starting around £500–£2,000 depending on what's being built). Simple workflows like review requests or follow-up emails are at the lower end. More complex systems like custom AI agents, multi-step n8n workflows, or AI receptionists are higher. Every engagement starts with an AI Audit and a clear, fixed quote — no surprises.",
   },
   {
     question: "How long does it take to build something?",
     answer:
-      "Most automations are live within 1 to 2 weeks after your free AI Audit. Simple workflows like automated review requests or customer follow-up emails can be running within a few days. More complex systems like AI receptionists, custom agents, or n8n onboarding pipelines typically take 2 weeks. We ship working v1s fast and iterate from there rather than disappearing for a month with a big promise.",
+      "Most automations are live within 1 to 2 weeks after your AI Audit. Simple workflows like automated review requests or customer follow-up emails can be running within a few days. More complex systems like AI receptionists, custom agents, or n8n onboarding pipelines typically take 2 weeks. We ship working v1s fast and iterate from there rather than disappearing for a month with a big promise.",
   },
   {
     question: "Do I need to maintain the automations myself?",
@@ -63,7 +63,7 @@ const automationFaqs = [
   {
     question: "What if I'm not sure what to automate?",
     answer:
-      "That is exactly what the free AI Audit is for. We look at how your business actually runs, identify the biggest time-wasters, and recommend the highest-impact automation to start with. Most business owners are surprised by what can be automated — and more surprised by how much time they get back after the first few systems go live.",
+      "That is exactly what the AI Audit is for. We look at how your business actually runs, identify the biggest time-wasters, and recommend the highest-impact automation to start with. Most business owners are surprised by what can be automated — and more surprised by how much time they get back after the first few systems go live.",
   },
   {
     question: "What tools and platforms do you use?",
@@ -122,7 +122,7 @@ const processSteps = [
     number: "01",
     title: "AI Audit",
     description:
-      "We look at how your business actually runs. Where's the repetitive work? Where are you losing customers? Where's the bottleneck? This session is free.",
+      "We look at how your business actually runs. Where's the repetitive work? Where are you losing customers? Where's the bottleneck? No commitment.",
   },
   {
     number: "02",
@@ -162,7 +162,7 @@ export default function AiAutomationPage() {
       <WebPageJsonLd
         path="/services/ai-automation"
         name="AI Implementation — Automation, Agents & Custom Tools | Quilliam AI"
-        description="Custom AI automations, agents, n8n workflows, and tailored ChatGPT/Claude tools built for UK businesses by Quilliam AI. Free AI Audit to start."
+        description="Custom AI automations, agents, n8n workflows, and tailored ChatGPT/Claude tools built for UK businesses by Quilliam AI. AI Audit to start."
         datePublished="2026-04-11"
         dateModified="2026-04-11"
       />
@@ -174,7 +174,7 @@ export default function AiAutomationPage() {
         titleLine1="We build the AI systems"
         titleLine2="that save you hours."
         description="You tell us the problem, we ship the solution. Custom AI automations, agents, n8n workflows, API integrations, and bespoke ChatGPT or Claude tools — all tailored to how your business actually runs. You stop doing the repetitive work. Your customers get faster responses. Your business runs smoother while you focus on what matters."
-        ctaText="Book a Free AI Audit"
+        ctaText="Book Your AI Audit"
         whatsappHref={whatsappHref}
         trustBadges={["From £300/day", "Live in 1–2 weeks", "Ongoing support"]}
       />
@@ -241,8 +241,8 @@ export default function AiAutomationPage() {
 
       <ServiceCta
         heading="Ready to let AI do the work for you?"
-        description="Book a free AI Audit. We'll find your highest-impact automation opportunity and show you exactly how to build it."
-        ctaText="Book a Free AI Audit"
+        description="Book your AI Audit. We'll find your highest-impact automation opportunity and show you exactly how to build it."
+        ctaText="Book Your AI Audit"
         tagline="Based in Cornwall. Building for businesses across the UK."
         whatsappHref={whatsappHref}
       />

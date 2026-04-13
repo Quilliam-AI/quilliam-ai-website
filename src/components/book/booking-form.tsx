@@ -56,17 +56,17 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
 
   const submitLabel =
     interest === "training"
-      ? "Book Free AI Training"
+      ? "Book AI Training"
       : interest === "audit"
-        ? "Book Free AI Audit"
-        : "Book My Free Session";
+        ? "Book Your AI Audit"
+        : "Book My Session";
 
   const successLabel =
     interest === "training"
-      ? "free AI training session"
+      ? "AI training session"
       : interest === "audit"
-        ? "free AI Audit"
-        : "free session";
+        ? "AI Audit"
+        : "session";
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();

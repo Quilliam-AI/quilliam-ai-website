@@ -80,7 +80,7 @@ export function Footer() {
                     href="/book?intent=training"
                     className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
                   >
-                    Book Free AI Training
+                    Book AI Training
                   </Link>
                 </TrackClick>
               </li>
@@ -90,7 +90,7 @@ export function Footer() {
                     href="/book?intent=audit"
                     className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
                   >
-                    Book Free AI Audit
+                    Book Your AI Audit
                   </Link>
                 </TrackClick>
               </li>

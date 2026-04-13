@@ -48,7 +48,7 @@ export function Hero() {
                     className="rounded-full h-12 px-8 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
                   >
                     <Link href="/book?intent=training">
-                      Book Free AI Training
+                      Book AI Training
                       <ArrowRight size={18} className="ml-2" />
                     </Link>
                   </Button>
@@ -61,7 +61,7 @@ export function Hero() {
                     className="rounded-full h-12 px-8 text-base text-white"
                   >
                     <Link href="/book?intent=audit">
-                      Book Free AI Audit
+                      Book Your AI Audit
                       <ArrowRight size={18} className="ml-2" />
                     </Link>
                   </Button>

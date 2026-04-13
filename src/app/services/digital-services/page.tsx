@@ -208,7 +208,7 @@ export default function DigitalServicesPage() {
         titleLine1="Your digital foundation,"
         titleLine2="built and maintained."
         description="A brilliant AI system behind a broken website still loses customers. Digital Services is the foundation that supports everything else: professional websites, SEO, Google Business Profile, content production, and hosting. One team. One point of contact. Everything handled — so you can focus on the AI work that moves the needle."
-        ctaText="Get a Free Quote"
+        ctaText="Get a Quote"
         whatsappHref={whatsappHref}
         trustBadges={["From £500", "Live in 1–2 weeks", "Hosting included"]}
       />
@@ -323,8 +323,8 @@ export default function DigitalServicesPage() {
 
       <ServiceCta
         heading="Ready to get found online?"
-        description="Book a free consultation. We'll look at your current online presence and show you exactly what needs fixing."
-        ctaText="Get a Free Quote"
+        description="Book a consultation. We'll look at your current online presence and show you exactly what needs fixing."
+        ctaText="Get a Quote"
         tagline="Based in Cornwall. Building for businesses across the UK."
         whatsappHref={whatsappHref}
       />

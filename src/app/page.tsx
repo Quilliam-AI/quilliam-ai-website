@@ -25,9 +25,9 @@ function HomeJsonLd() {
   const howToSchema = {
     "@type": "HowTo",
     "@id": `${siteConfig.url}/#howto`,
-    name: "How to get a free AI Audit from Quilliam AI",
+    name: "How to get an AI Audit from Quilliam AI",
     description:
-      "A focused conversation where we listen to your business, figure out whether AI training, implementation, or both would help you most, and give you a clear, practical recommendation. Free. No commitment.",
+      "A focused conversation where we listen to your business, figure out whether AI training, implementation, or both would help you most, and give you a clear, practical recommendation. No commitment.",
     totalTime: "PT1H",
     step: sprintSteps.map((step, i) => ({
       "@type": "HowToStep",

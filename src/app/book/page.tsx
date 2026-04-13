@@ -23,49 +23,49 @@ const INTENT_CONTENT: Record<Intent, {
   BadgeIcon: typeof Zap;
 }> = {
   training: {
-    badge: "Free AI Training Session",
-    title: "Book your free",
+    badge: "AI Training Session",
+    title: "Book your",
     accent: "AI Training",
     description:
-      "Tell us a bit about your team and we'll arrange a free session where we train you and your people using your actual work. No slides, no theory, just practical AI skills you can use the next day.",
+      "Tell us a bit about your team and we'll arrange a session where we train you and your people using your actual work. No slides, no theory, just practical AI skills you can use the next day.",
     BadgeIcon: GraduationCap,
   },
   audit: {
-    badge: "Free AI Audit",
-    title: "Book your free",
+    badge: "AI Audit",
+    title: "Book your",
     accent: "AI Audit",
     description:
-      "Tell us a bit about your business and we'll arrange a free session where we look at where AI can save you hours and make you money. Walk away with a clear recommendation, whether or not we work together.",
+      "Tell us a bit about your business and we'll arrange a session where we look at where AI can save you hours and make you money. Walk away with a clear recommendation, whether or not we work together.",
     BadgeIcon: Wrench,
   },
   either: {
-    badge: "Free AI Session",
-    title: "Book your free",
+    badge: "AI Session",
+    title: "Book your",
     accent: "AI Session",
     description:
-      "Tell us a bit about your business and we'll arrange a free session — training, audit, or both. Walk away with a clear plan for what AI can do for you, whether we work together afterwards or not.",
+      "Tell us a bit about your business and we'll arrange a session — training, audit, or both. Walk away with a clear plan for what AI can do for you, whether we work together afterwards or not.",
     BadgeIcon: Zap,
   },
 };
 
 export const metadata: Metadata = {
-  title: "Book Your Free AI Session",
+  title: "Book Your AI Session",
   description:
-    "Book a free AI training session or AI Audit with Quilliam AI. We'll show you what AI can do for your team or your business in 30–60 minutes. No commitment.",
+    "Book an AI training session or AI Audit with Quilliam AI. We'll show you what AI can do for your team or your business in 30–60 minutes. No commitment.",
   alternates: {
     canonical: "/book",
   },
   openGraph: {
-    title: "Book Your Free AI Session | Quilliam AI",
+    title: "Book Your AI Session | Quilliam AI",
     description:
-      "Book a free AI training session or AI Audit with Quilliam AI. No commitment, no jargon.",
+      "Book an AI training session or AI Audit with Quilliam AI. No commitment, no jargon.",
     url: "/book",
     images: ["/opengraph-image"],
   },
   twitter: {
-    title: "Book Your Free AI Session | Quilliam AI",
+    title: "Book Your AI Session | Quilliam AI",
     description:
-      "Book a free AI training session or AI Audit with Quilliam AI.",
+      "Book an AI training session or AI Audit with Quilliam AI.",
   },
 };
 
@@ -88,7 +88,7 @@ const benefits = [
   {
     icon: CheckCircle2,
     title: "No commitment",
-    description: "Free. No obligation. No follow-up spam",
+    description: "No obligation. No follow-up spam",
   },
 ];
 
@@ -104,19 +104,19 @@ export default async function BookPage({ searchParams }: BookPageProps) {
 
   const whatsappHref = getWhatsAppUrl(
     intent === "training"
-      ? "Hi Levi, I'd like to book a free AI training session for my team."
+      ? "Hi Levi, I'd like to book an AI training session for my team."
       : intent === "audit"
-        ? "Hi Levi, I'd like to book a free AI Audit for my business."
-        : "Hi Levi, I'd like to book a free AI session.",
+        ? "Hi Levi, I'd like to book an AI Audit for my business."
+        : "Hi Levi, I'd like to book an AI session.",
   );
 
   return (
     <section className="relative min-h-[100dvh] bg-stone-950 overflow-hidden">
-      <BreadcrumbJsonLd items={[{ name: "Book Your Free AI Session", href: "/book" }]} />
+      <BreadcrumbJsonLd items={[{ name: "Book Your AI Session", href: "/book" }]} />
       <WebPageJsonLd
         path="/book"
-        name="Book Your Free AI Session | Quilliam AI"
-        description="Book a free AI training session or AI Audit with Quilliam AI. We'll show you what AI can do for your team or your business in 30-60 minutes."
+        name="Book Your AI Session | Quilliam AI"
+        description="Book an AI training session or AI Audit with Quilliam AI. We'll show you what AI can do for your team or your business in 30-60 minutes."
         datePublished="2026-04-11"
         dateModified="2026-04-11"
       />

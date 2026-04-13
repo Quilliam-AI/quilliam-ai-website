@@ -99,7 +99,7 @@ export default function ContactPage() {
                 <p className="text-base md:text-lg text-stone-400 leading-relaxed max-w-[48ch]">
                   Whether you have a question about AI training, want to
                   discuss an implementation project, or are ready to book
-                  your free AI Audit — we are here to help. No sales
+                  your AI Audit — we are here to help. No sales
                   pressure, no jargon.
                 </p>
               </FadeIn>
@@ -158,18 +158,18 @@ export default function ContactPage() {
                     Ready to see what AI can do for you?
                   </p>
                   <p className="text-xs text-stone-500 mt-1 leading-relaxed">
-                    Book a free, no-obligation session — training or audit,
+                    Book a no-obligation session — training or audit,
                     your choice. Walk away with a clear plan either way.
                   </p>
                   <div className="mt-4 flex flex-col sm:flex-row gap-2">
                     <Link href="/book?intent=training" className="flex-1">
                       <Button variant="outline" className="w-full rounded-full h-10 px-4 text-white/90 border-white/20 text-sm font-medium transition-all">
-                        Free Training
+                        AI Training
                       </Button>
                     </Link>
                     <Link href="/book?intent=audit" className="flex-1">
                       <Button className="w-full rounded-full h-10 px-4 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)] transition-all">
-                        Free AI Audit
+                        AI Audit
                         <ArrowRight size={14} className="ml-2" />
                       </Button>
                     </Link>

@@ -46,7 +46,7 @@ export function AboutPreview() {
                 House 17151006) on 2026-04-11 to do two things really well:
                 teach teams how to use AI properly, and build the
                 automations, agents, and tools that save businesses hours
-                every week. Every engagement starts with a free AI Audit and
+                every week. Every engagement starts with an AI Audit and
                 is handoff-first — the deliverable is a skill or system your
                 team actually owns, not a bespoke framework that locks you
                 into needing us forever.

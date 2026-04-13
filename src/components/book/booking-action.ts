@@ -43,10 +43,10 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
 
     const sessionLabel =
       subjectTag === "AI Training"
-        ? "free AI training session"
+        ? "AI training session"
         : subjectTag === "AI Audit"
-          ? "free AI Audit"
-          : "free AI session";
+          ? "AI Audit"
+          : "AI session";
 
     // Send internal notification email
     await resend.emails.send({

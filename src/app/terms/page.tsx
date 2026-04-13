@@ -67,7 +67,7 @@ export default function TermsPage() {
             not limited to:
           </p>
           <ul>
-            <li>AI Audits and free introductory sessions.</li>
+            <li>AI Audits and introductory sessions.</li>
             <li>
               AI training and workshops (in-person or remote), including
               optional knowledge-system setup.
@@ -96,8 +96,8 @@ export default function TermsPage() {
 
         <LegalSection title="3. Booking and payment">
           <p>
-            <strong>Free consultations:</strong> The AI Audit and the
-            introductory AI Training session are both free and carry no
+            <strong>Initial consultations:</strong> The AI Audit and the
+            introductory AI Training session are complimentary and carry no
             obligation.
           </p>
           <p>

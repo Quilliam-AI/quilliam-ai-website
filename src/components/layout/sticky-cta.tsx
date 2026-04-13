@@ -26,10 +26,10 @@ export function StickyCta() {
           variant="outline"
           className="flex-1 rounded-full h-11 text-sm text-white/90 border-white/20"
         >
-          <Link href="/book?intent=training" onClick={() => trackBookTrainingClicked("sticky_cta")}>Free Training</Link>
+          <Link href="/book?intent=training" onClick={() => trackBookTrainingClicked("sticky_cta")}>AI Training</Link>
         </Button>
         <Button asChild className="flex-1 rounded-full h-11 text-sm">
-          <Link href="/book?intent=audit" onClick={() => trackBookAuditClicked("sticky_cta")}>Free AI Audit</Link>
+          <Link href="/book?intent=audit" onClick={() => trackBookAuditClicked("sticky_cta")}>AI Audit</Link>
         </Button>
       </div>
     </div>

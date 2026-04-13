@@ -25,7 +25,7 @@ import {
 export const metadata: Metadata = {
   title: "AI Education — Training, Workshops & Knowledge Systems",
   description:
-    "Hands-on AI training and workshops for UK teams. Learn ChatGPT, Claude, and custom AI tools in your actual work. Optional Obsidian Company Brain setup. From £300/day. Free intro session.",
+    "Hands-on AI training and workshops for UK teams. Learn ChatGPT, Claude, and custom AI tools in your actual work. Optional Obsidian Company Brain setup. From £300/day.",
   alternates: {
     canonical: "/services/ai-training",
   },
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
 
 const trainingFaqs = [
   {
-    question: "Is the intro AI training session really free?",
+    question: "What does the introductory training session include?",
     answer:
-      "Yes. Our introductory training session is completely free, runs for 30–60 minutes, and has no commitment attached. We believe the best way to show you what AI can do for your team is to demonstrate it using your actual work, live, in front of you. If you want to go further after that session we move to paid day-rate training at £300–£400/day, but most people get real value from the free intro alone.",
+      "Yes. Our introductory training session runs for 30–60 minutes and has no commitment attached. We believe the best way to show you what AI can do for your team is to demonstrate it using your actual work, live, in front of you. If you want to go further after that session we move to paid day-rate training at £300–£400/day, but most people get real value from the intro alone.",
   },
   {
     question: "What should my team bring to the training?",
@@ -148,14 +148,14 @@ export default function AiTrainingPage() {
         description="Hands-on AI training and workshops for UK teams. Learn ChatGPT, Claude, and custom AI tools in your actual work. Optional Obsidian Company Brain setup."
         serviceType="AI Training"
         price="0"
-        offerDescription="Free introductory session; paid training from £300–£400/day"
+        offerDescription="Introductory session included; paid training from £300–£400/day"
         faqs={trainingFaqs}
       />
       <BreadcrumbJsonLd items={[{ name: "Services", href: "/#services" }, { name: "AI Education", href: "/services/ai-training" }]} />
       <WebPageJsonLd
         path="/services/ai-training"
         name="AI Education — Training, Workshops & Knowledge Systems | Quilliam AI"
-        description="Hands-on AI training and workshops for UK teams. Learn ChatGPT, Claude, and custom tools in your actual work. Optional Company Brain setup. Free intro session."
+        description="Hands-on AI training and workshops for UK teams. Learn ChatGPT, Claude, and custom tools in your actual work. Optional Company Brain setup."
         datePublished="2026-04-11"
         dateModified="2026-04-11"
       />
@@ -167,9 +167,9 @@ export default function AiTrainingPage() {
         titleLine1="Teach your team"
         titleLine2="to use AI properly."
         description="Most teams know AI matters but have no idea where to start. Our hands-on workshops show you and your team exactly how to use ChatGPT, Claude, and the right custom tools in your actual daily work. No slides. No theory. Just practical skills you can use the same day. Optional Obsidian Company Brain setup if you want a knowledge system that compounds over time."
-        ctaText="Book a Free Session"
+        ctaText="Book a Session"
         whatsappHref={whatsappHref}
-        trustBadges={["Free intro session", "In-person or remote", "Role-tailored"]}
+        trustBadges={["Intro session included", "In-person or remote", "Role-tailored"]}
       />
 
       {/* What you will learn */}
@@ -321,8 +321,8 @@ export default function AiTrainingPage() {
 
       <ServiceCta
         heading="Ready to train your team on AI?"
-        description="Book a free session. We'll show you what AI can do for your team in 30–60 minutes, using your actual work. No commitment."
-        ctaText="Book a Free Session"
+        description="Book a session. We'll show you what AI can do for your team in 30–60 minutes, using your actual work. No commitment."
+        ctaText="Book a Session"
         tagline="Based in Cornwall. Training teams across the UK and remote."
         whatsappHref={whatsappHref}
         sectionBg="bg-stone-900"

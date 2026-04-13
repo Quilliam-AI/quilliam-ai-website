@@ -164,7 +164,7 @@ export function Nav() {
               className="rounded-xl px-4 h-8 text-[13px] font-medium text-white/80 border-white/20 hover:text-white hover:border-white/40 transition-all duration-500"
             >
               <Link href="/book?intent=training" onClick={() => trackBookTrainingClicked("nav")}>
-                Free Training
+                AI Training
               </Link>
             </Button>
             <Button
@@ -173,7 +173,7 @@ export function Nav() {
               className="rounded-xl px-4 h-8 text-[13px] font-medium bg-emerald-600 hover:bg-emerald-500 text-white transition-all duration-500"
             >
               <Link href="/book?intent=audit" onClick={() => trackBookAuditClicked("nav")}>
-                Free AI Audit
+                AI Audit
               </Link>
             </Button>
           </div>
@@ -247,7 +247,7 @@ export function Nav() {
                 href="/book?intent=training"
                 onClick={() => { trackBookTrainingClicked("nav"); setOpen(false); }}
               >
-                Book Free AI Training
+                Book AI Training
               </Link>
             </Button>
             <Button
@@ -258,7 +258,7 @@ export function Nav() {
                 href="/book?intent=audit"
                 onClick={() => { trackBookAuditClicked("nav"); setOpen(false); }}
               >
-                Book Free AI Audit
+                Book Your AI Audit
               </Link>
             </Button>
           </div>

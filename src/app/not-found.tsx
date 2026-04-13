@@ -16,7 +16,7 @@ export default function NotFound() {
         </h1>
         <p className="mt-4 text-base text-stone-400 leading-relaxed">
           The page you are looking for does not exist or has been moved. Head
-          back to our homepage or book a free AI Audit.
+          back to our homepage or book an AI Audit.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
           <Button
@@ -35,7 +35,7 @@ export default function NotFound() {
             size="lg"
             className="rounded-full h-12 px-8 text-base text-white"
           >
-            <Link href="/book">Book a Free AI Audit</Link>
+            <Link href="/book">Book an AI Audit</Link>
           </Button>
         </div>
       </div>

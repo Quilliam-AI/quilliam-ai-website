@@ -226,12 +226,12 @@ export default function ServiceAreasPage() {
                 Wherever you are, we can help
               </h2>
               <p className="mt-4 text-base text-stone-400 leading-relaxed max-w-[48ch] mx-auto">
-                Book a free AI Audit and find out exactly what we would fix
+                Book an AI Audit and find out exactly what we would fix
                 first. No commitment. No jargon.
               </p>
               <Link href="/book" className="mt-8 inline-block">
                 <Button className="rounded-full h-12 px-8 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)] transition-all">
-                  Book Your Free AI Audit
+                  Book Your AI Audit
                   <ArrowRight size={14} className="ml-2" />
                 </Button>
               </Link>

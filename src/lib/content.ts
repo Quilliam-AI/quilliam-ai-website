@@ -143,19 +143,19 @@ export const featuredEngagement = {
 
 export const faqs = [
   {
-    question: "What is the free AI Audit?",
+    question: "What is the AI Audit?",
     answer:
-      "Quilliam AI's free AI Audit is a focused session where we look at how your business actually runs, talk to you about where AI could help, and give you a clear, practical recommendation. We ask about your team, your workflows, and the tasks that eat the most time — then we show you exactly which AI tools, training, or automations would move the needle for you specifically. It's not a strategy deck, it's not a sales pitch, and there is no commitment to work with us afterwards. You walk away with a concrete plan you can act on, whether we end up working together or not. Most audits take 30 to 60 minutes and can be run in-person in Cornwall or remotely anywhere in the UK.",
+      "Quilliam AI's AI Audit is a focused session where we look at how your business actually runs, talk to you about where AI could help, and give you a clear, practical recommendation. We ask about your team, your workflows, and the tasks that eat the most time — then we show you exactly which AI tools, training, or automations would move the needle for you specifically. It's not a strategy deck, it's not a sales pitch, and there is no commitment to work with us afterwards. You walk away with a concrete plan you can act on, whether we end up working together or not. Most audits take 30 to 60 minutes and can be run in-person in Cornwall or remotely anywhere in the UK.",
   },
   {
     question: "What types of businesses do you work with?",
     answer:
-      "Quilliam AI works with UK businesses of all shapes and sizes — small businesses, startups, agencies, charities, and teams inside larger organisations. What our clients have in common is not their industry or size, it's a genuine desire to use AI properly rather than either ignoring it or throwing money at generic ChatGPT subscriptions and hoping something sticks. We've worked with university spin-outs, fitness studios, professional services firms, and creative agencies. The through-line is that every engagement starts with understanding the business first and applying technology second, which is why the free AI Audit is always the right place to start.",
+      "Quilliam AI works with UK businesses of all shapes and sizes — small businesses, startups, agencies, charities, and teams inside larger organisations. What our clients have in common is not their industry or size, it's a genuine desire to use AI properly rather than either ignoring it or throwing money at generic ChatGPT subscriptions and hoping something sticks. We've worked with university spin-outs, fitness studios, professional services firms, and creative agencies. The through-line is that every engagement starts with understanding the business first and applying technology second, which is why the AI Audit is always the right place to start.",
   },
   {
     question: "Do you do AI training, AI implementation, or both?",
     answer:
-      "Both — and we encourage most clients to do both because they reinforce each other. AI Education means hands-on workshops and training where your team learns to use tools like ChatGPT, Claude, and custom agents in their actual work — no theory, no slides, just practical skills people can apply the next day. AI Implementation means we build the automations, agents, workflows, and custom tools your business needs — we do the work, you get the outcomes. Some clients come to us for training only because they want to build the skills internally; others come for implementation only because they want the systems without learning the details; most end up doing both in sequence or parallel. The free AI Audit is where we figure out which mix is right for you.",
+      "Both — and we encourage most clients to do both because they reinforce each other. AI Education means hands-on workshops and training where your team learns to use tools like ChatGPT, Claude, and custom agents in their actual work — no theory, no slides, just practical skills people can apply the next day. AI Implementation means we build the automations, agents, workflows, and custom tools your business needs — we do the work, you get the outcomes. Some clients come to us for training only because they want to build the skills internally; others come for implementation only because they want the systems without learning the details; most end up doing both in sequence or parallel. The AI Audit is where we figure out which mix is right for you.",
   },
   {
     question: "How is Quilliam AI different from other AI agencies?",

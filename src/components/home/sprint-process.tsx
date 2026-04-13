@@ -18,15 +18,15 @@ export function SprintProcess() {
         <FadeIn>
           <div className="max-w-xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 mb-3">
-              The Free AI Audit
+              The AI Audit
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-white leading-tight">
-              How does Quilliam AI&apos;s free AI Audit work?
+              How does the Quilliam AI Audit work?
             </h2>
             <p className="mt-4 text-base text-stone-400 leading-relaxed">
               A focused conversation. We listen, figure out whether training,
               implementation, or both would help you most, then we either
-              teach or build — or both. Free to start. No commitment.
+              teach or build — or both. No commitment.
             </p>
           </div>
         </FadeIn>

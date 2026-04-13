@@ -50,7 +50,7 @@ export function ServicesCards() {
               SEO, Google Business Profile setup, and content production —
               the digital foundation that supports your AI work. Most
               clients pick one or two; some pick all three. Every engagement
-              starts with a free AI Audit and is handoff-first — the
+              starts with an AI Audit and is handoff-first — the
               deliverable is a skill or system your team actually owns.
             </p>
           </div>

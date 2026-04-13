@@ -136,7 +136,7 @@ export default function AboutPage() {
                     className="rounded-full h-12 px-8 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
                   >
                     <Link href="/book">
-                      Book a Free AI Audit
+                      Book an AI Audit
                       <ArrowRight size={18} className="ml-2" />
                     </Link>
                   </Button>
@@ -399,7 +399,7 @@ export default function AboutPage() {
                 Engagements are usually day-rate (£300–£400/day) for
                 implementation and ongoing support work, or fixed-price
                 for well-scoped packages like a website rebuild or a full
-                team training. We start with a free AI Audit so you see
+                team training. We start with an AI Audit so you see
                 real value before spending anything, and we agree scope
                 clearly before any paid work begins.
               </p>
@@ -471,9 +471,8 @@ export default function AboutPage() {
                   If you run a UK business and you&apos;re wondering whether
                   AI is worth the hype, or whether your team should learn
                   it, or whether you should have someone just build the
-                  systems for you — let&apos;s talk. The AI Audit is free.
-                  The worst that happens is you walk away with a clear idea
-                  of what&apos;s possible.
+                  systems for you — let&apos;s talk. The worst that happens
+                  is you walk away with a clear idea of what&apos;s possible.
                 </p>
               </FadeIn>
 
@@ -530,7 +529,7 @@ export default function AboutPage() {
           </FadeIn>
           <FadeIn delay={0.1} className="mt-5">
             <p className="text-base md:text-lg text-stone-400 leading-relaxed max-w-[48ch] mx-auto">
-              Book a free session. We&apos;ll talk about your business and
+              Book a session. We&apos;ll talk about your business and
               I&apos;ll recommend training, implementation, or both — whatever
               actually fits. No jargon. No commitment.
             </p>
@@ -543,7 +542,7 @@ export default function AboutPage() {
                 className="rounded-full h-12 px-10 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
               >
                 <Link href="/book?intent=training">
-                  Book Free AI Training
+                  Book AI Training
                   <ArrowRight size={18} className="ml-2" />
                 </Link>
               </Button>
@@ -554,7 +553,7 @@ export default function AboutPage() {
                 className="rounded-full h-12 px-10 text-base text-white"
               >
                 <Link href="/book?intent=audit">
-                  Book Free AI Audit
+                  Book Your AI Audit
                   <ArrowRight size={18} className="ml-2" />
                 </Link>
               </Button>
@@ -595,7 +594,7 @@ export default function AboutPage() {
         Deloitte in turnaround and restructuring, an AgriTech company, and
         a current role at a software startup building AI-first products
         for businesses across the UK and Middle East. Every engagement
-        starts with a free AI Audit and is handoff-first: the deliverable
+        starts with an AI Audit and is handoff-first: the deliverable
         is a skill or system the client&apos;s own team actually owns, not
         a bespoke framework that locks the client into permanent
         dependency. Quilliam AI works with UK businesses of all shapes and
