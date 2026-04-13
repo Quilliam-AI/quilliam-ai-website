@@ -137,18 +137,11 @@ export const featuredEngagement = {
         "n8n workflows that take a signed contract to a live account without manual chasing. Documented so their team can maintain it.",
     },
   ],
-  client: {
-    business: "VetVision AI",
-    location: "University of Nottingham spin-out",
-    owner: "James, Head of GTM",
-    quote:
-      "Quilliam AI is the rare agency that does both sides — they trained our team on AI tools AND built the automations we needed. One engagement instead of three.",
-    stats: {
-      primary: "3",
-      primaryLabel: "workstreams in parallel",
-      secondary: "1 day/wk",
-      secondaryLabel: "engagement cadence",
-    },
+  stats: {
+    primary: "3",
+    primaryLabel: "workstreams in parallel",
+    secondary: "1 day/wk",
+    secondaryLabel: "engagement cadence",
   },
 } as const;
 

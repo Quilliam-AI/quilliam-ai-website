@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Quote } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { featuredEngagement } from "@/lib/content";
 import { FadeIn } from "@/components/shared/fade-in";
@@ -83,46 +83,24 @@ export function IndustrySection() {
               </div>
             </div>
 
-            {/* Testimonial bar */}
+            {/* Engagement stats */}
             <div className="border-t border-stone-200/60 bg-stone-50 px-8 md:px-12 lg:px-14 py-6">
-              <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-                <div className="flex items-start gap-3 flex-1">
-                  <Quote
-                    size={20}
-                    className="text-emerald-600 shrink-0 mt-0.5"
-                  />
-                  <blockquote className="text-sm text-stone-600 italic leading-relaxed">
-                    {featuredEngagement.client.quote}
-                  </blockquote>
+              <div className="flex gap-8">
+                <div>
+                  <span className="text-xl font-semibold font-mono text-emerald-600 tabular-nums">
+                    {featuredEngagement.stats.primary}
+                  </span>
+                  <p className="text-[10px] text-stone-400 uppercase tracking-widest">
+                    {featuredEngagement.stats.primaryLabel}
+                  </p>
                 </div>
-                <div className="flex items-center gap-8 shrink-0">
-                  <div className="text-right">
-                    <p className="text-sm font-semibold text-stone-900">
-                      {featuredEngagement.client.owner}
-                    </p>
-                    <p className="text-xs text-stone-400">
-                      {featuredEngagement.client.business} ·{" "}
-                      {featuredEngagement.client.location}
-                    </p>
-                  </div>
-                  <div className="hidden md:flex gap-6">
-                    <div>
-                      <span className="text-xl font-semibold font-mono text-emerald-600 tabular-nums">
-                        {featuredEngagement.client.stats.primary}
-                      </span>
-                      <p className="text-[10px] text-stone-400 uppercase tracking-widest">
-                        {featuredEngagement.client.stats.primaryLabel}
-                      </p>
-                    </div>
-                    <div>
-                      <span className="text-xl font-semibold font-mono text-emerald-600">
-                        {featuredEngagement.client.stats.secondary}
-                      </span>
-                      <p className="text-[10px] text-stone-400 uppercase tracking-widest">
-                        {featuredEngagement.client.stats.secondaryLabel}
-                      </p>
-                    </div>
-                  </div>
+                <div>
+                  <span className="text-xl font-semibold font-mono text-emerald-600">
+                    {featuredEngagement.stats.secondary}
+                  </span>
+                  <p className="text-[10px] text-stone-400 uppercase tracking-widest">
+                    {featuredEngagement.stats.secondaryLabel}
+                  </p>
                 </div>
               </div>
             </div>
