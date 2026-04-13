@@ -19,7 +19,7 @@ export function IndustrySection() {
             </h2>
             <p className="mt-4 text-base text-stone-500 leading-relaxed">
               Most engagements are smaller than this — clients usually pick one
-              service, not three. But VetVision AI shows what&apos;s possible
+              service, not three. But this engagement shows what&apos;s possible
               when education and implementation run in parallel.
             </p>
           </div>
@@ -32,8 +32,8 @@ export function IndustrySection() {
               {/* Photo side */}
               <div className="relative h-72 lg:h-auto overflow-hidden">
                 <Image
-                  src="https://picsum.photos/seed/vetvision-ai/800/600"
-                  alt="VetVision AI — example Quilliam AI engagement"
+                  src="https://picsum.photos/seed/quilliam-engagement/800/600"
+                  alt="Example Quilliam AI engagement"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"

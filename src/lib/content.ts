@@ -110,6 +110,37 @@ export const sprintSteps = [
   },
 ] as const;
 
+export const featuredEngagement = {
+  label: "Featured engagement",
+  industry: "AI Startup",
+  hero: {
+    title: "A university spin-out —",
+    titleAccent: "education and implementation, side by side",
+    description:
+      "An early-stage startup building AI tools for their industry. Quilliam AI runs training, builds their web presence, and maintains their Company Brain — all on a single day-rate engagement.",
+  },
+  workstreams: [
+    {
+      problem: "Team had no shared AI workflow",
+      solution: "Built a Claude Code + Obsidian Company Brain the whole team uses daily",
+    },
+    {
+      problem: "Website stuck on a generic template",
+      solution: "Rebuilt on Next.js with proper SEO, schema, and content strategy",
+    },
+    {
+      problem: "Founders needed AI fluency, fast",
+      solution: "Hands-on workshops tailored to their roles — not slides, not theory",
+    },
+  ],
+  stats: {
+    primary: "1 day/wk",
+    primaryLabel: "Engagement cadence",
+    secondary: "3 services",
+    secondaryLabel: "Running in parallel",
+  },
+} as const;
+
 export const faqs = [
   {
     question: "What is the free AI Audit?",
