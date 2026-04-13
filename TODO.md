@@ -111,16 +111,13 @@ Many items below have been rewritten for v3. The pre-rebrand Completed section i
 
 ## Uncompleted — High Priority (Fix Within 1 Week)
 
-### 4b. Set up Resend API key for booking form emails
-**Impact:** The booking form submits but **no email is sent** without a `RESEND_API_KEY` env var. Leads are silently lost.
-**Current state:** No Resend key configured in Vercel.
-
-**Steps:**
-- [ ] Create a Resend account at resend.com
-- [ ] Verify the sending domain (`quilliam.ai`) — add the DNS records Resend provides
-- [ ] Create an API key
-- [ ] Add `RESEND_API_KEY` to Vercel environment variables (All Environments)
-- [ ] Test by submitting the booking form on the live site and confirming email arrives at levi@quilliam.ai
+### ~~4b. Set up Resend API key for booking form emails~~ DONE (2026-04-13)
+- [x] Resend account created, `quilliam.ai` domain verified (EU/Ireland region)
+- [x] DNS records added: DKIM (`resend._domainkey`), return-path MX (`send.quilliam.ai`), SPF updated to include `send.resend.com`
+- [x] `RESEND_API_KEY` added to Vercel (All Environments) and `.env.local`
+- [x] Confirmation email to leads added (from `levi@quilliam.ai`)
+- [x] Lead notes auto-created in Obsidian vault via GitHub API (`Ops/Leads/`)
+- [x] `GITHUB_VAULT_TOKEN` env var needed in Vercel for vault integration
 
 ---
 
@@ -363,6 +360,78 @@ PostHog (EU Cloud, Frankfurt) installed with:
 
 ### 20. Split `/book` into dedicated training + audit routes
 **Consider later:** Currently `/book` is dynamic, reading `?intent=` query params. For SEO, separate routes (`/book/training`, `/book/audit`) would be stronger — each with their own static metadata, schema, and indexable content. Keep the query-param version as a fallback redirect. Only worth doing once there's real traffic to measure against.
+
+### 21. Branded email templates
+**Impact:** Professional-looking transactional emails build trust and reinforce the brand.
+**Current state:** Both emails (internal notification + lead confirmation) are inline HTML strings in `booking-action.ts`. Functional but unbranded — no logo, no colours, no footer.
+
+**Steps:**
+- [ ] Create React Email templates using `@react-email/components` (co-located in `src/emails/`)
+- [ ] Booking confirmation template: Quilliam AI logo, emerald accent, WhatsApp link, footer with company details
+- [ ] Internal notification template: clean data table, direct reply-to link
+- [ ] Preview locally with React Email's dev server
+- [ ] Replace inline HTML in `booking-action.ts` with rendered templates
+
+---
+
+## Completed — PostHog + analytics session (2026-04-12/13)
+
+### ~~Install PostHog analytics~~ DONE
+- [x] Installed `posthog-js` (latest stable SDK)
+- [x] Created PostHog provider with consent-aware init
+- [x] Reverse proxy via Next.js rewrites (`/ph/*` → `eu.i.posthog.com`)
+- [x] EU Cloud (Frankfurt) — all data in EU
+- [x] CSP headers updated for PostHog (worker blobs, EU connect-src)
+- [x] `skipTrailingSlashRedirect: true` for proxy compatibility
+- [x] Localhost traffic filtered in code (PostHog never inits on localhost)
+
+### ~~GDPR cookie consent banner~~ DONE
+- [x] Consent-aware PostHog init: memory-only until user accepts
+- [x] Accept → upgrades to `localStorage+cookie` + enables session recording
+- [x] Reject → stays memory-only, events still captured anonymously
+- [x] Banner appears once, preference stored in localStorage
+- [x] "Manage Cookies" link added to footer (clears preference, reshows banner)
+- [x] Privacy policy rewritten: PostHog disclosure, cookie section with accept/reject explanation
+- [x] `LegalSection` component now supports `id` prop for anchor links
+
+### ~~Conversion tracking~~ DONE
+- [x] Typed analytics module (`src/lib/analytics.ts`) with consistent event names
+- [x] `cta_clicked` (book_training/book_audit) with location property across hero, nav, sticky CTA, footer, CTA sections
+- [x] `contact_clicked` (whatsapp/phone/email) with location across all contact links
+- [x] `service_card_clicked` with service slug on homepage cards
+- [x] Full booking form funnel: `booking_form_viewed` → `booking_form_started` → `booking_form_submitted` → `booking_form_success`/`booking_form_error`
+- [x] `posthog.identify()` on successful booking (email, name, business, business_type)
+- [x] `TrackClick` client wrapper component for server components
+- [x] Fixed double pageview counting (removed manual PostHogPageView, relying on SDK `defaults: '2026-01-30'`)
+
+### ~~PostHog dashboard + actions~~ DONE
+- [x] 8 reusable actions: Booking Form Submitted, Booking Form Success, CTA Clicked — Book Training, CTA Clicked — Book Audit, WhatsApp Clicked, Phone Clicked, Email Clicked, Service Page Explored
+- [x] Pinned "Quilliam AI — Conversions" dashboard with 6 insights:
+  - Booking Funnel (5-step funnel)
+  - CTA Performance by Location (bar chart)
+  - Training vs Audit CTAs (pie chart)
+  - Contact Method Breakdown (pie chart)
+  - Booking Submissions Over Time (line chart)
+  - Service Discovery (bar chart)
+- [x] PostHog MCP server connected to EU Quilliam AI project
+- [x] GitHub connected to PostHog error tracking (quilliam-ai-website repo)
+
+### ~~Booking form email flow~~ DONE
+- [x] Internal notification email to `levi@quilliam.ai` (from `bookings@quilliam.ai`)
+- [x] Confirmation email to the lead (from `levi@quilliam.ai`)
+- [x] Resend domain verified (`quilliam.ai`, EU/Ireland region)
+- [x] SPF updated: `include:_spf.google.com include:send.resend.com`
+- [x] DKIM + return-path DNS records added
+- [x] `RESEND_API_KEY` added to Vercel + `.env.local`
+
+### ~~Lead notes in Obsidian vault~~ DONE
+- [x] `createLeadNote()` function creates markdown in `Ops/Leads/` via GitHub API
+- [x] Each note has frontmatter (type, date, status, interest, business_type, email) + follow-up checklist
+- [x] Fire-and-forget — GitHub API failures never block booking confirmation
+- [x] Requires `GITHUB_VAULT_TOKEN` env var (fine-grained PAT with Contents read/write on vault repo)
+
+### ~~Rebrand commit~~ DONE
+- [x] All copy/targeting changes from quilliam-digital committed and pushed to quilliam-ai-site (35 files)
 
 ---
 
