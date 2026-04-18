@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPage() {
-  const lastUpdated = "12 April 2026";
+  const lastUpdated = "18 April 2026";
 
   return (
     <article className="min-h-screen">
@@ -38,7 +38,7 @@ export default function PrivacyPage() {
         name="Privacy Policy | Quilliam AI"
         description="Quilliam AI's privacy policy. How we collect, use, and protect your personal information."
         datePublished="2026-04-11"
-        dateModified="2026-04-12"
+        dateModified="2026-04-18"
       />
       <LegalHero title="Privacy Policy" lastUpdated={lastUpdated} />
 
@@ -84,6 +84,14 @@ export default function PrivacyPage() {
               <strong>Communication records</strong> &mdash; emails,
               WhatsApp messages, or other correspondence you send us.
             </li>
+            <li>
+              <strong>Business contact information</strong> &mdash; when
+              we research potential clients, we may collect publicly
+              available business contact details such as name, job title,
+              business email address, and company name from sources
+              including company websites, LinkedIn, and business
+              directories.
+            </li>
           </ul>
         </LegalSection>
 
@@ -95,6 +103,10 @@ export default function PrivacyPage() {
             <li>Send project updates and follow-ups you have requested.</li>
             <li>
               Understand how visitors use our website so we can improve it.
+            </li>
+            <li>
+              Contact businesses we believe may benefit from our services
+              (see &ldquo;Direct marketing and B2B outreach&rdquo; below).
             </li>
           </ul>
           <p>
@@ -113,13 +125,48 @@ export default function PrivacyPage() {
             </li>
             <li>
               <strong>Legitimate interests</strong> &mdash; to improve our
-              website and understand how our services are used.
+              website, understand how our services are used, and to
+              contact businesses that may benefit from our services (see
+              below).
             </li>
             <li>
               <strong>Contractual necessity</strong> &mdash; to deliver
               services you have engaged us for.
             </li>
           </ul>
+        </LegalSection>
+
+        <LegalSection title="Direct marketing and B2B outreach">
+          <p>
+            We occasionally contact businesses we believe may benefit from
+            our services. This is targeted, low-volume outreach to
+            specific companies &mdash; not bulk marketing.
+          </p>
+          <p>
+            <strong>Lawful basis:</strong> legitimate interests under UK
+            GDPR Article 6(1)(f). We have conducted a legitimate interest
+            assessment and concluded that targeted B2B outreach to
+            publicly listed business contacts is proportionate and
+            minimally intrusive, particularly where the recipient&rsquo;s
+            business operates in a sector we serve.
+          </p>
+          <p>
+            <strong>Data sources:</strong> we collect business contact
+            details from publicly available sources only &mdash; company
+            websites, LinkedIn profiles, Companies House filings, and
+            business directories. We do not purchase contact lists or
+            scrape personal email addresses.
+          </p>
+          <p>
+            <strong>Your right to opt out:</strong> every outreach email
+            includes a one-click unsubscribe link. We honour all
+            unsubscribe requests promptly and will not contact you again.
+            You can also email{" "}
+            <a href={`mailto:${siteConfig.email}`}>
+              {siteConfig.email}
+            </a>{" "}
+            to opt out or request deletion of your data at any time.
+          </p>
         </LegalSection>
 
         <LegalSection title="Third-party services">
@@ -185,6 +232,12 @@ export default function PrivacyPage() {
             <li>
               <strong>Client project data</strong> &mdash; retained for the
               duration of the engagement plus 24 months.
+            </li>
+            <li>
+              <strong>Prospecting data</strong> &mdash; if you ask us to
+              stop contacting you, we delete your contact details within
+              30 days and add your email to a suppression list to prevent
+              future contact.
             </li>
             <li>
               <strong>Analytics data</strong> &mdash; retained for 12
