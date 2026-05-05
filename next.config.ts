@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "images.unsplash.com",
+        hostname: "picsum.photos",
       },
     ],
   },
@@ -55,10 +55,11 @@ const nextConfig: NextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=31536000; includeSubDomains; preload",
           },
+          // TODO: Remove https://picsum.photos from img-src after replacing placeholder images (#1)
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com; font-src 'self'; connect-src 'self' https://eu.posthog.com; worker-src 'self' blob:; frame-ancestors 'none'",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://picsum.photos; font-src 'self'; connect-src 'self' https://eu.posthog.com; worker-src 'self' blob:; frame-ancestors 'none'",
           },
         ],
       },

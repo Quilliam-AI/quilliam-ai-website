@@ -1,11 +1,7 @@
 import { Hero } from "@/components/home/hero";
 import { TrustBar } from "@/components/home/trust-bar";
-import { OutcomeModel } from "@/components/home/outcome-model";
-import { WorkflowShowcase } from "@/components/home/workflow-showcase";
-import { StePillars } from "@/components/home/ste-pillars";
 import { SprintProcess } from "@/components/home/sprint-process";
 import { ServicesCards } from "@/components/home/services-cards";
-import { IndustrySection } from "@/components/home/industry-tabs";
 import { AboutPreview } from "@/components/home/about-preview";
 import { FaqSection } from "@/components/home/faq-section";
 import { CtaSection } from "@/components/shared/cta-section";
@@ -29,10 +25,10 @@ function HomeJsonLd() {
   const howToSchema = {
     "@type": "HowTo",
     "@id": `${siteConfig.url}/#howto`,
-    name: "How Quilliam AI turns an AI opportunity into a live system",
+    name: "How to get an AI Audit from Quilliam AI",
     description:
-      "The outcome-led implementation flow: map the opportunity, agree the baseline, build the first system, then train and optimise against the metric.",
-    totalTime: "P2W",
+      "A focused conversation where we listen to your business, figure out whether AI training, implementation, or both would help you most, and give you a clear, practical recommendation. No commitment.",
+    totalTime: "PT1H",
     step: sprintSteps.map((step, i) => ({
       "@type": "HowToStep",
       position: i + 1,
@@ -59,20 +55,16 @@ export default function HomePage() {
     <>
       <WebPageJsonLd
         path="/"
-        name="Outcome-led AI implementation for owner-led businesses | Quilliam AI"
-        description="Quilliam AI installs AI systems inside owner-led UK businesses, tied to measurable outcomes: hours saved, faster lead response, reduced admin backlog, and cleaner reporting."
+        name="AI Education and Implementation for UK Businesses | Quilliam AI"
+        description="Quilliam AI is a UK AI agency that teaches your team how to use AI properly and builds the automations, agents, and tools that save you hours every week. Based in Cornwall, working UK-wide."
         datePublished="2026-04-11"
-        dateModified="2026-05-03"
+        dateModified="2026-04-11"
       />
       <HomeJsonLd />
       <Hero />
       <TrustBar />
-      <OutcomeModel />
-      <WorkflowShowcase />
-      <StePillars />
       <SprintProcess />
       <ServicesCards />
-      <IndustrySection />
       <AboutPreview />
       <FaqSection />
       <CtaSection />

@@ -7,26 +7,25 @@ import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { DotGridPattern } from "@/components/shared/pattern-overlay";
 import { FadeIn } from "@/components/shared/fade-in";
 import { Button } from "@/components/ui/button";
-import { CompaniesHouseLink } from "@/components/shared/legal-links";
 
 export const metadata: Metadata = {
   title: "Where We Work — Cornwall, UK & Remote",
   description:
-    "Quilliam AI delivers outcome-led AI implementation for owner-led UK businesses nationwide. Based in Cornwall, on-site across the South West and London plus remote delivery UK-wide.",
+    "Quilliam AI works with UK businesses nationwide. Based in Cornwall, delivering AI training, AI implementation, and digital services on-site in the South West and remotely UK-wide.",
   alternates: {
     canonical: "/service-areas",
   },
   openGraph: {
     title: "Where We Work — Cornwall, UK & Remote | Quilliam AI",
     description:
-      "Based in Cornwall, outcome-led AI implementation for owner-led UK businesses nationwide.",
+      "AI education and implementation for UK businesses. Cornwall-based, working UK-wide and remote.",
     url: "/service-areas",
     images: ["/opengraph-image"],
   },
   twitter: {
     title: "Where We Work — Cornwall, UK & Remote | Quilliam AI",
     description:
-      "Cornwall-based. Outcome-led AI implementation for owner-led UK businesses nationwide.",
+      "Cornwall-based UK AI agency. AI training and implementation for businesses nationwide.",
   },
 };
 
@@ -34,56 +33,56 @@ const regions = [
   {
     name: "Cornwall & South West",
     description:
-      "Our home base. On-site kick-offs and Handover Days delivered in-person across Cornwall, Devon, Bristol, and the wider South West. Shortest journey to us — easiest to pop in.",
+      "Our home base. Training and implementation delivered in-person across Cornwall, Devon, Bristol, and the wider South West. On-site visits as often as you need them.",
     highlight: true,
   },
   {
     name: "London & South East",
     description:
-      "Regular in-person visits to London for kick-offs, voice-capture sessions, and go-live handovers. Great connectivity, easy day trips from Cornwall by train.",
+      "Regular in-person visits to London for both training workshops and implementation work. Great connectivity, easy day trips from Cornwall.",
     highlight: false,
   },
   {
     name: "Midlands & Thames Valley",
     description:
-      "Birmingham, Oxford, Cambridge, Reading, and beyond. On-site for kick-offs and Handover Days, remote for the build weeks in between.",
+      "Birmingham, Oxford, Cambridge, Reading, and beyond. On-site for workshops and kick-offs, remote for ongoing work.",
     highlight: false,
   },
   {
     name: "North & Scotland",
     description:
-      "Manchester, Leeds, Edinburgh, Glasgow. Remote-first delivery with on-site visits for kick-off and handover if it helps.",
+      "Manchester, Leeds, Edinburgh, Glasgow. Remote-first delivery with occasional on-site visits for team training or handoff sessions.",
     highlight: false,
   },
   {
     name: "Wales & Northern Ireland",
     description:
-      "Cardiff, Belfast, and across Wales and Northern Ireland. Full remote delivery for every offer on the ladder.",
+      "Cardiff, Belfast, and across Wales and Northern Ireland. Full remote delivery for both training and implementation work.",
     highlight: false,
   },
   {
     name: "Remote — anywhere in the UK",
     description:
-      "Most of the work ships remotely over video, shared docs, and Slack. Same output, zero travel overhead for you.",
+      "Most of our work can be delivered remotely over video, shared docs, and async comms. Same quality, zero travel overhead for you.",
     highlight: false,
   },
 ];
 
 const deliveryMethods = [
   {
-    title: "In-person",
+    title: "In-Person",
     description:
-      "Available across Cornwall, the South West, and London as standard. Good for kick-offs, workflow mapping, team training, and handover when your team takes the keys.",
+      "Available across Cornwall, the South West, and London as standard. Ideal for team training workshops, kick-off sessions, and explicit handoff visits. We come to you.",
   },
   {
     title: "Remote",
     description:
-      "Default mode for businesses outside the South West. Mapping, build, launch, training, and optimisation delivered over video, shared docs, and Slack. Same output, zero travel overhead.",
+      "Default mode for clients outside the South West. Full training and implementation delivered over video, shared docs, and async comms. Same output, zero travel overhead.",
   },
   {
     title: "Hybrid",
     description:
-      "The most common shape. On-site kick-off, remote build, on-site handover. Best of both.",
+      "Most common arrangement. Kick-off or training on-site, ongoing implementation work remote. Best of both — and what most clients prefer.",
   },
 ];
 
@@ -92,7 +91,7 @@ function ServiceAreasJsonLd() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${siteConfig.url}/service-areas#service-areas`,
-    name: "Outcome-led AI implementation — UK-wide & remote",
+    name: "AI Education and Implementation — UK-wide & remote",
     provider: {
       "@id": `${siteConfig.url}/#organization`,
     },
@@ -101,7 +100,7 @@ function ServiceAreasJsonLd() {
       name: region.name,
     })),
     description:
-      "Quilliam AI delivers outcome-led AI implementation for owner-led UK businesses nationwide — strategy, systems, and team training tied to measurable business outcomes. Based in Cornwall with on-site delivery across the South West and London plus full remote delivery UK-wide.",
+      "Quilliam AI provides AI training, AI implementation, and digital services to UK businesses nationwide. Based in Cornwall with in-person delivery across the South West and London plus full remote delivery UK-wide.",
   };
 
   return (
@@ -121,9 +120,9 @@ export default function ServiceAreasPage() {
       <WebPageJsonLd
         path="/service-areas"
         name="Where We Work — Cornwall, UK & Remote | Quilliam AI"
-        description="Quilliam AI delivers outcome-led AI implementation for owner-led UK businesses nationwide. Cornwall-based, delivering on-site across the South West and London plus full remote delivery UK-wide."
+        description="Quilliam AI works with UK businesses nationwide. Cornwall-based, delivering AI training, implementation, and digital services on-site and remote."
         datePublished="2026-04-11"
-        dateModified="2026-05-01"
+        dateModified="2026-04-11"
       />
       <ServiceAreasJsonLd />
 
@@ -141,16 +140,13 @@ export default function ServiceAreasPage() {
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold tracking-tighter leading-[1.08] text-white max-w-[18ch]">
               Based in Cornwall.{" "}
-              <span className="text-emerald-400">Shipping everywhere.</span>
+              <span className="text-emerald-400">Working everywhere.</span>
             </h1>
             <p className="mt-6 text-base md:text-lg text-stone-400 leading-relaxed max-w-[56ch]">
               Quilliam AI Ltd is based in Cornwall, UK (Companies House{" "}
-              <CompaniesHouseLink className="underline decoration-stone-700 underline-offset-2 hover:text-stone-300 transition-colors">
-                {siteConfig.companyNumber}
-              </CompaniesHouseLink>
-              ). Outcome-led AI implementation delivered on-site across the
-              South West and London, remotely for businesses anywhere else in
-              the UK.
+              {siteConfig.companyNumber}). AI training, implementation, and
+              digital services delivered in-person across the South West and
+              London, and remotely for businesses anywhere else in the UK.
             </p>
           </FadeIn>
         </div>
@@ -182,7 +178,7 @@ export default function ServiceAreasPage() {
                     </h2>
                     {region.highlight && (
                       <span className="ml-auto text-[10px] font-semibold uppercase tracking-[0.15em] text-emerald-400 bg-emerald-900/40 px-2 py-0.5 rounded-full border border-emerald-800/40">
-                        Home base
+                        Home Base
                       </span>
                     )}
                   </div>
@@ -227,20 +223,18 @@ export default function ServiceAreasPage() {
           <FadeIn>
             <div className="text-center">
               <h2 className="text-2xl md:text-3xl font-semibold tracking-tighter text-white">
-                Wherever you are, we can ship
+                Wherever you are, we can help
               </h2>
-              <p className="mt-4 text-base text-stone-400 leading-relaxed max-w-[52ch] mx-auto">
-                Start with an AI Opportunity Mapping Call. We find the first
-                system worth building and the metric it should move.
+              <p className="mt-4 text-base text-stone-400 leading-relaxed max-w-[48ch] mx-auto">
+                Book an AI Audit and find out exactly what we would fix
+                first. No commitment. No jargon.
               </p>
-              <div className="mt-8">
-                <Button asChild size="lg">
-                  <Link href="/book">
-                    Map my first AI system
-                    <ArrowRight size={14} />
-                  </Link>
+              <Link href="/book" className="mt-8 inline-block">
+                <Button className="rounded-full h-12 px-8 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)] transition-all">
+                  Book Your AI Audit
+                  <ArrowRight size={14} className="ml-2" />
                 </Button>
-              </div>
+              </Link>
             </div>
           </FadeIn>
         </div>

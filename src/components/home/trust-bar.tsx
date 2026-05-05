@@ -1,36 +1,36 @@
-import { Gauge, GraduationCap, PoundSterling, Target } from "lucide-react";
+import { GraduationCap, Wrench, MapPin, Shield } from "lucide-react";
 import { FadeIn } from "@/components/shared/fade-in";
 
 const trustItems = [
   {
-    icon: Target,
-    label: "Outcome-led",
-    detail: "Metrics agreed before build",
+    icon: GraduationCap,
+    label: "AI Education",
+    detail: "Training, workshops, knowledge systems",
     accent: true,
   },
   {
-    icon: PoundSterling,
-    label: "Fixed setup fee",
-    detail: "Scope and price up front",
+    icon: Wrench,
+    label: "AI Implementation",
+    detail: "Automation, agents, custom tools",
     accent: false,
   },
   {
-    icon: Gauge,
-    label: "Measured impact",
-    detail: "Hours, response, backlog, reporting",
+    icon: Shield,
+    label: "Handoff-First",
+    detail: "No lock-in, your team owns it",
     accent: false,
   },
   {
-    icon: GraduationCap,
-    label: "Team handoff",
-    detail: "Training, runbooks, no lock-in",
+    icon: MapPin,
+    label: "Cornwall Based",
+    detail: "Working UK-wide and remote",
     accent: false,
   },
 ];
 
 export function TrustBar() {
   return (
-    <section className="py-5 bg-white border-y border-stone-200">
+    <section className="py-6 bg-stone-900 border-y border-stone-800/60">
       <div className="max-w-[1400px] mx-auto px-6">
         <FadeIn>
           <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
@@ -39,19 +39,19 @@ export function TrustBar() {
                 key={item.label}
                 className="flex items-center gap-3 group"
               >
-                <div className="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-stone-800 border border-stone-700/50 flex items-center justify-center shrink-0">
                   <item.icon
                     size={15}
                     className={
                       item.accent
-                        ? "text-emerald-300"
-                        : "text-emerald-700"
+                        ? "text-amber-400"
+                        : "text-emerald-400"
                     }
                     strokeWidth={1.5}
                   />
                 </div>
                 <div>
-                    <p className="text-sm font-medium text-stone-900 leading-tight">
+                  <p className="text-sm font-medium text-stone-200 leading-tight">
                     {item.label}
                   </p>
                   <p className="text-[11px] text-stone-500 leading-tight">
@@ -59,7 +59,7 @@ export function TrustBar() {
                   </p>
                 </div>
                 {i < trustItems.length - 1 && (
-                    <div className="hidden lg:block w-px h-8 bg-stone-200 ml-7" />
+                  <div className="hidden lg:block w-px h-8 bg-stone-800 ml-7" />
                 )}
               </div>
             ))}

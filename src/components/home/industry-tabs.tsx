@@ -1,141 +1,111 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { featuredEngagement } from "@/lib/content";
 import { FadeIn } from "@/components/shared/fade-in";
 
-const workflowCases = [
-  {
-    title: "VetVision AI",
-    label: "Regulated healthcare spin-out",
-    outcome: "Onboarding handoff and founder admin reduced",
-    nodes: ["Website form", "Check details", "Create CRM record", "Send welcome pack", "Team review"],
-    note: "Public case study details can be expanded when you provide the final VetVision numbers.",
-  },
-  {
-    title: "Owner-led services",
-    label: "Lead response workflow",
-    outcome: "New enquiries triaged before the owner opens the inbox",
-    nodes: ["New enquiry", "Classify intent", "Draft reply", "Hold for approval", "Log follow-up"],
-    note: "A practical first system for teams where enquiries arrive faster than staff can respond.",
-  },
-  {
-    title: "Monthly reporting",
-    label: "Admin and reporting workflow",
-    outcome: "Copy-paste reporting turned into a checked draft",
-    nodes: ["Pull data", "Summarise changes", "Flag gaps", "Draft report", "Owner sign-off"],
-    note: "Useful where the business already has the data but loses time preparing it every month.",
-  },
-] as const;
-
-function WorkflowScreenshot({ nodes }: { nodes: readonly string[] }) {
-  return (
-    <div className="rounded-2xl bg-[#f7f3ea] p-4 ring-1 ring-stone-200">
-      <div className="flex items-center justify-between border-b border-stone-200 pb-3">
-        <div className="flex items-center gap-2">
-          <span className="h-2.5 w-2.5 rounded-full bg-red-300" />
-          <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
-          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-        </div>
-        <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-stone-500">
-          n8n workflow map
-        </span>
-      </div>
-      <div className="mt-5 flex min-h-[190px] items-center overflow-x-auto pb-2">
-        {nodes.map((node, index) => (
-          <div key={node} className="flex items-center">
-            <div className="w-[128px] rounded-xl border border-stone-200 bg-white p-3 shadow-[0_14px_35px_-32px_rgba(68,64,60,0.6)]">
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-50 text-xs font-semibold text-emerald-700">
-                {index + 1}
-              </span>
-              <p className="mt-3 text-sm font-semibold leading-snug text-stone-900">
-                {node}
-              </p>
-              <p className="mt-2 text-[11px] text-stone-500">
-                {index === nodes.length - 1 ? "human check" : "automation step"}
-              </p>
-            </div>
-            {index < nodes.length - 1 && (
-              <div className="mx-2 h-px w-8 bg-emerald-300" />
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export function IndustrySection() {
   return (
-    <section id="example" className="py-20 md:py-28 bg-white">
+    <section id="example" className="py-20 md:py-28 bg-stone-50">
       <div className="max-w-[1400px] mx-auto px-6">
         <FadeIn>
-          <div className="grid grid-cols-1 lg:grid-cols-[0.82fr_1fr] gap-8 lg:gap-16 items-end">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700 mb-3">
-                Workflow receipts
-              </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-stone-950 leading-tight text-balance">
-                Case-study style proof, not abstract AI promises.
-              </h2>
-            </div>
-            <p className="text-base text-stone-600 leading-relaxed max-w-[62ch]">
-              Owner-operators do not need to see another AI diagram. They need
-              to see the kind of workflow that would remove admin from a real
-              week. These cards make the automation concrete and give us a
-              clean place to add the VetVision details when you are ready.
+          <div className="max-w-xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600 mb-3">
+              {featuredEngagement.label}
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-stone-950 leading-tight">
+              What does a Quilliam AI engagement look like in practice?
+            </h2>
+            <p className="mt-4 text-base text-stone-500 leading-relaxed">
+              Most engagements are smaller than this — clients usually pick one
+              service, not three. But this engagement shows what&apos;s possible
+              when education and implementation run in parallel.
             </p>
           </div>
         </FadeIn>
 
-        <div className="mt-14 grid grid-cols-1 gap-6">
-          {workflowCases.map((item, i) => (
-            <FadeIn key={item.title} delay={0.08 * i}>
-              <article className="grid grid-cols-1 lg:grid-cols-[0.42fr_0.58fr] gap-6 rounded-[2rem] border border-stone-200 bg-[#fbfaf7] p-5 md:p-6 shadow-[0_24px_80px_-68px_rgba(68,64,60,0.55)]">
-                <div className="flex flex-col justify-between p-1">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-700">
-                      {item.label}
-                    </p>
-                    <h3 className="mt-4 text-2xl font-semibold tracking-tight text-stone-950">
-                      {item.title}
-                    </h3>
-                    <p className="mt-4 text-base leading-relaxed text-stone-600">
-                      {item.outcome}
-                    </p>
-                  </div>
-                  <div className="mt-8 rounded-2xl bg-white p-4 ring-1 ring-stone-200">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 size={18} className="mt-0.5 text-emerald-700" />
-                      <p className="text-sm leading-relaxed text-stone-600">
-                        {item.note}
-                      </p>
-                    </div>
-                  </div>
+        {/* Featured engagement — large featured card */}
+        <FadeIn delay={0.15} className="mt-14">
+          <div className="rounded-2xl overflow-hidden bg-white border border-stone-200/60">
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              {/* Photo side */}
+              <div className="relative h-72 lg:h-auto overflow-hidden">
+                <Image
+                  src="https://picsum.photos/seed/quilliam-engagement/800/600"
+                  alt="Example Quilliam AI engagement"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="inline-flex items-center rounded-full bg-white/90 backdrop-blur-sm px-3 py-1 text-xs font-medium text-stone-700">
+                    {featuredEngagement.industry}
+                  </span>
                 </div>
-                <WorkflowScreenshot nodes={item.nodes} />
-              </article>
-            </FadeIn>
-          ))}
-        </div>
+              </div>
 
-        <FadeIn delay={0.25} className="mt-10">
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Button asChild size="lg">
-              <Link href="/book">
-                Map my first AI system
-                <ArrowRight size={16} />
-              </Link>
-            </Button>
-            <Button asChild variant="outline-light" size="lg">
-              <Link href="/#services">See the offer ladder</Link>
-            </Button>
+              {/* Content side */}
+              <div className="p-8 md:p-12 lg:p-14 flex flex-col justify-center">
+                <h3 className="text-xl md:text-2xl font-semibold tracking-tight text-stone-950 leading-tight">
+                  {featuredEngagement.hero.title}{" "}
+                  <span className="text-emerald-600">
+                    {featuredEngagement.hero.titleAccent}
+                  </span>
+                </h3>
+                <p className="mt-3 text-sm text-stone-500 leading-relaxed">
+                  {featuredEngagement.hero.description}
+                </p>
+
+                {/* Workstreams */}
+                <div className="mt-8 space-y-3">
+                  {featuredEngagement.workstreams.map((stream) => (
+                    <div key={stream.problem} className="flex items-start gap-3">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                      <div>
+                        <p className="text-sm font-medium text-stone-800">
+                          {stream.problem}
+                        </p>
+                        <p className="text-xs text-stone-400 mt-0.5">
+                          {stream.solution}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <Button asChild className="mt-8 rounded-full w-fit">
+                  <Link href="/book">
+                    Talk to us about your business
+                    <ArrowRight size={16} className="ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Engagement stats */}
+            <div className="border-t border-stone-200/60 bg-stone-50 px-8 md:px-12 lg:px-14 py-6">
+              <div className="flex gap-8">
+                <div>
+                  <span className="text-xl font-semibold font-mono text-emerald-600 tabular-nums">
+                    {featuredEngagement.stats.primary}
+                  </span>
+                  <p className="text-[10px] text-stone-400 uppercase tracking-widest">
+                    {featuredEngagement.stats.primaryLabel}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-xl font-semibold font-mono text-emerald-600">
+                    {featuredEngagement.stats.secondary}
+                  </span>
+                  <p className="text-[10px] text-stone-400 uppercase tracking-widest">
+                    {featuredEngagement.stats.secondaryLabel}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </FadeIn>
-
-        <p className="sr-only">
-          {featuredEngagement.hero.description}
-        </p>
       </div>
     </section>
   );

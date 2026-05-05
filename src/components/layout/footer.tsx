@@ -1,12 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { siteConfig, getWhatsAppUrl, serviceLinks } from "@/lib/content";
+import { siteConfig, getWhatsAppUrl } from "@/lib/content";
 import { TrackClick } from "@/components/shared/track-click";
 import { ManageCookies } from "@/components/layout/manage-cookies";
-import {
-  CompaniesHouseLink,
-  IcoRegistrationLink,
-} from "@/components/shared/legal-links";
 
 export function Footer() {
   return (
@@ -30,22 +26,15 @@ export function Footer() {
                 {siteConfig.name}
               </span>
             </Link>
-            <p className="mt-3 text-sm text-stone-500 leading-relaxed max-w-[44ch]">
-              Outcome-led AI implementation for owner-led businesses. Strategy,
-              systems, and team training tied to real business outcomes. Solo,
-              technical, founder-led. Open stack, no lock-in.
+            <p className="mt-3 text-sm text-stone-500 leading-relaxed max-w-[40ch]">
+              {siteConfig.description}
             </p>
             <p className="mt-4 text-xs text-stone-400">
               Based in {siteConfig.location}
             </p>
             <p className="mt-2 text-[11px] text-stone-400 leading-relaxed">
               {siteConfig.legalName} · Registered in England &amp; Wales ·
-              Company No.{" "}
-              <CompaniesHouseLink className="underline decoration-stone-300 underline-offset-2 hover:text-stone-600 transition-colors" />
-            </p>
-            <p className="text-[11px] text-stone-400 leading-relaxed">
-              ICO registration:{" "}
-              <IcoRegistrationLink className="underline decoration-stone-300 underline-offset-2 hover:text-stone-600 transition-colors" />
+              Company No. {siteConfig.companyNumber}
             </p>
             <p className="text-[11px] text-stone-400 leading-relaxed">
               Registered office: {siteConfig.registeredOffice.street},{" "}
@@ -55,29 +44,53 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Offers */}
+          {/* Services */}
           <div className="md:col-span-3">
             <p className="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-4">
-              Offers
+              Services
             </p>
             <ul className="space-y-3">
-              {serviceLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
               <li>
-                <TrackClick event="cta_clicked" properties={{ cta_type: "opportunity_mapping", location: "footer" }}>
+                <Link
+                  href="/services/ai-training"
+                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
+                >
+                  AI Education
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/ai-automation"
+                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
+                >
+                  AI Implementation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/digital-services"
+                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
+                >
+                  Digital Services
+                </Link>
+              </li>
+              <li>
+                <TrackClick event="cta_clicked" properties={{ cta_type: "book_training", location: "footer" }}>
                   <Link
-                    href="/book"
+                    href="/book?intent=training"
                     className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
                   >
-                    AI Opportunity Mapping Call
+                    Book AI Training
+                  </Link>
+                </TrackClick>
+              </li>
+              <li>
+                <TrackClick event="cta_clicked" properties={{ cta_type: "book_audit", location: "footer" }}>
+                  <Link
+                    href="/book?intent=audit"
+                    className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
+                  >
+                    Book Your AI Audit
                   </Link>
                 </TrackClick>
               </li>
@@ -93,7 +106,7 @@ export function Footer() {
               <li>
                 <TrackClick event="contact_clicked" properties={{ method: "whatsapp", location: "footer" }}>
                   <a
-                    href={getWhatsAppUrl("Hi Levi, I run an owner-led business and I'd like to map the first AI system worth building.")}
+                    href={getWhatsAppUrl("Hi Levi, I'd like to chat about AI for my business.")}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
@@ -127,7 +140,7 @@ export function Footer() {
                   href="/contact"
                   className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
                 >
-                  Contact page
+                  Contact Page
                 </Link>
               </li>
             </ul>

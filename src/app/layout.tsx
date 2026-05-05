@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Caveat } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
+import { StickyCta } from "@/components/layout/sticky-cta";
 import { PostHogProvider } from "@/app/posthog-provider";
 import { siteConfig } from "@/lib/content";
 import "./globals.css";
@@ -12,13 +13,9 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-// Handwriting accent — used for marginalia annotations like the
-// "this could be running in your business" callout pointing at the
-// hero workflow card.
-const caveat = Caveat({
-  variable: "--font-caveat",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
-  weight: ["500", "700"],
 });
 
 export const viewport: Viewport = {
@@ -27,7 +24,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Outcome-led AI implementation for owner-led businesses | Quilliam AI",
+    default: "AI Education and Implementation for UK Businesses | Quilliam AI",
     template: `%s | Quilliam AI`,
   },
   description: siteConfig.description,
@@ -36,9 +33,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Outcome-led AI implementation for owner-led businesses | Quilliam AI",
+    title: "AI Education and Implementation for UK Businesses | Quilliam AI",
     description:
-      "AI systems tied to measurable business outcomes: hours saved, faster lead response, reduced admin backlog, and cleaner reporting. Fixed setup fees. Open stack. No lock-in.",
+      "A UK AI agency that teaches your team how to use AI properly and builds the automations, agents, and tools that save you hours every week. Based in Cornwall, working UK-wide.",
     url: siteConfig.url,
     siteName: siteConfig.name,
     locale: "en_GB",
@@ -46,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Outcome-led AI implementation for owner-led businesses | Quilliam AI",
+    title: "AI Education and Implementation for UK Businesses | Quilliam AI",
     description:
-      "Strategy, systems, and training measured against real business outcomes. Fixed setup fees. Open stack. No lock-in.",
+      "A UK AI agency: we teach your team how to use AI, and we build the systems that save you hours every week.",
   },
   manifest: "/site.webmanifest",
   icons: {
@@ -118,20 +115,11 @@ function JsonLd() {
     priceRange: "£££",
     // UK Companies House registration number — published in the footer as required under
     // s.82 Companies Act 2006 for the trading name of a UK Ltd company.
-    identifier: [
-      {
-        "@type": "PropertyValue",
-        propertyID: "UK Companies House",
-        value: siteConfig.companyNumber,
-        url: siteConfig.companiesHouseUrl,
-      },
-      {
-        "@type": "PropertyValue",
-        propertyID: "ICO registration",
-        value: siteConfig.icoRegistrationNumber,
-        url: siteConfig.icoRegistrationUrl,
-      },
-    ],
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "UK Companies House",
+      value: siteConfig.companyNumber,
+    },
     ...(siteConfig.socialLinks.length > 0 && {
       sameAs: [...siteConfig.socialLinks],
     }),
@@ -167,7 +155,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-GB"
-      className={`${geistSans.variable} ${caveat.variable} antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <head>
         <JsonLd />
@@ -178,6 +166,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
           <WhatsAppButton />
+          <StickyCta />
         </PostHogProvider>
       </body>
     </html>

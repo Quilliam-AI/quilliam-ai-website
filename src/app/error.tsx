@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 export default function Error({
   error,
@@ -25,15 +24,18 @@ export default function Error({
         homepage.
       </p>
       <div className="mt-6 flex items-center gap-4">
-        <Button
-          type="button"
+        <button
           onClick={reset}
+          className="rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-emerald-500 transition-colors"
         >
           Try again
-        </Button>
-        <Button asChild variant="outline">
-          <Link href="/">Go home</Link>
-        </Button>
+        </button>
+        <Link
+          href="/"
+          className="rounded-full border border-stone-700 px-5 py-2.5 text-sm font-medium text-stone-300 hover:bg-stone-800 transition-colors"
+        >
+          Go home
+        </Link>
       </div>
     </div>
   );

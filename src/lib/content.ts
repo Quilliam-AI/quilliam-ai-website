@@ -1,19 +1,14 @@
 export const siteConfig = {
   name: "Quilliam AI",
   legalName: "Quilliam AI Ltd",
-  // The H1 is set in hero.tsx. This short line is used in OG images,
-  // metadata, and footer surfaces.
-  tagline: "Outcome-led AI implementation. Built, measured, owned.",
+  tagline: "AI education and implementation",
   description:
-    "Quilliam AI installs AI systems inside owner-led UK businesses, tied to measurable outcomes like hours saved, faster lead response, reduced admin backlog, and cleaner reporting. Strategy, systems, and training. Fixed setup fees, open stack, no lock-in.",
+    "Quilliam AI is a UK AI agency. We teach your team how to use AI properly, and we build the automations, agents, and tools that save you hours every week. Based in Cornwall, working UK-wide and remote.",
   url: "https://quilliam.ai",
   whatsapp: "447593121621",
   phone: "+447593121621",
   phoneDisplay: "07593 121 621",
   email: "levi@quilliam.ai",
-  // Cal link — used as a soft secondary CTA. Note: cal.eu (Cal.com EU
-  // instance), not cal.com.
-  calLink: "https://cal.eu/levi-quilliam/discovery",
   location: "Cornwall, UK",
   // Registered office of Quilliam AI Ltd (Companies House)
   registeredOffice: {
@@ -27,13 +22,8 @@ export const siteConfig = {
   socialLinks: [] as string[],
   // Companies House registration — Quilliam AI Ltd, incorporated 2026-04-11
   companyNumber: "17151006" as string,
-  companiesHouseUrl:
-    "https://find-and-update.company-information.service.gov.uk/company/17151006",
-  // ICO data protection registration — Quilliam AI Ltd, registered 2026-04-28
-  icoRegistrationNumber: "ZC134964" as string,
-  icoRegistrationUrl: "https://ico.org.uk/ESDWebPages/Entry/ZC134964",
-  // Founder photo path (Levi). Used in hero, about-preview, and about page.
-  founderImage: "/founder-levi.jpeg" as string,
+  // Founder photo path — add the image to /public and set this path (e.g. "/founder.jpg")
+  founderImage: "" as string,
 } as const;
 
 /** Build a WhatsApp click-to-chat URL with a pre-filled message. */
@@ -42,237 +32,139 @@ export function getWhatsAppUrl(message: string): string {
 }
 
 export const navigation = [
-  { name: "Outcomes", href: "/#outcomes" },
-  { name: "Workflow", href: "/#automation" },
-  { name: "Method", href: "/#process" },
-  { name: "Offers", href: "/#services" },
+  { name: "Services", href: "/#services" },
+  { name: "How It Works", href: "/#process" },
   { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ] as const;
 
 export const serviceLinks = [
-  { name: "AI Opportunity Mapping Call", href: "/book" },
-  { name: "Outcome Sprint", href: "/#services" },
-  { name: "Fixed AI System Build", href: "/#services" },
-  { name: "Monthly Optimisation", href: "/#services" },
-] as const;
-
-export const stePillars = [
-  {
-    letter: "01",
-    title: "Strategy",
-    subtitle: "Pick the outcome before the tools",
-    description:
-      "We start with the business result, not a model demo. The first system is chosen against a simple commercial test: will this save time, speed up response, clear backlog, improve conversion, or make reporting cleaner?",
-    bullets: [
-      "Opportunity map scored on value and delivery risk",
-      "One or two metrics agreed before build",
-      "Clear first system, not a generic AI roadmap",
-    ],
-  },
-  {
-    letter: "02",
-    title: "Systems",
-    subtitle: "Build the workflow that pays its way",
-    description:
-      "The work turns into something live: an agent, automation, internal tool, reporting flow, or customer-facing workflow. It runs on your stack, with a human approval gate where the risk calls for one.",
-    bullets: [
-      "Fixed setup/build fee agreed up front",
-      "Open stack: Next.js, n8n, Claude, APIs",
-      "Documented, handoff-ready, no proprietary lock-in",
-    ],
-  },
-  {
-    letter: "03",
-    title: "Training",
-    subtitle: "Make adoption part of the build",
-    description:
-      "AI only pays back when the team uses it. We train the people who will run the system, write the runbooks, and keep measuring what changed after launch.",
-    bullets: [
-      "Live training mapped to the workflow",
-      "Runbooks your team can actually follow",
-      "Monthly optimisation if the system earns it",
-    ],
-  },
+  { name: "AI Education", href: "/services/ai-training" },
+  { name: "AI Implementation", href: "/services/ai-automation" },
+  { name: "Digital Services", href: "/services/digital-services" },
 ] as const;
 
 export const services = [
   {
-    slug: "ai-opportunity-mapping",
-    title: "AI Opportunity Mapping Call",
-    subtitle: "Free first step",
-    price: "Free",
-    duration: "30 minutes",
+    slug: "ai-training",
+    title: "AI Education",
+    subtitle: "Training, workshops, knowledge systems",
     description:
-      "A focused call to find the first AI system worth building. We look at where time leaks, where leads slow down, where admin piles up, and what metric would make implementation worth doing.",
+      "Hands-on workshops for you and your team. Practical AI skills your people can use the next day — not theory, not slides. Plus AI knowledge systems (Claude Code + Obsidian \"Company Brain\") that compound over time so your team gets more productive every month.",
     features: [
-      "Map one or two high-friction workflows",
-      "Identify the most likely first AI system",
-      "Agree what success would need to look like",
-      "Leave with a clear next step, even if that is not us",
+      "In-person or remote workshops",
+      "Role-tailored training, not generic slides",
+      "Covers ChatGPT, Claude, and the tools that matter",
+      "Optional knowledge-system setup for ongoing use",
     ],
-    outcome:
-      "A ranked first opportunity and a sensible view of whether AI implementation is worth pursuing now.",
+    outcome: "Your team using AI confidently in their actual work",
   },
   {
-    slug: "outcome-sprint",
-    title: "Outcome Sprint",
-    subtitle: "Baseline, scope, first build",
-    price: "£3k-£10k",
-    duration: "2-4 weeks",
+    slug: "ai-automation",
+    title: "AI Implementation",
+    subtitle: "Automation, agents, tools built for you",
     description:
-      "A fixed-fee sprint to map the workflow, agree the baseline, and build the first useful system. Good for owner-led businesses that want proof through working software rather than another strategy document.",
+      "We build the AI systems that run while you work. Custom automations, AI agents, workflow integrations, and tools tailored to your business. You tell us the problem, we ship the solution — then we maintain it so you never have to think about it.",
     features: [
-      "Baseline agreed before build",
-      "One or two success metrics tracked",
-      "Working agent, automation, or internal tool",
-      "Optional performance bonus if the target is beaten",
+      "Custom AI automations and agents",
+      "n8n workflows and API integrations",
+      "ChatGPT / Claude custom tools for your team",
+      "Ongoing support, monitoring, and maintenance",
     ],
-    outcome:
-      "A live AI system tied to a measurable business outcome: hours saved, faster response, reduced backlog, or cleaner reporting.",
+    outcome: "Hours back every week on work that runs itself",
   },
   {
-    slug: "fixed-ai-system-build",
-    title: "Fixed AI System Build",
-    subtitle: "One named deliverable",
-    price: "Fixed quote",
-    duration: "4-16 weeks",
+    slug: "digital-services",
+    title: "Digital Services",
+    subtitle: "Websites, brand, content",
     description:
-      "A larger fixed-scope build for a specific operational result: lead handling, inbox triage, CRM workflow, reporting system, content engine, onboarding flow, or AI-native website.",
+      "Everything else your business needs online: websites, SEO, Google Business Profile, content production. The digital foundation that supports your AI work — because a brilliant AI system behind a broken website still loses customers.",
     features: [
-      "Named deliverable, fixed scope, fixed fee",
-      "Your stack underneath, no black-box platform",
-      "Human approval gates where judgment matters",
-      "Documentation, source, and handoff included",
+      "Professional websites with SEO built in",
+      "Local search and Google Business Profile",
+      "Content production and brand consistency",
+      "Hosting and ongoing maintenance",
     ],
-    outcome:
-      "A production-ready AI system your team can own, run, and improve.",
-  },
-  {
-    slug: "monthly-optimisation",
-    title: "Monthly Optimisation",
-    subtitle: "Improve what is live",
-    price: "Monthly retainer",
-    duration: "After launch",
-    description:
-      "Once a system is live, we keep it useful. We review adoption, tune prompts and workflows, add the next integration, and report against the metrics agreed before the build.",
-    features: [
-      "Monthly performance and adoption review",
-      "Small improvements shipped continuously",
-      "Training refreshes as the workflow changes",
-      "Next opportunity selected from the live backlog",
-    ],
-    outcome:
-      "The system keeps paying its way instead of becoming another abandoned tool.",
+    outcome: "A professional online presence that works alongside your AI",
   },
 ] as const;
 
 export const sprintSteps = [
   {
     number: "01",
-    title: "Map the outcome",
+    title: "We Listen",
     description:
-      "We identify the workflow where AI has a realistic chance of paying back: admin backlog, lead response time, reporting time, booking rate, handoff quality, or hours saved.",
+      "A focused session where we understand your business, your team, and where you want AI to help. No jargon. No sales pitch. One clear conversation.",
   },
   {
     number: "02",
-    title: "Agree the baseline",
+    title: "We Teach or Build",
     description:
-      "Before anything gets built, we agree the current state and one or two metrics to track. No vague transformation claims. Just a clear before-and-after.",
+      "We recommend education, implementation, or both — whatever fits. If it's training, we run it tailored to your team. If it's building, we ship the first version fast.",
   },
   {
     number: "03",
-    title: "Build the first system",
+    title: "You Run With It",
     description:
-      "We ship the agent, automation, tool, or workflow. Human approval stays in the loop where needed. The system is documented while it is built, not after everyone forgets how it works.",
+      "You get skills and systems you can actually use. We document everything, hand it over, and provide ongoing support when you need it. No lock-in. No dependency.",
   },
-  {
-    number: "04",
-    title: "Train and optimise",
-    description:
-      "Your team learns how to run it, what to check, and when to escalate. After launch, optimisation focuses on adoption and the metric, not shiny extras.",
-  },
-] as const;
-
-export const builtForVerticals = [
-  { name: "Professional services", anchor: "professional-services" },
-  { name: "Healthcare", anchor: "healthcare" },
-  { name: "Hospitality", anchor: "hospitality" },
-  { name: "Real estate", anchor: "real-estate" },
-  { name: "Education", anchor: "education" },
-  { name: "Local services", anchor: "local-services" },
-  { name: "B2B teams", anchor: "b2b-teams" },
 ] as const;
 
 export const featuredEngagement = {
-  label: "Proof",
-  industry: "University spin-out · regulated healthcare",
+  label: "Featured engagement",
+  industry: "AI Startup",
   hero: {
-    title: "A regulated healthcare spin-out —",
-    titleAccent: "site, content, and operations shipped in 13 weeks",
+    title: "A university spin-out —",
+    titleAccent: "education and implementation, side by side",
     description:
-      "Brand consolidation, site rebuild, content engine, and onboarding automations. The useful lesson: AI work only mattered where it removed handoff drag and helped the founders run the business with less manual follow-up.",
+      "An early-stage startup building AI tools for their industry. Quilliam AI runs training, builds their web presence, and maintains their Company Brain — all on a single day-rate engagement.",
   },
   workstreams: [
     {
-      problem: "Two overlapping brands splitting trust",
-      solution: "Consolidated into one coherent surface with clearer positioning and schema",
+      problem: "Team had no shared AI workflow",
+      solution: "Built a Claude Code + Obsidian Company Brain the whole team uses daily",
     },
     {
-      problem: "Content engine dependent on founder bandwidth",
-      solution: "SME interview workflow turned expertise into publishable articles",
+      problem: "Website stuck on a generic template",
+      solution: "Rebuilt on Next.js with proper SEO, schema, and content strategy",
     },
     {
-      problem: "Manual onboarding eating the founders' week",
-      solution: "Automated welcome, credential checks, and CRM handoff",
+      problem: "Founders needed AI fluency, fast",
+      solution: "Hands-on workshops tailored to their roles — not slides, not theory",
     },
   ],
   stats: {
-    primary: "13 weeks",
-    primaryLabel: "Start to live",
-    secondary: "Fixed price",
-    secondaryLabel: "Scope agreed up front",
+    primary: "1 day/wk",
+    primaryLabel: "Engagement cadence",
+    secondary: "3 services",
+    secondaryLabel: "Running in parallel",
   },
 } as const;
 
 export const faqs = [
   {
-    question: "What does outcome-led AI implementation mean?",
+    question: "What is the AI Audit?",
     answer:
-      "It means the build starts with a measurable business outcome, not a tool shopping list. We agree what should improve before implementation begins: hours saved, lead response time, booking rate, admin backlog, enquiry conversion, reporting time, or another metric that actually matters to the owner. Then we build the smallest useful AI system that can move that number.",
+      "Quilliam AI's AI Audit is a focused session where we look at how your business actually runs, talk to you about where AI could help, and give you a clear, practical recommendation. We ask about your team, your workflows, and the tasks that eat the most time — then we show you exactly which AI tools, training, or automations would move the needle for you specifically. It's not a strategy deck, it's not a sales pitch, and there is no commitment to work with us afterwards. You walk away with a concrete plan you can act on, whether we end up working together or not. Most audits take 30 to 60 minutes and can be run in-person in Cornwall or remotely anywhere in the UK.",
   },
   {
-    question: "Is this performance-based AI implementation?",
+    question: "What types of businesses do you work with?",
     answer:
-      "Not in the no-win-no-fee sense. That model gets messy because results depend on adoption, data access, team usage, decision speed, sales follow-up, and seasonality. The saner version is fixed setup/build fee, agreed baseline, one or two success metrics, and an optional performance bonus if the system beats the target.",
+      "Quilliam AI works with UK businesses of all shapes and sizes — small businesses, startups, agencies, charities, and teams inside larger organisations. What our clients have in common is not their industry or size, it's a genuine desire to use AI properly rather than either ignoring it or throwing money at generic ChatGPT subscriptions and hoping something sticks. We've worked with university spin-outs, fitness studios, professional services firms, and creative agencies. The through-line is that every engagement starts with understanding the business first and applying technology second, which is why the AI Audit is always the right place to start.",
   },
   {
-    question: "What happens on the AI Opportunity Mapping Call?",
+    question: "Do you do AI training, AI implementation, or both?",
     answer:
-      "We talk through the work that eats your week, the systems you already use, and the business result you care about. The goal is to identify the first AI system worth building and what success would need to look like. You should leave with a clearer first move, even if the right answer is to wait.",
+      "Both — and we encourage most clients to do both because they reinforce each other. AI Education means hands-on workshops and training where your team learns to use tools like ChatGPT, Claude, and custom agents in their actual work — no theory, no slides, just practical skills people can apply the next day. AI Implementation means we build the automations, agents, workflows, and custom tools your business needs — we do the work, you get the outcomes. Some clients come to us for training only because they want to build the skills internally; others come for implementation only because they want the systems without learning the details; most end up doing both in sequence or parallel. The AI Audit is where we figure out which mix is right for you.",
   },
   {
-    question: "What kinds of AI systems do you build?",
+    question: "How is Quilliam AI different from other AI agencies?",
     answer:
-      "Lead response workflows, inbox triage, CRM handoffs, reporting systems, customer onboarding flows, content engines, internal tools, AI-native websites, and agent workflows with human approval. The shape depends on the metric. We are not trying to sell a platform; we are trying to remove friction from how the business runs.",
+      "Two differences. First, we do education AND implementation under one roof, which most AI agencies don't — they either run workshops and leave, or they build systems and bill you forever. We believe teaching your team to use AI and building AI systems for your business are two halves of the same job, and doing both together is cheaper and more durable than doing them separately. Second, every engagement is handoff-first: the deliverable is not a report or a bespoke framework that only we can maintain, it's a skill or system your team actually owns. We use industry-standard tools and document everything as we go. If Quilliam AI disappeared tomorrow, our clients would still have working skills, working systems, and the ability to extend them.",
   },
   {
-    question: "How much does implementation cost?",
+    question: "What happens after the AI Audit?",
     answer:
-      "Most first implementation sprints sit between £3k and £10k, depending on scope and integrations. Larger fixed AI system builds are quoted separately. After launch, some clients add a monthly optimisation retainer so the system keeps improving against the agreed metric.",
-  },
-  {
-    question: "How do you measure whether it worked?",
-    answer:
-      "We agree the baseline before the build. That might be how long a task takes now, how fast leads get a reply, how many enquiries are dropped, how much admin sits in backlog, or how long reporting takes. After launch, the system is reviewed against that measure and tuned based on real usage.",
-  },
-  {
-    question: "Will my team be able to run it without you?",
-    answer:
-      "That is the point. We build handoff-first: open stack where possible, source and runbooks provided, and live training for the people who will use the workflow. We can stay involved monthly, but you should never be trapped inside a black-box vendor platform.",
-  },
-  {
-    question: "Do you only work with one industry?",
-    answer:
-      "No. Quilliam AI is for owner-led UK businesses where decisions are close to the work and adoption can actually happen. The common thread is not sector; it is operational drag: too much admin, slow response, messy handoffs, underused data, and a team that needs practical AI systems rather than another abstract strategy session.",
+      "After your Quilliam AI Audit you get a clear recommendation on the highest-impact next step for your business — training, implementation, or a mix of the two — along with honest pricing (day-rate consulting, typically £300–£400 per day, with clear scoping for any fixed-price engagements). If you want to go ahead we can usually start within a couple of weeks, and most education engagements deliver their first session within the first visit while implementation engagements ship a first working version by visit two. Every engagement includes documentation and a handoff so your team can run with what we build. If you decide not to proceed that is completely fine — you still walk away with the plan and can come back when the timing is right.",
   },
 ] as const;

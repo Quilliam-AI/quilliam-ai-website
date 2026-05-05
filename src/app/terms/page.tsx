@@ -8,32 +8,28 @@ import {
   LegalHero,
   LegalContent,
 } from "@/components/shared/legal-layout";
-import {
-  CompaniesHouseLink,
-  IcoRegistrationLink,
-} from "@/components/shared/legal-links";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Terms and conditions for using Quilliam AI's website and outcome-led AI implementation services.",
+    "Terms and conditions for using Quilliam AI's website and AI automation services.",
   alternates: { canonical: "/terms" },
   openGraph: {
     title: "Terms of Service | Quilliam AI",
     description:
-      "Terms and conditions for using Quilliam AI's website and outcome-led AI implementation services.",
+      "Terms and conditions for using Quilliam AI's website and AI automation services.",
     url: "/terms",
     images: ["/opengraph-image"],
   },
   twitter: {
     title: "Terms of Service | Quilliam AI",
     description:
-      "Terms and conditions for using Quilliam AI's website and outcome-led AI implementation services.",
+      "Terms and conditions for using Quilliam AI's website and AI automation services.",
   },
 };
 
 export default function TermsPage() {
-  const lastUpdated = "1 May 2026";
+  const lastUpdated = "11 April 2026";
 
   return (
     <article className="min-h-screen">
@@ -43,7 +39,7 @@ export default function TermsPage() {
         name="Terms of Service | Quilliam AI"
         description="Terms of service for using the Quilliam AI website and services."
         datePublished="2026-04-11"
-        dateModified="2026-05-01"
+        dateModified="2026-04-11"
       />
       <LegalHero title="Terms of Service" lastUpdated={lastUpdated} />
 
@@ -55,85 +51,65 @@ export default function TermsPage() {
             &ldquo;Quilliam AI&rdquo; is the trading name of{" "}
             <strong>Quilliam AI Ltd</strong>, a UK private limited company
             registered in England and Wales under Companies House number{" "}
-            <CompaniesHouseLink />, with registered office at{" "}
+            {siteConfig.companyNumber}, with registered office at{" "}
             {siteConfig.registeredOffice.street},{" "}
             {siteConfig.registeredOffice.locality},{" "}
             {siteConfig.registeredOffice.region},{" "}
             {siteConfig.registeredOffice.postalCode}. If you do not agree
             to these terms, please do not use our website or services.
           </p>
-          <p>
-            Quilliam AI Ltd is also registered with the Information
-            Commissioner&rsquo;s Office under registration reference{" "}
-            <IcoRegistrationLink />.
-          </p>
         </LegalSection>
 
         <LegalSection title="2. Our services">
           <p>
-            Quilliam AI delivers outcome-led AI implementation for owner-led
-            UK businesses — strategy, systems, and team training tied to
-            measurable business outcomes. Our productised offers include but
-            are not limited to:
+            Quilliam AI provides AI education, AI implementation, and
+            digital services to UK businesses. Our services include but are
+            not limited to:
           </p>
           <ul>
+            <li>AI Audits and introductory sessions.</li>
             <li>
-              <strong>AI Opportunity Mapping Call</strong> &mdash; a free
-              first step to identify the first AI system worth building and
-              the metric it should move. No charge, no obligation.
-            </li>
-            <li>
-              <strong>Outcome Sprint</strong> &mdash; a fixed-fee engagement
-              delivering a workflow map, baseline, success metric, and first
-              useful AI system.
-            </li>
-            <li>
-              <strong>Fixed AI System Build</strong> &mdash; one named
-              fixed-fee deliverable such as a lead response workflow, internal
-              tool, reporting system, agent workflow, or AI-native website.
-            </li>
-            <li>
-              <strong>Monthly Optimisation</strong> &mdash; ongoing support,
-              improvement, training, and reporting for live AI systems.
+              AI training and workshops (in-person or remote), including
+              optional knowledge-system setup.
             </li>
             <li>
               Custom AI automations, agents, n8n workflows, and API
-              integrations that fall outside the standard offer ladder,
-              scoped and priced individually.
+              integrations.
             </li>
             <li>
-              Ongoing support, maintenance, and advisory work as a
-              monthly managed retainer.
+              Bespoke ChatGPT, Claude, and Gemini tools configured for your
+              team.
             </li>
+            <li>
+              Websites, SEO, Google Business Profile management, and
+              content production.
+            </li>
+            <li>Ongoing support, maintenance, and advisory work.</li>
           </ul>
           <p>
             Specific deliverables, timelines, and fees are agreed in
             writing before any paid work begins. Engagements are
-            productised, fixed-price, measured, and handoff-first: the
-            deliverable is a system the client&apos;s own team can run or
-            maintain after the engagement ends, on industry-standard tools.
+            handoff-first: the deliverable is a skill or system the
+            client&apos;s own team can run after the engagement ends.
           </p>
         </LegalSection>
 
         <LegalSection title="3. Booking and payment">
           <p>
-            <strong>AI Opportunity Mapping Call:</strong> complimentary, with
-            no obligation. The call is intended to identify a sensible first
-            AI implementation opportunity and does not guarantee that paid
-            work will follow.
+            <strong>Initial consultations:</strong> The AI Audit and the
+            introductory AI Training session are complimentary and carry no
+            obligation.
           </p>
           <p>
-            <strong>Paid engagements:</strong> Every paid offer has a fixed
-            scope and a fixed price quoted in writing before work starts.
-            Work will not begin until both parties have agreed to the
-            scope and fees in writing.
+            <strong>Paid engagements:</strong> For any paid work, we will
+            provide a written proposal outlining the scope, deliverables,
+            timeline, and cost. Work will not begin until both parties have
+            agreed to the proposal in writing.
           </p>
           <p>
-            <strong>Payment terms:</strong> Unless otherwise agreed, build
-            fees are invoiced 50% on kick-off and 50% on delivery. Monthly
-            managed retainers are invoiced in advance. Invoices are due
-            within 14 days of issue. We reserve the right to pause work on
-            overdue accounts.
+            <strong>Payment terms:</strong> Unless otherwise agreed,
+            invoices are due within 14 days of issue. We reserve the right
+            to pause work on overdue accounts.
           </p>
         </LegalSection>
 
@@ -285,17 +261,7 @@ export default function TermsPage() {
               {siteConfig.registeredOffice.postalCode}
             </li>
             <li>
-              <strong>Company No.:</strong>{" "}
-              <CompaniesHouseLink>
-                {siteConfig.companyNumber}
-              </CompaniesHouseLink>{" "}
-              (England &amp; Wales)
-            </li>
-            <li>
-              <strong>ICO registration:</strong>{" "}
-              <IcoRegistrationLink>
-                {siteConfig.icoRegistrationNumber}
-              </IcoRegistrationLink>
+              <strong>Company No.:</strong> {siteConfig.companyNumber} (England &amp; Wales)
             </li>
           </ul>
         </LegalSection>

@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const alt =
-  "Quilliam AI — Outcome-led AI implementation for owner-led businesses";
+  "Quilliam AI — AI Education and Implementation for UK Businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -71,7 +71,7 @@ export default async function Image() {
             marginRight: "60px",
           }}
         >
-          <img src={logoSrc} alt="" width={260} height={260} />
+          <img src={logoSrc} width={260} height={260} />
         </div>
 
         {/* Divider */}
@@ -113,7 +113,7 @@ export default async function Image() {
           {/* Headline */}
           <div
             style={{
-              fontSize: "44px",
+              fontSize: "48px",
               fontWeight: 700,
               color: "#FFFFFF",
               letterSpacing: "-1px",
@@ -122,8 +122,8 @@ export default async function Image() {
               flexDirection: "column",
             }}
           >
-            <span>Outcome-led AI implementation</span>
-            <span style={{ color: "#10B981" }}>for owner-led businesses.</span>
+            <span>We teach AI.</span>
+            <span>We build with AI.</span>
           </div>
 
           {/* Tagline */}
@@ -132,11 +132,10 @@ export default async function Image() {
               fontSize: "20px",
               color: "#a8a29e",
               marginTop: "20px",
-              maxWidth: "640px",
               display: "flex",
             }}
           >
-            AI systems that save time, reduce admin, and improve how your business runs.
+            A UK AI agency. Education + Implementation. Handoff-first.
           </div>
 
           {/* URL */}

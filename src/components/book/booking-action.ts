@@ -14,18 +14,11 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
   const phone = formData.get("phone") as string | null;
   const business = formData.get("business") as string | null;
   const businessType = formData.get("businessType") as string | null;
-  const website = formData.get("website") as string | null;
   const message = formData.get("message") as string | null;
-  const outcome = formData.get("outcome") as string | null;
+  const interest = formData.get("interest") as string | null;
 
   // Validate required fields
-  if (
-    !name?.trim() ||
-    !email?.trim() ||
-    !business?.trim() ||
-    !businessType?.trim() ||
-    !message?.trim()
-  ) {
+  if (!name?.trim() || !email?.trim() || !business?.trim() || !businessType?.trim()) {
     return { success: false, error: "Please fill in all required fields." };
   }
 
@@ -35,20 +28,39 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
     return { success: false, error: "Please enter a valid email address." };
   }
 
+  const interestLabel = interest?.trim() || "Not specified";
+  const subjectTag =
+    interestLabel.includes("Training") || interestLabel.includes("Education")
+      ? "AI Training"
+      : interestLabel.includes("Audit") || interestLabel.includes("Implementation")
+        ? "AI Audit"
+        : "AI Session";
+
   try {
     // Dynamic import to avoid issues if RESEND_API_KEY isn't set during build
     const { Resend } = await import("resend");
     const resend = new Resend(process.env.RESEND_API_KEY);
+
+    const sessionLabel =
+      subjectTag === "AI Training"
+        ? "AI training session"
+        : subjectTag === "AI Audit"
+          ? "AI Audit"
+          : "AI session";
 
     // Send internal notification email
     await resend.emails.send({
       from: "Quilliam AI <bookings@quilliam.ai>",
       to: [siteConfig.email],
       replyTo: email.trim(),
-      subject: `New AI opportunity mapping request: ${name.trim()} — ${business.trim()}`,
+      subject: `New ${subjectTag} Booking: ${name.trim()} — ${business.trim()}`,
       html: `
-        <h2>New AI opportunity mapping request</h2>
+        <h2>New ${escapeHtml(subjectTag)} Booking</h2>
         <table style="border-collapse:collapse;width:100%;max-width:500px">
+          <tr>
+            <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">Interest</td>
+            <td style="padding:8px 12px;border-bottom:1px solid #eee">${escapeHtml(interestLabel)}</td>
+          </tr>
           <tr>
             <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">Name</td>
             <td style="padding:8px 12px;border-bottom:1px solid #eee">${escapeHtml(name.trim())}</td>
@@ -65,21 +77,13 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
             <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">Business</td>
             <td style="padding:8px 12px;border-bottom:1px solid #eee">${escapeHtml(business.trim())}</td>
           </tr>
-          ${website?.trim() ? `<tr>
-            <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">Website</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #eee"><a href="${escapeHtml(website.trim())}">${escapeHtml(website.trim())}</a></td>
-          </tr>` : ""}
           <tr>
             <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">Business type</td>
             <td style="padding:8px 12px;border-bottom:1px solid #eee">${escapeHtml(businessType.trim())}</td>
           </tr>
-          <tr>
-            <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">What eats the week</td>
+          ${message?.trim() ? `<tr>
+            <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">What they need</td>
             <td style="padding:8px 12px;border-bottom:1px solid #eee">${escapeHtml(message.trim())}</td>
-          </tr>
-          ${outcome?.trim() ? `<tr>
-            <td style="padding:8px 12px;font-weight:600;color:#666;border-bottom:1px solid #eee">Desired outcome</td>
-            <td style="padding:8px 12px;border-bottom:1px solid #eee">${escapeHtml(outcome.trim())}</td>
           </tr>` : ""}
         </table>
       `,
@@ -90,12 +94,11 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
       from: "Levi at Quilliam AI <levi@quilliam.ai>",
       to: [email.trim()],
       replyTo: siteConfig.email,
-      subject: `I have your AI opportunity notes, ${name.trim().split(" ")[0]}`,
+      subject: `Your ${sessionLabel} with Quilliam AI is booked`,
       html: `
         <p>Hi ${escapeHtml(name.trim().split(" ")[0])},</p>
-        <p>Thanks — I have your notes for ${escapeHtml(business.trim())}.</p>
-        <p>I&apos;ll look for the most likely first AI system, the metric it should move, and whether this is worth mapping properly on a call.</p>
-        <p>If you have any questions, just reply to this email or <a href="https://wa.me/${siteConfig.whatsapp}">message me on WhatsApp</a>.</p>
+        <p>Thanks for booking a ${escapeHtml(sessionLabel)}. I'll get back to you within 24 hours to arrange a time.</p>
+        <p>In the meantime, if you have any questions, just reply to this email or <a href="https://wa.me/${siteConfig.whatsapp}">message me on WhatsApp</a>.</p>
         <p>Speak soon,<br>Levi Quilliam<br>Quilliam AI</p>
       `,
     }).catch((err) => console.error("Confirmation email failed:", err));
@@ -107,12 +110,8 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
       phone: phone?.trim(),
       business: business.trim(),
       businessType: businessType.trim(),
-      interest: "AI Opportunity Mapping",
-      message: [
-        website?.trim() ? `Website: ${website.trim()}` : "",
-        `\nWhat eats the week: ${message.trim()}`,
-        outcome?.trim() ? `\nDesired outcome: ${outcome.trim()}` : "",
-      ].filter(Boolean).join(""),
+      interest: interestLabel,
+      message: message?.trim(),
     }).catch(() => {});
 
     return { success: true };
@@ -120,7 +119,7 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
     console.error("Booking submission error:", error);
     return {
       success: false,
-      error: "Failed to send your request. Please try WhatsApp instead.",
+      error: "Failed to send your booking. Please try WhatsApp instead.",
     };
   }
 }

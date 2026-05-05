@@ -2,36 +2,46 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = "2026-05-03";
-
   return [
     {
       url: siteConfig.url,
-      lastModified,
+      lastModified: "2026-04-11",
     },
     {
       url: `${siteConfig.url}/book`,
-      lastModified,
+      lastModified: "2026-04-11",
     },
     {
       url: `${siteConfig.url}/contact`,
-      lastModified,
+      lastModified: "2026-04-11",
     },
     {
       url: `${siteConfig.url}/about`,
-      lastModified,
+      lastModified: "2026-04-11",
     },
     {
       url: `${siteConfig.url}/service-areas`,
-      lastModified,
+      lastModified: "2026-04-11",
+    },
+    {
+      url: `${siteConfig.url}/services/ai-training`,
+      lastModified: "2026-04-11",
+    },
+    {
+      url: `${siteConfig.url}/services/ai-automation`,
+      lastModified: "2026-04-11",
+    },
+    {
+      url: `${siteConfig.url}/services/digital-services`,
+      lastModified: "2026-04-11",
     },
     {
       url: `${siteConfig.url}/privacy`,
-      lastModified,
+      lastModified: "2026-04-11",
     },
     {
       url: `${siteConfig.url}/terms`,
-      lastModified,
+      lastModified: "2026-04-11",
     },
   ];
 }

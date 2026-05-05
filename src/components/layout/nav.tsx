@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { siteConfig, navigation, serviceLinks } from "@/lib/content";
 import { Button } from "@/components/ui/button";
-import { trackOpportunityMappingClicked } from "@/lib/analytics";
+import { trackBookTrainingClicked, trackBookAuditClicked } from "@/lib/analytics";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -72,7 +72,7 @@ export function Nav() {
     return pathname === href || pathname.startsWith(href + "/");
   }
 
-  function isOffersActive(): boolean {
+  function isServicesActive(): boolean {
     // Active if on homepage #services section or any /services/* page
     if (pathname.startsWith("/services")) return true;
     return activeHash === "/#services";
@@ -81,20 +81,20 @@ export function Nav() {
   return (
     <div className="fixed top-0 left-0 right-0 z-40 flex justify-center px-4 pt-4">
       <header
-        className={`w-full max-w-[1200px] transition-all duration-500 rounded-2xl border ${
+        className={`w-full max-w-[1200px] transition-all duration-500 rounded-2xl ${
           scrolled
-            ? "bg-white/90 backdrop-blur-2xl border-stone-200 shadow-[0_18px_50px_-28px_rgba(68,64,60,0.45)]"
-            : "bg-white/80 backdrop-blur-xl border-stone-200/80 shadow-[0_14px_42px_-30px_rgba(68,64,60,0.35)]"
+            ? "bg-stone-950/80 backdrop-blur-md md:backdrop-blur-2xl border border-stone-800/60 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.06)]"
+            : "bg-white/5 backdrop-blur-md md:backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
         }`}
       >
         <nav className="flex items-center justify-between px-5 h-14">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 text-stone-950 transition-colors duration-500"
+            className="flex items-center gap-2.5 text-white transition-colors duration-500"
           >
             <Image
-              src="/logo-dark.svg"
+              src="/logo-white.svg"
               alt=""
               width={28}
               height={28}
@@ -108,29 +108,29 @@ export function Nav() {
           {/* Desktop nav links */}
           <div className="hidden md:flex items-center gap-1">
             {navigation.map((item) =>
-              item.name === "Offers" ? (
+              item.name === "Services" ? (
                 <div key={item.name} className="relative group">
                   <Link
                     href={resolveHref(item.href)}
                     className={`px-3.5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
-                      isOffersActive()
-                        ? "text-emerald-700"
-                        : "text-stone-500 hover:text-stone-950 hover:bg-stone-100"
+                      isServicesActive()
+                        ? "text-emerald-400"
+                        : "text-white/60 hover:text-white hover:bg-white/10"
                     }`}
                   >
                     {item.name}
                   </Link>
                   {/* Dropdown */}
                   <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                    <div className="w-64 rounded-xl bg-white/95 backdrop-blur-2xl border border-stone-200 shadow-xl p-2">
+                    <div className="w-52 rounded-xl bg-stone-950/90 backdrop-blur-2xl border border-stone-800/60 shadow-xl p-2">
                       {serviceLinks.map((service) => (
                         <Link
                           key={service.name}
                           href={service.href}
                           className={`block px-3 py-2.5 rounded-lg text-sm transition-colors ${
                             isActive(service.href)
-                              ? "text-emerald-700 bg-emerald-50"
-                              : "text-stone-500 hover:text-stone-950 hover:bg-stone-100"
+                              ? "text-emerald-400 bg-emerald-400/10"
+                              : "text-white/60 hover:text-white hover:bg-white/10"
                           }`}
                         >
                           {service.name}
@@ -145,8 +145,8 @@ export function Nav() {
                   href={resolveHref(item.href)}
                   className={`px-3.5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
                     isActive(item.href)
-                      ? "text-emerald-700"
-                      : "text-stone-500 hover:text-stone-950 hover:bg-stone-100"
+                      ? "text-emerald-400"
+                      : "text-white/60 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   {item.name}
@@ -157,19 +157,31 @@ export function Nav() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-2">
-            <Button asChild size="sm">
-              <Link href="/book" onClick={() => trackOpportunityMappingClicked("nav")}>
-                Map my first AI system
+            <Button
+              asChild
+              size="sm"
+              variant="outline"
+              className="rounded-xl px-4 h-8 text-[13px] font-medium text-white/80 border-white/20 hover:text-white hover:border-white/40 transition-all duration-500"
+            >
+              <Link href="/book?intent=training" onClick={() => trackBookTrainingClicked("nav")}>
+                AI Training
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="sm"
+              className="rounded-xl px-4 h-8 text-[13px] font-medium bg-emerald-600 hover:bg-emerald-500 text-white transition-all duration-500"
+            >
+              <Link href="/book?intent=audit" onClick={() => trackBookAuditClicked("nav")}>
+                AI Audit
               </Link>
             </Button>
           </div>
 
           {/* Mobile hamburger */}
-          <Button
-            type="button"
-            variant="ghost-light"
-            size="icon"
+          <button
             onClick={() => setOpen(!open)}
+            className="md:hidden p-2.5 rounded-lg text-white hover:bg-white/10 transition-colors"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
@@ -178,35 +190,35 @@ export function Nav() {
             ) : (
               <Menu size={20} strokeWidth={2.5} />
             )}
-          </Button>
+          </button>
         </nav>
 
         {/* Mobile dropdown inside the glass pill */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
-            open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            open ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
           }`}
           aria-hidden={!open}
         >
-          <div className="px-5 pb-5 pt-2 border-t border-stone-200 flex flex-col gap-1">
+          <div className="px-5 pb-5 pt-2 border-t border-white/10 flex flex-col gap-1">
             {navigation.map((item) => (
               <div key={item.name}>
                 <Link
                   href={resolveHref(item.href)}
                   onClick={() => setOpen(false)}
                   className={`px-3 py-2.5 rounded-xl text-[15px] font-medium transition-colors block ${
-                    item.name === "Offers"
-                      ? isOffersActive()
+                    item.name === "Services"
+                      ? isServicesActive()
                         ? "text-emerald-400"
-                        : "text-stone-700 hover:bg-stone-100"
+                        : "text-white/80 hover:bg-white/10"
                       : isActive(item.href)
-                        ? "text-emerald-700"
-                        : "text-stone-700 hover:bg-stone-100"
+                        ? "text-emerald-400"
+                        : "text-white/80 hover:bg-white/10"
                   }`}
                 >
                   {item.name}
                 </Link>
-                {item.name === "Offers" && (
+                {item.name === "Services" && (
                   <div className="ml-4 flex flex-col gap-0.5">
                     {serviceLinks.map((service) => (
                       <Link
@@ -215,8 +227,8 @@ export function Nav() {
                         onClick={() => setOpen(false)}
                         className={`px-3 py-2 rounded-xl text-sm transition-colors ${
                           isActive(service.href)
-                            ? "text-emerald-700"
-                            : "text-stone-500 hover:text-stone-900 hover:bg-stone-100"
+                            ? "text-emerald-400"
+                            : "text-white/50 hover:text-white/80 hover:bg-white/10"
                         }`}
                       >
                         {service.name}
@@ -226,12 +238,27 @@ export function Nav() {
                 )}
               </div>
             ))}
-            <Button asChild size="full">
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-xl mt-2 w-full h-10 text-white/80 border-white/20"
+            >
               <Link
-                href="/book"
-                onClick={() => { trackOpportunityMappingClicked("nav"); setOpen(false); }}
+                href="/book?intent=training"
+                onClick={() => { trackBookTrainingClicked("nav"); setOpen(false); }}
               >
-                Map my first AI system
+                Book AI Training
+              </Link>
+            </Button>
+            <Button
+              asChild
+              className="rounded-xl mt-2 w-full bg-emerald-600 hover:bg-emerald-700 h-10"
+            >
+              <Link
+                href="/book?intent=audit"
+                onClick={() => { trackBookAuditClicked("nav"); setOpen(false); }}
+              >
+                Book Your AI Audit
               </Link>
             </Button>
           </div>

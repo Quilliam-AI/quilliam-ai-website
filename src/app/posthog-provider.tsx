@@ -1,108 +1,65 @@
 "use client";
 
-import { useEffect, useCallback, useSyncExternalStore } from "react";
+import { useState, useCallback } from "react";
 import posthog from "posthog-js";
 import { PostHogProvider as PHProvider } from "posthog-js/react";
-import { Button } from "@/components/ui/button";
 
 const CONSENT_KEY = "cookie_consent";
 
 type Consent = "accepted" | "rejected" | null;
 
-const CONSENT_EVENT = "quilliam_cookie_consent_change";
-
-function readStoredConsent(): Consent {
+function readAndInitPostHog(): Consent {
   if (typeof window === "undefined") return null;
-  let value: string | null = null;
-  try {
-    value = localStorage.getItem(CONSENT_KEY);
-  } catch {
-    // localStorage may be blocked (private mode, strict cookie policies)
+
+  const value = localStorage.getItem(CONSENT_KEY);
+  const consent: Consent =
+    value === "accepted" || value === "rejected" ? value : null;
+
+  if (
+    !posthog.__loaded &&
+    process.env.NEXT_PUBLIC_POSTHOG_KEY &&
+    !window.location.hostname.includes("localhost")
+  ) {
+    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+      api_host: "/ph",
+      ui_host: "https://eu.posthog.com",
+      defaults: "2026-01-30",
+      person_profiles: "identified_only",
+      capture_pageleave: true,
+      persistence: consent === "accepted" ? "localStorage+cookie" : "memory",
+      disable_session_recording: consent !== "accepted",
+      session_recording: {
+        maskAllInputs: false,
+        maskInputOptions: { password: true },
+      },
+    });
   }
-  return value === "accepted" || value === "rejected" ? value : null;
-}
 
-function subscribeConsent(callback: () => void) {
-  window.addEventListener("storage", callback);
-  window.addEventListener(CONSENT_EVENT, callback);
-  return () => {
-    window.removeEventListener("storage", callback);
-    window.removeEventListener(CONSENT_EVENT, callback);
-  };
-}
-
-function subscribeHydration(callback: () => void) {
-  void callback;
-  return () => {};
-}
-
-function emitConsentChange() {
-  window.dispatchEvent(new Event(CONSENT_EVENT));
+  return consent;
 }
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
-  const mounted = useSyncExternalStore(subscribeHydration, () => true, () => false);
-  const consent = useSyncExternalStore(subscribeConsent, readStoredConsent, () => null);
-
-  useEffect(() => {
-    const stored = readStoredConsent();
-
-    // Init PostHog once, with persistence shaped by stored consent.
-    // Note: skipped on localhost so dev sessions don't pollute analytics.
-    if (
-      !posthog.__loaded &&
-      process.env.NEXT_PUBLIC_POSTHOG_KEY &&
-      !window.location.hostname.includes("localhost")
-    ) {
-      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-        api_host: "/ph",
-        ui_host: "https://eu.posthog.com",
-        defaults: "2026-01-30",
-        person_profiles: "identified_only",
-        capture_pageleave: true,
-        persistence: stored === "accepted" ? "localStorage+cookie" : "memory",
-        disable_session_recording: stored !== "accepted",
-        session_recording: {
-          maskAllInputs: false,
-          maskInputOptions: { password: true },
-        },
-      });
-    }
-  }, []);
+  // Lazy initializer: reads consent + inits PostHog exactly once
+  const [consent, setConsent] = useState<Consent>(readAndInitPostHog);
 
   const handleAccept = useCallback(() => {
-    try {
-      localStorage.setItem(CONSENT_KEY, "accepted");
-    } catch {
-      /* swallow */
-    }
-    emitConsentChange();
+    localStorage.setItem(CONSENT_KEY, "accepted");
+    setConsent("accepted");
     if (posthog.__loaded) {
-      try {
-        posthog.set_config({ persistence: "localStorage+cookie" });
-        posthog.startSessionRecording();
-      } catch {
-        /* swallow */
-      }
+      posthog.set_config({ persistence: "localStorage+cookie" });
+      posthog.startSessionRecording();
     }
   }, []);
 
   const handleReject = useCallback(() => {
-    try {
-      localStorage.setItem(CONSENT_KEY, "rejected");
-    } catch {
-      /* swallow */
-    }
-    emitConsentChange();
+    localStorage.setItem(CONSENT_KEY, "rejected");
+    setConsent("rejected");
   }, []);
-
-  // Only render the banner after mount AND when consent is unset.
-  const showBanner = mounted && consent === null;
 
   return (
     <PHProvider client={posthog}>
       {children}
-      {showBanner && (
+      {consent === null && (
         <CookieConsent onAccept={handleAccept} onReject={handleReject} />
       )}
     </PHProvider>
@@ -120,9 +77,9 @@ function CookieConsent({
     <div
       role="dialog"
       aria-label="Cookie consent"
-      className="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-6 pointer-events-none"
+      className="fixed bottom-0 left-0 right-0 z-[60] p-4 md:p-6"
     >
-      <div className="max-w-2xl mx-auto rounded-2xl bg-stone-900 border border-stone-800/60 shadow-[0_-4px_32px_-8px_rgba(0,0,0,0.5)] p-5 md:p-6 pointer-events-auto">
+      <div className="max-w-2xl mx-auto rounded-2xl bg-stone-900 border border-stone-800/60 shadow-[0_-4px_32px_-8px_rgba(0,0,0,0.5)] p-5 md:p-6">
         <p className="text-sm text-stone-300 leading-relaxed">
           We use cookies and session recordings to understand how people use
           this site and improve it. You can accept or reject non-essential
@@ -135,25 +92,18 @@ function CookieConsent({
           </a>
         </p>
         <div className="mt-4 flex gap-3">
-          <Button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              onAccept();
-            }}
+          <button
+            onClick={onAccept}
+            className="rounded-full px-6 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-500 active:scale-[0.98] transition-all"
           >
             Accept
-          </Button>
-          <Button
-            type="button"
-            variant="outline"
-            onClick={(e) => {
-              e.preventDefault();
-              onReject();
-            }}
+          </button>
+          <button
+            onClick={onReject}
+            className="rounded-full px-6 py-2 text-sm font-medium bg-stone-800 text-stone-300 border border-stone-700 hover:bg-stone-700 hover:text-white active:scale-[0.98] transition-all"
           >
             Reject
-          </Button>
+          </button>
         </div>
       </div>
     </div>
