@@ -7,11 +7,15 @@ import {
   LegalHero,
   LegalContent,
 } from "@/components/shared/legal-layout";
+import {
+  CompaniesHouseLink,
+  IcoRegistrationLink,
+} from "@/components/shared/legal-links";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Quilliam AI collects, uses, and protects your personal data. GDPR-compliant privacy practices for our AI education, implementation, and digital services.",
+    "How Quilliam AI collects, uses, and protects your personal data. GDPR-compliant privacy practices for outcome-led AI implementation services.",
   alternates: { canonical: "/privacy" },
   openGraph: {
     title: "Privacy Policy | Quilliam AI",
@@ -28,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPage() {
-  const lastUpdated = "18 April 2026";
+  const lastUpdated = "1 May 2026";
 
   return (
     <article className="min-h-screen">
@@ -38,7 +42,7 @@ export default function PrivacyPage() {
         name="Privacy Policy | Quilliam AI"
         description="Quilliam AI's privacy policy. How we collect, use, and protect your personal information."
         datePublished="2026-04-11"
-        dateModified="2026-04-18"
+        dateModified="2026-05-01"
       />
       <LegalHero title="Privacy Policy" lastUpdated={lastUpdated} />
 
@@ -48,15 +52,19 @@ export default function PrivacyPage() {
             Quilliam AI is the trading name of{" "}
             <strong>Quilliam AI Ltd</strong>, a UK private limited company
             registered in England and Wales (Companies House number{" "}
-            {siteConfig.companyNumber}), with registered office at{" "}
+            <CompaniesHouseLink />), with registered office at{" "}
             {siteConfig.registeredOffice.street},{" "}
             {siteConfig.registeredOffice.locality},{" "}
             {siteConfig.registeredOffice.region},{" "}
-            {siteConfig.registeredOffice.postalCode}. We are a UK AI agency
-            offering AI education, AI implementation, and digital services
-            to businesses nationwide. When this policy mentions
-            &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;, it
-            refers to Quilliam AI Ltd.
+            {siteConfig.registeredOffice.postalCode}. We deliver outcome-led
+            AI implementation for owner-led UK businesses nationwide. When this policy
+            mentions &ldquo;we&rdquo;, &ldquo;us&rdquo;, or
+            &ldquo;our&rdquo;, it refers to Quilliam AI Ltd.
+          </p>
+          <p>
+            Quilliam AI Ltd is registered with the Information
+            Commissioner&rsquo;s Office under registration reference{" "}
+            <IcoRegistrationLink />.
           </p>
           <p>
             <strong>Contact:</strong>{" "}
@@ -98,8 +106,8 @@ export default function PrivacyPage() {
         <LegalSection title="How we use your data">
           <p>We use the data we collect to:</p>
           <ul>
-            <li>Respond to your enquiries and booking requests.</li>
-            <li>Deliver and improve our AI education, implementation, and digital services.</li>
+            <li>Respond to your enquiries and AI opportunity mapping requests.</li>
+            <li>Deliver and improve our AI implementation services.</li>
             <li>Send project updates and follow-ups you have requested.</li>
             <li>
               Understand how visitors use our website so we can improve it.
@@ -352,7 +360,17 @@ export default function PrivacyPage() {
               {siteConfig.registeredOffice.postalCode}
             </li>
             <li>
-              <strong>Company No.:</strong> {siteConfig.companyNumber} (England &amp; Wales)
+              <strong>Company No.:</strong>{" "}
+              <CompaniesHouseLink>
+                {siteConfig.companyNumber}
+              </CompaniesHouseLink>{" "}
+              (England &amp; Wales)
+            </li>
+            <li>
+              <strong>ICO registration:</strong>{" "}
+              <IcoRegistrationLink>
+                {siteConfig.icoRegistrationNumber}
+              </IcoRegistrationLink>
             </li>
           </ul>
         </LegalSection>

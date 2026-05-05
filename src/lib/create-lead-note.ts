@@ -63,8 +63,8 @@ ${data.message ? `## What they need\n\n${data.message}` : ""}
 
 ## Follow-up
 
-- [ ] Reply within 24 hours
-- [ ] Schedule AI Audit / training session
+- [ ] Review opportunity notes and identify likely first AI system
+- [ ] Reply within 24 hours with mapping-call next step
 - [ ] Add to engagement pipeline if proceeding
 `;
 

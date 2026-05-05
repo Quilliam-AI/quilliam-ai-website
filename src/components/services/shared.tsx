@@ -1,6 +1,14 @@
 import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight, CheckCircle2, GraduationCap, Bot, Globe } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Gauge,
+  Hammer,
+  Map,
+  Repeat2,
+  Target,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/shared/fade-in";
 import { siteConfig, services } from "@/lib/content";
@@ -130,22 +138,13 @@ export function ServiceHero({
 
           <FadeIn delay={0.4} className="mt-8">
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button
-                asChild
-                size="lg"
-                className="rounded-full h-12 px-8 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
-              >
+              <Button asChild size="lg">
                 <Link href="/book">
                   {ctaText}
-                  <ArrowRight size={18} className="ml-2" />
+                  <ArrowRight size={18} />
                 </Link>
               </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="rounded-full h-12 px-8 text-base text-white"
-              >
+              <Button asChild variant="outline" size="lg">
                 <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
                   Message on WhatsApp
                 </a>
@@ -271,14 +270,15 @@ export function ServiceFaqSection({ heading, faqs }: ServiceFaqSectionProps) {
 /* ------------------------------------------------------------------ */
 
 const serviceIcons: Record<string, LucideIcon> = {
-  "ai-training": GraduationCap,
-  "ai-automation": Bot,
-  "digital-services": Globe,
+  "ai-opportunity-mapping": Map,
+  "outcome-sprint": Gauge,
+  "fixed-ai-system-build": Hammer,
+  "monthly-optimisation": Repeat2,
 };
 
 const allServices = services.map((s) => ({
   slug: s.slug,
-  icon: serviceIcons[s.slug] ?? Globe,
+  icon: serviceIcons[s.slug] ?? Target,
   title: s.title,
   description: s.description,
 }));
@@ -304,7 +304,7 @@ export function OtherServicesSection({
       <div className="max-w-[1400px] mx-auto px-6">
         <FadeIn>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 mb-3">
-            Other services
+            Other rungs on the ladder
           </p>
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tighter text-white leading-tight">
             {heading}
@@ -315,7 +315,7 @@ export function OtherServicesSection({
           {others.map((service, i) => (
             <FadeIn key={service.slug} delay={(i + 1) * 0.1}>
               <Link
-                href={`/services/${service.slug}`}
+                href="/book"
                 className={`group flex items-start gap-5 p-8 rounded-2xl ${cardBg} border border-stone-800/60 hover:border-emerald-800/60 transition-colors h-full`}
               >
                 <div className="w-10 h-10 rounded-xl bg-stone-800 border border-stone-700/50 flex items-center justify-center shrink-0">
@@ -329,7 +329,7 @@ export function OtherServicesSection({
                     {service.description}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-emerald-400">
-                    Learn more <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    See the scope <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
               </Link>
@@ -380,22 +380,13 @@ export function ServiceCta({
         </FadeIn>
         <FadeIn delay={0.2} className="mt-10">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="rounded-full h-12 px-10 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
-            >
+            <Button asChild size="xl">
               <Link href="/book">
                 {ctaText}
-                <ArrowRight size={18} className="ml-2" />
+                <ArrowRight size={18} />
               </Link>
             </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="rounded-full h-12 px-10 text-base text-white"
-            >
+            <Button asChild variant="outline" size="xl">
               <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
                 Message on WhatsApp
               </a>

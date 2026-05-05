@@ -20,23 +20,9 @@ type CtaLocation =
   | "contact"
   | "service_page";
 
-export function trackBookTrainingClicked(location: CtaLocation) {
+export function trackOpportunityMappingClicked(location: CtaLocation) {
   posthog.capture("cta_clicked", {
-    cta_type: "book_training",
-    location,
-  });
-}
-
-export function trackBookAuditClicked(location: CtaLocation) {
-  posthog.capture("cta_clicked", {
-    cta_type: "book_audit",
-    location,
-  });
-}
-
-export function trackBookSessionClicked(location: CtaLocation) {
-  posthog.capture("cta_clicked", {
-    cta_type: "book_session",
+    cta_type: "opportunity_mapping",
     location,
   });
 }
@@ -64,46 +50,42 @@ export function trackEmailClicked(location: CtaLocation) {
   });
 }
 
-// ── Service discovery ───────────────────────────────────────────────
+// ── Offer discovery ─────────────────────────────────────────────────
 
-export function trackServiceCardClicked(
-  service: "ai-training" | "ai-automation" | "digital-services",
-) {
+export type OfferSlug =
+  | "ai-opportunity-mapping"
+  | "outcome-sprint"
+  | "fixed-ai-system-build"
+  | "monthly-optimisation";
+
+export function trackServiceCardClicked(service: OfferSlug) {
   posthog.capture("service_card_clicked", { service });
 }
 
 // ── Booking form funnel ─────────────────────────────────────────────
+// The form now serves a single flow: AI Opportunity Mapping.
 
-export function trackBookingFormViewed(
-  intent: "training" | "audit" | "either",
-) {
-  posthog.capture("booking_form_viewed", { intent });
+export function trackBookingFormViewed() {
+  posthog.capture("booking_form_viewed");
 }
 
-export function trackBookingFormStarted(
-  intent: "training" | "audit" | "either",
-) {
-  posthog.capture("booking_form_started", { intent });
+export function trackBookingFormStarted() {
+  posthog.capture("booking_form_started");
 }
 
 export function trackBookingFormSubmitted(props: {
-  intent: "training" | "audit" | "either";
-  interest: string;
   business_type: string;
 }) {
   posthog.capture("booking_form_submitted", props);
 }
 
 export function trackBookingFormError(props: {
-  intent: "training" | "audit" | "either";
   error: string;
 }) {
   posthog.capture("booking_form_error", props);
 }
 
 export function trackBookingFormSuccess(props: {
-  intent: "training" | "audit" | "either";
-  interest: string;
   business_type: string;
 }) {
   posthog.capture("booking_form_success", props);

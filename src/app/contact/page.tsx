@@ -7,25 +7,28 @@ import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { CircuitPattern } from "@/components/shared/pattern-overlay";
 import { FadeIn } from "@/components/shared/fade-in";
 import { Button } from "@/components/ui/button";
+import {
+  CompaniesHouseLink,
+  IcoRegistrationLink,
+} from "@/components/shared/legal-links";
 
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with Quilliam AI. Phone, email, or WhatsApp — we reply within 24 hours. Based in Cornwall, working with UK businesses nationwide and remote.",
+    "Get in touch with Quilliam AI. WhatsApp, phone, or email — we reply within 24 hours. Based in Cornwall, outcome-led AI implementation for owner-led UK businesses.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Contact Quilliam AI",
     description:
-      "Get in touch with Quilliam AI. Phone, email, or WhatsApp — we reply within 24 hours.",
+      "WhatsApp, phone, or email — we reply within 24 hours.",
     url: "/contact",
     images: ["/opengraph-image"],
   },
   twitter: {
     title: "Contact Quilliam AI",
-    description:
-      "Get in touch with Quilliam AI. Phone, email, or WhatsApp — we reply within 24 hours.",
+    description: "WhatsApp, phone, or email — we reply within 24 hours.",
   },
 };
 
@@ -35,7 +38,9 @@ const contactMethods = [
     label: "WhatsApp",
     value: "Message on WhatsApp",
     description: "Fastest way to reach us. Usually reply within minutes.",
-    href: getWhatsAppUrl("Hi Levi, I'd like to chat about AI for my business."),
+    href: getWhatsAppUrl(
+      "Hi Levi, I run an owner-led business and I'd like to map the first AI system worth building.",
+    ),
     external: true,
     primary: true,
   },
@@ -66,9 +71,9 @@ export default function ContactPage() {
       <WebPageJsonLd
         path="/contact"
         name="Contact Quilliam AI"
-        description="Get in touch with Quilliam AI. Phone, email, or WhatsApp — we reply within 24 hours. Based in Cornwall, working with UK businesses nationwide and remote."
+        description="Get in touch with Quilliam AI. WhatsApp, phone, or email — we reply within 24 hours. Based in Cornwall, outcome-led AI implementation for owner-led UK businesses."
         datePublished="2026-04-11"
-        dateModified="2026-04-11"
+        dateModified="2026-05-01"
       />
 
       <section className="relative min-h-[100dvh] bg-stone-950 overflow-hidden">
@@ -84,7 +89,7 @@ export default function ContactPage() {
             <div className="flex flex-col justify-center">
               <FadeIn delay={0.1}>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 mb-3">
-                  Get in Touch
+                  Get in touch
                 </p>
               </FadeIn>
 
@@ -97,10 +102,9 @@ export default function ContactPage() {
 
               <FadeIn delay={0.3} className="mt-6">
                 <p className="text-base md:text-lg text-stone-400 leading-relaxed max-w-[48ch]">
-                  Whether you have a question about AI training, want to
-                  discuss an implementation project, or are ready to book
-                  your AI Audit — we are here to help. No sales
-                  pressure, no jargon.
+                  Whether you want to map your first AI opportunity, pressure
+                  test an outcome, or work out whether this is a fit — message,
+                  call, or email. No sales pressure, no jargon.
                 </p>
               </FadeIn>
 
@@ -120,7 +124,12 @@ export default function ContactPage() {
                         {siteConfig.location}
                       </p>
                       <p className="text-xs text-stone-500 mt-0.5 leading-relaxed">
-                        Quilliam AI Ltd · Company No. {siteConfig.companyNumber}
+                        Quilliam AI Ltd · Company No.{" "}
+                        <CompaniesHouseLink className="underline decoration-stone-700 underline-offset-2 hover:text-stone-300 transition-colors" />
+                      </p>
+                      <p className="text-[11px] text-stone-600 mt-0.5 leading-relaxed">
+                        ICO registration:{" "}
+                        <IcoRegistrationLink className="underline decoration-stone-700 underline-offset-2 hover:text-stone-400 transition-colors" />
                       </p>
                       <p className="text-[11px] text-stone-600 mt-0.5 leading-relaxed">
                         Registered office: {siteConfig.registeredOffice.street},{" "}
@@ -151,28 +160,23 @@ export default function ContactPage() {
                 </div>
               </FadeIn>
 
-              {/* CTA to audit */}
+              {/* CTA to mapping */}
               <FadeIn delay={0.5} className="mt-10">
                 <div className="p-6 rounded-2xl bg-stone-900 border border-stone-800/60">
                   <p className="text-sm font-semibold text-white">
-                    Ready to see what AI can do for you?
+                    Want the simplest first step?
                   </p>
                   <p className="text-xs text-stone-500 mt-1 leading-relaxed">
-                    Book a no-obligation session — training or audit,
-                    your choice. Walk away with a clear plan either way.
+                    Map the first AI system worth building and the metric it
+                    should move before you spend anything.
                   </p>
-                  <div className="mt-4 flex flex-col sm:flex-row gap-2">
-                    <Link href="/book?intent=training" className="flex-1">
-                      <Button variant="outline" className="w-full rounded-full h-10 px-4 text-white/90 border-white/20 text-sm font-medium transition-all">
-                        AI Training
-                      </Button>
-                    </Link>
-                    <Link href="/book?intent=audit" className="flex-1">
-                      <Button className="w-full rounded-full h-10 px-4 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)] transition-all">
-                        AI Audit
-                        <ArrowRight size={14} className="ml-2" />
-                      </Button>
-                    </Link>
+                  <div className="mt-4">
+                    <Button asChild size="full">
+                      <Link href="/book">
+                        Map my first AI system
+                        <ArrowRight size={14} />
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               </FadeIn>

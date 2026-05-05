@@ -1,55 +1,40 @@
 # Quilliam AI
-> A UK AI agency offering education and implementation under one roof
 
-> Full version: https://quilliam.ai/llms-full.txt
-> Last updated: 2026-04-11
+Quilliam AI Ltd is a UK AI implementation company based in Cornwall and working UK-wide. The company delivers outcome-led AI implementation for owner-led businesses: strategy, systems, and training tied to measurable business outcomes such as hours saved, faster lead response, reduced admin backlog, enquiry conversion, booking rate, and reporting time.
 
-## About
-Quilliam AI is the trading name of Quilliam AI Ltd (UK Companies House number 17151006, incorporated 2026-04-11, registered office in Cornwall, England). Founded by Levi Quilliam, it operates as a UK AI agency offering two complementary services: AI Education (training, workshops, and knowledge systems so your team can use AI properly) and AI Implementation (building automations, agents, n8n workflows, and custom ChatGPT or Claude tools), plus Digital Services (websites, SEO, content production) as the digital foundation that supports the AI work. We work with UK businesses of all shapes and sizes. Every engagement starts with a free AI Audit and is handoff-first — the deliverable is a skill or system your team actually owns, not a bespoke framework.
+## Core positioning
 
-## Services
-- AI Education: Hands-on workshops, role-tailored training, and optional AI knowledge systems (Claude Code + Obsidian "Company Brain") so your team can use ChatGPT, Claude, and custom AI tools confidently in their daily work. URL slug: /services/ai-training
-- AI Implementation: Custom AI automations, agents, n8n workflows, API integrations, and bespoke ChatGPT/Claude tools built for your business. We do the work, you get the outcomes. URL slug: /services/ai-automation
-- Digital Services: Professional websites, SEO, Google Business Profile, and content production — the digital foundation that supports your AI work. URL slug: /services/digital-services
+- Outcome-led AI implementation for owner-led UK businesses
+- AI systems that pay their way
+- Strategy, systems, and training under one roof
+- Fixed setup/build fees, agreed baselines, and measurable success metrics
+- Optional performance bonus where a target is agreed and beaten
+- Open stack, documented handoff, no proprietary lock-in
 
-## How It Works — The AI Audit
-1. We Listen: A focused conversation where we understand your business, your team, and where AI could help.
-2. We Teach or Build: We recommend education, implementation, or both — whatever fits. If training, we run it tailored to your team. If building, we ship fast.
-3. You Run With It: You get skills and systems you can actually use. We document everything, hand it over, and provide ongoing support when you need it. No lock-in.
+## Entry point
 
-## Pricing
-- Free AI Audit (intro session, 30-60 minutes)
-- Day-rate consulting: £300–£400 per day
-- Website packages from £500
-- Fixed-price implementation packages from £500 depending on scope
+The primary call to action is the AI Opportunity Mapping Call at https://quilliam.ai/book. The call identifies the first AI system worth building, the workflow it should improve, and the metric it should move.
+
+## Offers
+
+1. AI Opportunity Mapping Call: free first step to identify the first practical AI system.
+2. Outcome Sprint: usually £3k-£10k, depending on scope and integrations. Includes workflow map, baseline, success metric, and first useful AI system.
+3. Fixed AI System Build: one named fixed-fee deliverable, such as lead response workflow, inbox triage, CRM handoff, reporting system, content engine, onboarding flow, AI-native website, or agent workflow.
+4. Monthly Optimisation: ongoing improvement, training, adoption review, and metric reporting for live AI systems.
+
+## Commercial model
+
+Quilliam AI does not sell no-win-no-fee AI implementation. The preferred model is fixed setup/build fee, agreed baseline before build, one or two tracked success metrics, optional performance bonus if the system beats the agreed target, and optional monthly optimisation after launch.
+
+## Founder and company
+
+Founder: Levi Quilliam. Background: economics, ex-Deloitte UK tax, 8+ years shipping software, AI-first product work across the UK and Middle East.
+
+Company: Quilliam AI Ltd, registered in England and Wales, company number 17151006. Registered office: 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB, England. ICO registration: ZC134964.
 
 ## Contact
-- Web: https://quilliam.ai
+
+- Website: https://quilliam.ai
+- Booking: https://quilliam.ai/book
 - Email: levi@quilliam.ai
-- Phone: +447593121621
-- WhatsApp: +447593121621
-- Location: Cornwall, UK (working UK-wide and remote)
-- Registered office: 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB, England
-
-## Company
-- Trading name: Quilliam AI
-- Legal name: Quilliam AI Ltd
-- UK Companies House: 17151006
-- Incorporated: 2026-04-11
-- Sole director: Levi Lachlan Quilliam
-
-## Book a Free AI Audit or Training Session
-https://quilliam.ai/book?intent=training  (AI Training)
-https://quilliam.ai/book?intent=audit  (AI Audit)
-
-## Pages
-- Home: https://quilliam.ai
-- About: https://quilliam.ai/about
-- Book: https://quilliam.ai/book
-- Contact: https://quilliam.ai/contact
-- Where We Work: https://quilliam.ai/service-areas
-- AI Education: https://quilliam.ai/services/ai-training
-- AI Implementation: https://quilliam.ai/services/ai-automation
-- Digital Services: https://quilliam.ai/services/digital-services
-- Privacy: https://quilliam.ai/privacy
-- Terms: https://quilliam.ai/terms
+- Phone: +44 7593 121621
