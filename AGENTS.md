@@ -8,7 +8,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## What This Is
 
-Marketing website for **Quilliam AI Ltd** (UK Companies House 17151006, incorporated 2026-04-11, registered office 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB). A general-purpose UK AI agency offering AI education and AI implementation under one roof, plus complementary digital services (websites, SEO, content). Founded by Levi Quilliam, based in Cornwall, working UK-wide and remote. Three services: **AI Education** (`/services/ai-training`) — training, workshops, knowledge systems; **AI Implementation** (`/services/ai-automation`) — automations, agents, n8n workflows, custom tools; **Digital Services** (`/services/digital-services`) — websites, SEO, content, GBP. Day-rate consulting £300–£400/day plus fixed-price packages from £500. Lead funnel is **dual** — "Book Free AI Training" and "Book Free AI Audit", both routing to `/book?intent=training|audit`.
+Marketing website for **Quilliam AI Ltd** (UK Companies House 17151006, incorporated 2026-04-11, registered office 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB). A general-purpose UK AI agency offering AI education and AI implementation under one roof, plus complementary digital services (websites, SEO, content). Founded by Levi Quilliam, based in Cornwall, working UK-wide and remote. Three services: **AI Education** (`/services/ai-training`) — training, workshops, knowledge systems; **AI Implementation** (`/services/ai-automation`) — automations, agents, n8n workflows, custom tools; **Digital Services** (`/services/digital-services`) — websites, SEO, content, GBP. Day-rate consulting £300–£400/day plus fixed-price packages from £500. Lead funnel is **dual** — "Book Free AI Training" and "Book Free AI Opportunity", both routing to `/book?intent=training|opportunity`.
 
 Production URL: `https://quilliam.ai`
 
@@ -26,7 +26,7 @@ Production URL: `https://quilliam.ai`
 | Icons | lucide-react |
 | Animation | framer-motion (used only in `FadeIn` wrapper) |
 | Email | Resend (server action, dynamic import) |
-| Fonts | Geist Sans + Geist Mono via `next/font/google` |
+| Fonts | Manrope via `next/font/google` |
 | Package Manager | Bun |
 | Linting | ESLint 9 flat config with next/core-web-vitals + next/typescript |
 
@@ -131,7 +131,7 @@ Booking form uses a server action (`booking-action.ts`) with `"use server"`. Res
 - CSS vars use oklch colour space (see `globals.css :root`)
 
 ### Typography
-- Font: Geist Sans (`--font-geist-sans`) for all text, Geist Mono (`--font-geist-mono`) for stats/numbers
+- Font: Manrope (`--font-manrope-sans`) for all text. Do not use a separate mono font or `font-mono`.
 - Headings: `font-semibold tracking-tighter` — tight tracking is a core identity trait
 - Section labels: `text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400`
 - Body: `text-sm` or `text-base`, always `leading-relaxed`, max-width constrained with `max-w-[56ch]` or `max-w-[48ch]`
@@ -166,7 +166,7 @@ All scroll-triggered animations use the `FadeIn` wrapper (framer-motion). Direct
 - British English spelling and conventions: "optimise", "colour", "organise", "£".
 
 ### Key Phrases (use consistently)
-- "AI Audit" (not "AI audit", "sprint", "consultation", or "discovery call") — the implementation-side free session
+- "AI Opportunity" / "AI Opportunity Session" — the owner-facing first session
 - "AI Training" / "free intro training session" — the education-side free session
 - "AI Education" and "AI Implementation" — the two core services (plus Digital Services as a complement)
 - "UK businesses" / "your team" / "your business" (not "B2B SaaS", "GTM lead", "startups" — too narrow)
@@ -181,17 +181,17 @@ All scroll-triggered animations use the `FadeIn` wrapper (framer-motion). Direct
 - Day rate: £300–£400/day (range, not fixed)
 - Website packages from £500
 - Implementation packages from £500 depending on scope
-- Free AI Audit + free introductory AI training session
+- Free AI Opportunity session + free introductory AI training session
 - Current engagement: VetVision AI (University of Nottingham spin-out, uses all three services — most clients pick one or two)
 - Do not fabricate statistics. If citing an unattributed stat, label it clearly.
 
 ### CTAs
-- **Dual primary CTAs**: "Book Free AI Training" (`/book?intent=training`) and "Book Free AI Audit" (`/book?intent=audit`).
+- **Dual primary CTAs**: "Book Free AI Training" (`/book?intent=training`) and "Book Free AI Opportunity" (`/book?intent=opportunity`).
 - The `/book` page reads the `intent` query param and changes its hero copy, submit button, and success message to match.
-- When in doubt which to promote, lead with AI Training on the education-side of copy and AI Audit on the implementation-side.
+- When in doubt which to promote, lead with AI Training on the education-side of copy and AI Opportunity on the owner/implementation-side.
 
 ### CTAs
-- Primary: "Book Your Free AI Audit" (links to `/book`)
+- Primary: "Book Your Free AI Opportunity" (links to `/book`)
 - Secondary: "Message on WhatsApp" (links to `wa.me` with pre-filled message via `getWhatsAppUrl()`)
 - Every major section ends with a CTA. Every page has at least one path to `/book`.
 

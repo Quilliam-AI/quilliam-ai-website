@@ -34,7 +34,7 @@ There are 12 `picsum.photos` references across 7 files, plus 1 config entry. The
 | AI Training card | `src/components/home/services-cards.tsx` | 11 | Workshop/training photo | 700x500 |
 | AI Automation card | `src/components/home/services-cards.tsx` | 12 | Dashboard/automation screenshot | 700x500 |
 | Digital Services card | `src/components/home/services-cards.tsx` | 13 | Website/SEO work photo | 700x500 |
-| Sprint step 1 (Audit) | `src/components/home/sprint-process.tsx` | 6 | Business audit session photo | 800x600 |
+| Sprint step 1 (Opportunity) | `src/components/home/sprint-process.tsx` | 6 | Business opportunity session photo | 800x600 |
 | Sprint step 2 (Build) | `src/components/home/sprint-process.tsx` | 7 | Building automation photo | 600x400 |
 | Sprint step 3 (Win) | `src/components/home/sprint-process.tsx` | 8 | Results/celebration photo | 600x400 |
 | K2 Gym case study | `src/components/home/industry-tabs.tsx` | 35 | Real K2 Gym interior photo | 800x600 |
@@ -268,7 +268,7 @@ This is the highest-ceiling item for E-E-A-T but also the largest effort.
 - [ ] **6.3** Design the individual blog post page similar to the privacy/terms pages (dark hero header, light or dark content body with proper typography).
 - [ ] **6.4** Write 2-3 initial posts targeting high-value keywords:
   - "How AI Automation Saves Small Businesses 10+ Hours a Week" (targets "AI automation small business")
-  - "What Is an AI Impact Sprint? A Step-by-Step Guide" (targets the branded term + "AI audit for business")
+  - "What Is an AI Impact Sprint? A Step-by-Step Guide" (targets the branded term + "AI opportunity analysis for business")
   - "AI Tools for UK Gyms: Automating Member Follow-ups and Reviews" (targets industry vertical + demonstrates expertise)
   
   **Levi should write or heavily edit these** to maintain the authentic voice. AI-drafted posts would damage the A- slop score.

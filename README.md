@@ -1,221 +1,93 @@
-```
-                 _ _ _ _                        _
-   __ _ _  _ _ _| | (_) __ _ _ __    __ _ (_)
-  / _` | || | | | | | / _` | '  \  / _` || |
-  \__, |\_,_|_|_|_|_|_\__,_|_|_|_| \__,_||_|
-     |_|
-```
+# Quilliam AI
 
-<p align="center">
-  <strong>AI education and implementation for UK businesses.</strong><br>
-  <sub>We teach AI. We build with AI. Based in Cornwall, working UK-wide and remote.</sub>
-</p>
+Practical AI consulting, workflow builds, and team training for UK businesses.
 
-<p align="center">
-  <a href="https://quilliam.ai">quilliam.ai</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-  <a href="https://quilliam.ai/book?intent=training">Free AI Training</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;
-  <a href="https://quilliam.ai/book?intent=audit">Free AI Audit</a>
-</p>
+Quilliam AI is a founder-led Cornwall AI implementation company helping UK businesses make sense of AI, build useful AI workflows, and train their teams to use them properly.
 
-<p align="center">
-  <sub>Quilliam AI Ltd · UK Companies House 17151006 · Incorporated 2026-04-11</sub>
-</p>
+Production: https://quilliam.ai
 
----
+## Stack
 
-## The Stack
-
-```
-Next.js 16 canary    React 19.2    TypeScript strict    Tailwind CSS 4
-shadcn/ui            framer-motion Resend               Bun
-```
-
-| What | How |
+| Layer | Technology |
 |---|---|
-| Framework | Next.js 16.2.1-canary.12 (App Router, Turbopack, RSC-first) |
-| Rendering | 100% static prerender -- zero serverless functions at the edge |
-| Styling | Tailwind CSS 4 via `@tailwindcss/postcss` -- config in `globals.css`, no `tailwind.config` |
-| Colours | oklch colour space, stone-950 dark mode, emerald-600 accent |
-| Components | shadcn/ui base-nova + custom composable service page primitives |
-| Animation | framer-motion contained to a single `<FadeIn>` wrapper. Respects `prefers-reduced-motion` |
-| Forms | Server actions + Resend. Dynamic import so builds never fail without `RESEND_API_KEY` |
-| Fonts | Geist Sans + Geist Mono via `next/font/google` (zero CLS) |
-| SEO | Programmatic sitemap, robots.txt, dynamic OG images, 10+ JSON-LD schema types |
-| AI Crawlers | `llms.txt` + `llms-full.txt`, allows GPTBot/ClaudeBot/PerplexityBot, blocks training scrapers |
-| Security | HSTS, CSP, X-Frame-Options DENY, Permissions-Policy, no `X-Powered-By` |
+| Framework | Next.js 16 canary, App Router |
+| React | 19.2 |
+| Language | TypeScript strict |
+| Styling | Tailwind CSS 4 via `@tailwindcss/postcss` |
+| Components | shadcn/ui base, local components |
+| Icons | lucide-react |
+| Analytics | PostHog EU via reverse proxy |
+| Email | Resend server action |
+| Package manager | Bun |
 
-## Architecture at a Glance
-
-```
-src/
- app/
-  layout.tsx ................ Root layout, fonts, metadata, JSON-LD graph
-  page.tsx .................. Homepage (assembles 8 section components)
-  globals.css ............... Tailwind 4 @theme inline config + oklch vars
-  error.tsx ................. Global error boundary
-  opengraph-image.tsx ....... Dynamic OG image via ImageResponse
-  sitemap.ts ................ Programmatic sitemap
-  robots.ts ................. Programmatic robots.txt
-  book/page.tsx ............. Booking form (lead capture)
-  privacy/page.tsx .......... Privacy policy
-  terms/page.tsx ............ Terms of service
-  services/
-   ai-training/page.tsx
-   ai-automation/page.tsx
-   digital-services/page.tsx
-
- components/
-  book/ ..................... BookingForm (client) + server action
-  home/ ..................... 7 homepage sections (mostly RSC)
-  layout/ ................... Nav, Footer, StickyCta, WhatsAppButton
-  services/shared.tsx ....... Composable service page primitives
-  shared/ ................... FadeIn, PatternOverlay, BreadcrumbJsonLd, CTA, LegalLayout
-  ui/button.tsx ............. shadcn Button (cva variants)
-
- lib/
-  content.ts ................ Single source of truth for ALL copy + config
-  utils.ts .................. cn() helper
-```
-
-## By the Numbers
-
-```
-Routes ............... 7 pages, all statically prerendered
-Components ........... 19 total (14 server, 5 client)
-Source lines ......... ~4,700 across 37 files
-Client components .... Nav, FadeIn, BookingForm, StickyCta, WhatsAppButton, error.tsx
-Server actions ....... 1 (booking-action.ts)
-JSON-LD schemas ...... ProfessionalService, Organization, Person, WebSite,
-                       Service, Offer, FAQPage, BreadcrumbList, GeoCoordinates,
-                       OpeningHoursSpecification, ImageObject, PostalAddress, Country
-Build time ........... ~3 seconds (Turbopack)
-External runtime deps  0 API calls at build time (Resend is runtime-only)
-```
-
-## Quick Start
+## Commands
 
 ```bash
-# Clone
-git clone git@github.com-personal:Levy787/quilliam-ai-site.git
-cd quilliam-ai-site
-
-# Install
-bun install
-
-# Dev server (http://localhost:3000)
 bun dev
-
-# Production build
-bun run build
-
-# Lint
 bun run lint
+bun run build
 ```
 
-### Environment
+## Current Positioning
+
+The service offer is:
+
+- AI Opportunity Analysis: plain-English advice on where AI can help, where it cannot, and what to do first.
+- Team Training: practical staff training, playbooks, and clear rules for using AI at work.
+- AI Implementation: repeated work redesigned into useful workflows with controls and handoff.
+
+Primary CTA: `Book Free AI Opportunity` -> `/book?intent=opportunity`.
+
+## Project Shape
+
+```text
+src/
+  app/
+    layout.tsx
+    page.tsx
+    globals.css
+    book/page.tsx
+    about/page.tsx
+    contact/page.tsx
+    service-areas/page.tsx
+    ai-consultant-uk/page.tsx
+    ai-automation-cornwall/page.tsx
+    privacy/page.tsx
+    terms/page.tsx
+    opengraph-image.tsx
+    sitemap.ts
+    robots.ts
+  components/
+    book/
+    layout/
+    services/
+    shared/
+    ui/
+  lib/
+    content.ts
+    analytics.ts
+    create-lead-note.ts
+    utils.ts
+public/
+  llms.txt
+  llms-full.txt
+  logos/
+```
+
+## Content Source
+
+Most public copy and business configuration lives in `src/lib/content.ts`. Change contact details, navigation, services, FAQ copy, proof logos, and the core positioning there first.
+
+## SEO And AI Crawler Files
+
+- `src/app/sitemap.ts` lists public routes.
+- `src/app/robots.ts` allows search-connected AI crawlers and blocks training-only scrapers.
+- `public/llms.txt` and `public/llms-full.txt` summarise the company for AI retrieval.
+- `src/app/opengraph-image.tsx` generates the branded social preview.
+
+## Runtime Environment
 
 | Variable | Required | Purpose |
 |---|---|---|
-| `RESEND_API_KEY` | Runtime only | Powers booking form email delivery. Build succeeds without it. |
-
-## Design System
-
-The entire site is dark-mode-only (stone-950 background) with a single light-mode exception: the footer (stone-50).
-
-```
-Background     stone-950  #0c0a09     Primary dark bg
-Surface        stone-900  #1c1917     Cards, form fields, elevated surfaces
-Accent         emerald-600 #059669    Buttons, glows, primary actions
-Text/Icons     emerald-400            Labels, icons, links on dark
-Headings       white                  All headings
-Body           stone-400              Paragraph text
-Labels         stone-500              Captions, secondary text
-Placeholders   stone-600              Form placeholders
-```
-
-**Typography:** `tracking-tighter` on all headings is a core brand identity trait. Geist Mono for stats/numbers. Body text is always `leading-relaxed` and width-constrained (`max-w-[56ch]` or `max-w-[48ch]`).
-
-**Buttons:** Rounded pills with emerald glow -- `rounded-full h-12 px-8 shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]`
-
-**Cards:** `rounded-2xl bg-stone-900 border border-stone-800/60` with hover states
-
-**Atmospheric glows:** `bg-emerald-500/[0.07] blur-[150px]` circles positioned absolutely
-
-**Pattern overlays:** Three SVG patterns (Circuit, DotGrid, NodeNetwork) used as section decorations
-
-## Content Architecture
-
-**All copy lives in one file:** `src/lib/content.ts`
-
-Change the business name, phone number, email, services, FAQs, or navigation there and it propagates to every component, schema node, WhatsApp link, and OG tag site-wide.
-
-**Composable service pages** are built from shared primitives in `src/components/services/shared.tsx`:
-- `ServiceHero` -- hero section with badge, H1, description, CTAs, trust badges
-- `ProcessSteps` -- numbered step cards
-- `ServiceFaqSection` -- FAQ accordions with `<details>/<summary>`
-- `OtherServicesSection` -- cross-links to other services
-- `ServiceCta` -- bottom CTA with atmospheric glow
-- `ServiceJsonLd` -- Service + Offer + FAQPage schema
-
-## SEO & Structured Data
-
-The site implements a connected JSON-LD knowledge graph:
-
-```
-layout.tsx (root)
- +-- ProfessionalService + Organization  (@id: #organization)
- +-- Person / Founder                    (@id: #founder)
- +-- WebSite                             (@id: #website)
-
-page.tsx (homepage)
- +-- Service x3 (one per service)        (@id: /services/{slug}#service)
- +-- FAQPage                             (@id: #faq)
-
-services/*/page.tsx
- +-- Service + Offer                     (@id: /services/{slug}#service)
- +-- FAQPage
- +-- BreadcrumbList
-
-book/, privacy/, terms/
- +-- BreadcrumbList
-```
-
-Every entity cross-references `#organization`. No duplicate nodes.
-
-**AI crawler readiness:** `public/llms.txt` (short summary) and `public/llms-full.txt` (expanded context with FAQs, case study data, founder bio). `robots.ts` explicitly blocks training-only scrapers (CCBot, Google-Extended, Bytespider) while allowing search-connected AI bots.
-
-## Security
-
-All responses include:
-
-```
-X-Content-Type-Options: nosniff
-X-Frame-Options: DENY
-Referrer-Policy: strict-origin-when-cross-origin
-Permissions-Policy: camera=(), microphone=(), geolocation=(), browsing-topics=()
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Content-Security-Policy-Report-Only: default-src 'self'; ...
-```
-
-`poweredByHeader: false`. CSP will move to enforcing after placeholder images are replaced with real photography.
-
-## Conventions for Contributors
-
-- **RSC by default.** Only add `"use client"` when you absolutely need hooks, event handlers, or browser APIs.
-- **British English.** "optimise", "colour", "organise", pound signs, UK conventions.
-- **No jargon.** Write like you're explaining to a UK business owner who is smart and short on time, not a marketing agency lead.
-- **"AI Audit"** (implementation-side) and **"AI Training"** (education-side) are always capitalised. Never "sprint", "consultation", or "discovery call".
-- **Education AND implementation** is the core differentiator — most AI agencies do one or the other. Every service page and every CTA should make both sides visible.
-- **Handoff-first** is the operating principle — every engagement should land on "your team owns the skill or system after we leave".
-- **Every page** must export `metadata` with title, description, canonical, OG, Twitter, and `openGraph.images: ["/opengraph-image"]`.
-- **New pages** must be added to `sitemap.ts`, nav/footer if user-facing, and `llms.txt`/`llms-full.txt`.
-- **Do not add animation libraries.** Everything goes through `<FadeIn>`. The migration point is one file: `src/components/shared/fade-in.tsx`.
-- **Do not weaken security headers.** If you add external resources, update the CSP.
-
-See `AGENTS.md` for the complete agent-oriented specification.
-
----
-
-<p align="center">
-  <sub>Built with mass amounts of tea and mass amounts of AI in Cornwall, UK.</sub>
-</p>
+| `RESEND_API_KEY` | Runtime only | Sends booking form emails |
+| `GITHUB_VAULT_TOKEN` | Optional runtime | Creates lead notes in the private Obsidian vault |
