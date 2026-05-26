@@ -170,7 +170,7 @@ export default async function BookPage({ searchParams }: BookPageProps) {
 
           <div className="mt-8 flex items-center gap-3 text-sm text-paper/55">
             <CheckCircle2 size={17} className="text-signal" />
-            Plain English. No commitment. No lock-in.
+            Clear scope. Practical next step. Team-owned handoff.
           </div>
         </div>
 

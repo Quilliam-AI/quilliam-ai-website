@@ -166,7 +166,7 @@ export function FocusedServicePage({
                 asChild
                 variant="outline-light"
                 size="lg"
-                className="border-ink/25 uppercase tracking-[0.14em] text-ink hover:bg-ink hover:text-paper"
+                className="border-ink/25 text-sm font-bold tracking-normal text-ink normal-case hover:bg-ink hover:text-paper"
               >
                 <Link href="/#method">See how it works</Link>
               </Button>

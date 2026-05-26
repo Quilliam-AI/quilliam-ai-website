@@ -174,7 +174,7 @@ All scroll-triggered animations use the `FadeIn` wrapper (framer-motion). Direct
 - "fix before flourish" (the ordering principle — trust gaps before glossy work)
 - "education AND implementation" (the differentiator — most agencies do one or the other)
 - "scoped budget guidance" instead of visible price lists, rate cards, or package menus
-- "No jargon", "No commitment", "No lock-in" (trust phrases)
+- "Clear scope", "practical next step", and "team-owned handoff" for trust-building copy
 - "Based in Cornwall. Working UK-wide and remote." (geographic positioning)
 
 ### Stats (verified, use as-is)

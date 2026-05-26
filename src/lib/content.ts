@@ -36,10 +36,10 @@ export function getWhatsAppUrl(message: string): string {
 }
 
 export const navigation = [
-  { name: "Problem", href: "/#problem" },
-  { name: "How it works", href: "/#method" },
-  { name: "Services", href: "/#services" },
-  { name: "Founder", href: "/#founder" },
+  { name: "Services", href: "/services" },
+  { name: "Work", href: "/#workflows" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ] as const;
 
 export const proofLogos = [

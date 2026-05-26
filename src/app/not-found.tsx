@@ -18,7 +18,11 @@ export default function NotFound() {
           Opportunity session if you were trying to start a conversation.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <Button asChild size="lg" className="uppercase tracking-[0.14em]">
+          <Button
+            asChild
+            size="lg"
+            className="text-sm font-bold tracking-normal normal-case"
+          >
             <Link href="/">
               Back home
               <ArrowRight size={18} />

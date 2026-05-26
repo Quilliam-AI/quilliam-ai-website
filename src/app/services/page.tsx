@@ -122,7 +122,7 @@ export default function ServicesPage() {
               asChild
               variant="outline"
               size="lg"
-              className="uppercase tracking-[0.14em] text-paper"
+              className="text-sm font-bold tracking-normal text-paper normal-case"
             >
               <Link href="/book?intent=training">Book AI Training</Link>
             </Button>

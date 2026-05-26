@@ -115,25 +115,8 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-ink px-6 pb-20 pt-28 text-paper md:pb-28 md:pt-36">
         <div className="site-grid absolute inset-0 opacity-35" />
         <div className="noise absolute inset-0 opacity-70" />
-        <div className="relative mx-auto grid max-w-[1220px] gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-          <div>
-            <div className="rounded-card border border-paper/10 bg-paper/[0.03] p-4">
-              <Image
-                src="/levi-headshot-circle.png"
-                alt="Levi Quilliam, founder of Quilliam AI"
-                width={520}
-                height={520}
-                sizes="(max-width: 1024px) 90vw, 420px"
-                className="inner-rounded aspect-square w-full object-cover"
-                preload
-              />
-              <div className="mt-4 grid grid-cols-2 gap-2 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-paper/55">
-                <span className="rounded-full border border-paper/10 p-2">Founder</span>
-                <span className="rounded-full border border-paper/10 p-2">Cornwall</span>
-              </div>
-            </div>
-          </div>
-          <div>
+        <div className="relative mx-auto max-w-[1220px] border-t border-paper/10 pt-14">
+          <div className="max-w-[980px]">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
               About the founder
             </p>
@@ -146,6 +129,24 @@ export default function AboutPage() {
               stuck, design the workflow, build the useful agent layer, and
               hand it to the team in a way they can actually run.
             </p>
+            <div className="mt-7 flex items-center gap-4">
+              <Image
+                src="/levi-headshot-circle.png"
+                alt="Levi Quilliam, founder of Quilliam AI"
+                width={88}
+                height={88}
+                sizes="88px"
+                className="h-20 w-20 rounded-full object-cover ring-1 ring-paper/16"
+              />
+              <div>
+                <p className="text-xl font-semibold text-paper">
+                  Levi Quilliam
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-paper/55">
+                  Founder, Quilliam AI
+                </p>
+              </div>
+            </div>
             <p className="mt-5 max-w-[70ch] text-base leading-relaxed text-paper/62 md:text-lg">
               My background combines economics, turnaround and restructuring at
               Deloitte, and eight-plus years building software and AI-enabled
@@ -155,6 +156,21 @@ export default function AboutPage() {
               who owns it, and what would make the team more capable after the
               handoff?
             </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {[
+                { icon: Building2, text: "Deloitte turnaround" },
+                { icon: Cpu, text: "Halter and XGX.AI" },
+                { icon: MapPin, text: "Cornwall. UK-wide." },
+              ].map((item) => (
+                <span
+                  key={item.text}
+                  className="inline-flex items-center gap-2 rounded-full border border-paper/10 bg-paper/[0.035] px-3 py-2 text-sm text-paper/72"
+                >
+                  <item.icon size={16} className="text-signal" />
+                  {item.text}
+                </span>
+              ))}
+            </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <TrackClick
                 event="cta_clicked"
@@ -175,7 +191,7 @@ export default function AboutPage() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="uppercase tracking-[0.14em] text-paper"
+                className="text-sm font-bold tracking-normal text-paper normal-case"
               >
                 <Link href="/contact">Contact</Link>
               </Button>

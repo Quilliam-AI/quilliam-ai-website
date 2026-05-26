@@ -141,7 +141,7 @@ export default function ContactPage() {
                 asChild
                 variant="outline"
                 size="lg"
-                className="uppercase tracking-[0.14em] text-paper"
+                className="text-sm font-bold tracking-normal text-paper normal-case"
               >
                 <Link href="/#workflows">See workflow work</Link>
               </Button>

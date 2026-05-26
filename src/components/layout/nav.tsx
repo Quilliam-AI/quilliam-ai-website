@@ -124,7 +124,7 @@ export function Nav() {
                 href="/book?intent=opportunity"
                 onClick={() => trackBookOpportunityClicked("nav")}
               >
-                Ready to Implement
+                Book a Call
                 <ChevronRight size={15} strokeWidth={2.2} />
               </Link>
             </Button>
@@ -169,7 +169,7 @@ export function Nav() {
                     setOpen(false);
                   }}
                 >
-                  Ready to Implement
+                  Book a Call
                   <ChevronRight size={16} />
                 </Link>
               </Button>

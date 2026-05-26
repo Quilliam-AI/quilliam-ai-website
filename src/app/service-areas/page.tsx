@@ -152,7 +152,7 @@ export default function ServiceAreasPage() {
               asChild
               variant="outline"
               size="lg"
-              className="uppercase tracking-[0.14em] text-paper"
+              className="text-sm font-bold tracking-normal text-paper normal-case"
             >
               <Link href="/contact">Ask about location</Link>
             </Button>

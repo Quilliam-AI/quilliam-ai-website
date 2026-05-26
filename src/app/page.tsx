@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TrustBar } from "@/components/home/trust-bar";
+import { FadeIn } from "@/components/shared/fade-in";
 import { TrackClick } from "@/components/shared/track-click";
 import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import {
@@ -83,6 +84,16 @@ const vetVisionResults = [
   { value: "More leads", label: "visitor numbers, visibility, and lead flow have increased" },
 ] as const;
 const heroCoastImage = "/fistral-hero-ai.avif";
+
+const definitionLetter = [
+  "Dear business owner,",
+  "Your team is probably already using AI. The real question is whether the business is actually changing.",
+  "Leads still need chasing. Reports still need stitching together. Support replies still need checking. Useful knowledge is still buried in docs, emails, and people’s heads.",
+  "That gap is where Quilliam AI fits.",
+  "We help UK businesses turn scattered AI use into one useful workflow at a time: find the work worth fixing, build the system around your existing tools, add the controls, and train the team to own it.",
+  "You do not get a black-box system that depends on us forever.",
+  "You get a practical AI workflow your team understands, uses, and improves.",
+] as const;
 
 function HomeJsonLd() {
   const serviceSchema = services.map((service) => ({
@@ -264,6 +275,41 @@ function ServiceCard({ service }: { service: (typeof services)[number] }) {
   );
 }
 
+function DefinitionLetter() {
+  return (
+    <section
+      id="definition"
+      className="scroll-mt-24 bg-paper px-6 py-20 text-ink md:py-28"
+    >
+      <div className="mx-auto grid max-w-[1220px] gap-12 border-y border-ink/10 py-14 md:grid-cols-[0.36fr_0.64fr] md:py-20">
+        <FadeIn className="md:sticky md:top-32 md:self-start">
+          <SectionLabel>A note from Levi</SectionLabel>
+          <div className="mt-5 h-px w-40 bg-signal" />
+          <p className="mt-5 max-w-[24ch] text-sm font-medium leading-relaxed text-ink/52">
+            Cornwall-based. Working UK-wide and remote.
+          </p>
+        </FadeIn>
+
+        <div className="max-w-[720px] space-y-8 text-2xl font-medium leading-[1.38] text-ink md:space-y-10 md:text-4xl md:leading-[1.34]">
+          {definitionLetter.map((paragraph, index) => (
+            <FadeIn key={paragraph} delay={index * 0.06}>
+              <p
+                className={
+                  index === 0
+                    ? "text-3xl md:text-5xl"
+                    : "max-w-[24ch] text-ink/82 md:max-w-[25ch]"
+                }
+              >
+                {paragraph}
+              </p>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FaqSection() {
   return (
     <section id="faq" className="bg-paper px-6 py-20 text-ink md:py-28">
@@ -331,25 +377,7 @@ export default function HomePage() {
 
       <TrustBar />
 
-      <section className="bg-paper px-6 py-14 text-ink md:py-16">
-        <div className="mx-auto max-w-[1220px] border-y border-ink/10 py-10">
-          <SectionLabel>Definition</SectionLabel>
-          <p className="mt-5 max-w-[82ch] text-xl font-medium leading-relaxed text-ink/76 md:text-2xl">
-            Quilliam AI is a Cornwall-based AI consultancy for UK businesses
-            that need practical education and implementation under one roof. We
-            help owners and teams find the operational work where AI can
-            genuinely help, then build supervised workflows, agents, knowledge
-            systems, and automations around the tools they already use. The work
-            is handoff-first: your team gets training, documentation, controls,
-            and clear ownership instead of a black-box system that depends on an
-            outside agency forever. Typical projects cover lead follow-up,
-            customer support triage, reporting, document handling, internal
-            knowledge, and admin handoffs. Quilliam AI is based in Cornwall,
-            works UK-wide and remote, and is led directly by founder Levi
-            Quilliam.
-          </p>
-        </div>
-      </section>
+      <DefinitionLetter />
 
       <section id="problem" className="scroll-mt-24 bg-ink px-6 py-20 text-paper md:py-28">
         <div className="mx-auto max-w-[1220px]">
