@@ -47,7 +47,6 @@ export default function AiConsultantUkPage() {
         "A recommendation on whether to build a workflow, supervised agent, training programme, data foundation, or nothing yet.",
         "Implementation support for AI workflows, agents, knowledge systems, n8n automations, API integrations, and lightweight internal tools.",
         "Handoff materials, training, and controls so the team can run the system after launch.",
-        "Clear pricing before paid work starts: day-rate consulting is £300-£400/day and scoped packages start from £500.",
       ]}
       process={[
         {
@@ -81,11 +80,6 @@ export default function AiConsultantUkPage() {
           question: "Can you work with small businesses?",
           answer:
             "Yes. Small and growing businesses are often a strong fit because owner bottlenecks, repeated admin, and missed follow-ups are visible and valuable to fix.",
-        },
-        {
-          question: "How much does UK AI consulting cost?",
-          answer:
-            "Day-rate consulting usually sits between £300 and £400 per day. Fixed-price implementation packages start from £500 depending on scope. Every paid engagement is quoted clearly before work starts.",
         },
       ]}
       relatedLinks={[

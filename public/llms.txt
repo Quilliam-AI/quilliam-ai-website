@@ -24,10 +24,8 @@ VetVision AI is a University of Nottingham spin-out using camera systems to moni
 3. Build it around existing tools: connect AI to the places the team already works.
 4. Hand it to the team: train users, document the system, and tune against real examples.
 
-## Pricing
-- AI opportunity session: 30-60 minutes
-- Day-rate consulting: £300-£400 per day
-- Fixed-price implementation packages from £500 depending on scope
+## Budget Guidance
+Quilliam AI quotes by scope because useful AI work depends on the workflow, data, systems, risk, and handoff needs. Training usually starts from £500. Small implementation projects can sit around £2,000-£3,000, medium projects can range from £5,000-£50,000, and larger programmes are usually £50,000+. Every paid engagement is scoped clearly before work starts.
 
 ## Contact
 - Web: https://quilliam.ai

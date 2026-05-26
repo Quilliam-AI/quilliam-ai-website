@@ -264,7 +264,7 @@ function OptionThree() {
         </p>
         <ul className="mt-4 space-y-3 text-sm leading-relaxed text-ink/68">
           <li>Previous customer notes</li>
-          <li>Quote rules and prices</li>
+          <li>Quote rules and constraints</li>
           <li>Next question to ask</li>
         </ul>
       </div>

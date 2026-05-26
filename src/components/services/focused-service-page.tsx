@@ -24,7 +24,6 @@ export interface FocusedServicePageProps {
     "@type": "Country" | "AdministrativeArea";
     name: string;
   };
-  pricing?: { label: string; value: string }[];
   relatedLinks?: { href: string; label: string; description: string }[];
   ctaLabel?: string;
   ctaHref?: string;
@@ -53,34 +52,6 @@ function PageJsonLd({
         provider: { "@id": `${siteConfig.url}/#organization` },
         areaServed,
         serviceType,
-        offers: [
-          {
-            "@type": "Offer",
-            name: "Day-rate AI consulting",
-            priceCurrency: "GBP",
-            priceSpecification: {
-              "@type": "UnitPriceSpecification",
-              priceCurrency: "GBP",
-              minPrice: "300",
-              maxPrice: "400",
-              unitText: "DAY",
-            },
-            description:
-              "Founder-led consulting, implementation, rollout, and optimisation work.",
-          },
-          {
-            "@type": "Offer",
-            name: "Scoped AI implementation package",
-            priceCurrency: "GBP",
-            priceSpecification: {
-              "@type": "PriceSpecification",
-              priceCurrency: "GBP",
-              minPrice: "500",
-            },
-            description:
-              "Fixed-price packages start from £500 depending on scope.",
-          },
-        ],
       },
       {
         "@type": "FAQPage",
@@ -120,11 +91,6 @@ export function FocusedServicePage({
   process,
   faq,
   areaServed,
-  pricing = [
-    { label: "Day-rate consulting", value: "£300-£400/day" },
-    { label: "Fixed-price packages", value: "From £500" },
-    { label: "Working style", value: "Handoff-first" },
-  ],
   relatedLinks = [
     {
       href: "/service-areas",
@@ -210,30 +176,13 @@ export function FocusedServicePage({
       </section>
 
       <section className="bg-paper px-6 py-14 text-ink md:py-16">
-        <div className="mx-auto grid max-w-[1220px] gap-8 border-y border-ink/10 py-10 lg:grid-cols-[1.35fr_0.65fr]">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-ink/50">
-              Definition
-            </p>
-            <p className="mt-5 max-w-[78ch] text-lg font-medium leading-relaxed text-ink/74 md:text-xl">
-              {definition}
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
-            {pricing.map((item) => (
-              <div
-                key={item.label}
-                className="rounded-card border border-ink/10 bg-white/70 p-4"
-              >
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-ink/42">
-                  {item.label}
-                </p>
-                <p className="mt-2 text-xl font-semibold tracking-tight text-ink">
-                  {item.value}
-                </p>
-              </div>
-            ))}
-          </div>
+        <div className="mx-auto max-w-[1220px] border-y border-ink/10 py-10">
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-ink/50">
+            Definition
+          </p>
+          <p className="mt-5 max-w-[78ch] text-lg font-medium leading-relaxed text-ink/74 md:text-xl">
+            {definition}
+          </p>
         </div>
       </section>
 

@@ -25,8 +25,7 @@ Quilliam AI is not a strategy consultancy selling decks, and it is not a softwar
 - Delivery: UK-wide and remote, with in-person work where useful
 - Target client: UK businesses with repeated operational drag and a willingness to change how work gets done
 - Main services: AI Opportunity Analysis, Team Training, and AI Implementation
-- Day rate: £300-£400/day for consulting and implementation
-- Fixed-price implementation packages from £500 depending on scope
+- Budget guidance: training usually starts from £500; small implementation projects can sit around £2,000-£3,000; medium projects can range from £5,000-£50,000; larger programmes are usually £50,000+
 - Phone: +447593121621
 - Email: levi@quilliam.ai
 - Website: https://quilliam.ai
@@ -117,14 +116,9 @@ Levi founded Quilliam AI because many businesses were buying AI tools, reading c
 
 ---
 
-## Pricing
+## Budget Guidance
 
-- AI opportunity session: 30-60 minutes, no commitment.
-- Paid day-rate: £300-£400/day for consulting, implementation, rollout, and optimisation.
-- Fixed-price packages: from £500 depending on scope.
-- Ongoing support: available where a system needs monitoring, iteration, or managed improvement.
-
-Every paid engagement is quoted clearly in writing before work starts.
+Quilliam AI quotes by scope because useful AI work depends on the workflow, data, systems, risk, and handoff needs. Training usually starts from £500. Small implementation projects can sit around £2,000-£3,000, medium projects can range from £5,000-£50,000, and larger programmes are usually £50,000+. Ongoing support is available where a system needs monitoring, iteration, or managed improvement. Every paid engagement is scoped clearly before work starts.
 
 ---
 

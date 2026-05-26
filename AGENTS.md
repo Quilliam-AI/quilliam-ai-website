@@ -8,7 +8,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 ## What This Is
 
-Marketing website for **Quilliam AI Ltd** (UK Companies House 17151006, incorporated 2026-04-11, registered office 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB). A general-purpose UK AI agency offering AI education and AI implementation under one roof, plus complementary digital services (websites, SEO, content). Founded by Levi Quilliam, based in Cornwall, working UK-wide and remote. Three services: **AI Education** (`/services/ai-training`) — training, workshops, knowledge systems; **AI Implementation** (`/services/ai-automation`) — automations, agents, n8n workflows, custom tools; **Digital Services** (`/services/digital-services`) — websites, SEO, content, GBP. Day-rate consulting £300–£400/day plus fixed-price packages from £500. Lead funnel is **dual** — "Book Free AI Training" and "Book Free AI Opportunity", both routing to `/book?intent=training|opportunity`.
+Marketing website for **Quilliam AI Ltd** (UK Companies House 17151006, incorporated 2026-04-11, registered office 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB). A general-purpose UK AI agency offering AI education and AI implementation under one roof, plus complementary digital services (websites, SEO, content). Founded by Levi Quilliam, based in Cornwall, working UK-wide and remote. Three services: **AI Education** (`/services/ai-training`) — training, workshops, knowledge systems; **AI Implementation** (`/services/ai-automation`) — automations, agents, n8n workflows, custom tools; **Digital Services** (`/services/digital-services`) — websites, SEO, content, GBP. The site should not publish a fixed price list; use scoped budget guidance only where it helps. Lead funnel is **dual** — "Book Free AI Training" and "Book Free AI Opportunity", both routing to `/book?intent=training|opportunity`.
 
 Production URL: `https://quilliam.ai`
 
@@ -173,14 +173,13 @@ All scroll-triggered animations use the `FadeIn` wrapper (framer-motion). Direct
 - "handoff-first" (the core positioning — the deliverable is a skill or system the client's team owns)
 - "fix before flourish" (the ordering principle — trust gaps before glossy work)
 - "education AND implementation" (the differentiator — most agencies do one or the other)
-- "day-rate" (not "retainer" or "SOW") for hourly work; fixed-price for scoped packages
+- "scoped budget guidance" instead of visible price lists, rate cards, or package menus
 - "No jargon", "No commitment", "No lock-in" (trust phrases)
 - "Based in Cornwall. Working UK-wide and remote." (geographic positioning)
 
 ### Stats (verified, use as-is)
-- Day rate: £300–£400/day (range, not fixed)
-- Website packages from £500
-- Implementation packages from £500 depending on scope
+- Do not publish a fixed price list or rate-card style pricing on the site
+- Budget guidance: training usually starts from £500; small implementation projects can sit around £2,000-£3,000; medium projects can range from £5,000-£50,000; larger programmes are usually £50,000+
 - Free AI Opportunity session + free introductory AI training session
 - Current engagement: VetVision AI (University of Nottingham spin-out, uses all three services — most clients pick one or two)
 - Do not fabricate statistics. If citing an unattributed stat, label it clearly.

@@ -166,26 +166,6 @@ export default function ServicesPage() {
               );
             })}
           </div>
-
-          <div className="mt-10 grid gap-3 md:grid-cols-3">
-            {[
-              { label: "Day-rate consulting", value: "£300-£400/day" },
-              { label: "Scoped implementation", value: "Packages from £500" },
-              { label: "Engagement model", value: "No lock-in" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="rounded-card border border-ink/10 bg-white/70 p-4"
-              >
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-ink/42">
-                  {item.label}
-                </p>
-                <p className="mt-2 text-2xl font-semibold tracking-tight text-ink">
-                  {item.value}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

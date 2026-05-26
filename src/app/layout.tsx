@@ -135,7 +135,6 @@ function JsonLd() {
         closes: "17:00",
       },
     },
-    priceRange: "£££",
     // UK Companies House registration number — published in the footer as required under
     // s.82 Companies Act 2006 for the trading name of a UK Ltd company.
     identifier: {

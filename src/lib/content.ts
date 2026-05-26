@@ -216,6 +216,11 @@ export const faqs = [
       "A focused workflow can usually reach a usable pilot in weeks rather than months. The first build is deliberately narrow: prove the work, test it with real examples, then harden and expand what works.",
   },
   {
+    question: "What should we budget for AI work?",
+    answer:
+      "We quote by scope because useful AI work depends on the workflow, data, systems, risk, and handoff needs. As a guide, training usually starts from £500. Small implementation projects can sit around £2,000-£3,000, medium projects can range from £5,000-£50,000, and larger programmes are usually £50,000+. Every paid engagement is scoped clearly before work starts.",
+  },
+  {
     question: "How do you stop AI going wrong?",
     answer:
       "We design for supervision. That means limited permissions, scoped access, human approval for risky actions, test examples, logs, fallback paths, and clear owners. The goal is useful help, not reckless automation.",
