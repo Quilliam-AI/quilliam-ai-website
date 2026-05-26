@@ -3,14 +3,14 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const alt =
-  "Quilliam AI — AI Education and Implementation for UK Businesses";
+  "Quilliam AI - practical AI consulting and implementation for UK businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
   const logoData = await readFile(
     join(process.cwd(), "public/og-logo.png"),
-    "base64"
+    "base64",
   );
   const logoSrc = `data:image/png;base64,${logoData}`;
 
@@ -21,153 +21,167 @@ export default async function Image() {
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
-          backgroundColor: "#0c0a09",
-          padding: "60px 80px",
+          background: "#f4efe4",
+          color: "#12100c",
           position: "relative",
+          overflow: "hidden",
+          padding: "54px 64px",
+          fontFamily: "Arial",
         }}
       >
-        {/* Subtle dot grid overlay */}
         <div
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
+            inset: 0,
             backgroundImage:
-              "radial-gradient(circle, rgba(16,185,129,0.08) 1px, transparent 1px)",
-            backgroundSize: "32px 32px",
+              "linear-gradient(rgba(18,16,12,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(18,16,12,0.04) 1px, transparent 1px)",
+            backgroundSize: "84px 84px",
             display: "flex",
           }}
         />
-
-        {/* Emerald glow behind logo */}
         <div
           style={{
             position: "absolute",
-            top: "50%",
-            left: "180px",
-            width: "300px",
-            height: "300px",
+            right: "-180px",
+            top: "-160px",
+            width: "560px",
+            height: "560px",
             borderRadius: "50%",
-            background: "rgba(16,185,129,0.06)",
-            filter: "blur(80px)",
-            transform: "translateY(-50%)",
+            background: "rgba(73,185,111,0.18)",
+            filter: "blur(110px)",
             display: "flex",
           }}
         />
-
-        {/* Logo */}
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexShrink: 0,
-            width: "260px",
-            height: "260px",
-            marginRight: "60px",
-          }}
-        >
-          <img src={logoSrc} width={260} height={260} />
-        </div>
-
-        {/* Divider */}
-        <div
-          style={{
-            width: "2px",
-            height: "280px",
-            background: "rgba(16,185,129,0.25)",
-            flexShrink: 0,
-            marginRight: "60px",
+            position: "absolute",
+            left: "70px",
+            bottom: "118px",
+            width: "760px",
+            height: "6px",
+            background: "#49b96f",
+            transform: "rotate(-11deg)",
             display: "flex",
           }}
         />
-
-        {/* Text content */}
         <div
           style={{
+            position: "relative",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            flex: 1,
+            justifyContent: "space-between",
+            width: "100%",
           }}
         >
-          {/* Brand name */}
           <div
             style={{
-              fontSize: "22px",
-              fontWeight: 600,
-              color: "#10B981",
-              letterSpacing: "4px",
-              textTransform: "uppercase",
-              marginBottom: "24px",
               display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-start",
             }}
           >
-            QUILLIAM AI
+            <div style={{ display: "flex", alignItems: "center", gap: "18px" }}>
+              <div
+                style={{
+                  width: "74px",
+                  height: "74px",
+                  border: "1px solid rgba(18,16,12,0.16)",
+                  background: "#12100c",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <img src={logoSrc} width={58} height={58} alt="" />
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "6px",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "24px",
+                    fontWeight: 800,
+                    letterSpacing: "4px",
+                    color: "#12100c",
+                  }}
+                >
+                  QUILLIAM AI
+                </div>
+                <div
+                  style={{
+                    fontSize: "14px",
+                    letterSpacing: "3px",
+                    color: "rgba(18,16,12,0.58)",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Workflows / Agents / Handoff
+                </div>
+              </div>
+            </div>
+            <div
+              style={{
+                border: "1px solid rgba(18,16,12,0.18)",
+                background: "#fff",
+                color: "#177245",
+                padding: "12px 16px",
+                fontSize: "28px",
+                fontWeight: 800,
+                fontFamily: "monospace",
+              }}
+            >
+              {"USEFUL AI AT WORK"}
+            </div>
           </div>
 
-          {/* Headline */}
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                maxWidth: "900px",
+                fontSize: "78px",
+                lineHeight: 0.96,
+                letterSpacing: "-3px",
+                fontWeight: 800,
+                color: "#12100c",
+              }}
+            >
+              We help real businesses use AI at work.
+            </div>
+            <div
+              style={{
+                marginTop: "30px",
+                maxWidth: "760px",
+                fontSize: "27px",
+                lineHeight: 1.3,
+                color: "rgba(18,16,12,0.68)",
+              }}
+            >
+              Practical AI consulting, workflow builds, and team training for UK businesses.
+            </div>
+          </div>
+
           <div
             style={{
-              fontSize: "48px",
-              fontWeight: 700,
-              color: "#FFFFFF",
-              letterSpacing: "-1px",
-              lineHeight: 1.15,
               display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <span>We teach AI.</span>
-            <span>We build with AI.</span>
-          </div>
-
-          {/* Tagline */}
-          <div
-            style={{
-              fontSize: "20px",
-              color: "#a8a29e",
-              marginTop: "20px",
-              display: "flex",
-            }}
-          >
-            A UK AI agency. Education + Implementation. Handoff-first.
-          </div>
-
-          {/* URL */}
-          <div
-            style={{
+              justifyContent: "space-between",
+              alignItems: "center",
+              fontFamily: "monospace",
               fontSize: "16px",
-              color: "#10B981",
-              opacity: 0.7,
-              marginTop: "16px",
-              letterSpacing: "1px",
-              display: "flex",
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              color: "rgba(18,16,12,0.56)",
             }}
           >
-            quilliam.ai
+            <span>Cornwall / UK-wide / Remote</span>
+            <span style={{ color: "#177245" }}>quilliam.ai</span>
           </div>
         </div>
-
-        {/* Bottom accent bar */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: "6px",
-            background:
-              "linear-gradient(90deg, #10B981 0%, #059669 50%, #10B981 100%)",
-            display: "flex",
-          }}
-        />
       </div>
     ),
-    { ...size }
+    { ...size },
   );
 }

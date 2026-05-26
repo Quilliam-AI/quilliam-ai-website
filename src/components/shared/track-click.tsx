@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import posthog from "posthog-js";
+import { capturePostHogEvent } from "@/lib/posthog-client";
 
 interface TrackClickProps {
   /** PostHog event name */
@@ -19,7 +19,9 @@ interface TrackClickProps {
 export function TrackClick({ event, properties, children }: TrackClickProps) {
   return (
     <span
-      onClick={() => posthog.capture(event, properties)}
+      onClick={() => {
+        void capturePostHogEvent(event, properties);
+      }}
       className="contents"
     >
       {children}

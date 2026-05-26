@@ -1,109 +1,79 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import posthog from "posthog-js";
-import { PostHogProvider as PHProvider } from "posthog-js/react";
+import { useCallback, useEffect, useState } from "react";
+import {
+  disablePostHog,
+  initializePostHog,
+} from "@/lib/posthog-client";
+import {
+  readStoredPostHogConsent,
+  type PostHogConsent,
+  writeStoredPostHogConsent,
+} from "@/lib/posthog-config";
+import { Button } from "@/components/ui/button";
 
-const CONSENT_KEY = "cookie_consent";
+type ConsentState = PostHogConsent | "loading";
 
-type Consent = "accepted" | "rejected" | null;
+export function CookieConsentBanner() {
+  const [consent, setConsent] = useState<ConsentState>("loading");
 
-function readAndInitPostHog(): Consent {
-  if (typeof window === "undefined") return null;
+  useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      setConsent(readStoredPostHogConsent());
+    }, 0);
 
-  const value = localStorage.getItem(CONSENT_KEY);
-  const consent: Consent =
-    value === "accepted" || value === "rejected" ? value : null;
-
-  if (
-    !posthog.__loaded &&
-    process.env.NEXT_PUBLIC_POSTHOG_KEY &&
-    !window.location.hostname.includes("localhost")
-  ) {
-    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-      api_host: "/ph",
-      ui_host: "https://eu.posthog.com",
-      defaults: "2026-01-30",
-      person_profiles: "identified_only",
-      capture_pageleave: true,
-      persistence: consent === "accepted" ? "localStorage+cookie" : "memory",
-      disable_session_recording: consent !== "accepted",
-      session_recording: {
-        maskAllInputs: false,
-        maskInputOptions: { password: true },
-      },
-    });
-  }
-
-  return consent;
-}
-
-export function PostHogProvider({ children }: { children: React.ReactNode }) {
-  // Lazy initializer: reads consent + inits PostHog exactly once
-  const [consent, setConsent] = useState<Consent>(readAndInitPostHog);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   const handleAccept = useCallback(() => {
-    localStorage.setItem(CONSENT_KEY, "accepted");
     setConsent("accepted");
-    if (posthog.__loaded) {
-      posthog.set_config({ persistence: "localStorage+cookie" });
-      posthog.startSessionRecording();
-    }
+    writeStoredPostHogConsent("accepted");
+    void initializePostHog({ immediate: true });
   }, []);
 
   const handleReject = useCallback(() => {
-    localStorage.setItem(CONSENT_KEY, "rejected");
     setConsent("rejected");
+    writeStoredPostHogConsent("rejected");
+    void disablePostHog();
   }, []);
 
-  return (
-    <PHProvider client={posthog}>
-      {children}
-      {consent === null && (
-        <CookieConsent onAccept={handleAccept} onReject={handleReject} />
-      )}
-    </PHProvider>
-  );
-}
+  if (consent === "loading" || consent !== null) return null;
 
-function CookieConsent({
-  onAccept,
-  onReject,
-}: {
-  onAccept: () => void;
-  onReject: () => void;
-}) {
   return (
     <div
       role="dialog"
       aria-label="Cookie consent"
-      className="fixed bottom-0 left-0 right-0 z-[60] p-4 md:p-6"
+      className="fixed bottom-3 left-3 right-3 z-[60] sm:left-auto sm:max-w-sm"
     >
-      <div className="max-w-2xl mx-auto rounded-2xl bg-stone-900 border border-stone-800/60 shadow-[0_-4px_32px_-8px_rgba(0,0,0,0.5)] p-5 md:p-6">
-        <p className="text-sm text-stone-300 leading-relaxed">
-          We use cookies and session recordings to understand how people use
-          this site and improve it. You can accept or reject non-essential
-          cookies.{" "}
+      <div className="rounded-card-lg border border-paper/10 bg-panel/95 p-4 shadow-[0_18px_70px_-36px_rgba(0,0,0,0.9)] backdrop-blur-xl">
+        <p className="text-xs leading-relaxed text-paper/70">
+          Optional analytics help improve the site. Rejecting keeps tracking
+          off.{" "}
           <a
             href="/privacy#cookies"
-            className="text-emerald-400 underline underline-offset-2 hover:text-emerald-300 transition-colors"
+            className="text-signal underline underline-offset-4 transition-colors hover:text-paper"
           >
             Privacy policy
           </a>
         </p>
-        <div className="mt-4 flex gap-3">
-          <button
-            onClick={onAccept}
-            className="rounded-full px-6 py-2 text-sm font-medium bg-emerald-600 text-white hover:bg-emerald-500 active:scale-[0.98] transition-all"
+        <div className="mt-3 flex gap-2">
+          <Button
+            type="button"
+            size="sm"
+            onClick={handleAccept}
+            className="h-9 px-4 text-xs hover:translate-y-0"
           >
             Accept
-          </button>
-          <button
-            onClick={onReject}
-            className="rounded-full px-6 py-2 text-sm font-medium bg-stone-800 text-stone-300 border border-stone-700 hover:bg-stone-700 hover:text-white active:scale-[0.98] transition-all"
+          </Button>
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={handleReject}
+            className="h-9 border-paper/15 bg-ink px-4 text-xs text-paper/70 hover:bg-paper/10 hover:text-paper"
           >
             Reject
-          </button>
+          </Button>
         </div>
       </div>
     </div>

@@ -1,30 +1,53 @@
 import type { NextConfig } from "next";
+import { POSTHOG_PROXY_PATH } from "./src/lib/posthog-config";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
-  // Required for PostHog reverse proxy — prevents Next.js from redirecting
-  // /ph/e/ to /ph/e which breaks the ingestion endpoint.
-  skipTrailingSlashRedirect: true,
   images: {
+    deviceSizes: [384, 640, 750, 828, 1080, 1200, 1600, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "picsum.photos",
+        hostname: "images.unsplash.com",
       },
     ],
+  },
+  // Required for the PostHog reverse proxy. PostHog uses trailing-slash API
+  // endpoints like /e/, and redirecting them breaks event ingestion.
+  skipTrailingSlashRedirect: true,
+  async redirects() {
+    return [
+      {
+        source: "/services/ai-training",
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/services/ai-automation",
+        destination: "/services",
+        permanent: true,
+      },
+      {
+        source: "/services/digital-services",
+        destination: "/services",
+        permanent: true,
+      },
+    ];
   },
   async rewrites() {
     return [
       {
-        source: "/ph/static/:path*",
+        source: `${POSTHOG_PROXY_PATH}/static/:path*`,
         destination: "https://eu-assets.i.posthog.com/static/:path*",
       },
       {
-        source: "/ph/array/:path*",
+        source: `${POSTHOG_PROXY_PATH}/array/:path*`,
         destination: "https://eu-assets.i.posthog.com/array/:path*",
       },
       {
-        source: "/ph/:path*",
+        source: `${POSTHOG_PROXY_PATH}/:path*`,
         destination: "https://eu.i.posthog.com/:path*",
       },
     ];
@@ -55,11 +78,10 @@ const nextConfig: NextConfig = {
             key: "Strict-Transport-Security",
             value: "max-age=31536000; includeSubDomains; preload",
           },
-          // TODO: Remove https://picsum.photos from img-src after replacing placeholder images (#1)
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://picsum.photos; font-src 'self'; connect-src 'self' https://eu.posthog.com; worker-src 'self' blob:; frame-ancestors 'none'",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://eu.posthog.com; worker-src 'self' blob:; frame-ancestors 'none'",
           },
         ],
       },

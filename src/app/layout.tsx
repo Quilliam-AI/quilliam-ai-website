@@ -1,30 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope } from "next/font/google";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
 import { WhatsAppButton } from "@/components/layout/whatsapp-button";
-import { StickyCta } from "@/components/layout/sticky-cta";
-import { PostHogProvider } from "@/app/posthog-provider";
+import { CookieConsentBanner } from "@/app/posthog-provider";
 import { siteConfig } from "@/lib/content";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const manropeSans = Manrope({
+  variable: "--font-manrope-sans",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0c0a09",
+  themeColor: "#f4efe4",
 };
 
 export const metadata: Metadata = {
   title: {
-    default: "AI Education and Implementation for UK Businesses | Quilliam AI",
+    default: "Practical AI Consulting and Implementation | Quilliam AI",
     template: `%s | Quilliam AI`,
   },
   description: siteConfig.description,
@@ -33,19 +28,21 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "AI Education and Implementation for UK Businesses | Quilliam AI",
+    title: "Practical AI Consulting and Implementation | Quilliam AI",
     description:
-      "A UK AI agency that teaches your team how to use AI properly and builds the automations, agents, and tools that save you hours every week. Based in Cornwall, working UK-wide.",
+      "Quilliam AI helps UK businesses make sense of AI, build useful workflows, and train teams to use them properly.",
     url: siteConfig.url,
     siteName: siteConfig.name,
+    images: ["/opengraph-image"],
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Education and Implementation for UK Businesses | Quilliam AI",
+    title: "Practical AI Consulting and Implementation | Quilliam AI",
     description:
-      "A UK AI agency: we teach your team how to use AI, and we build the systems that save you hours every week.",
+      "Practical AI consulting, workflow builds, and team training for UK businesses.",
+    images: ["/opengraph-image"],
   },
   manifest: "/site.webmanifest",
   icons: {
@@ -64,8 +61,19 @@ function JsonLd() {
     "@id": `${siteConfig.url}/#founder`,
     name: "Levi Quilliam",
     jobTitle: "Founder & Principal Consultant",
+    description:
+      "Founder of Quilliam AI, building practical AI workflows, supervised agents, and team training for UK businesses.",
+    knowsAbout: [
+      "AI workflow implementation",
+      "Supervised AI agents",
+      "n8n automation",
+      "AI adoption training",
+      "Business operations",
+      "Turnaround and restructuring",
+    ],
     worksFor: { "@id": `${siteConfig.url}/#organization` },
     url: `${siteConfig.url}/about`,
+    sameAs: [...siteConfig.founderSameAs],
     ...(siteConfig.founderImage && {
       image: `${siteConfig.url}${siteConfig.founderImage}`,
     }),
@@ -82,6 +90,7 @@ function JsonLd() {
     description: siteConfig.description,
     founder: { "@id": `${siteConfig.url}/#founder` },
     foundingDate: "2026-04-11",
+    hasMap: siteConfig.googleBusinessProfile,
     logo: {
       "@type": "ImageObject",
       url: `${siteConfig.url}/og-logo.png`,
@@ -112,7 +121,20 @@ function JsonLd() {
       opens: "09:00",
       closes: "17:00",
     },
-    priceRange: "£££",
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      telephone: siteConfig.phone,
+      email: siteConfig.email,
+      areaServed: "GB",
+      availableLanguage: ["en-GB"],
+      hoursAvailable: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "17:00",
+      },
+    },
     // UK Companies House registration number — published in the footer as required under
     // s.82 Companies Act 2006 for the trading name of a UK Ltd company.
     identifier: {
@@ -155,19 +177,17 @@ export default function RootLayout({
   return (
     <html
       lang="en-GB"
-      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      className={`${manropeSans.variable} antialiased`}
     >
       <head>
         <JsonLd />
       </head>
       <body className="min-h-[100dvh] flex flex-col">
-        <PostHogProvider>
-          <Nav />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <WhatsAppButton />
-          <StickyCta />
-        </PostHogProvider>
+        <Nav />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <WhatsAppButton />
+        <CookieConsentBanner />
       </body>
     </html>
   );

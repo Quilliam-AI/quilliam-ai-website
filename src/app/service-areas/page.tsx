@@ -1,97 +1,93 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, ArrowRight } from "lucide-react";
-import { siteConfig } from "@/lib/content";
+import { ArrowRight, Laptop, MapPin, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
 import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
-import { DotGridPattern } from "@/components/shared/pattern-overlay";
-import { FadeIn } from "@/components/shared/fade-in";
-import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Where We Work — Cornwall, UK & Remote",
+  title: "Where We Work - Cornwall, UK and Remote",
   description:
-    "Quilliam AI works with UK businesses nationwide. Based in Cornwall, delivering AI training, AI implementation, and digital services on-site in the South West and remotely UK-wide.",
+    "Quilliam AI works with UK businesses nationwide. Based in Cornwall, delivering AI workflow and agent implementation remotely and in person where useful.",
   alternates: {
     canonical: "/service-areas",
   },
   openGraph: {
-    title: "Where We Work — Cornwall, UK & Remote | Quilliam AI",
+    title: "Where We Work - Cornwall, UK and Remote | Quilliam AI",
     description:
-      "AI education and implementation for UK businesses. Cornwall-based, working UK-wide and remote.",
+      "AI workflow and agent implementation for UK businesses. Cornwall-based, UK-wide and remote.",
     url: "/service-areas",
     images: ["/opengraph-image"],
   },
   twitter: {
-    title: "Where We Work — Cornwall, UK & Remote | Quilliam AI",
+    card: "summary_large_image",
+    title: "Where We Work - Cornwall, UK and Remote | Quilliam AI",
     description:
-      "Cornwall-based UK AI agency. AI training and implementation for businesses nationwide.",
+      "Cornwall-based AI workflow and agent implementation for UK businesses.",
   },
 };
 
 const regions = [
   {
-    name: "Cornwall & South West",
+    name: "Cornwall and South West",
     description:
-      "Our home base. Training and implementation delivered in-person across Cornwall, Devon, Bristol, and the wider South West. On-site visits as often as you need them.",
-    highlight: true,
+      "Our home base. Useful for discovery workshops, training, and local rollout sessions across Cornwall, Devon, Bristol, and the wider South West.",
   },
   {
-    name: "London & South East",
+    name: "London and South East",
     description:
-      "Regular in-person visits to London for both training workshops and implementation work. Great connectivity, easy day trips from Cornwall.",
-    highlight: false,
+      "Workshops and kick-offs available when in-person time improves alignment. Ongoing build work stays remote-first.",
   },
   {
-    name: "Midlands & Thames Valley",
+    name: "Midlands, North, Scotland, Wales and Northern Ireland",
     description:
-      "Birmingham, Oxford, Cambridge, Reading, and beyond. On-site for workshops and kick-offs, remote for ongoing work.",
-    highlight: false,
+      "Full remote delivery for AI workflow mapping, agent builds, documentation, training, and adoption support.",
   },
-  {
-    name: "North & Scotland",
-    description:
-      "Manchester, Leeds, Edinburgh, Glasgow. Remote-first delivery with occasional on-site visits for team training or handoff sessions.",
-    highlight: false,
-  },
-  {
-    name: "Wales & Northern Ireland",
-    description:
-      "Cardiff, Belfast, and across Wales and Northern Ireland. Full remote delivery for both training and implementation work.",
-    highlight: false,
-  },
-  {
-    name: "Remote — anywhere in the UK",
-    description:
-      "Most of our work can be delivered remotely over video, shared docs, and async comms. Same quality, zero travel overhead for you.",
-    highlight: false,
-  },
-];
+] as const;
 
-const deliveryMethods = [
+const delivery = [
   {
-    title: "In-Person",
+    icon: Laptop,
+    title: "Remote-first",
     description:
-      "Available across Cornwall, the South West, and London as standard. Ideal for team training workshops, kick-off sessions, and explicit handoff visits. We come to you.",
+      "Most workflow analysis, build work, testing, and handoff can happen quickly over video, shared docs, and async examples.",
   },
   {
-    title: "Remote",
+    icon: Users,
+    title: "In-person where it helps",
     description:
-      "Default mode for clients outside the South West. Full training and implementation delivered over video, shared docs, and async comms. Same output, zero travel overhead.",
+      "Discovery and adoption sessions can be run in person when a room full of people will move the work faster.",
   },
   {
-    title: "Hybrid",
+    icon: MapPin,
+    title: "Cornwall-based",
     description:
-      "Most common arrangement. Kick-off or training on-site, ongoing implementation work remote. Best of both — and what most clients prefer.",
+      "Local context for South West businesses, with the same remote-friendly delivery for teams across the UK.",
   },
-];
+] as const;
+
+const areaLinks = [
+  {
+    href: "/ai-automation-cornwall",
+    title: "AI automation in Cornwall",
+    description:
+      "Local implementation support for businesses in Newquay, Truro, Falmouth, St Austell, Bodmin, Wadebridge, and the wider South West.",
+  },
+  {
+    href: "/ai-consultant-uk",
+    title: "AI consultant for UK businesses",
+    description:
+      "Remote-first AI consulting, workflow design, implementation, training, and handoff across the UK.",
+  },
+] as const;
 
 function ServiceAreasJsonLd() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${siteConfig.url}/service-areas#service-areas`,
-    name: "AI Education and Implementation — UK-wide & remote",
+    name: "AI workflows and agents - UK-wide and remote",
     provider: {
       "@id": `${siteConfig.url}/#organization`,
     },
@@ -100,7 +96,7 @@ function ServiceAreasJsonLd() {
       name: region.name,
     })),
     description:
-      "Quilliam AI provides AI training, AI implementation, and digital services to UK businesses nationwide. Based in Cornwall with in-person delivery across the South West and London plus full remote delivery UK-wide.",
+      "Quilliam AI provides AI workflow and supervised agent implementation to UK businesses nationwide. Based in Cornwall with remote-first delivery.",
   };
 
   return (
@@ -119,124 +115,117 @@ export default function ServiceAreasPage() {
       />
       <WebPageJsonLd
         path="/service-areas"
-        name="Where We Work — Cornwall, UK & Remote | Quilliam AI"
-        description="Quilliam AI works with UK businesses nationwide. Cornwall-based, delivering AI training, implementation, and digital services on-site and remote."
+        name="Where We Work - Cornwall, UK and Remote | Quilliam AI"
+        description="Quilliam AI works with UK businesses nationwide. Based in Cornwall, delivering AI workflows and agents remotely and in person where useful."
         datePublished="2026-04-11"
-        dateModified="2026-04-11"
+        dateModified="2026-05-26"
       />
       <ServiceAreasJsonLd />
 
-      <section className="relative bg-stone-950 overflow-hidden">
-        <DotGridPattern className="text-emerald-400" />
-
-        {/* Atmospheric glow */}
-        <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-emerald-500/[0.06] rounded-full blur-[150px] pointer-events-none" />
-
-        {/* Hero */}
-        <div className="relative max-w-[1400px] mx-auto px-6 pt-28 pb-16 md:pt-36 md:pb-20">
-          <FadeIn>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400 mb-3">
-              Where we work
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold tracking-tighter leading-[1.08] text-white max-w-[18ch]">
-              Based in Cornwall.{" "}
-              <span className="text-emerald-400">Working everywhere.</span>
-            </h1>
-            <p className="mt-6 text-base md:text-lg text-stone-400 leading-relaxed max-w-[56ch]">
-              Quilliam AI Ltd is based in Cornwall, UK (Companies House{" "}
-              {siteConfig.companyNumber}). AI training, implementation, and
-              digital services delivered in-person across the South West and
-              London, and remotely for businesses anywhere else in the UK.
-            </p>
-          </FadeIn>
-        </div>
-
-        {/* Regions grid */}
-        <div className="relative max-w-[1400px] mx-auto px-6 pb-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {regions.map((region, i) => (
-              <FadeIn key={region.name} delay={0.05 * i}>
-                <div
-                  className={`rounded-2xl p-6 border transition-colors h-full ${
-                    region.highlight
-                      ? "bg-emerald-900/20 border-emerald-800/40"
-                      : "bg-stone-900 border-stone-800/60 hover:border-stone-700"
-                  }`}
-                >
-                  <div className="flex items-center gap-2 mb-3">
-                    <MapPin
-                      size={16}
-                      className={
-                        region.highlight
-                          ? "text-emerald-400"
-                          : "text-stone-500"
-                      }
-                      strokeWidth={1.5}
-                    />
-                    <h2 className="text-lg font-semibold tracking-tight text-white">
-                      {region.name}
-                    </h2>
-                    {region.highlight && (
-                      <span className="ml-auto text-[10px] font-semibold uppercase tracking-[0.15em] text-emerald-400 bg-emerald-900/40 px-2 py-0.5 rounded-full border border-emerald-800/40">
-                        Home Base
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-sm text-stone-400 leading-relaxed">
-                    {region.description}
-                  </p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-
-        {/* Delivery methods */}
-        <div className="relative max-w-[1400px] mx-auto px-6 pb-20">
-          <div className="h-px bg-gradient-to-r from-transparent via-stone-700/50 to-transparent mb-16" />
-
-          <FadeIn>
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tighter text-white mb-10">
-              How we deliver
-            </h2>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {deliveryMethods.map((method, i) => (
-              <FadeIn key={method.title} delay={0.1 * i}>
-                <div className="rounded-2xl bg-stone-900 border border-stone-800/60 p-6 h-full">
-                  <h3 className="text-base font-semibold tracking-tight text-white mb-2">
-                    {method.title}
-                  </h3>
-                  <p className="text-sm text-stone-400 leading-relaxed">
-                    {method.description}
-                  </p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA */}
-        <div className="relative max-w-[1400px] mx-auto px-6 pb-24 md:pb-32">
-          <div className="h-px bg-gradient-to-r from-transparent via-stone-700/50 to-transparent mb-16" />
-          <FadeIn>
-            <div className="text-center">
-              <h2 className="text-2xl md:text-3xl font-semibold tracking-tighter text-white">
-                Wherever you are, we can help
-              </h2>
-              <p className="mt-4 text-base text-stone-400 leading-relaxed max-w-[48ch] mx-auto">
-                Book an AI Audit and find out exactly what we would fix
-                first. No commitment. No jargon.
-              </p>
-              <Link href="/book" className="mt-8 inline-block">
-                <Button className="rounded-full h-12 px-8 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-medium shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)] transition-all">
-                  Book Your AI Audit
-                  <ArrowRight size={14} className="ml-2" />
-                </Button>
+      <section className="relative overflow-hidden bg-ink px-6 pb-20 pt-28 text-paper md:pb-28 md:pt-36">
+        <div className="site-grid absolute inset-0 opacity-35" />
+        <div className="noise absolute inset-0 opacity-70" />
+        <div className="relative mx-auto max-w-[1220px]">
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
+            Where we work
+          </p>
+          <h1 className="mt-6 max-w-[940px] text-5xl font-semibold leading-[0.98] tracking-tight text-balance md:text-7xl">
+            Based in Cornwall. Built for UK-wide AI implementation.
+          </h1>
+          <p className="mt-6 max-w-[72ch] text-base leading-relaxed text-paper/68 md:text-lg">
+            AI workflow and agent projects do not need a room full of people
+            every week. They need real examples, quick feedback, clear owners,
+            and enough in-person time to build trust where it matters.
+          </p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Button
+              asChild
+              size="lg"
+              className="max-w-full whitespace-normal text-center leading-tight tracking-normal normal-case sm:whitespace-nowrap"
+            >
+              <Link href="/book?intent=opportunity">
+                Find Where AI Can Help My Business
+                <ArrowRight size={18} />
               </Link>
-            </div>
-          </FadeIn>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="text-sm font-bold tracking-normal text-paper normal-case"
+            >
+              <Link href="/contact">Ask about location</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#080a08] px-6 py-20 text-paper md:py-28">
+        <div className="mx-auto grid max-w-[1220px] gap-4 md:grid-cols-3">
+          {delivery.map((item) => (
+            <article key={item.title} className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
+              <item.icon size={24} className="text-signal" />
+              <h2 className="mt-8 text-2xl font-semibold tracking-tight text-paper">
+                {item.title}
+              </h2>
+              <p className="mt-4 text-sm leading-relaxed text-paper/62">
+                {item.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-ink px-6 py-20 text-paper md:py-28">
+        <div className="mx-auto grid max-w-[1220px] gap-10 md:grid-cols-[0.75fr_1.25fr]">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-wire">
+              Coverage
+            </p>
+            <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+              Geography should not decide whether the workflow gets fixed.
+            </h2>
+          </div>
+          <div className="space-y-4">
+            {regions.map((region) => (
+              <article key={region.name} className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
+                <h3 className="text-2xl font-semibold tracking-tight text-paper">
+                  {region.name}
+                </h3>
+                <p className="mt-4 text-sm leading-relaxed text-paper/62 md:text-base">
+                  {region.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#080a08] px-6 py-16 text-paper md:py-20">
+        <div className="mx-auto max-w-[1220px] border-t border-paper/10 pt-10">
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
+            Local and national pages
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {areaLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-card-lg group border border-paper/10 bg-paper/[0.025] p-5 transition-colors hover:border-signal/35 hover:bg-signal/[0.035]"
+              >
+                <h2 className="text-2xl font-semibold tracking-tight text-paper">
+                  {item.title}
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-paper/62">
+                  {item.description}
+                </p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-signal">
+                  Read more
+                  <ArrowRight size={16} />
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </>

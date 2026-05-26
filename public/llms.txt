@@ -1,27 +1,31 @@
 # Quilliam AI
-> A UK AI agency offering education and implementation under one roof
+> Practical AI consulting, workflow builds, and team training for UK businesses
 
 > Full version: https://quilliam.ai/llms-full.txt
-> Last updated: 2026-04-11
+> Last updated: 2026-05-26
 
 ## About
-Quilliam AI is the trading name of Quilliam AI Ltd (UK Companies House number 17151006, incorporated 2026-04-11, registered office in Cornwall, England). Founded by Levi Quilliam, it operates as a UK AI agency offering two complementary services: AI Education (training, workshops, and knowledge systems so your team can use AI properly) and AI Implementation (building automations, agents, n8n workflows, and custom ChatGPT or Claude tools), plus Digital Services (websites, SEO, content production) as the digital foundation that supports the AI work. We work with UK businesses of all shapes and sizes. Every engagement starts with a free AI Audit and is handoff-first — the deliverable is a skill or system your team actually owns, not a bespoke framework.
+Quilliam AI is the trading name of Quilliam AI Ltd (UK Companies House number 17151006, incorporated 2026-04-11, registered office in Cornwall, England). Founded by Levi Quilliam, it helps UK businesses make sense of AI, build useful AI workflows, and train their teams to use them properly.
+
+## Positioning
+Most businesses do not need more AI noise. They need one real workflow improved: lead follow-up, admin, support triage, reporting, document handling, or internal knowledge. Quilliam AI starts with the work, decides where AI is useful, adds human controls where needed, and hands the system to the team.
 
 ## Services
-- AI Education: Hands-on workshops, role-tailored training, and optional AI knowledge systems (Claude Code + Obsidian "Company Brain") so your team can use ChatGPT, Claude, and custom AI tools confidently in their daily work. URL slug: /services/ai-training
-- AI Implementation: Custom AI automations, agents, n8n workflows, API integrations, and bespoke ChatGPT/Claude tools built for your business. We do the work, you get the outcomes. URL slug: /services/ai-automation
-- Digital Services: Professional websites, SEO, Google Business Profile, and content production — the digital foundation that supports your AI work. URL slug: /services/digital-services
+- AI Opportunity Analysis: plain-English advice on where AI can help, what to do first, and what to ignore.
+- Team Training: practical staff training, playbooks, and clear rules for using AI at work.
+- AI Implementation: practical AI workflows for repeated admin, follow-up, support, research, reporting, and handoffs.
 
-## How It Works — The AI Audit
-1. We Listen: A focused conversation where we understand your business, your team, and where AI could help.
-2. We Teach or Build: We recommend education, implementation, or both — whatever fits. If training, we run it tailored to your team. If building, we ship fast.
-3. You Run With It: You get skills and systems you can actually use. We document everything, hand it over, and provide ongoing support when you need it. No lock-in.
+## Case Study
+VetVision AI is a University of Nottingham spin-out using camera systems to monitor animal welfare across equine and dairy environments. Quilliam AI helped make the AI product easier to sell, onboard, operate, and improve through clearer positioning, website redesign, branded onboarding portals, farm and camera operations workflows, and internal AI implementation support. The reported SEO score moved from roughly 40 to 95, with increased visibility, visitors, and leads.
 
-## Pricing
-- Free AI Audit (intro session, 30-60 minutes)
-- Day-rate consulting: £300–£400 per day
-- Website packages from £500
-- Fixed-price implementation packages from £500 depending on scope
+## How It Works
+1. Find the work worth fixing: repeated admin, follow-up, triage, reporting, and knowledge-work bottlenecks.
+2. Choose the first useful build: define the workflow, controls, owner, and success measure.
+3. Build it around existing tools: connect AI to the places the team already works.
+4. Hand it to the team: train users, document the system, and tune against real examples.
+
+## Budget Guidance
+Quilliam AI quotes by scope because useful AI work depends on the workflow, data, systems, risk, and handoff needs. Training usually starts from £500. Small implementation projects can sit around £2,000-£3,000, medium projects can range from £5,000-£50,000, and larger programmes are usually £50,000+. Every paid engagement is scoped clearly before work starts.
 
 ## Contact
 - Web: https://quilliam.ai
@@ -30,26 +34,17 @@ Quilliam AI is the trading name of Quilliam AI Ltd (UK Companies House number 17
 - WhatsApp: +447593121621
 - Location: Cornwall, UK (working UK-wide and remote)
 - Registered office: 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB, England
-
-## Company
-- Trading name: Quilliam AI
-- Legal name: Quilliam AI Ltd
-- UK Companies House: 17151006
-- Incorporated: 2026-04-11
-- Sole director: Levi Lachlan Quilliam
-
-## Book a Free AI Audit or Training Session
-https://quilliam.ai/book?intent=training  (AI Training)
-https://quilliam.ai/book?intent=audit  (AI Audit)
+- Google Business Profile: https://maps.app.goo.gl/yfJuc3xMXfkRzHvu8
+- Companies House: https://find-and-update.company-information.service.gov.uk/company/17151006
 
 ## Pages
-- Home: https://quilliam.ai
-- About: https://quilliam.ai/about
-- Book: https://quilliam.ai/book
-- Contact: https://quilliam.ai/contact
-- Where We Work: https://quilliam.ai/service-areas
-- AI Education: https://quilliam.ai/services/ai-training
-- AI Implementation: https://quilliam.ai/services/ai-automation
-- Digital Services: https://quilliam.ai/services/digital-services
-- Privacy: https://quilliam.ai/privacy
-- Terms: https://quilliam.ai/terms
+- [Home](https://quilliam.ai)
+- [Services](https://quilliam.ai/services)
+- [AI Consultant UK](https://quilliam.ai/ai-consultant-uk)
+- [AI Automation Cornwall](https://quilliam.ai/ai-automation-cornwall)
+- [About](https://quilliam.ai/about)
+- [Book](https://quilliam.ai/book)
+- [Contact](https://quilliam.ai/contact)
+- [Where We Work](https://quilliam.ai/service-areas)
+- [Privacy](https://quilliam.ai/privacy)
+- [Terms](https://quilliam.ai/terms)

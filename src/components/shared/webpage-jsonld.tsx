@@ -24,6 +24,7 @@ export function WebPageJsonLd({
     url,
     name,
     description,
+    inLanguage: "en-GB",
     isPartOf: {
       "@id": `${siteConfig.url}/#website`,
     },

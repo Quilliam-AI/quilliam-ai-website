@@ -1,9 +1,9 @@
 # Quilliam AI — Launch & SEO Action Plan
 
-**Current positioning (2026-04-11):** Quilliam AI is a **general-purpose UK AI agency** offering AI Education (training, workshops, knowledge systems), AI Implementation (automations, agents, n8n workflows, custom tools), and Digital Services (websites, SEO, content). Target: UK businesses of all shapes and sizes. Dual CTA funnel — "Book Free AI Training" and "Book Free AI Audit".
+**Current positioning (2026-04-11):** Quilliam AI is a **general-purpose UK AI agency** offering AI Education (training, workshops, knowledge systems), AI Implementation (automations, agents, n8n workflows, custom tools), and Digital Services (websites, SEO, content). Target: UK businesses of all shapes and sizes. Dual CTA funnel — "Book Free AI Training" and "Book Free AI Opportunity".
 
 **Rebrand history:**
-- **v1 (pre-rebrand):** Quilliam Digital — "AI automation agency for UK small businesses" (gyms, trades, hospitality). SEO audit score 72/100 (5 April 2026). K2 Gym case study. Single "Book Free AI Audit" CTA.
+- **v1 (pre-rebrand):** Quilliam Digital — "AI automation agency for UK small businesses" (gyms, trades, hospitality). SEO review score 72/100 (5 April 2026). K2 Gym case study. Single "Book Free AI Opportunity" CTA.
 - **v2 (first rebrand, 2026-04-11 AM):** Quilliam AI narrowed to "marketing and AI infrastructure for small B2B SaaS teams". VetVision AI positioned as target market. **Incorrect** — see v3.
 - **v3 (second rebrand, 2026-04-11 PM):** Quilliam AI broadened to general UK AI agency doing education + implementation. VetVision reframed as example engagement. Dual CTA funnel introduced. **Current.**
 
@@ -123,14 +123,14 @@ Many items below have been rewritten for v3. The pre-rebrand Completed section i
 
 ### 5. ~~Install analytics~~ DONE (2026-04-12)
 PostHog (EU Cloud, Frankfurt) installed with:
-- Reverse proxy via Next.js rewrites (`/ph/*`)
+- Reverse proxy via Next.js rewrites (`/qai-relay/*`)
 - GDPR cookie consent banner with memory-only fallback
 - Session recording (password-masked, consent-gated)
 - Full booking form funnel: viewed → started → submitted → success/error
 - CTA click tracking by type and location across all pages
 - Contact method tracking (WhatsApp / phone / email)
 - Service card discovery tracking
-- `identify()` on successful booking with email/name/business
+- `identify()` on successful booking with email/name/business after analytics cookies are accepted
 - Localhost traffic filtered in code
 - 8 reusable actions, 6 insights on pinned "Quilliam AI — Conversions" dashboard
 - Privacy policy updated with PostHog disclosure and cookie consent explanation
@@ -265,7 +265,7 @@ PostHog (EU Cloud, Frankfurt) installed with:
   - **"A UK business owner's guide to ChatGPT, Claude, and Gemini (2026)"** — comparison table, when-to-use-which, embedded in real work examples
   - **"How much does it cost to build an AI automation in 2026?"** — pricing transparency article, great for commercial-intent search
   - **"How to roll AI out across your team without it flopping"** — education-angle, linking to the AI Education service
-  - **"What is an AI Audit? Everything you need to know"** — funnel-top article with direct CTA to `/book?intent=audit`
+  - **"What is an AI opportunity session? Everything you need to know"** — funnel-top article with direct CTA to `/book?intent=opportunity`
 - [ ] Each article: 1,500+ words, H2/H3 structure, comparison tables where relevant, internal links to 2–3 service pages, FAQ schema
 - [ ] Add blog to `sitemap.ts` and navigation
 
@@ -358,8 +358,8 @@ PostHog (EU Cloud, Frankfurt) installed with:
 ### 19. Create service-specific OG images
 - [ ] Create per-service OG images via per-route `opengraph-image.tsx` so shared service URLs get branded previews (AI Education / AI Implementation / Digital Services)
 
-### 20. Split `/book` into dedicated training + audit routes
-**Consider later:** Currently `/book` is dynamic, reading `?intent=` query params. For SEO, separate routes (`/book/training`, `/book/audit`) would be stronger — each with their own static metadata, schema, and indexable content. Keep the query-param version as a fallback redirect. Only worth doing once there's real traffic to measure against.
+### 20. Split `/book` into dedicated training + opportunity routes
+**Consider later:** Currently `/book` is dynamic, reading `?intent=` query params. For SEO, separate routes (`/book/training`, `/book/opportunity`) would be stronger — each with their own static metadata, schema, and indexable content. Keep the query-param version as a fallback redirect. Only worth doing once there's real traffic to measure against.
 
 ### 21. Branded email templates
 **Impact:** Professional-looking transactional emails build trust and reinforce the brand.
@@ -379,7 +379,7 @@ PostHog (EU Cloud, Frankfurt) installed with:
 ### ~~Install PostHog analytics~~ DONE
 - [x] Installed `posthog-js` (latest stable SDK)
 - [x] Created PostHog provider with consent-aware init
-- [x] Reverse proxy via Next.js rewrites (`/ph/*` → `eu.i.posthog.com`)
+- [x] Reverse proxy via Next.js rewrites (`/qai-relay/*` → `eu.i.posthog.com`)
 - [x] EU Cloud (Frankfurt) — all data in EU
 - [x] CSP headers updated for PostHog (worker blobs, EU connect-src)
 - [x] `skipTrailingSlashRedirect: true` for proxy compatibility
@@ -396,20 +396,20 @@ PostHog (EU Cloud, Frankfurt) installed with:
 
 ### ~~Conversion tracking~~ DONE
 - [x] Typed analytics module (`src/lib/analytics.ts`) with consistent event names
-- [x] `cta_clicked` (book_training/book_audit) with location property across hero, nav, sticky CTA, footer, CTA sections
+- [x] `cta_clicked` (book_training/book_opportunity) with location property across hero, nav, sticky CTA, footer, CTA sections
 - [x] `contact_clicked` (whatsapp/phone/email) with location across all contact links
 - [x] `service_card_clicked` with service slug on homepage cards
 - [x] Full booking form funnel: `booking_form_viewed` → `booking_form_started` → `booking_form_submitted` → `booking_form_success`/`booking_form_error`
-- [x] `posthog.identify()` on successful booking (email, name, business, business_type)
+- [x] `posthog.identify()` on successful booking after analytics cookies are accepted (email, name, business, business_type)
 - [x] `TrackClick` client wrapper component for server components
 - [x] Fixed double pageview counting (removed manual PostHogPageView, relying on SDK `defaults: '2026-01-30'`)
 
 ### ~~PostHog dashboard + actions~~ DONE
-- [x] 8 reusable actions: Booking Form Submitted, Booking Form Success, CTA Clicked — Book Training, CTA Clicked — Book Audit, WhatsApp Clicked, Phone Clicked, Email Clicked, Service Page Explored
+- [x] 8 reusable actions: Booking Form Submitted, Booking Form Success, CTA Clicked — Book Training, CTA Clicked — Book Opportunity, WhatsApp Clicked, Phone Clicked, Email Clicked, Service Page Explored
 - [x] Pinned "Quilliam AI — Conversions" dashboard with 6 insights:
   - Booking Funnel (5-step funnel)
   - CTA Performance by Location (bar chart)
-  - Training vs Audit CTAs (pie chart)
+  - Training vs Opportunity CTAs (pie chart)
   - Contact Method Breakdown (pie chart)
   - Booking Submissions Over Time (line chart)
   - Service Discovery (bar chart)
@@ -457,10 +457,10 @@ PostHog (EU Cloud, Frankfurt) installed with:
 - [x] Services renamed: AI Education (was AI Training), AI Implementation (was AI Automation), Digital Services (back to generalist framing)
 - [x] Target audience broadened from B2B SaaS to UK businesses of all shapes and sizes
 - [x] VetVision reframed as "example engagement", not target market
-- [x] Dual CTA funnel introduced: "Book Free AI Training" + "Book Free AI Audit"
-- [x] `/book` page reads `?intent=training|audit` and swaps hero copy, badge, submit button, success message
-- [x] Booking form gains three-way radio (training/audit/either), defaults from URL intent
-- [x] `booking-action.ts` reflects interest in email subject line (`New AI Training Booking:` vs `New AI Audit Booking:`)
+- [x] Dual CTA funnel introduced: "Book Free AI Training" + "Book Free AI Opportunity"
+- [x] `/book` page reads `?intent=training|opportunity` and swaps hero copy, badge, submit button, success message
+- [x] Booking form gains three-way radio (training/opportunity/either), defaults from URL intent
+- [x] `booking-action.ts` reflects interest in email subject line (`New AI Training Booking:` vs `New AI Opportunity Booking:`)
 - [x] Nav (desktop + mobile), sticky CTA, hero, about CTA, CTA section, contact block, footer all expose both CTAs
 - [x] All 3 service pages rewritten for v3 display names
 - [x] Homepage sections updated (hero "We teach AI. We build with AI.", trust-bar, services-cards copy, industry-tabs example framing, about-preview)
@@ -483,14 +483,14 @@ Created and rewritten twice across v2 + v3.
 
 ## Completed — Pre-rebrand (historical record)
 
-> The items below were completed during the Quilliam Digital phase. They reference "Quilliam Digital", "quilliamdigital.com", and "K2 Gym" — those references are stale, but the *work* they represent is still present in the codebase and didn't need redoing. Preserved for audit history.
+> The items below were completed during the Quilliam Digital phase. They reference "Quilliam Digital", "quilliamdigital.com", and "K2 Gym" — those references are stale, but the *work* they represent is still present in the codebase and didn't need redoing. Preserved for review history.
 
 ### ~~#23 + A29. Add WebPage schema per route with isPartOf → WebSite~~ DONE
 - [x] Created reusable `WebPageJsonLd` component in `src/components/shared/webpage-jsonld.tsx`
 - [x] Added to all pages (homepage, book, privacy, terms, about, contact, service-areas, all 3 service pages)
 - [x] Each includes `isPartOf` → `WebSite`, `datePublished`, `dateModified`, and `publisher` → `Organization`
 
-### ~~#24. Add HowTo schema for the 3-step audit process~~ DONE
+### ~~#24. Add HowTo schema for the 3-step opportunity process~~ DONE
 - [x] Added `HowTo` schema to homepage JSON-LD graph
 - [x] Maps all 3 sprint steps with descriptions
 
