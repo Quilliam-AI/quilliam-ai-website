@@ -1,29 +1,33 @@
 export const siteConfig = {
   name: "Quilliam AI",
   legalName: "Quilliam AI Ltd",
-  tagline: "AI education and implementation",
+  tagline: "Practical AI consulting and implementation for UK businesses",
   description:
-    "Quilliam AI is a UK AI agency. We teach your team how to use AI properly, and we build the automations, agents, and tools that save you hours every week. Based in Cornwall, working UK-wide and remote.",
+    "Quilliam AI helps UK businesses make sense of AI, build useful AI workflows, and train their teams to use them properly.",
   url: "https://quilliam.ai",
   whatsapp: "447593121621",
   phone: "+447593121621",
   phoneDisplay: "07593 121 621",
   email: "levi@quilliam.ai",
   location: "Cornwall, UK",
-  // Registered office of Quilliam AI Ltd (Companies House)
   registeredOffice: {
     street: "25 Red Cove Close",
     locality: "St. Eval",
-    region: "Wadebridge",
+    postalTown: "Wadebridge",
+    region: "Cornwall",
     postalCode: "PL27 7GB",
     country: "GB",
   },
-  // Social/profile links for schema.org sameAs — add URLs only when the profiles exist and are public
-  socialLinks: [] as string[],
-  // Companies House registration — Quilliam AI Ltd, incorporated 2026-04-11
+  socialLinks: [
+    "https://maps.app.goo.gl/yfJuc3xMXfkRzHvu8",
+    "https://find-and-update.company-information.service.gov.uk/company/17151006",
+  ] as string[],
+  founderSameAs: ["https://uk.linkedin.com/in/leviquilliam"] as string[],
+  googleBusinessProfile: "https://maps.app.goo.gl/yfJuc3xMXfkRzHvu8",
+  companiesHouseUrl:
+    "https://find-and-update.company-information.service.gov.uk/company/17151006",
   companyNumber: "17151006" as string,
-  // Founder photo path — add the image to /public and set this path (e.g. "/founder.jpg")
-  founderImage: "" as string,
+  founderImage: "/levi-headshot-circle.png" as string,
 } as const;
 
 /** Build a WhatsApp click-to-chat URL with a pre-filled message. */
@@ -32,139 +36,193 @@ export function getWhatsAppUrl(message: string): string {
 }
 
 export const navigation = [
+  { name: "Problem", href: "/#problem" },
+  { name: "How it works", href: "/#method" },
   { name: "Services", href: "/#services" },
-  { name: "How It Works", href: "/#process" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
+  { name: "Founder", href: "/#founder" },
 ] as const;
 
-export const serviceLinks = [
-  { name: "AI Education", href: "/services/ai-training" },
-  { name: "AI Implementation", href: "/services/ai-automation" },
-  { name: "Digital Services", href: "/services/digital-services" },
+export const proofLogos = [
+  {
+    name: "K2 Gym",
+    href: "https://k2gymnewquay.co.uk/",
+    logo: "/logos/k2-gym-logo.webp",
+    width: 417,
+    height: 438,
+    className: "h-10",
+  },
+  {
+    name: "XGX.ai",
+    href: "https://xgx.ai/",
+    logo: "/logos/xgx-ai.svg",
+    width: 100,
+    height: 21,
+    className: "h-5 invert",
+  },
+  {
+    name: "Deloitte",
+    href: "https://www.deloitte.com/uk/en.html",
+    logo: "/logos/deloitte.svg",
+    width: 182,
+    height: 34,
+    className: "h-6",
+  },
+  {
+    name: "Halter",
+    href: "https://www.halterhq.com/",
+    logo: "/logos/halter.svg",
+    width: 150,
+    height: 38,
+    className: "h-6 invert",
+  },
+  {
+    name: "VetVision AI",
+    href: "https://www.vetvisionai.com/",
+    logo: "/logos/vetvision-ai.svg",
+    width: 193,
+    height: 29,
+    className: "h-6 md:h-7",
+  },
+] as const;
+
+export const bridgeSteps = [
+  {
+    number: "01",
+    title: "Find the work worth fixing",
+    description:
+      "We look at the repeated admin, slow follow-up, customer questions, reporting, and handoffs that already cost time or money.",
+    output: "Plain-English AI map",
+  },
+  {
+    number: "02",
+    title: "Choose where AI helps",
+    description:
+      "We pick one useful workflow, decide what AI should do, and agree what should be left alone.",
+    output: "Scoped build plan",
+  },
+  {
+    number: "03",
+    title: "Build it around your tools",
+    description:
+      "We connect the workflow to the tools and data your team already uses, then test it against real examples before rollout.",
+    output: "Working workflow",
+  },
+  {
+    number: "04",
+    title: "Train your team to use it",
+    description:
+      "We show the people doing the work how to use the tools, check the output, and keep improving the system.",
+    output: "Team training and handoff",
+  },
 ] as const;
 
 export const services = [
   {
-    slug: "ai-training",
-    title: "AI Education",
-    subtitle: "Training, workshops, knowledge systems",
+    id: "opportunity",
+    title: "AI Opportunity Analysis",
+    kicker: "For owners",
     description:
-      "Hands-on workshops for you and your team. Practical AI skills your people can use the next day — not theory, not slides. Plus AI knowledge systems (Claude Code + Obsidian \"Company Brain\") that compound over time so your team gets more productive every month.",
-    features: [
-      "In-person or remote workshops",
-      "Role-tailored training, not generic slides",
-      "Covers ChatGPT, Claude, and the tools that matter",
-      "Optional knowledge-system setup for ongoing use",
+      "We show you where AI can help, where it cannot, and what to do first without wasting money on random tools.",
+    outcomes: [
+      "Your best AI opportunities, ranked",
+      "What to train, build, or leave alone",
+      "Risks, controls, and ownership before work starts",
+      "A clear first move instead of tool shopping",
     ],
-    outcome: "Your team using AI confidently in their actual work",
   },
   {
-    slug: "ai-automation",
+    id: "adoption",
+    title: "Team Training",
+    kicker: "For staff",
+    description:
+      "We train your team to use AI properly in day-to-day work, using examples from their actual roles rather than generic prompt tips.",
+    outcomes: [
+      "Hands-on training for real roles",
+      "Prompt, policy, and process playbooks",
+      "Clear rules on what AI can and cannot do",
+      "Confidence using AI without guessing",
+    ],
+  },
+  {
+    id: "agents",
     title: "AI Implementation",
-    subtitle: "Automation, agents, tools built for you",
+    kicker: "For owners and operations",
     description:
-      "We build the AI systems that run while you work. Custom automations, AI agents, workflow integrations, and tools tailored to your business. You tell us the problem, we ship the solution — then we maintain it so you never have to think about it.",
-    features: [
-      "Custom AI automations and agents",
-      "n8n workflows and API integrations",
-      "ChatGPT / Claude custom tools for your team",
-      "Ongoing support, monitoring, and maintenance",
+      "We turn the best opportunities into working workflows, automations, and internal tools your team can own.",
+    outcomes: [
+      "Lead intake, qualification, and follow-up",
+      "Customer support triage and draft replies",
+      "Research, reporting, and briefing workflows",
+      "Admin between email, docs, CRM, and spreadsheets",
     ],
-    outcome: "Hours back every week on work that runs itself",
-  },
-  {
-    slug: "digital-services",
-    title: "Digital Services",
-    subtitle: "Websites, brand, content",
-    description:
-      "Everything else your business needs online: websites, SEO, Google Business Profile, content production. The digital foundation that supports your AI work — because a brilliant AI system behind a broken website still loses customers.",
-    features: [
-      "Professional websites with SEO built in",
-      "Local search and Google Business Profile",
-      "Content production and brand consistency",
-      "Hosting and ongoing maintenance",
-    ],
-    outcome: "A professional online presence that works alongside your AI",
   },
 ] as const;
 
-export const sprintSteps = [
+export const agentUseCases = [
+  "Inbound lead qualification",
+  "Sales follow-up drafting",
+  "Customer support triage",
+  "Internal knowledge search",
+  "Weekly operations reporting",
+  "Research and briefing packs",
+  "CRM hygiene and next actions",
+  "Document intake and extraction",
+] as const;
+
+export const fitSignals = [
   {
-    number: "01",
-    title: "We Listen",
+    title: "You have repeated work",
     description:
-      "A focused session where we understand your business, your team, and where you want AI to help. No jargon. No sales pitch. One clear conversation.",
+      "The same kind of email, decision, report, triage, update, or handoff happens every week.",
   },
   {
-    number: "02",
-    title: "We Teach or Build",
+    title: "The work has rules",
     description:
-      "We recommend education, implementation, or both — whatever fits. If it's training, we run it tailored to your team. If it's building, we ship the first version fast.",
+      "People use judgement, but there are examples, policies, constraints, or patterns the system can learn.",
   },
   {
-    number: "03",
-    title: "You Run With It",
+    title: "Someone owns the outcome",
     description:
-      "You get skills and systems you can actually use. We document everything, hand it over, and provide ongoing support when you need it. No lock-in. No dependency.",
+      "A real person can approve, test, improve, and be accountable for the workflow after launch.",
+  },
+  {
+    title: "The cost is visible",
+    description:
+      "Slow admin, missed follow-ups, inconsistent quality, or overloaded founders are already creating pain.",
   },
 ] as const;
 
-export const featuredEngagement = {
-  label: "Featured engagement",
-  industry: "AI Startup",
-  hero: {
-    title: "A university spin-out —",
-    titleAccent: "education and implementation, side by side",
-    description:
-      "An early-stage startup building AI tools for their industry. Quilliam AI runs training, builds their web presence, and maintains their Company Brain — all on a single day-rate engagement.",
-  },
-  workstreams: [
-    {
-      problem: "Team had no shared AI workflow",
-      solution: "Built a Claude Code + Obsidian Company Brain the whole team uses daily",
-    },
-    {
-      problem: "Website stuck on a generic template",
-      solution: "Rebuilt on Next.js with proper SEO, schema, and content strategy",
-    },
-    {
-      problem: "Founders needed AI fluency, fast",
-      solution: "Hands-on workshops tailored to their roles — not slides, not theory",
-    },
-  ],
-  stats: {
-    primary: "1 day/wk",
-    primaryLabel: "Engagement cadence",
-    secondary: "3 services",
-    secondaryLabel: "Running in parallel",
-  },
-} as const;
+export const sprintSteps = bridgeSteps;
 
 export const faqs = [
   {
-    question: "What is the AI Audit?",
+    question: "What does Quilliam AI actually do?",
     answer:
-      "Quilliam AI's AI Audit is a focused session where we look at how your business actually runs, talk to you about where AI could help, and give you a clear, practical recommendation. We ask about your team, your workflows, and the tasks that eat the most time — then we show you exactly which AI tools, training, or automations would move the needle for you specifically. It's not a strategy deck, it's not a sales pitch, and there is no commitment to work with us afterwards. You walk away with a concrete plan you can act on, whether we end up working together or not. Most audits take 30 to 60 minutes and can be run in-person in Cornwall or remotely anywhere in the UK.",
+      "We help UK businesses understand where AI is useful, build the workflows or tools that are worth building, and train the team so the work does not depend on one technical person.",
   },
   {
-    question: "What types of businesses do you work with?",
+    question: "Do you only advise, or do you implement?",
     answer:
-      "Quilliam AI works with UK businesses of all shapes and sizes — small businesses, startups, agencies, charities, and teams inside larger organisations. What our clients have in common is not their industry or size, it's a genuine desire to use AI properly rather than either ignoring it or throwing money at generic ChatGPT subscriptions and hoping something sticks. We've worked with university spin-outs, fitness studios, professional services firms, and creative agencies. The through-line is that every engagement starts with understanding the business first and applying technology second, which is why the AI Audit is always the right place to start.",
+      "Both. Advice without implementation creates more notes. Implementation without clear thinking creates fragile demos. We map the workflow, build the system, add controls, train the team, and hand it over properly.",
   },
   {
-    question: "Do you do AI training, AI implementation, or both?",
+    question: "Do you work with small businesses?",
     answer:
-      "Both — and we encourage most clients to do both because they reinforce each other. AI Education means hands-on workshops and training where your team learns to use tools like ChatGPT, Claude, and custom agents in their actual work — no theory, no slides, just practical skills people can apply the next day. AI Implementation means we build the automations, agents, workflows, and custom tools your business needs — we do the work, you get the outcomes. Some clients come to us for training only because they want to build the skills internally; others come for implementation only because they want the systems without learning the details; most end up doing both in sequence or parallel. The AI Audit is where we figure out which mix is right for you.",
+      "Yes. Small and growing UK businesses are often a strong fit because repeated admin, owner bottlenecks, and manual follow-up are easy to see and valuable to fix. You do not need an internal AI team before starting.",
   },
   {
-    question: "How is Quilliam AI different from other AI agencies?",
+    question: "How quickly can we see something working?",
     answer:
-      "Two differences. First, we do education AND implementation under one roof, which most AI agencies don't — they either run workshops and leave, or they build systems and bill you forever. We believe teaching your team to use AI and building AI systems for your business are two halves of the same job, and doing both together is cheaper and more durable than doing them separately. Second, every engagement is handoff-first: the deliverable is not a report or a bespoke framework that only we can maintain, it's a skill or system your team actually owns. We use industry-standard tools and document everything as we go. If Quilliam AI disappeared tomorrow, our clients would still have working skills, working systems, and the ability to extend them.",
+      "A focused workflow can usually reach a usable pilot in weeks rather than months. The first build is deliberately narrow: prove the work, test it with real examples, then harden and expand what works.",
   },
   {
-    question: "What happens after the AI Audit?",
+    question: "How do you stop AI going wrong?",
     answer:
-      "After your Quilliam AI Audit you get a clear recommendation on the highest-impact next step for your business — training, implementation, or a mix of the two — along with honest pricing (day-rate consulting, typically £300–£400 per day, with clear scoping for any fixed-price engagements). If you want to go ahead we can usually start within a couple of weeks, and most education engagements deliver their first session within the first visit while implementation engagements ship a first working version by visit two. Every engagement includes documentation and a handoff so your team can run with what we build. If you decide not to proceed that is completely fine — you still walk away with the plan and can come back when the timing is right.",
+      "We design for supervision. That means limited permissions, scoped access, human approval for risky actions, test examples, logs, fallback paths, and clear owners. The goal is useful help, not reckless automation.",
+  },
+  {
+    question: "Where are you based?",
+    answer:
+      "Quilliam AI is based in Cornwall and works UK-wide and remote. In-person discovery, workshops, or rollout sessions are available where they genuinely help.",
   },
 ] as const;

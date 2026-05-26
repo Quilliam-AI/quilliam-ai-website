@@ -12,19 +12,20 @@ import {
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Terms and conditions for using Quilliam AI's website and AI automation services.",
+    "Terms and conditions for using Quilliam AI's website and AI workflow, agent, and adoption services.",
   alternates: { canonical: "/terms" },
   openGraph: {
     title: "Terms of Service | Quilliam AI",
     description:
-      "Terms and conditions for using Quilliam AI's website and AI automation services.",
+      "Terms and conditions for using Quilliam AI's website and AI workflow, agent, and adoption services.",
     url: "/terms",
     images: ["/opengraph-image"],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Terms of Service | Quilliam AI",
     description:
-      "Terms and conditions for using Quilliam AI's website and AI automation services.",
+      "Terms and conditions for using Quilliam AI's website and AI workflow, agent, and adoption services.",
   },
 };
 
@@ -54,6 +55,7 @@ export default function TermsPage() {
             {siteConfig.companyNumber}, with registered office at{" "}
             {siteConfig.registeredOffice.street},{" "}
             {siteConfig.registeredOffice.locality},{" "}
+            {siteConfig.registeredOffice.postalTown},{" "}
             {siteConfig.registeredOffice.region},{" "}
             {siteConfig.registeredOffice.postalCode}. If you do not agree
             to these terms, please do not use our website or services.
@@ -62,18 +64,18 @@ export default function TermsPage() {
 
         <LegalSection title="2. Our services">
           <p>
-            Quilliam AI provides AI education, AI implementation, and
-            digital services to UK businesses. Our services include but are
-            not limited to:
+            Quilliam AI provides AI workflow, supervised agent, and adoption
+            services to UK businesses. Our services include but are not limited
+            to:
           </p>
           <ul>
-            <li>AI Audits and introductory sessions.</li>
+            <li>AI opportunity analysis and introductory sessions.</li>
             <li>
-              AI training and workshops (in-person or remote), including
-              optional knowledge-system setup.
+              Workflow discovery, stakeholder interviews, opportunity
+              mapping, and AI readiness work.
             </li>
             <li>
-              Custom AI automations, agents, n8n workflows, and API
+              Custom AI workflows, agents, n8n automations, and API
               integrations.
             </li>
             <li>
@@ -81,8 +83,8 @@ export default function TermsPage() {
               team.
             </li>
             <li>
-              Websites, SEO, Google Business Profile management, and
-              content production.
+              Training, rollout support, documentation, and adoption
+              tracking.
             </li>
             <li>Ongoing support, maintenance, and advisory work.</li>
           </ul>
@@ -96,9 +98,8 @@ export default function TermsPage() {
 
         <LegalSection title="3. Booking and payment">
           <p>
-            <strong>Initial consultations:</strong> The AI Audit and the
-            introductory AI Training session are complimentary and carry no
-            obligation.
+            <strong>Initial consultations:</strong> The AI opportunity session
+            carries no obligation.
           </p>
           <p>
             <strong>Paid engagements:</strong> For any paid work, we will
@@ -257,6 +258,7 @@ export default function TermsPage() {
               <strong>Registered office:</strong>{" "}
               {siteConfig.registeredOffice.street},{" "}
               {siteConfig.registeredOffice.locality},{" "}
+              {siteConfig.registeredOffice.postalTown},{" "}
               {siteConfig.registeredOffice.region},{" "}
               {siteConfig.registeredOffice.postalCode}
             </li>

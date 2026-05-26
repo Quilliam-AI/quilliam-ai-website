@@ -1,70 +1,36 @@
-import { GraduationCap, Wrench, MapPin, Shield } from "lucide-react";
-import { FadeIn } from "@/components/shared/fade-in";
-
-const trustItems = [
-  {
-    icon: GraduationCap,
-    label: "AI Education",
-    detail: "Training, workshops, knowledge systems",
-    accent: true,
-  },
-  {
-    icon: Wrench,
-    label: "AI Implementation",
-    detail: "Automation, agents, custom tools",
-    accent: false,
-  },
-  {
-    icon: Shield,
-    label: "Handoff-First",
-    detail: "No lock-in, your team owns it",
-    accent: false,
-  },
-  {
-    icon: MapPin,
-    label: "Cornwall Based",
-    detail: "Working UK-wide and remote",
-    accent: false,
-  },
-];
+import Image from "next/image";
+import { proofLogos } from "@/lib/content";
 
 export function TrustBar() {
   return (
-    <section className="py-6 bg-stone-900 border-y border-stone-800/60">
-      <div className="max-w-[1400px] mx-auto px-6">
-        <FadeIn>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-            {trustItems.map((item, i) => (
-              <div
-                key={item.label}
-                className="flex items-center gap-3 group"
-              >
-                <div className="w-8 h-8 rounded-lg bg-stone-800 border border-stone-700/50 flex items-center justify-center shrink-0">
-                  <item.icon
-                    size={15}
-                    className={
-                      item.accent
-                        ? "text-amber-400"
-                        : "text-emerald-400"
-                    }
-                    strokeWidth={1.5}
-                  />
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-stone-200 leading-tight">
-                    {item.label}
-                  </p>
-                  <p className="text-[11px] text-stone-500 leading-tight">
-                    {item.detail}
-                  </p>
-                </div>
-                {i < trustItems.length - 1 && (
-                  <div className="hidden lg:block w-px h-8 bg-stone-800 ml-7" />
-                )}
-              </div>
-            ))}
-          </div>
-        </FadeIn>
+    <section aria-label="Client work and experience" className="bg-ink px-6 py-5 text-paper">
+      <div className="mx-auto grid max-w-[1400px] gap-5 border-y border-paper/10 py-5 lg:grid-cols-[auto_1fr] lg:items-center">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-paper/55">
+            Client work and experience
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center gap-3 lg:justify-end">
+          {proofLogos.map((company) => (
+            <a
+              key={company.name}
+              href={company.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${company.name}`}
+              className="group flex h-12 items-center justify-center px-3"
+            >
+              <Image
+                src={company.logo}
+                alt={company.name}
+                width={company.width}
+                height={company.height}
+                sizes="160px"
+                className={`${company.className} w-auto object-contain opacity-70 transition-opacity group-hover:opacity-100`}
+              />
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -2,6 +2,7 @@
 
 import { siteConfig } from "@/lib/content";
 import { createLeadNote } from "@/lib/create-lead-note";
+import { captureServerBookingSuccess } from "@/lib/posthog-server";
 
 interface BookingResult {
   success: boolean;
@@ -16,6 +17,8 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
   const businessType = formData.get("businessType") as string | null;
   const message = formData.get("message") as string | null;
   const interest = formData.get("interest") as string | null;
+  const analyticsConsent = formData.get("analyticsConsent") as string | null;
+  const pageUrl = formData.get("pageUrl") as string | null;
 
   // Validate required fields
   if (!name?.trim() || !email?.trim() || !business?.trim() || !businessType?.trim()) {
@@ -32,8 +35,8 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
   const subjectTag =
     interestLabel.includes("Training") || interestLabel.includes("Education")
       ? "AI Training"
-      : interestLabel.includes("Audit") || interestLabel.includes("Implementation")
-        ? "AI Audit"
+      : interestLabel.includes("Opportunity") || interestLabel.includes("Implementation")
+        ? "AI Opportunity"
         : "AI Session";
 
   try {
@@ -44,8 +47,8 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
     const sessionLabel =
       subjectTag === "AI Training"
         ? "AI training session"
-        : subjectTag === "AI Audit"
-          ? "AI Audit"
+        : subjectTag === "AI Opportunity"
+          ? "AI opportunity session"
           : "AI session";
 
     // Send internal notification email
@@ -113,6 +116,21 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
       interest: interestLabel,
       message: message?.trim(),
     }).catch(() => {});
+
+    await captureServerBookingSuccess({
+      analyticsConsent:
+        analyticsConsent === "accepted" || analyticsConsent === "rejected"
+          ? analyticsConsent
+          : "unknown",
+      business: business.trim(),
+      businessType: businessType.trim(),
+      email: email.trim(),
+      interest: interestLabel,
+      message: message?.trim(),
+      name: name.trim(),
+      pageUrl: pageUrl?.trim(),
+      phone: phone?.trim(),
+    });
 
     return { success: true };
   } catch (error) {

@@ -1,15 +1,17 @@
 "use client";
 
+import { POSTHOG_CONSENT_KEY } from "@/lib/posthog-config";
+
 export function ManageCookies() {
   return (
     <button
       onClick={() => {
-        localStorage.removeItem("cookie_consent");
+        localStorage.removeItem(POSTHOG_CONSENT_KEY);
         window.location.reload();
       }}
-      className="text-xs text-stone-400 hover:text-stone-600 transition-colors py-1 inline-block cursor-pointer"
+      className="inline-flex cursor-pointer items-center text-xs leading-none text-inherit transition-colors hover:text-ink"
     >
-      Manage Cookies
+      Manage cookies
     </button>
   );
 }

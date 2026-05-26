@@ -1,41 +1,38 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CircuitPattern } from "@/components/shared/pattern-overlay";
 
 export default function NotFound() {
   return (
-    <section className="relative min-h-[80dvh] flex items-center justify-center bg-stone-950 overflow-hidden">
-      <CircuitPattern className="text-emerald-400" />
-      <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-emerald-500/[0.05] rounded-full blur-[150px] pointer-events-none" />
+    <section className="relative flex min-h-[82dvh] items-center justify-center overflow-hidden bg-ink px-6 text-paper">
+      <div className="site-grid absolute inset-0 opacity-35" />
+      <div className="noise absolute inset-0 opacity-70" />
 
-      <div className="relative text-center px-6 max-w-lg">
-        <p className="text-7xl font-bold font-mono text-emerald-500/30">404</p>
-        <h1 className="mt-4 text-3xl md:text-4xl font-semibold tracking-tighter text-white">
-          Page not found
+      <div className="relative max-w-2xl text-center">
+        <p className="text-8xl font-bold tracking-tight text-signal/30">404</p>
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
+          This page is outside the workflow.
         </h1>
-        <p className="mt-4 text-base text-stone-400 leading-relaxed">
-          The page you are looking for does not exist or has been moved. Head
-          back to our homepage or book an AI Audit.
+        <p className="mx-auto mt-5 max-w-[56ch] text-base leading-relaxed text-paper/64">
+          The page does not exist or has moved. Head home, or book an AI Gap
+          Opportunity session if you were trying to start a conversation.
         </p>
-        <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-          <Button
-            asChild
-            size="lg"
-            className="rounded-full h-12 px-8 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)]"
-          >
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <Button asChild size="lg" className="uppercase tracking-[0.14em]">
             <Link href="/">
-              Back to Home
-              <ArrowRight size={18} className="ml-2" />
+              Back home
+              <ArrowRight size={18} />
             </Link>
           </Button>
           <Button
             asChild
             variant="outline"
             size="lg"
-            className="rounded-full h-12 px-8 text-base text-white"
+            className="max-w-full whitespace-normal text-center leading-tight tracking-normal text-paper normal-case sm:whitespace-nowrap"
           >
-            <Link href="/book">Book an AI Audit</Link>
+            <Link href="/book?intent=opportunity">
+              Find Where AI Can Help My Business
+            </Link>
           </Button>
         </div>
       </div>

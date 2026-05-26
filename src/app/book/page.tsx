@@ -1,96 +1,97 @@
 import type { Metadata } from "next";
+import {
+  Bot,
+  CheckCircle2,
+  Clock,
+  GitBranch,
+  MessageSquare,
+  ShieldCheck,
+} from "lucide-react";
 import { BookingForm } from "@/components/book/booking-form";
-import { CircuitPattern } from "@/components/shared/pattern-overlay";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
 import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
-import { FadeIn } from "@/components/shared/fade-in";
-import { Clock, MessageSquare, Zap, CheckCircle2, GraduationCap, Wrench } from "lucide-react";
-import { siteConfig, getWhatsAppUrl } from "@/lib/content";
+import { getWhatsAppUrl } from "@/lib/content";
 
-type Intent = "training" | "audit" | "either";
+type Intent = "training" | "opportunity" | "either";
 
 function resolveIntent(raw: string | string[] | undefined): Intent {
   if (raw === "training") return "training";
-  if (raw === "audit") return "audit";
+  if (raw === "opportunity") return "opportunity";
   return "either";
 }
 
-const INTENT_CONTENT: Record<Intent, {
-  badge: string;
-  title: string;
-  accent: string;
-  description: string;
-  BadgeIcon: typeof Zap;
-}> = {
+const INTENT_CONTENT: Record<
+  Intent,
+  {
+    badge: string;
+    title: string;
+    description: string;
+  }
+> = {
   training: {
-    badge: "AI Training Session",
-    title: "Book your",
-    accent: "AI Training",
+    badge: "Team adoption",
+    title: "Book practical AI training for the workflows your team actually runs.",
     description:
-      "Tell us a bit about your team and we'll arrange a session where we train you and your people using your actual work. No slides, no theory, just practical AI skills you can use the next day.",
-    BadgeIcon: GraduationCap,
+      "Use this if the team needs confidence, shared language, and hands-on practice before or during an AI workflow build.",
   },
-  audit: {
-    badge: "AI Audit",
-    title: "Book your",
-    accent: "AI Audit",
+  opportunity: {
+    badge: "AI Opportunity",
+    title: "Find the AI workflow worth building first.",
     description:
-      "Tell us a bit about your business and we'll arrange a session where we look at where AI can save you hours and make you money. Walk away with a clear recommendation, whether or not we work together.",
-    BadgeIcon: Wrench,
+      "Use this if you want a practical answer on where AI can help, what to build first, and what to ignore for now.",
   },
   either: {
-    badge: "AI Session",
-    title: "Book your",
-    accent: "AI Session",
+    badge: "First session",
+    title: "Work out whether training, workflows, or agents should come first.",
     description:
-      "Tell us a bit about your business and we'll arrange a session — training, audit, or both. Walk away with a clear plan for what AI can do for you, whether we work together afterwards or not.",
-    BadgeIcon: Zap,
+      "Use this if you know AI should be useful but are not sure where the value sits yet.",
   },
 };
 
 export const metadata: Metadata = {
-  title: "Book Your AI Session",
+  title: "Book an AI Opportunity Session",
   description:
-    "Book an AI training session or AI Audit with Quilliam AI. We'll show you what AI can do for your team or your business in 30–60 minutes. No commitment.",
+    "Book an AI opportunity session with Quilliam AI. Find the workflow, automation, or training worth doing first for your UK business.",
   alternates: {
     canonical: "/book",
   },
   openGraph: {
-    title: "Book Your AI Session | Quilliam AI",
+    title: "Book an AI Opportunity Session | Quilliam AI",
     description:
-      "Book an AI training session or AI Audit with Quilliam AI. No commitment, no jargon.",
+      "Find the workflow, automation, or training worth doing first.",
     url: "/book",
     images: ["/opengraph-image"],
   },
   twitter: {
-    title: "Book Your AI Session | Quilliam AI",
+    card: "summary_large_image",
+    title: "Book an AI Opportunity Session | Quilliam AI",
     description:
-      "Book an AI training session or AI Audit with Quilliam AI.",
+      "Find the AI workflow worth building first with Quilliam AI.",
   },
 };
 
-const benefits = [
+const sessionPoints = [
+  {
+    icon: GitBranch,
+    title: "Map the drag",
+    description: "We identify repeated work, weak handoffs, and AI-ready processes.",
+  },
+  {
+    icon: Bot,
+    title: "Choose the build",
+    description: "Workflow, agent, training, data prep, or nothing yet.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Name the controls",
+    description: "Approvals, fallback paths, risks, owners, and access boundaries.",
+  },
   {
     icon: Clock,
-    title: "30–60 minutes",
-    description: "A focused session, not a rambling sales call",
+    title: "Leave with next steps",
+    description: "Clear recommendation, likely scope, and what I would do first.",
   },
-  {
-    icon: Zap,
-    title: "Actionable plan",
-    description: "Leave with a clear recommendation you can act on",
-  },
-  {
-    icon: MessageSquare,
-    title: "No jargon",
-    description: "Plain English. We explain what AI can do for your business",
-  },
-  {
-    icon: CheckCircle2,
-    title: "No commitment",
-    description: "No obligation. No follow-up spam",
-  },
-];
+] as const;
 
 interface BookPageProps {
   searchParams: Promise<{ intent?: string | string[] }>;
@@ -100,143 +101,80 @@ export default async function BookPage({ searchParams }: BookPageProps) {
   const params = await searchParams;
   const intent = resolveIntent(params.intent);
   const copy = INTENT_CONTENT[intent];
-  const BadgeIcon = copy.BadgeIcon;
-
   const whatsappHref = getWhatsAppUrl(
     intent === "training"
-      ? "Hi Levi, I'd like to book an AI training session for my team."
-      : intent === "audit"
-        ? "Hi Levi, I'd like to book an AI Audit for my business."
-        : "Hi Levi, I'd like to book an AI session.",
+        ? "Hi Levi, I want to book practical AI training for my team."
+      : intent === "opportunity"
+        ? "Hi Levi, I want to book an AI opportunity session."
+        : "Hi Levi, I want to book a first AI session.",
   );
 
   return (
-    <section className="relative min-h-[100dvh] bg-stone-950 overflow-hidden">
-      <BreadcrumbJsonLd items={[{ name: "Book Your AI Session", href: "/book" }]} />
+    <section className="relative overflow-hidden bg-ink px-6 pb-20 pt-28 text-paper md:pb-28 md:pt-36">
+      <BreadcrumbJsonLd items={[{ name: "Book an AI Opportunity Session", href: "/book" }]} />
       <WebPageJsonLd
         path="/book"
-        name="Book Your AI Session | Quilliam AI"
-        description="Book an AI training session or AI Audit with Quilliam AI. We'll show you what AI can do for your team or your business in 30-60 minutes."
+        name="Book an AI Opportunity Session | Quilliam AI"
+        description="Book an AI opportunity session with Quilliam AI. Find the workflow, automation, or training worth doing first."
         datePublished="2026-04-11"
-        dateModified="2026-04-11"
+        dateModified="2026-05-26"
       />
-      <CircuitPattern className="text-emerald-400" />
 
-      {/* Atmospheric glow */}
-      <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-emerald-500/[0.06] rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/3 left-1/3 w-[400px] h-[400px] bg-emerald-600/[0.04] rounded-full blur-[120px] pointer-events-none" />
+      <div className="site-grid absolute inset-0 opacity-35" />
+      <div className="noise absolute inset-0 opacity-70" />
 
-      <div className="relative max-w-[1400px] mx-auto px-6 pt-28 pb-20 md:pt-36 md:pb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
-          {/* Left: copy + benefits */}
-          <div className="flex flex-col justify-center">
-            <FadeIn delay={0.1}>
-              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-900/40 px-4 py-1.5 text-xs font-medium text-emerald-400 border border-emerald-800/40 w-fit">
-                <BadgeIcon size={13} className="fill-emerald-400 text-emerald-400" />
-                {copy.badge}
-              </span>
-            </FadeIn>
+      <div className="relative mx-auto grid max-w-[1220px] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="lg:sticky lg:top-28">
+          <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
+            {copy.badge}
+          </p>
+          <h1 className="mt-5 max-w-[760px] text-5xl font-semibold leading-[0.98] tracking-tight text-balance md:text-7xl">
+            {copy.title}
+          </h1>
+          <p className="mt-6 max-w-[62ch] text-base leading-relaxed text-paper/68 md:text-lg">
+            {copy.description}
+          </p>
 
-            <FadeIn delay={0.2} className="mt-8">
-              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold tracking-tighter leading-[1.08] text-white">
-                {copy.title}
-                <span className="block text-emerald-400">
-                  {copy.accent}
-                </span>
-              </h1>
-            </FadeIn>
-
-            <FadeIn delay={0.3} className="mt-6">
-              <p className="text-base md:text-lg text-stone-400 leading-relaxed max-w-[48ch]">
-                {copy.description}
-              </p>
-              <ul className="mt-4 space-y-2">
-                <li>
-                  <a
-                    href={whatsappHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-emerald-400 hover:text-emerald-300 underline underline-offset-4 transition-colors text-sm"
-                  >
-                    Message on WhatsApp
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={`tel:${siteConfig.phone}`}
-                    className="text-stone-400 hover:text-white transition-colors text-sm"
-                  >
-                    {siteConfig.phoneDisplay}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={`mailto:${siteConfig.email}`}
-                    className="text-stone-400 hover:text-white transition-colors text-sm"
-                  >
-                    {siteConfig.email}
-                  </a>
-                </li>
-              </ul>
-            </FadeIn>
-
-            {/* Benefits grid */}
-            <FadeIn delay={0.4} className="mt-10">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {benefits.map((benefit) => (
-                  <div key={benefit.title} className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-stone-900 border border-stone-800/60 flex items-center justify-center shrink-0 mt-0.5">
-                      <benefit.icon
-                        size={16}
-                        className="text-emerald-400"
-                        strokeWidth={1.5}
-                      />
-                    </div>
-                    <div>
-                      <p className="text-sm font-semibold text-white">
-                        {benefit.title}
-                      </p>
-                      <p className="text-xs text-stone-500 mt-0.5 leading-relaxed">
-                        {benefit.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
-
-            {/* Social proof */}
-            <FadeIn delay={0.5} className="mt-10">
-              <div className="flex items-center gap-3 px-5 py-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <div className="flex -space-x-2">
-                  {["V", "Q", "U"].map((initial) => (
-                    <div
-                      key={initial}
-                      className="w-8 h-8 rounded-full bg-emerald-900/60 border-2 border-stone-950 flex items-center justify-center"
-                    >
-                      <span className="text-xs font-semibold text-emerald-400">
-                        {initial}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <div>
-                  <p className="text-sm text-white font-medium">
-                    Education + Implementation
-                  </p>
-                  <p className="text-xs text-stone-500">
-                    UK AI agency doing both sides under one roof
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
+          <div className="mt-9 hidden gap-3 lg:grid lg:grid-cols-2">
+            {sessionPoints.map((point) => (
+              <article key={point.title} className="rounded-card border border-paper/10 bg-paper/[0.025] p-4">
+                <point.icon size={20} className="text-signal" />
+                <h2 className="mt-5 text-lg font-semibold tracking-tight text-paper">
+                  {point.title}
+                </h2>
+                <p className="mt-2 text-sm leading-relaxed text-paper/58">
+                  {point.description}
+                </p>
+              </article>
+            ))}
           </div>
 
-          {/* Right: booking form */}
-          <FadeIn delay={0.3} direction="left">
-            <BookingForm defaultInterest={intent} />
-          </FadeIn>
+          <div className="rounded-card mt-8 border border-cyan-wire/25 bg-cyan-wire/10 p-4">
+            <div className="flex items-start gap-3">
+              <MessageSquare size={20} className="mt-0.5 shrink-0 text-cyan-wire" />
+              <div>
+                <p className="text-sm font-semibold text-paper">
+                  Prefer WhatsApp?
+                </p>
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex text-sm font-semibold text-cyan-wire underline underline-offset-4 hover:text-paper"
+                >
+                  Message Levi directly
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 flex items-center gap-3 text-sm text-paper/55">
+            <CheckCircle2 size={17} className="text-signal" />
+            Plain English. No commitment. No lock-in.
+          </div>
         </div>
+
+        <BookingForm defaultInterest={intent} />
       </div>
     </section>
   );

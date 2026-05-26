@@ -11,7 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Quilliam AI collects, uses, and protects your personal data. GDPR-compliant privacy practices for our AI education, implementation, and digital services.",
+    "How Quilliam AI collects, uses, and protects your personal data. GDPR-compliant privacy practices for AI workflow, agent, and adoption services.",
   alternates: { canonical: "/privacy" },
   openGraph: {
     title: "Privacy Policy | Quilliam AI",
@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     images: ["/opengraph-image"],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Privacy Policy | Quilliam AI",
     description:
       "How Quilliam AI collects, uses, and protects your personal data. GDPR-compliant privacy practices.",
@@ -51,10 +52,11 @@ export default function PrivacyPage() {
             {siteConfig.companyNumber}), with registered office at{" "}
             {siteConfig.registeredOffice.street},{" "}
             {siteConfig.registeredOffice.locality},{" "}
+            {siteConfig.registeredOffice.postalTown},{" "}
             {siteConfig.registeredOffice.region},{" "}
             {siteConfig.registeredOffice.postalCode}. We are a UK AI agency
-            offering AI education, AI implementation, and digital services
-            to businesses nationwide. When this policy mentions
+            offering AI workflow, supervised agent, and adoption services to
+            businesses nationwide. When this policy mentions
             &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;, it
             refers to Quilliam AI Ltd.
           </p>
@@ -99,7 +101,7 @@ export default function PrivacyPage() {
           <p>We use the data we collect to:</p>
           <ul>
             <li>Respond to your enquiries and booking requests.</li>
-            <li>Deliver and improve our AI education, implementation, and digital services.</li>
+            <li>Deliver and improve our AI workflow, agent, and adoption services.</li>
             <li>Send project updates and follow-ups you have requested.</li>
             <li>
               Understand how visitors use our website so we can improve it.
@@ -348,6 +350,7 @@ export default function PrivacyPage() {
               <strong>Registered office:</strong>{" "}
               {siteConfig.registeredOffice.street},{" "}
               {siteConfig.registeredOffice.locality},{" "}
+              {siteConfig.registeredOffice.postalTown},{" "}
               {siteConfig.registeredOffice.region},{" "}
               {siteConfig.registeredOffice.postalCode}
             </li>

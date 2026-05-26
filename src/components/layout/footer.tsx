@@ -1,171 +1,186 @@
-import Link from "next/link";
 import Image from "next/image";
-import { siteConfig, getWhatsAppUrl } from "@/lib/content";
-import { TrackClick } from "@/components/shared/track-click";
+import Link from "next/link";
+import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { ManageCookies } from "@/components/layout/manage-cookies";
+import { TrackClick } from "@/components/shared/track-click";
+import { getWhatsAppUrl, siteConfig } from "@/lib/content";
+
+const footerNavigation = [
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "AI Consultant UK", href: "/ai-consultant-uk" },
+  { name: "AI Automation Cornwall", href: "/ai-automation-cornwall" },
+  { name: "Where We Work", href: "/service-areas" },
+  { name: "About", href: "/about" },
+  { name: "Book", href: "/book?intent=opportunity" },
+  { name: "Contact", href: "/contact" },
+] as const;
 
 export function Footer() {
   return (
-    <footer className="border-t border-stone-200 bg-stone-50">
-      <div className="max-w-[1400px] mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          {/* Brand */}
-          <div className="md:col-span-5">
-            <Link
-              href="/"
-              className="flex items-center gap-2.5 text-stone-900"
-            >
-              <Image
-                src="/logo-dark.svg"
-                alt=""
-                width={28}
-                height={28}
-                className="w-7 h-7"
-              />
-              <span className="text-lg font-semibold tracking-tight">
+    <footer className="border-t border-ink/10 bg-paper text-ink">
+      <div className="mx-auto max-w-[1400px] px-6 py-12 md:py-16">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="max-w-[520px]">
+            <Link href="/" className="inline-flex items-center gap-2.5">
+              <span className="flex h-8 w-8 items-center justify-center rounded-[0.8rem] border border-ink/12 bg-ink">
+                <Image
+                  src="/logo-white.svg"
+                  alt=""
+                  width={24}
+                  height={24}
+                  sizes="24px"
+                  className="h-5 w-5"
+                />
+              </span>
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink/72">
                 {siteConfig.name}
               </span>
             </Link>
-            <p className="mt-3 text-sm text-stone-500 leading-relaxed max-w-[40ch]">
-              {siteConfig.description}
+            <p className="mt-5 max-w-[38ch] text-lg font-medium leading-snug text-ink/82 md:text-xl">
+              Practical AI consulting, workflow builds, and team training.
             </p>
-            <p className="mt-4 text-xs text-stone-400">
-              Based in {siteConfig.location}
-            </p>
-            <p className="mt-2 text-[11px] text-stone-400 leading-relaxed">
-              {siteConfig.legalName} · Registered in England &amp; Wales ·
-              Company No. {siteConfig.companyNumber}
-            </p>
-            <p className="text-[11px] text-stone-400 leading-relaxed">
-              Registered office: {siteConfig.registeredOffice.street},{" "}
-              {siteConfig.registeredOffice.locality},{" "}
-              {siteConfig.registeredOffice.region},{" "}
-              {siteConfig.registeredOffice.postalCode}
+            <p className="mt-3 max-w-[54ch] text-sm leading-relaxed text-ink/58">
+              We help UK businesses make sense of AI, build the useful bit, and
+              hand it to the team properly. Based in Cornwall. Working UK-wide
+              and remote.
             </p>
           </div>
 
-          {/* Services */}
-          <div className="md:col-span-3">
-            <p className="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-4">
-              Services
-            </p>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  href="/services/ai-training"
-                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
-                >
-                  AI Education
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/ai-automation"
-                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
-                >
-                  AI Implementation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/digital-services"
-                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
-                >
-                  Digital Services
-                </Link>
-              </li>
-              <li>
-                <TrackClick event="cta_clicked" properties={{ cta_type: "book_training", location: "footer" }}>
-                  <Link
-                    href="/book?intent=training"
-                    className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
-                  >
-                    Book AI Training
-                  </Link>
-                </TrackClick>
-              </li>
-              <li>
-                <TrackClick event="cta_clicked" properties={{ cta_type: "book_audit", location: "footer" }}>
-                  <Link
-                    href="/book?intent=audit"
-                    className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
-                  >
-                    Book Your AI Audit
-                  </Link>
-                </TrackClick>
-              </li>
-            </ul>
-          </div>
+          <div className="grid gap-8 sm:grid-cols-2">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-ink/45">
+                Navigate
+              </p>
+              <ul className="mt-4 space-y-2">
+                {footerNavigation.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="inline-flex items-center gap-2 py-1 text-sm font-medium text-ink/70 transition-colors hover:text-ink"
+                    >
+                      {item.name}
+                      <ArrowUpRight size={14} />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Contact */}
-          <div className="md:col-span-4">
-            <p className="text-xs font-semibold uppercase tracking-widest text-stone-400 mb-4">
-              Get in Touch
-            </p>
-            <ul className="space-y-3">
-              <li>
-                <TrackClick event="contact_clicked" properties={{ method: "whatsapp", location: "footer" }}>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-ink/45">
+                Contact
+              </p>
+              <ul className="mt-4 space-y-3">
+                <li>
+                  <TrackClick
+                    event="contact_clicked"
+                    properties={{ method: "whatsapp", location: "footer" }}
+                  >
+                    <a
+                      href={getWhatsAppUrl(
+                        "Hi Levi, I want to talk about AI for my business.",
+                      )}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 py-1 text-sm font-semibold text-ink transition-colors hover:text-signal-strong"
+                    >
+                      <MessageCircle size={16} />
+                      Message on WhatsApp
+                    </a>
+                  </TrackClick>
+                </li>
+                <li>
+                  <TrackClick
+                    event="contact_clicked"
+                    properties={{ method: "phone", location: "footer" }}
+                  >
+                    <a
+                      href={`tel:${siteConfig.phone}`}
+                      className="inline-flex items-center gap-2 py-1 text-sm text-ink/70 transition-colors hover:text-ink"
+                    >
+                      <Phone size={16} />
+                      {siteConfig.phoneDisplay}
+                    </a>
+                  </TrackClick>
+                </li>
+                <li>
+                  <TrackClick
+                    event="contact_clicked"
+                    properties={{ method: "email", location: "footer" }}
+                  >
+                    <a
+                      href={`mailto:${siteConfig.email}`}
+                      className="inline-flex items-center gap-2 py-1 text-sm text-ink/70 transition-colors hover:text-ink"
+                    >
+                      <Mail size={16} />
+                      {siteConfig.email}
+                    </a>
+                  </TrackClick>
+                </li>
+                <li className="flex items-start gap-2 py-1 text-sm text-ink/60">
+                  <MapPin size={16} className="mt-0.5 shrink-0" />
+                  {siteConfig.location}
+                </li>
+                <li>
                   <a
-                    href={getWhatsAppUrl("Hi Levi, I'd like to chat about AI for my business.")}
+                    href={siteConfig.googleBusinessProfile}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-emerald-600 hover:text-emerald-700 transition-colors font-medium py-1 inline-block"
+                    className="inline-flex items-center gap-2 py-1 text-sm text-ink/70 transition-colors hover:text-ink"
                   >
-                    Message on WhatsApp
+                    <ArrowUpRight size={16} />
+                    Google Business Profile
                   </a>
-                </TrackClick>
-              </li>
-              <li>
-                <TrackClick event="contact_clicked" properties={{ method: "phone", location: "footer" }}>
+                </li>
+                <li>
                   <a
-                    href={`tel:${siteConfig.phone}`}
-                    className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
+                    href={siteConfig.companiesHouseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 py-1 text-sm text-ink/70 transition-colors hover:text-ink"
                   >
-                    {siteConfig.phoneDisplay}
+                    <ArrowUpRight size={16} />
+                    Companies House
                   </a>
-                </TrackClick>
-              </li>
-              <li>
-                <TrackClick event="contact_clicked" properties={{ method: "email", location: "footer" }}>
-                  <a
-                    href={`mailto:${siteConfig.email}`}
-                    className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
-                  >
-                    {siteConfig.email}
-                  </a>
-                </TrackClick>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-sm text-stone-500 hover:text-stone-900 transition-colors py-1 inline-block"
-                >
-                  Contact Page
-                </Link>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-stone-200 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-stone-400">
-            &copy; {new Date().getFullYear()} {siteConfig.legalName}. All
-            rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <Link
-              href="/privacy"
-              className="text-xs text-stone-400 hover:text-stone-600 transition-colors py-1 inline-block"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-xs text-stone-400 hover:text-stone-600 transition-colors py-1 inline-block"
-            >
-              Terms of Service
-            </Link>
-            <ManageCookies />
+        <div className="mt-12 border-t border-ink/10 pt-6">
+          <div className="grid gap-5 text-xs text-ink/50 md:grid-cols-[1fr_auto] md:items-center">
+            <div className="space-y-1">
+              <p>
+                &copy; {new Date().getFullYear()} {siteConfig.legalName}. All
+                rights reserved.
+              </p>
+              <p>
+                Registered in England and Wales. Company No.{" "}
+                {siteConfig.companyNumber}. Registered office:{" "}
+                {siteConfig.registeredOffice.street},{" "}
+                {siteConfig.registeredOffice.locality},{" "}
+                {siteConfig.registeredOffice.postalTown},{" "}
+                {siteConfig.registeredOffice.region},{" "}
+                {siteConfig.registeredOffice.postalCode}.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pr-16 leading-none md:justify-end lg:pr-0">
+              <Link
+                href="/privacy"
+                className="inline-flex items-center leading-none hover:text-ink"
+              >
+                Privacy
+              </Link>
+              <Link
+                href="/terms"
+                className="inline-flex items-center leading-none hover:text-ink"
+              >
+                Terms
+              </Link>
+              <ManageCookies />
+            </div>
           </div>
         </div>
       </div>

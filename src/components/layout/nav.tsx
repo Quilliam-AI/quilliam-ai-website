@@ -1,13 +1,13 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
-import { siteConfig, navigation, serviceLinks } from "@/lib/content";
+import { ChevronRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { trackBookTrainingClicked, trackBookAuditClicked } from "@/lib/analytics";
+import { navigation, siteConfig } from "@/lib/content";
+import { trackBookOpportunityClicked } from "@/lib/analytics";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -15,28 +15,26 @@ export function Nav() {
   const [observedHash, setObservedHash] = useState("");
   const pathname = usePathname();
   const isHome = pathname === "/";
-  // Only show active hash highlighting on the homepage
   const activeHash = isHome ? observedHash : "";
 
-  // Resolve hash links: on homepage use bare "#section" for native scroll,
-  // on subpages use "/#section" to navigate home first.
   function resolveHref(href: string): string {
     if (!href.startsWith("/#")) return href;
-    return isHome ? href.slice(1) : href; // "/#services" → "#services" on homepage
+    return isHome ? href.slice(1) : href;
   }
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 18);
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Track which homepage section is in view via IntersectionObserver
   useEffect(() => {
-    if (pathname !== "/") return;
+    if (!isHome) return;
 
     const sectionIds = navigation
       .map((item) => item.href)
@@ -51,219 +49,134 @@ export function Nav() {
           }
         }
       },
-      { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
+      { rootMargin: "-42% 0px -48% 0px", threshold: 0 },
     );
 
     for (const id of sectionIds) {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
     }
 
     return () => observer.disconnect();
-  }, [pathname]);
+  }, [isHome]);
 
   function isActive(href: string): boolean {
-    // Hash links (/#section): match against the currently visible section
     if (href.startsWith("/#")) {
-      if (pathname !== "/") return false;
-      return activeHash === href;
+      return isHome && activeHash === href;
     }
-    // Route links: match against the current pathname
-    return pathname === href || pathname.startsWith(href + "/");
+
+    return pathname === href || pathname.startsWith(`${href}/`);
   }
 
-  function isServicesActive(): boolean {
-    // Active if on homepage #services section or any /services/* page
-    if (pathname.startsWith("/services")) return true;
-    return activeHash === "/#services";
-  }
+  const shellClass = scrolled
+    ? "opacity-95"
+    : "opacity-100";
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-40 flex justify-center px-4 pt-4">
-      <header
-        className={`w-full max-w-[1200px] transition-all duration-500 rounded-2xl ${
-          scrolled
-            ? "bg-stone-950/80 backdrop-blur-md md:backdrop-blur-2xl border border-stone-800/60 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.06)]"
-            : "bg-white/5 backdrop-blur-md md:backdrop-blur-xl border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
-        }`}
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-5">
+      <div
+        className={`liquid-nav mx-auto max-w-[1240px] rounded-[2rem] transition-all duration-300 ${shellClass}`}
       >
-        <nav className="flex items-center justify-between px-5 h-14">
-          {/* Logo */}
+        <nav className="flex h-14 items-center justify-between px-3 md:pl-4 md:pr-2">
           <Link
             href="/"
-            className="flex items-center gap-2.5 text-white transition-colors duration-500"
+            aria-label={`${siteConfig.name} home`}
+            className="flex min-w-0 items-center gap-3 px-1 text-ink"
           >
-            <Image
-              src="/logo-white.svg"
-              alt=""
-              width={28}
-              height={28}
-              className="w-7 h-7"
-            />
-            <span className="text-[15px] font-semibold tracking-tight">
+            <span className="flex h-9 w-9 items-center justify-center rounded-[0.85rem] border border-ink/10 bg-ink/92 shadow-[0_8px_24px_-18px_rgba(18,16,12,0.75)]">
+              <Image
+                src="/logo-white.svg"
+                alt=""
+                width={28}
+                height={28}
+                sizes="28px"
+                className="h-7 w-7"
+              />
+            </span>
+            <span className="hidden whitespace-nowrap text-sm font-semibold uppercase tracking-[0.16em] lg:block">
               {siteConfig.name}
             </span>
           </Link>
 
-          {/* Desktop nav links */}
-          <div className="hidden md:flex items-center gap-1">
-            {navigation.map((item) =>
-              item.name === "Services" ? (
-                <div key={item.name} className="relative group">
-                  <Link
-                    href={resolveHref(item.href)}
-                    className={`px-3.5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
-                      isServicesActive()
-                        ? "text-emerald-400"
-                        : "text-white/60 hover:text-white hover:bg-white/10"
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                  {/* Dropdown */}
-                  <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                    <div className="w-52 rounded-xl bg-stone-950/90 backdrop-blur-2xl border border-stone-800/60 shadow-xl p-2">
-                      {serviceLinks.map((service) => (
-                        <Link
-                          key={service.name}
-                          href={service.href}
-                          className={`block px-3 py-2.5 rounded-lg text-sm transition-colors ${
-                            isActive(service.href)
-                              ? "text-emerald-400 bg-emerald-400/10"
-                              : "text-white/60 hover:text-white hover:bg-white/10"
-                          }`}
-                        >
-                          {service.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  key={item.name}
-                  href={resolveHref(item.href)}
-                  className={`px-3.5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
-                    isActive(item.href)
-                      ? "text-emerald-400"
-                      : "text-white/60 hover:text-white hover:bg-white/10"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              )
-            )}
+          <div className="hidden items-center gap-1 md:flex">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={resolveHref(item.href)}
+                className={`px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] transition-colors ${
+                  isActive(item.href)
+                    ? "text-signal-strong"
+                    : "text-ink/52 hover:text-ink"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden items-center gap-2 md:flex">
             <Button
               asChild
               size="sm"
-              variant="outline"
-              className="rounded-xl px-4 h-8 text-[13px] font-medium text-white/80 border-white/20 hover:text-white hover:border-white/40 transition-all duration-500"
+              className="h-10 px-4 text-sm normal-case tracking-normal hover:translate-y-0"
             >
-              <Link href="/book?intent=training" onClick={() => trackBookTrainingClicked("nav")}>
-                AI Training
-              </Link>
-            </Button>
-            <Button
-              asChild
-              size="sm"
-              className="rounded-xl px-4 h-8 text-[13px] font-medium bg-emerald-600 hover:bg-emerald-500 text-white transition-all duration-500"
-            >
-              <Link href="/book?intent=audit" onClick={() => trackBookAuditClicked("nav")}>
-                AI Audit
+              <Link
+                href="/book?intent=opportunity"
+                onClick={() => trackBookOpportunityClicked("nav")}
+              >
+                Ready to Implement
+                <ChevronRight size={15} strokeWidth={2.2} />
               </Link>
             </Button>
           </div>
 
-          {/* Mobile hamburger */}
           <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden p-2.5 rounded-lg text-white hover:bg-white/10 transition-colors"
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 bg-white/45 text-ink md:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
-            {open ? (
-              <X size={20} strokeWidth={2.5} />
-            ) : (
-              <Menu size={20} strokeWidth={2.5} />
-            )}
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </nav>
 
-        {/* Mobile dropdown inside the glass pill */}
-        <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
-            open ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
-          }`}
-          aria-hidden={!open}
-        >
-          <div className="px-5 pb-5 pt-2 border-t border-white/10 flex flex-col gap-1">
-            {navigation.map((item) => (
-              <div key={item.name}>
+        {open ? (
+          <div className="overflow-hidden border-t border-ink/10 md:hidden">
+            <div className="space-y-1 p-3">
+              {navigation.map((item) => (
                 <Link
+                  key={item.name}
                   href={resolveHref(item.href)}
                   onClick={() => setOpen(false)}
-                  className={`px-3 py-2.5 rounded-xl text-[15px] font-medium transition-colors block ${
-                    item.name === "Services"
-                      ? isServicesActive()
-                        ? "text-emerald-400"
-                        : "text-white/80 hover:bg-white/10"
-                      : isActive(item.href)
-                        ? "text-emerald-400"
-                        : "text-white/80 hover:bg-white/10"
+                  className={`block rounded-full px-3 py-3 text-sm font-semibold uppercase tracking-[0.14em] ${
+                    isActive(item.href)
+                      ? "bg-signal/12 text-signal-strong"
+                      : "text-ink/58 hover:bg-white/35 hover:text-ink"
                   }`}
                 >
                   {item.name}
                 </Link>
-                {item.name === "Services" && (
-                  <div className="ml-4 flex flex-col gap-0.5">
-                    {serviceLinks.map((service) => (
-                      <Link
-                        key={service.name}
-                        href={service.href}
-                        onClick={() => setOpen(false)}
-                        className={`px-3 py-2 rounded-xl text-sm transition-colors ${
-                          isActive(service.href)
-                            ? "text-emerald-400"
-                            : "text-white/50 hover:text-white/80 hover:bg-white/10"
-                        }`}
-                      >
-                        {service.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-            <Button
-              asChild
-              variant="outline"
-              className="rounded-xl mt-2 w-full h-10 text-white/80 border-white/20"
-            >
-              <Link
-                href="/book?intent=training"
-                onClick={() => { trackBookTrainingClicked("nav"); setOpen(false); }}
+              ))}
+              <Button
+                asChild
+                className="mt-2 w-full whitespace-normal text-center leading-tight tracking-normal normal-case"
               >
-                Book AI Training
-              </Link>
-            </Button>
-            <Button
-              asChild
-              className="rounded-xl mt-2 w-full bg-emerald-600 hover:bg-emerald-700 h-10"
-            >
-              <Link
-                href="/book?intent=audit"
-                onClick={() => { trackBookAuditClicked("nav"); setOpen(false); }}
-              >
-                Book Your AI Audit
-              </Link>
-            </Button>
+                <Link
+                  href="/book?intent=opportunity"
+                  onClick={() => {
+                    trackBookOpportunityClicked("nav");
+                    setOpen(false);
+                  }}
+                >
+                  Ready to Implement
+                  <ChevronRight size={16} />
+                </Link>
+              </Button>
+            </div>
           </div>
-        </div>
-      </header>
-    </div>
+        ) : null}
+      </div>
+    </header>
   );
 }

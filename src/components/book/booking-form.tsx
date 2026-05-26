@@ -1,21 +1,21 @@
 "use client";
 
-import { useState, useRef, useEffect, type FormEvent } from "react";
-import posthog from "posthog-js";
-import { ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { submitBooking } from "./booking-action";
 import {
-  trackBookingFormViewed,
+  trackBookingFormError,
   trackBookingFormStarted,
   trackBookingFormSubmitted,
-  trackBookingFormSuccess,
-  trackBookingFormError,
+  trackBookingFormViewed,
 } from "@/lib/analytics";
+import { identifyPostHogUser } from "@/lib/posthog-client";
+import { hasAcceptedPostHogCookies } from "@/lib/posthog-config";
+import { submitBooking } from "./booking-action";
 
 const BUSINESS_TYPES = [
-  "Small business (1–10)",
-  "Growing business (10–50)",
+  "Small business (1-10)",
+  "Growing business (10-50)",
   "Agency / consultancy",
   "Startup / scale-up",
   "University spin-out",
@@ -25,16 +25,16 @@ const BUSINESS_TYPES = [
 
 const INTERESTS = {
   training: {
-    value: "AI Training / Education",
-    label: "AI Training / Education",
+    value: "AI Training / Team Adoption",
+    label: "Training",
   },
-  audit: {
-    value: "AI Audit / Implementation",
-    label: "AI Audit / Implementation",
+  opportunity: {
+    value: "AI Opportunity / Implementation",
+    label: "Opportunity",
   },
   either: {
     value: "Not sure yet / both",
-    label: "Not sure yet",
+    label: "Not sure",
   },
 } as const;
 
@@ -56,17 +56,17 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
 
   const submitLabel =
     interest === "training"
-      ? "Book AI Training"
-      : interest === "audit"
-        ? "Book Your AI Audit"
-        : "Book My Session";
+      ? "Book team training"
+      : interest === "opportunity"
+        ? "Find Where AI Can Help My Business"
+        : "Book first session";
 
   const successLabel =
     interest === "training"
-      ? "AI training session"
-      : interest === "audit"
-        ? "AI Audit"
-        : "session";
+      ? "team training session"
+      : interest === "opportunity"
+        ? "AI Opportunity session"
+        : "AI session";
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -74,6 +74,10 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
     setErrorMessage("");
 
     const formData = new FormData(e.currentTarget);
+    const analyticsConsent = hasAcceptedPostHogCookies();
+    formData.set("analyticsConsent", analyticsConsent ? "accepted" : "rejected");
+    formData.set("pageUrl", window.location.href);
+
     const businessType = formData.get("businessType") as string;
 
     trackBookingFormSubmitted({
@@ -84,31 +88,29 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
 
     try {
       const result = await submitBooking(formData);
+
       if (result.success) {
         setStatus("success");
 
         const email = formData.get("email") as string;
         const name = formData.get("name") as string;
         const business = formData.get("business") as string;
-        posthog.identify(email, {
-          email,
-          name,
-          business,
-          business_type: businessType,
-        });
 
-        trackBookingFormSuccess({
-          intent: interest,
-          interest: INTERESTS[interest].value,
-          business_type: businessType,
-        });
+        if (analyticsConsent) {
+          void identifyPostHogUser(email, {
+            email,
+            name,
+            business,
+            business_type: businessType,
+          });
+        }
       } else {
         setErrorMessage(result.error || "Something went wrong. Please try again.");
         setStatus("error");
         trackBookingFormError({ intent: interest, error: result.error || "unknown" });
       }
     } catch {
-      setErrorMessage("Something went wrong. Please try again or message us on WhatsApp.");
+      setErrorMessage("Something went wrong. Please try again or message on WhatsApp.");
       setStatus("error");
       trackBookingFormError({ intent: interest, error: "network_error" });
     }
@@ -116,16 +118,19 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
 
   if (status === "success") {
     return (
-      <div role="status" className="rounded-2xl bg-stone-900 border border-stone-800/60 p-8 md:p-10 flex flex-col items-center justify-center min-h-[500px] text-center">
-        <div className="w-16 h-16 rounded-full bg-emerald-900/40 border border-emerald-800/40 flex items-center justify-center mb-6">
-          <CheckCircle2 size={32} className="text-emerald-400" />
+      <div
+        role="status"
+        className="rounded-card-xl flex min-h-[520px] flex-col items-center justify-center border border-signal/30 bg-signal/10 p-6 text-center"
+      >
+        <div className="flex h-16 w-16 items-center justify-center rounded-[1.4rem] border border-signal/40 bg-signal/15 text-signal">
+          <CheckCircle2 size={34} />
         </div>
-        <h2 className="text-2xl font-semibold tracking-tight text-white">
-          You&apos;re booked in
+        <h2 className="mt-7 text-3xl font-semibold tracking-tight text-paper">
+          Request received
         </h2>
-        <p className="mt-3 text-sm text-stone-400 leading-relaxed max-w-[36ch]">
-          We will get back to you within 24 hours to arrange your{" "}
-          {successLabel}. Check your email for a confirmation.
+        <p className="mt-4 max-w-[40ch] text-sm leading-relaxed text-paper/65">
+          I will get back to you within 24 hours to arrange your {successLabel}.
+          A confirmation email is on the way.
         </p>
       </div>
     );
@@ -140,26 +145,35 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
           trackBookingFormStarted(interest);
         }
       }}
-      className="rounded-2xl bg-stone-900 border border-stone-800/60 p-8 md:p-10"
+      className="rounded-card-xl border border-paper/10 bg-panel/80 p-6 shadow-[0_30px_100px_-80px_rgba(18,16,12,0.65)]"
     >
-      <h2 className="text-xl font-semibold tracking-tight text-white mb-8">
-        Tell us about your business
-      </h2>
-
-      <div className="space-y-5">
-        {/* Interest — hidden when coming with explicit intent, visible otherwise */}
+      <div className="flex items-start justify-between gap-4 border-b border-paper/10 pb-5">
         <div>
-          <label className="block text-xs font-medium text-stone-400 uppercase tracking-widest mb-2">
-            I&apos;m interested in
-          </label>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-signal">
+            Intake
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-paper">
+            Tell me what is dragging
+          </h2>
+        </div>
+        <div className="hidden border border-paper/10 bg-ink/70 px-3 py-2 text-xs font-semibold text-paper/45 sm:block">
+          24h reply
+        </div>
+      </div>
+
+      <div className="mt-6 space-y-5">
+        <fieldset>
+          <legend className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-paper/50">
+            Starting point
+          </legend>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
             {(Object.keys(INTERESTS) as InterestKey[]).map((key) => (
               <label
                 key={key}
-                className={`flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl cursor-pointer text-xs font-medium transition-all border ${
+                  className={`flex cursor-pointer items-center justify-center rounded-full border px-3 py-3 text-center text-xs font-bold uppercase tracking-[0.14em] transition-all ${
                   interest === key
-                    ? "bg-emerald-900/40 border-emerald-700/60 text-emerald-400"
-                    : "bg-stone-950 border-stone-800/60 text-stone-400 hover:border-stone-700"
+                    ? "border-signal/50 bg-signal/10 text-signal"
+                    : "border-paper/10 bg-ink/70 text-paper/55 hover:border-paper/25 hover:text-paper"
                 }`}
               >
                 <input
@@ -170,180 +184,168 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
                   onChange={() => setInterest(key)}
                   className="sr-only"
                 />
-                {key === "either" ? "Not sure yet" : INTERESTS[key].label}
+                {INTERESTS[key].label}
               </label>
             ))}
           </div>
-        </div>
+        </fieldset>
 
-        {/* Name */}
-        <div>
-          <label
-            htmlFor="name"
-            className="block text-xs font-medium text-stone-400 uppercase tracking-widest mb-2"
-          >
-            Your name
-          </label>
+        <Field label="Your name" id="name" required>
           <input
             id="name"
             name="name"
             type="text"
             required
-            placeholder="e.g. Jane Smith"
-            className="w-full rounded-xl bg-stone-950 border border-stone-800/60 px-4 py-3 text-sm text-white placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-700 transition-all"
+            placeholder="Jane Smith"
+            className={inputClassName}
           />
-        </div>
+        </Field>
 
-        {/* Email */}
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-xs font-medium text-stone-400 uppercase tracking-widest mb-2"
-          >
-            Email
-          </label>
+        <Field label="Email" id="email" required>
           <input
             id="email"
             name="email"
             type="email"
             required
-            placeholder="jane@yourbusiness.co.uk"
-            className="w-full rounded-xl bg-stone-950 border border-stone-800/60 px-4 py-3 text-sm text-white placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-700 transition-all"
+            placeholder="jane@business.co.uk"
+            className={inputClassName}
           />
-        </div>
+        </Field>
 
-        {/* Phone (optional) */}
-        <div>
-          <label
-            htmlFor="phone"
-            className="block text-xs font-medium text-stone-400 uppercase tracking-widest mb-2"
-          >
-            Phone{" "}
-            <span className="text-stone-600 normal-case tracking-normal">
-              (optional)
-            </span>
-          </label>
+        <Field label="Phone" id="phone" optional>
           <input
             id="phone"
             name="phone"
             type="tel"
-            placeholder="07xxx xxxxxx"
-            className="w-full rounded-xl bg-stone-950 border border-stone-800/60 px-4 py-3 text-sm text-white placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-700 transition-all"
+            placeholder="07593 121 621"
+            className={inputClassName}
           />
-        </div>
+        </Field>
 
-        {/* Business name */}
-        <div>
-          <label
-            htmlFor="business"
-            className="block text-xs font-medium text-stone-400 uppercase tracking-widest mb-2"
-          >
-            Business name
-          </label>
+        <Field label="Business name" id="business" required>
           <input
             id="business"
             name="business"
             type="text"
             required
             placeholder="Your business"
-            className="w-full rounded-xl bg-stone-950 border border-stone-800/60 px-4 py-3 text-sm text-white placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-700 transition-all"
+            className={inputClassName}
           />
-        </div>
+        </Field>
 
-        {/* Business type */}
-        <div>
-          <label
-            htmlFor="businessType"
-            className="block text-xs font-medium text-stone-400 uppercase tracking-widest mb-2"
-          >
-            Business type
-          </label>
+        <Field label="Business type" id="businessType" required>
           <select
             id="businessType"
             name="businessType"
             required
             defaultValue=""
-            className="w-full rounded-xl bg-stone-950 border border-stone-800/60 px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-700 transition-all appearance-none cursor-pointer"
+            className={`${inputClassName} cursor-pointer`}
           >
-            <option value="" disabled className="text-stone-600">
+            <option value="" disabled>
               Select the closest match
             </option>
             {BUSINESS_TYPES.map((type) => (
-              <option key={type} value={type} className="bg-stone-950">
+              <option key={type} value={type} className="bg-ink">
                 {type}
               </option>
             ))}
           </select>
-        </div>
+        </Field>
 
-        {/* Message */}
-        <div>
-          <label
-            htmlFor="message"
-            className="block text-xs font-medium text-stone-400 uppercase tracking-widest mb-2"
-          >
-            What are you hoping AI can help with?{" "}
-            <span className="text-stone-600 normal-case tracking-normal">
-              (optional)
-            </span>
-          </label>
+        <Field label="Where is AI getting stuck?" id="message" optional>
           <textarea
             id="message"
             name="message"
-            rows={3}
-            placeholder="e.g. We spend hours on repetitive customer emails, or our team wants to learn AI tools but doesn't know where to start..."
-            className="w-full rounded-xl bg-stone-950 border border-stone-800/60 px-4 py-3 text-sm text-white placeholder:text-stone-600 focus:outline-none focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-700 transition-all resize-none"
+            rows={4}
+            placeholder="Example: leads are not followed up, support tickets pile up, reporting is manual, or the team is using AI inconsistently."
+            className={`${inputClassName} min-h-28 resize-y`}
           />
-        </div>
+        </Field>
       </div>
 
-      {/* Error message */}
       <div aria-live="polite" aria-atomic="true">
-        {status === "error" && (
-          <p role="alert" className="mt-4 text-sm text-red-400">{errorMessage}</p>
-        )}
+        {status === "error" ? (
+          <p role="alert" className="mt-4 text-sm text-danger-wire">
+            {errorMessage}
+          </p>
+        ) : null}
       </div>
 
-      {/* Privacy consent */}
-      <div className="mt-6 flex items-start gap-2.5">
+      <div className="rounded-card mt-6 flex items-start gap-3 border border-paper/10 bg-ink/60 p-4">
         <input
           id="privacy"
           name="privacy"
           type="checkbox"
           required
-          className="mt-0.5 h-4 w-4 shrink-0 rounded border-stone-700 bg-stone-950 text-emerald-600 focus:ring-emerald-500/40 accent-emerald-600"
+          className="mt-1 h-4 w-4 shrink-0 accent-signal"
         />
-        <label htmlFor="privacy" className="text-xs text-stone-500 leading-relaxed">
+        <label htmlFor="privacy" className="text-xs leading-relaxed text-paper/55">
           I agree to Quilliam AI&apos;s{" "}
-          <a href="/privacy" className="text-stone-400 underline underline-offset-2 hover:text-white transition-colors">
+          <a href="/privacy" className="text-paper underline underline-offset-4 hover:text-signal">
             Privacy Policy
           </a>
+          .
         </label>
       </div>
 
-      {/* Submit */}
       <Button
         type="submit"
         disabled={status === "submitting"}
         size="lg"
-        className="w-full mt-8 rounded-full h-12 text-base bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition-all shadow-[0_4px_20px_-4px_rgba(5,150,105,0.5)] disabled:opacity-60 disabled:cursor-not-allowed"
+        className="mt-6 w-full whitespace-normal text-center leading-tight tracking-normal normal-case"
       >
         {status === "submitting" ? (
           <>
-            <Loader2 size={18} className="mr-2 animate-spin" />
-            Sending...
+            <Loader2 size={18} className="animate-spin" />
+            Sending
           </>
         ) : (
           <>
             {submitLabel}
-            <ArrowRight size={18} className="ml-2" />
+            <ArrowRight size={18} />
           </>
         )}
       </Button>
 
-      <p className="mt-4 text-xs text-stone-600 text-center">
-        We will reply within 24 hours. No spam, ever.
+      <p className="mt-4 text-center text-xs leading-relaxed text-paper/40">
+        No spam. No generic nurture sequence. Just a practical reply from Levi.
       </p>
     </form>
+  );
+}
+
+const inputClassName =
+  "w-full rounded-[1rem] border border-paper/10 bg-ink px-4 py-3 text-sm text-paper placeholder:text-paper/30 transition-all focus:border-signal/40 focus:ring-2 focus:ring-signal/20";
+
+function Field({
+  label,
+  id,
+  children,
+  required,
+  optional,
+}: {
+  label: string;
+  id: string;
+  children: React.ReactNode;
+  required?: boolean;
+  optional?: boolean;
+}) {
+  return (
+    <div>
+      <label
+        htmlFor={id}
+        className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-paper/50"
+      >
+        {label}
+        {required ? <span className="text-signal"> *</span> : null}
+        {optional ? (
+          <span className="font-medium normal-case tracking-normal text-paper/35">
+            {" "}
+            (optional)
+          </span>
+        ) : null}
+      </label>
+      {children}
+    </div>
   );
 }
