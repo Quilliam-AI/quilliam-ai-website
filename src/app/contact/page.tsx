@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
+import { FadeIn } from "@/components/shared/fade-in";
 import { TrackClick } from "@/components/shared/track-click";
 import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { getWhatsAppUrl, siteConfig } from "@/lib/content";
@@ -114,7 +115,7 @@ export default function ContactPage() {
         <div className="site-grid absolute inset-0 opacity-35" />
         <div className="noise absolute inset-0 opacity-70" />
         <div className="relative mx-auto grid max-w-[1220px] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div>
+          <FadeIn direction="right">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
               Contact
             </p>
@@ -146,64 +147,69 @@ export default function ContactPage() {
                 <Link href="/#workflows">See workflow work</Link>
               </Button>
             </div>
-          </div>
+          </FadeIn>
 
           <div className="grid gap-4">
-            {contactMethods.map((method) => (
-              <TrackClick
-                key={method.label}
-                event="contact_clicked"
-                properties={{ method: method.method, location: "contact" }}
-              >
-                <a
-                  href={method.href}
-                  target={method.external ? "_blank" : undefined}
-                  rel={method.external ? "noopener noreferrer" : undefined}
-                  className="rounded-card-lg group grid gap-4 border border-paper/10 bg-paper/[0.025] p-5 transition-colors hover:border-signal/35 hover:bg-signal/[0.035] sm:grid-cols-[3rem_1fr_auto] sm:items-center"
+            {contactMethods.map((method, index) => (
+              <FadeIn key={method.label} delay={index * 0.08} direction="left">
+                <TrackClick
+                  event="contact_clicked"
+                  properties={{ method: method.method, location: "contact" }}
                 >
-                  <span className="flex h-12 w-12 items-center justify-center rounded-[1.125rem] border border-signal/30 bg-signal/10 text-signal">
-                    <method.icon size={22} />
-                  </span>
-                  <span>
-                    <span className="block text-[0.65rem] font-bold uppercase tracking-[0.18em] text-paper/45">
-                      {method.label}
+                  <a
+                    href={method.href}
+                    target={method.external ? "_blank" : undefined}
+                    rel={method.external ? "noopener noreferrer" : undefined}
+                    className="rounded-card-lg group grid gap-4 border border-paper/10 bg-paper/[0.025] p-5 transition-colors hover:border-signal/35 hover:bg-signal/[0.035] sm:grid-cols-[3rem_1fr_auto] sm:items-center"
+                  >
+                    <span className="flex h-12 w-12 items-center justify-center rounded-[1.125rem] border border-signal/30 bg-signal/10 text-signal">
+                      <method.icon size={22} />
                     </span>
-                    <span className="mt-2 block text-xl font-semibold tracking-tight text-paper">
-                      {method.value}
+                    <span>
+                      <span className="block text-[0.65rem] font-bold uppercase tracking-[0.18em] text-paper/45">
+                        {method.label}
+                      </span>
+                      <span className="mt-2 block text-xl font-semibold tracking-tight text-paper">
+                        {method.value}
+                      </span>
+                      <span className="mt-2 block text-sm leading-relaxed text-paper/60">
+                        {method.description}
+                      </span>
                     </span>
-                    <span className="mt-2 block text-sm leading-relaxed text-paper/60">
-                      {method.description}
-                    </span>
-                  </span>
-                  <ArrowRight
-                    size={20}
-                    className="text-paper/35 transition-transform group-hover:translate-x-1 group-hover:text-signal"
-                  />
-                </a>
-              </TrackClick>
+                    <ArrowRight
+                      size={20}
+                      className="text-paper/35 transition-transform group-hover:translate-x-1 group-hover:text-signal"
+                    />
+                  </a>
+                </TrackClick>
+              </FadeIn>
             ))}
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
-                <MapPin size={21} className="text-cyan-wire" />
-                <h2 className="mt-6 text-xl font-semibold tracking-tight text-paper">
-                  {siteConfig.location}
-                </h2>
-                <p className="mt-3 text-sm leading-relaxed text-paper/60">
-                  Based in Cornwall. Working UK-wide and remote, with in-person
-                  sessions where they help.
-                </p>
-              </div>
-              <div className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
-                <Clock size={21} className="text-amber-wire" />
-                <h2 className="mt-6 text-xl font-semibold tracking-tight text-paper">
-                  24 hour reply
-                </h2>
-                <p className="mt-3 text-sm leading-relaxed text-paper/60">
-                  If the fit is poor or AI is not the right move yet, I will say
-                  so plainly.
-                </p>
-              </div>
+              <FadeIn delay={0.24} direction="left">
+                <div className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
+                  <MapPin size={21} className="text-cyan-wire" />
+                  <h2 className="mt-6 text-xl font-semibold tracking-tight text-paper">
+                    {siteConfig.location}
+                  </h2>
+                  <p className="mt-3 text-sm leading-relaxed text-paper/60">
+                    Based in Cornwall. Working UK-wide and remote, with in-person
+                    sessions where they help.
+                  </p>
+                </div>
+              </FadeIn>
+              <FadeIn delay={0.32} direction="left">
+                <div className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
+                  <Clock size={21} className="text-amber-wire" />
+                  <h2 className="mt-6 text-xl font-semibold tracking-tight text-paper">
+                    24 hour reply
+                  </h2>
+                  <p className="mt-3 text-sm leading-relaxed text-paper/60">
+                    If the fit is poor or AI is not the right move yet, I will say
+                    so plainly.
+                  </p>
+                </div>
+              </FadeIn>
             </div>
           </div>
         </div>

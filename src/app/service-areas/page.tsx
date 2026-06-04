@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Laptop, MapPin, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
+import { FadeIn } from "@/components/shared/fade-in";
 import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { siteConfig } from "@/lib/content";
 
@@ -125,7 +126,7 @@ export default function ServiceAreasPage() {
       <section className="relative overflow-hidden bg-ink px-6 pb-20 pt-28 text-paper md:pb-28 md:pt-36">
         <div className="site-grid absolute inset-0 opacity-35" />
         <div className="noise absolute inset-0 opacity-70" />
-        <div className="relative mx-auto max-w-[1220px]">
+        <FadeIn className="relative mx-auto max-w-[1220px]">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
             Where we work
           </p>
@@ -157,45 +158,49 @@ export default function ServiceAreasPage() {
               <Link href="/contact">Ask about location</Link>
             </Button>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       <section className="bg-[#080a08] px-6 py-20 text-paper md:py-28">
         <div className="mx-auto grid max-w-[1220px] gap-4 md:grid-cols-3">
-          {delivery.map((item) => (
-            <article key={item.title} className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
-              <item.icon size={24} className="text-signal" />
-              <h2 className="mt-8 text-2xl font-semibold tracking-tight text-paper">
-                {item.title}
-              </h2>
-              <p className="mt-4 text-sm leading-relaxed text-paper/62">
-                {item.description}
-              </p>
-            </article>
+          {delivery.map((item, index) => (
+            <FadeIn key={item.title} delay={index * 0.08}>
+              <article className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
+                <item.icon size={24} className="text-signal" />
+                <h2 className="mt-8 text-2xl font-semibold tracking-tight text-paper">
+                  {item.title}
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-paper/62">
+                  {item.description}
+                </p>
+              </article>
+            </FadeIn>
           ))}
         </div>
       </section>
 
       <section className="bg-ink px-6 py-20 text-paper md:py-28">
         <div className="mx-auto grid max-w-[1220px] gap-10 md:grid-cols-[0.75fr_1.25fr]">
-          <div>
+          <FadeIn direction="right">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-wire">
               Coverage
             </p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
               Geography should not decide whether the workflow gets fixed.
             </h2>
-          </div>
+          </FadeIn>
           <div className="space-y-4">
-            {regions.map((region) => (
-              <article key={region.name} className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
-                <h3 className="text-2xl font-semibold tracking-tight text-paper">
-                  {region.name}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-paper/62 md:text-base">
-                  {region.description}
-                </p>
-              </article>
+            {regions.map((region, index) => (
+              <FadeIn key={region.name} delay={index * 0.08} direction="left">
+                <article className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
+                  <h3 className="text-2xl font-semibold tracking-tight text-paper">
+                    {region.name}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-paper/62 md:text-base">
+                    {region.description}
+                  </p>
+                </article>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -203,27 +208,30 @@ export default function ServiceAreasPage() {
 
       <section className="bg-[#080a08] px-6 py-16 text-paper md:py-20">
         <div className="mx-auto max-w-[1220px] border-t border-paper/10 pt-10">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
-            Local and national pages
-          </p>
+          <FadeIn>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
+              Local and national pages
+            </p>
+          </FadeIn>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {areaLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-card-lg group border border-paper/10 bg-paper/[0.025] p-5 transition-colors hover:border-signal/35 hover:bg-signal/[0.035]"
-              >
-                <h2 className="text-2xl font-semibold tracking-tight text-paper">
-                  {item.title}
-                </h2>
-                <p className="mt-4 text-sm leading-relaxed text-paper/62">
-                  {item.description}
-                </p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-signal">
-                  Read more
-                  <ArrowRight size={16} />
-                </span>
-              </Link>
+            {areaLinks.map((item, index) => (
+              <FadeIn key={item.href} delay={index * 0.08}>
+                <Link
+                  href={item.href}
+                  className="rounded-card-lg group block border border-paper/10 bg-paper/[0.025] p-5 transition-colors hover:border-signal/35 hover:bg-signal/[0.035]"
+                >
+                  <h2 className="text-2xl font-semibold tracking-tight text-paper">
+                    {item.title}
+                  </h2>
+                  <p className="mt-4 text-sm leading-relaxed text-paper/62">
+                    {item.description}
+                  </p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-signal">
+                    Read more
+                    <ArrowRight size={16} />
+                  </span>
+                </Link>
+              </FadeIn>
             ))}
           </div>
         </div>

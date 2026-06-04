@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, GraduationCap, SearchCheck, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
+import { FadeIn } from "@/components/shared/fade-in";
 import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { services, siteConfig } from "@/lib/content";
 
@@ -94,7 +95,7 @@ export default function ServicesPage() {
       <section className="relative overflow-hidden bg-ink px-6 pb-20 pt-28 text-paper md:pb-28 md:pt-36">
         <div className="site-grid absolute inset-0 opacity-35" />
         <div className="noise absolute inset-0 opacity-70" />
-        <div className="relative mx-auto max-w-[1220px]">
+        <FadeIn className="relative mx-auto max-w-[1220px]">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
             Services
           </p>
@@ -127,42 +128,43 @@ export default function ServicesPage() {
               <Link href="/book?intent=training">Book AI Training</Link>
             </Button>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       <section className="bg-paper px-6 py-20 text-ink md:py-28">
         <div className="mx-auto max-w-[1220px]">
           <div className="grid gap-5 md:grid-cols-3">
-            {services.map((service) => {
+            {services.map((service, index) => {
               const Icon = serviceIcons[service.id];
 
               return (
-                <article
-                  id={service.id}
-                  key={service.id}
-                  className="rounded-card-lg border border-ink/10 bg-white p-5"
-                >
-                  <Icon size={24} className="text-signal-strong" />
-                  <p className="mt-8 text-xs font-bold uppercase tracking-[0.16em] text-ink/42">
-                    {service.kicker}
-                  </p>
-                  <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-ink">
-                    {service.title}
-                  </h2>
-                  <p className="mt-5 text-sm leading-relaxed text-ink/64 md:text-base">
-                    {service.description}
-                  </p>
-                  <ul className="mt-6 space-y-3">
-                    {service.outcomes.map((outcome) => (
-                      <li
-                        key={outcome}
-                        className="text-sm leading-relaxed text-ink/68"
-                      >
-                        {outcome}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
+                <FadeIn key={service.id} delay={index * 0.08}>
+                  <article
+                    id={service.id}
+                    className="rounded-card-lg border border-ink/10 bg-white p-5"
+                  >
+                    <Icon size={24} className="text-signal-strong" />
+                    <p className="mt-8 text-xs font-bold uppercase tracking-[0.16em] text-ink/42">
+                      {service.kicker}
+                    </p>
+                    <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-ink">
+                      {service.title}
+                    </h2>
+                    <p className="mt-5 text-sm leading-relaxed text-ink/64 md:text-base">
+                      {service.description}
+                    </p>
+                    <ul className="mt-6 space-y-3">
+                      {service.outcomes.map((outcome) => (
+                        <li
+                          key={outcome}
+                          className="text-sm leading-relaxed text-ink/68"
+                        >
+                          {outcome}
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                </FadeIn>
               );
             })}
           </div>
@@ -171,23 +173,26 @@ export default function ServicesPage() {
 
       <section className="bg-ink px-6 py-20 text-paper md:py-28">
         <div className="mx-auto max-w-[1220px] border-t border-paper/10 pt-10">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
-            Service pages
-          </p>
+          <FadeIn>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
+              Service pages
+            </p>
+          </FadeIn>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {serviceLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5 transition-colors hover:border-signal/35 hover:bg-signal/[0.035]"
-              >
-                <h2 className="text-2xl font-semibold tracking-tight text-paper">
-                  {item.title}
-                </h2>
-                <p className="mt-4 text-sm leading-relaxed text-paper/62">
-                  {item.text}
-                </p>
-              </Link>
+            {serviceLinks.map((item, index) => (
+              <FadeIn key={item.href} delay={index * 0.08}>
+                <Link
+                  href={item.href}
+                  className="rounded-card-lg block border border-paper/10 bg-paper/[0.025] p-5 transition-colors hover:border-signal/35 hover:bg-signal/[0.035]"
+                >
+                  <h2 className="text-2xl font-semibold tracking-tight text-paper">
+                    {item.title}
+                  </h2>
+                  <p className="mt-4 text-sm leading-relaxed text-paper/62">
+                    {item.text}
+                  </p>
+                </Link>
+              </FadeIn>
             ))}
           </div>
         </div>

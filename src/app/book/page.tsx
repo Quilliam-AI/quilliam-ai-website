@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { BookingForm } from "@/components/book/booking-form";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
+import { FadeIn } from "@/components/shared/fade-in";
 import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { getWhatsAppUrl } from "@/lib/content";
 
@@ -124,7 +125,7 @@ export default async function BookPage({ searchParams }: BookPageProps) {
       <div className="noise absolute inset-0 opacity-70" />
 
       <div className="relative mx-auto grid max-w-[1220px] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <div className="lg:sticky lg:top-28">
+        <FadeIn className="lg:sticky lg:top-28" direction="right">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
             {copy.badge}
           </p>
@@ -136,16 +137,18 @@ export default async function BookPage({ searchParams }: BookPageProps) {
           </p>
 
           <div className="mt-9 hidden gap-3 lg:grid lg:grid-cols-2">
-            {sessionPoints.map((point) => (
-              <article key={point.title} className="rounded-card border border-paper/10 bg-paper/[0.025] p-4">
-                <point.icon size={20} className="text-signal" />
-                <h2 className="mt-5 text-lg font-semibold tracking-tight text-paper">
-                  {point.title}
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-paper/58">
-                  {point.description}
-                </p>
-              </article>
+            {sessionPoints.map((point, index) => (
+              <FadeIn key={point.title} delay={index * 0.06}>
+                <article className="rounded-card border border-paper/10 bg-paper/[0.025] p-4">
+                  <point.icon size={20} className="text-signal" />
+                  <h2 className="mt-5 text-lg font-semibold tracking-tight text-paper">
+                    {point.title}
+                  </h2>
+                  <p className="mt-2 text-sm leading-relaxed text-paper/58">
+                    {point.description}
+                  </p>
+                </article>
+              </FadeIn>
             ))}
           </div>
 
@@ -172,9 +175,11 @@ export default async function BookPage({ searchParams }: BookPageProps) {
             <CheckCircle2 size={17} className="text-signal" />
             Clear scope. Practical next step. Team-owned handoff.
           </div>
-        </div>
+        </FadeIn>
 
-        <BookingForm defaultInterest={intent} />
+        <FadeIn delay={0.12} direction="left">
+          <BookingForm defaultInterest={intent} />
+        </FadeIn>
       </div>
     </section>
   );

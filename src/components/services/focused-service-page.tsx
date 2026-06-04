@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
+import { FadeIn } from "@/components/shared/fade-in";
 import { TrackClick } from "@/components/shared/track-click";
 import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { siteConfig } from "@/lib/content";
@@ -134,15 +135,15 @@ export function FocusedServicePage({
       <section className="relative overflow-hidden bg-paper px-6 pt-28 text-ink md:pt-36">
         <div className="absolute inset-x-0 top-0 h-1 bg-signal" />
         <div className="relative mx-auto grid max-w-[1220px] gap-10 pb-16 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
-          <div>
+          <FadeIn direction="right">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-ink/50">
               {eyebrow}
             </p>
             <h1 className="mt-6 max-w-[920px] text-5xl font-semibold leading-[0.98] tracking-tight text-balance md:text-7xl">
               {h1} <span className="text-signal-strong">{accent}</span>
             </h1>
-          </div>
-          <div>
+          </FadeIn>
+          <FadeIn delay={0.12} direction="left">
             <p className="max-w-[68ch] text-base leading-relaxed text-ink/68 md:text-lg">
               {intro}
             </p>
@@ -171,36 +172,38 @@ export function FocusedServicePage({
                 <Link href="/#method">See how it works</Link>
               </Button>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       <section className="bg-paper px-6 py-14 text-ink md:py-16">
-        <div className="mx-auto max-w-[1220px] border-y border-ink/10 py-10">
+        <FadeIn className="mx-auto max-w-[1220px] border-y border-ink/10 py-10">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-ink/50">
             Definition
           </p>
           <p className="mt-5 max-w-[78ch] text-lg font-medium leading-relaxed text-ink/74 md:text-xl">
             {definition}
           </p>
-        </div>
+        </FadeIn>
       </section>
 
       <section className="bg-[#080a08] px-6 py-20 text-paper md:py-28">
         <div className="mx-auto grid max-w-[1220px] gap-10 md:grid-cols-[0.75fr_1.25fr]">
-          <div>
+          <FadeIn direction="right">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-wire">
               Best for
             </p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
               Clear situations where AI can move from idea to operating habit.
             </h2>
-          </div>
+          </FadeIn>
           <div className="grid gap-3 sm:grid-cols-2">
-            {bestFor.map((item) => (
-              <div key={item} className="rounded-card border border-paper/10 bg-paper/[0.025] p-4 text-sm leading-relaxed text-paper/68">
-                {item}
-              </div>
+            {bestFor.map((item, index) => (
+              <FadeIn key={item} delay={index * 0.06} direction="left">
+                <div className="rounded-card border border-paper/10 bg-paper/[0.025] p-4 text-sm leading-relaxed text-paper/68">
+                  {item}
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -209,27 +212,30 @@ export function FocusedServicePage({
       <section className="bg-ink px-6 py-20 text-paper md:py-28">
         <div className="mx-auto max-w-[1220px]">
           <div className="grid gap-10 md:grid-cols-[0.75fr_1.25fr]">
-            <div>
+            <FadeIn direction="right">
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
                 What you get
               </p>
               <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
                 Practical outputs with named owners and controls.
               </h2>
-            </div>
+            </FadeIn>
             <div className="space-y-4">
               {outcomes.map((item, index) => (
-                <article
+                <FadeIn
                   key={item}
-                  className="rounded-card grid gap-4 border border-paper/10 bg-paper/[0.025] p-4 md:grid-cols-[3rem_1fr]"
+                  delay={index * 0.06}
+                  direction="left"
                 >
-                  <span className="text-sm font-bold tracking-tight text-signal/80">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <p className="max-w-[78ch] text-base leading-relaxed text-paper/70">
-                    {item}
-                  </p>
-                </article>
+                  <article className="rounded-card grid gap-4 border border-paper/10 bg-paper/[0.025] p-4 md:grid-cols-[3rem_1fr]">
+                    <span className="text-sm font-bold tracking-tight text-signal/80">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <p className="max-w-[78ch] text-base leading-relaxed text-paper/70">
+                      {item}
+                    </p>
+                  </article>
+                </FadeIn>
               ))}
             </div>
           </div>
@@ -238,22 +244,26 @@ export function FocusedServicePage({
 
       <section className="bg-[#080a08] px-6 py-20 text-paper md:py-28">
         <div className="mx-auto max-w-[1220px]">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-wire">
-            Delivery
-          </p>
+          <FadeIn>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-wire">
+              Delivery
+            </p>
+          </FadeIn>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {process.map((step, index) => (
-              <article key={step.title} className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
-                <span className="text-sm font-bold tracking-tight text-amber-wire/85">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h2 className="mt-8 text-2xl font-semibold tracking-tight text-paper">
-                  {step.title}
-                </h2>
-                <p className="mt-4 text-sm leading-relaxed text-paper/62">
-                  {step.description}
-                </p>
-              </article>
+              <FadeIn key={step.title} delay={index * 0.08}>
+                <article className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
+                  <span className="text-sm font-bold tracking-tight text-amber-wire/85">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h2 className="mt-8 text-2xl font-semibold tracking-tight text-paper">
+                    {step.title}
+                  </h2>
+                  <p className="mt-4 text-sm leading-relaxed text-paper/62">
+                    {step.description}
+                  </p>
+                </article>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -261,15 +271,15 @@ export function FocusedServicePage({
 
       <section id="faq" className="bg-ink px-6 py-20 text-paper md:py-28">
         <div className="mx-auto grid max-w-[1220px] gap-10 border-t border-paper/10 pt-14 md:grid-cols-[0.75fr_1.25fr]">
-          <div>
+          <FadeIn direction="right">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
               FAQ
             </p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
               Before you book.
             </h2>
-          </div>
-          <div className="divide-y divide-paper/10 border-y border-paper/10">
+          </FadeIn>
+          <FadeIn delay={0.12} direction="left" className="divide-y divide-paper/10 border-y border-paper/10">
             {faq.map((item) => (
               <details key={item.question} className="group py-5">
                 <summary className="flex cursor-pointer list-none items-start justify-between gap-5 text-lg font-semibold text-paper">
@@ -283,36 +293,39 @@ export function FocusedServicePage({
                 </p>
               </details>
             ))}
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       <section className="bg-[#080a08] px-6 py-16 text-paper md:py-20">
         <div className="mx-auto max-w-[1220px] border-t border-paper/10 pt-10">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-wire">
-            Related
-          </p>
+          <FadeIn>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-wire">
+              Related
+            </p>
+          </FadeIn>
           <div className="mt-6 grid gap-3 md:grid-cols-3">
-            {relatedLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-card-lg group border border-paper/10 bg-paper/[0.025] p-5 transition-colors hover:border-cyan-wire/40 hover:bg-cyan-wire/[0.035]"
-              >
-                <span className="text-lg font-semibold tracking-tight text-paper">
-                  {item.label}
-                </span>
-                <span className="mt-3 block text-sm leading-relaxed text-paper/58">
-                  {item.description}
-                </span>
-              </Link>
+            {relatedLinks.map((item, index) => (
+              <FadeIn key={item.href} delay={index * 0.08}>
+                <Link
+                  href={item.href}
+                  className="rounded-card-lg group block border border-paper/10 bg-paper/[0.025] p-5 transition-colors hover:border-cyan-wire/40 hover:bg-cyan-wire/[0.035]"
+                >
+                  <span className="text-lg font-semibold tracking-tight text-paper">
+                    {item.label}
+                  </span>
+                  <span className="mt-3 block text-sm leading-relaxed text-paper/58">
+                    {item.description}
+                  </span>
+                </Link>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       <section className="bg-signal px-6 py-20 text-ink md:py-28">
-        <div className="mx-auto grid max-w-[1220px] gap-8 md:grid-cols-[1fr_auto] md:items-end">
+        <FadeIn className="mx-auto grid max-w-[1220px] gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-ink/5 px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-ink/70">
               <ShieldCheck size={16} />
@@ -338,7 +351,7 @@ export function FocusedServicePage({
               </Link>
             </Button>
           </TrackClick>
-        </div>
+        </FadeIn>
       </section>
     </>
   );

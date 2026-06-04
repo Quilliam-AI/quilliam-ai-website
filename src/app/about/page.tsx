@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BreadcrumbJsonLd } from "@/components/shared/breadcrumb-jsonld";
+import { FadeIn } from "@/components/shared/fade-in";
 import { TrackClick } from "@/components/shared/track-click";
 import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { proofLogos, siteConfig } from "@/lib/content";
@@ -115,7 +116,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-ink px-6 pb-20 pt-28 text-paper md:pb-28 md:pt-36">
         <div className="site-grid absolute inset-0 opacity-35" />
         <div className="noise absolute inset-0 opacity-70" />
-        <div className="relative mx-auto max-w-[1220px] border-t border-paper/10 pt-14">
+        <FadeIn className="relative mx-auto max-w-[1220px] border-t border-paper/10 pt-14">
           <div className="max-w-[980px]">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
               About the founder
@@ -197,33 +198,35 @@ export default function AboutPage() {
               </Button>
             </div>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       <section className="bg-[#080a08] px-6 py-20 text-paper md:py-28">
         <div className="mx-auto max-w-[1220px]">
-          <div className="max-w-[780px]">
+          <FadeIn className="max-w-[780px]">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-wire">
               Background
             </p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
               The mix is business surgery plus software delivery.
             </h2>
-          </div>
+          </FadeIn>
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {timeline.map((item) => (
-              <article key={item.title} className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
-                <item.icon size={23} className="text-signal" />
-                <p className="mt-8 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-paper/40">
-                  {item.label}
-                </p>
-                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-paper">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-paper/62">
-                  {item.text}
-                </p>
-              </article>
+            {timeline.map((item, index) => (
+              <FadeIn key={item.title} delay={index * 0.08}>
+                <article className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
+                  <item.icon size={23} className="text-signal" />
+                  <p className="mt-8 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-paper/40">
+                    {item.label}
+                  </p>
+                  <h3 className="mt-3 text-2xl font-semibold tracking-tight text-paper">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-paper/62">
+                    {item.text}
+                  </p>
+                </article>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -231,7 +234,7 @@ export default function AboutPage() {
 
       <section className="bg-ink px-6 py-20 text-paper md:py-28">
         <div className="mx-auto grid max-w-[1220px] gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-          <div>
+          <FadeIn direction="right">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-amber-wire">
               Operating principles
             </p>
@@ -244,7 +247,7 @@ export default function AboutPage() {
               owners, visible controls, documentation, and training tied to the
               exact workflow being shipped.
             </p>
-          </div>
+          </FadeIn>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               "Build only what has a business case.",
@@ -253,11 +256,13 @@ export default function AboutPage() {
               "Train the owner, not just the operator.",
               "Document how the system fails, not just how it works.",
               "Optimise for adoption, not demo value.",
-            ].map((item) => (
-              <div key={item} className="rounded-card flex gap-3 border border-paper/10 bg-paper/[0.025] p-4 text-sm leading-relaxed text-paper/70">
-                <Wrench size={17} className="mt-0.5 shrink-0 text-amber-wire" />
-                {item}
-              </div>
+            ].map((item, index) => (
+              <FadeIn key={item} delay={index * 0.05} direction="left">
+                <div className="rounded-card flex gap-3 border border-paper/10 bg-paper/[0.025] p-4 text-sm leading-relaxed text-paper/70">
+                  <Wrench size={17} className="mt-0.5 shrink-0 text-amber-wire" />
+                  {item}
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -265,7 +270,7 @@ export default function AboutPage() {
 
       <section className="bg-[#080a08] px-6 py-20 text-paper md:py-28">
         <div className="mx-auto grid max-w-[1220px] gap-10 border-t border-paper/10 pt-14 md:grid-cols-[0.7fr_1.3fr] md:items-center">
-          <div>
+          <FadeIn direction="right">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
               Proof points
             </p>
@@ -273,26 +278,27 @@ export default function AboutPage() {
               Experience across AI tooling, software, operations, and business
               recovery informs the way Quilliam AI scopes work.
             </p>
-          </div>
+          </FadeIn>
           <div className="flex flex-wrap items-center gap-x-10 gap-y-8">
-            {proofLogos.map((company) => (
-              <a
-                key={company.name}
-                href={company.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Visit ${company.name}`}
-                className="grayscale transition hover:grayscale-0"
-              >
-                <Image
-                  src={company.logo}
-                  alt={company.name}
-                  width={company.width}
-                  height={company.height}
-                  sizes="180px"
-                  className={`${company.className} w-auto opacity-70 hover:opacity-100`}
-                />
-              </a>
+            {proofLogos.map((company, index) => (
+              <FadeIn key={company.name} delay={index * 0.05} direction="left">
+                <a
+                  href={company.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${company.name}`}
+                  className="block grayscale transition hover:grayscale-0"
+                >
+                  <Image
+                    src={company.logo}
+                    alt={company.name}
+                    width={company.width}
+                    height={company.height}
+                    sizes="180px"
+                    className={`${company.className} w-auto opacity-70 hover:opacity-100`}
+                  />
+                </a>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -300,9 +306,11 @@ export default function AboutPage() {
 
       <section className="bg-ink px-6 py-16 text-paper md:py-20">
         <div className="mx-auto max-w-[1220px] border-t border-paper/10 pt-10">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
-            Work with Quilliam AI
-          </p>
+          <FadeIn>
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
+              Work with Quilliam AI
+            </p>
+          </FadeIn>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {[
               {
@@ -320,26 +328,27 @@ export default function AboutPage() {
                 title: "Where we work",
                 text: "Remote-first delivery across the UK, with in-person sessions where useful.",
               },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5 transition-colors hover:border-signal/35 hover:bg-signal/[0.035]"
-              >
-                <h2 className="text-2xl font-semibold tracking-tight text-paper">
-                  {item.title}
-                </h2>
-                <p className="mt-4 text-sm leading-relaxed text-paper/62">
-                  {item.text}
-                </p>
-              </Link>
+            ].map((item, index) => (
+              <FadeIn key={item.href} delay={index * 0.08}>
+                <Link
+                  href={item.href}
+                  className="rounded-card-lg block border border-paper/10 bg-paper/[0.025] p-5 transition-colors hover:border-signal/35 hover:bg-signal/[0.035]"
+                >
+                  <h2 className="text-2xl font-semibold tracking-tight text-paper">
+                    {item.title}
+                  </h2>
+                  <p className="mt-4 text-sm leading-relaxed text-paper/62">
+                    {item.text}
+                  </p>
+                </Link>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       <section className="bg-signal px-6 py-20 text-ink md:py-28">
-        <div className="mx-auto grid max-w-[1220px] gap-8 md:grid-cols-[1fr_auto] md:items-end">
+        <FadeIn className="mx-auto grid max-w-[1220px] gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-ink/60">
               <MapPin size={15} />
@@ -360,7 +369,7 @@ export default function AboutPage() {
               <ArrowRight size={18} />
             </Link>
           </Button>
-        </div>
+        </FadeIn>
       </section>
     </>
   );

@@ -382,29 +382,33 @@ export default function HomePage() {
       <section id="problem" className="scroll-mt-24 bg-ink px-6 py-20 text-paper md:py-28">
         <div className="mx-auto max-w-[1220px]">
           <div className="grid gap-10 md:grid-cols-[0.92fr_1.08fr] md:items-end">
-            <div>
+            <FadeIn direction="right">
               <h2 className="text-4xl font-semibold leading-tight tracking-tight text-balance md:text-6xl">
                 You do not need another AI tool. You need a clearer way to use
                 the ones you already have.
               </h2>
-            </div>
-            <p className="max-w-[68ch] text-base leading-relaxed text-paper/68 md:text-lg">
+            </FadeIn>
+            <FadeIn delay={0.12} direction="left">
+              <p className="max-w-[68ch] text-base leading-relaxed text-paper/68 md:text-lg">
               Most teams already have access to powerful AI. The hard part is
               knowing where it fits and how to turn experiments into useful
               working habits.
-            </p>
+              </p>
+            </FadeIn>
           </div>
 
           <div className="mt-12 grid gap-4 md:grid-cols-4">
-            {problemCards.map((item) => (
-              <article key={item.title} className="rounded-card-lg border border-paper/10 bg-paper/[0.035] p-5">
-                <h3 className="text-xl font-semibold tracking-tight text-paper">
-                  {item.title}
-                </h3>
-                <p className="mt-5 text-sm leading-relaxed text-paper/62">
-                  {item.text}
-                </p>
-              </article>
+            {problemCards.map((item, index) => (
+              <FadeIn key={item.title} delay={index * 0.06}>
+                <article className="rounded-card-lg border border-paper/10 bg-paper/[0.035] p-5">
+                  <h3 className="text-xl font-semibold tracking-tight text-paper">
+                    {item.title}
+                  </h3>
+                  <p className="mt-5 text-sm leading-relaxed text-paper/62">
+                    {item.text}
+                  </p>
+                </article>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -412,7 +416,7 @@ export default function HomePage() {
 
       <section id="method" className="scroll-mt-24 bg-paper px-6 py-20 text-ink md:py-28">
         <div className="mx-auto grid max-w-[1220px] gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
+          <FadeIn direction="right">
             <SectionLabel>What we do</SectionLabel>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
               We show you what AI can do. Then we help you use it.
@@ -421,10 +425,12 @@ export default function HomePage() {
               You get plain-English training, a clear plan, and practical help
               turning AI into everyday work.
             </p>
-          </div>
+          </FadeIn>
           <div>
             {bridgeSteps.map((step, index) => (
-              <MethodCard key={step.number} step={step} index={index} />
+              <FadeIn key={step.number} delay={index * 0.06} direction="left">
+                <MethodCard step={step} index={index} />
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -433,21 +439,25 @@ export default function HomePage() {
       <section id="services" className="scroll-mt-24 bg-[#ebe3d4] px-6 py-20 text-ink md:py-28">
         <div className="mx-auto max-w-[1220px]">
           <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-end">
-            <div>
+            <FadeIn direction="right">
               <SectionLabel>Services</SectionLabel>
               <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
                 Three ways to get AI out of theory.
               </h2>
-            </div>
-            <p className="max-w-[64ch] text-base leading-relaxed text-ink/64 md:text-lg">
-              Start with an opportunity analysis if you are unsure. Start with
-              team training if staff need confidence. Start with implementation
-              if the workflow is obvious.
-            </p>
+            </FadeIn>
+            <FadeIn delay={0.12} direction="left">
+              <p className="max-w-[64ch] text-base leading-relaxed text-ink/64 md:text-lg">
+                Start with an opportunity analysis if you are unsure. Start with
+                team training if staff need confidence. Start with implementation
+                if the workflow is obvious.
+              </p>
+            </FadeIn>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {services.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+            {services.map((service, index) => (
+              <FadeIn key={service.id} delay={index * 0.08}>
+                <ServiceCard service={service} />
+              </FadeIn>
             ))}
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -455,15 +465,16 @@ export default function HomePage() {
               { href: "/ai-consultant-uk", label: "AI consultant UK" },
               { href: "/ai-automation-cornwall", label: "AI automation Cornwall" },
               { href: "/service-areas", label: "Where we work" },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/55 px-4 py-2 text-sm font-semibold text-ink/68 transition-colors hover:border-signal/35 hover:text-signal-strong"
-              >
-                {item.label}
-                <ArrowRight size={15} />
-              </Link>
+            ].map((item, index) => (
+              <FadeIn key={item.href} delay={index * 0.05}>
+                <Link
+                  href={item.href}
+                  className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white/55 px-4 py-2 text-sm font-semibold text-ink/68 transition-colors hover:border-signal/35 hover:text-signal-strong"
+                >
+                  {item.label}
+                  <ArrowRight size={15} />
+                </Link>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -472,7 +483,7 @@ export default function HomePage() {
       <section id="workflows" className="scroll-mt-24 bg-paper px-6 py-20 text-ink md:py-28">
         <div className="mx-auto max-w-[1220px]">
           <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-            <div>
+            <FadeIn direction="right">
               <SectionLabel>Case study</SectionLabel>
               <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
                 Helping VetVision AI turn a strong AI product into a clearer system.
@@ -482,8 +493,8 @@ export default function HomePage() {
                 systems to monitor animal welfare across equine and dairy
                 environments.
               </p>
-            </div>
-            <div className="rounded-card-lg border border-ink/10 bg-white/85 p-6 text-ink shadow-[0_0_0_1px_rgba(18,16,12,0.08)]">
+            </FadeIn>
+            <FadeIn delay={0.12} direction="left" className="rounded-card-lg border border-ink/10 bg-white/85 p-6 text-ink shadow-[0_0_0_1px_rgba(18,16,12,0.08)]">
               <div className="flex flex-wrap items-start justify-between gap-5">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.18em] text-ink/42">
@@ -520,20 +531,22 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </FadeIn>
           </div>
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {vetVisionWork.map((item) => (
-              <article key={item.title} className="rounded-card-lg border border-ink/10 bg-white p-5">
-                <ClipboardCheck size={21} className="text-signal-strong" />
-                <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-ink/62">
-                  {item.text}
-                </p>
-              </article>
+            {vetVisionWork.map((item, index) => (
+              <FadeIn key={item.title} delay={index * 0.06}>
+                <article className="rounded-card-lg border border-ink/10 bg-white p-5">
+                  <ClipboardCheck size={21} className="text-signal-strong" />
+                  <h3 className="mt-6 text-xl font-semibold tracking-tight text-ink">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-ink/62">
+                    {item.text}
+                  </p>
+                </article>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -541,21 +554,20 @@ export default function HomePage() {
 
       <section className="bg-ink px-6 py-20 text-paper md:py-28">
         <div className="mx-auto grid max-w-[1220px] gap-10 lg:grid-cols-[0.78fr_1.22fr]">
-          <div>
+          <FadeIn direction="right">
             <SectionLabel light>Use cases</SectionLabel>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
               Practical jobs AI can help with now.
             </h2>
-          </div>
+          </FadeIn>
           <div className="grid gap-3 md:grid-cols-2">
-            {exampleWorkflows.map((item) => (
-              <div
-                key={item}
-                className="rounded-card flex gap-3 border border-paper/10 bg-paper/[0.035] p-4 text-sm leading-relaxed text-paper/70"
-              >
-                <ClipboardCheck size={18} className="mt-0.5 shrink-0 text-signal" />
-                {item}
-              </div>
+            {exampleWorkflows.map((item, index) => (
+              <FadeIn key={item} delay={index * 0.06} direction="left">
+                <div className="rounded-card flex gap-3 border border-paper/10 bg-paper/[0.035] p-4 text-sm leading-relaxed text-paper/70">
+                  <ClipboardCheck size={18} className="mt-0.5 shrink-0 text-signal" />
+                  {item}
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -563,7 +575,7 @@ export default function HomePage() {
 
       <section className="bg-paper px-6 py-20 text-ink md:py-28">
         <div className="mx-auto grid max-w-[1220px] gap-10 lg:grid-cols-[0.75fr_1.25fr]">
-          <div>
+          <FadeIn direction="right">
             <SectionLabel>Good fit</SectionLabel>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
               Strong AI projects have boring signals.
@@ -572,25 +584,27 @@ export default function HomePage() {
               The best opportunities are repeated, owned, bounded, and painful
               enough that fixing them matters.
             </p>
-          </div>
+          </FadeIn>
           <div className="grid gap-4 md:grid-cols-2">
-            {fitSignals.map((signal) => (
-              <article key={signal.title} className="rounded-card-lg border border-ink/10 bg-white p-5">
-                <ShieldCheck size={22} className="text-signal-strong" />
-                <h3 className="mt-8 text-2xl font-semibold tracking-tight text-ink">
-                  {signal.title}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-ink/62">
-                  {signal.description}
-                </p>
-              </article>
+            {fitSignals.map((signal, index) => (
+              <FadeIn key={signal.title} delay={index * 0.06} direction="left">
+                <article className="rounded-card-lg border border-ink/10 bg-white p-5">
+                  <ShieldCheck size={22} className="text-signal-strong" />
+                  <h3 className="mt-8 text-2xl font-semibold tracking-tight text-ink">
+                    {signal.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-ink/62">
+                    {signal.description}
+                  </p>
+                </article>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
       <section id="founder" className="scroll-mt-24 bg-ink px-6 py-20 text-paper md:py-28">
-        <div className="mx-auto max-w-[1220px] border-t border-paper/10 pt-14">
+        <FadeIn className="mx-auto max-w-[1220px] border-t border-paper/10 pt-14">
           <div className="max-w-[980px]">
             <SectionLabel light>Founder-led</SectionLabel>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
@@ -633,13 +647,13 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-        </div>
+        </FadeIn>
       </section>
 
       <FaqSection />
 
       <section className="bg-signal px-6 py-20 text-ink md:py-28">
-        <div className="mx-auto grid max-w-[1220px] gap-8 md:grid-cols-[1fr_auto] md:items-end">
+        <FadeIn className="mx-auto grid max-w-[1220px] gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-ink/60">
               Start simple
@@ -677,7 +691,7 @@ export default function HomePage() {
               </a>
             </Button>
           </div>
-        </div>
+        </FadeIn>
       </section>
     </>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { FadeIn } from "@/components/shared/fade-in";
 
 export default function NotFound() {
   return (
@@ -8,7 +9,7 @@ export default function NotFound() {
       <div className="site-grid absolute inset-0 opacity-35" />
       <div className="noise absolute inset-0 opacity-70" />
 
-      <div className="relative max-w-2xl text-center">
+      <FadeIn className="relative max-w-2xl text-center">
         <p className="text-8xl font-bold tracking-tight text-signal/30">404</p>
         <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
           This page is outside the workflow.
@@ -39,7 +40,7 @@ export default function NotFound() {
             </Link>
           </Button>
         </div>
-      </div>
+      </FadeIn>
     </section>
   );
 }
