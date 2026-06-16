@@ -1,0 +1,8 @@
+{
+  "buildCommand": "bun run build",
+  "framework": "nextjs",
+  "installCommand": "bun install --frozen-lockfile",
+  "git": {
+    "deploymentEnabled": false
+  }
+}

@@ -91,3 +91,13 @@ Most public copy and business configuration lives in `src/lib/content.ts`. Chang
 |---|---|---|
 | `RESEND_API_KEY` | Runtime only | Sends booking form emails |
 | `GITHUB_VAULT_TOKEN` | Optional runtime | Creates lead notes in the private Obsidian vault |
+
+## Deployment
+
+GitHub Actions owns Vercel deployment. Pull requests deploy preview builds and update a single PR comment with the preview URL. Pushes to `main` deploy production.
+
+Required GitHub repository secrets:
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
