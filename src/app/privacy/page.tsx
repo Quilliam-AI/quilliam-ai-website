@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPage() {
-  const lastUpdated = "18 April 2026";
+  const lastUpdated = "13 August 2026";
 
   return (
     <article className="min-h-screen">
@@ -39,7 +39,7 @@ export default function PrivacyPage() {
         name="Privacy Policy | Quilliam AI"
         description="Quilliam AI's privacy policy. How we collect, use, and protect your personal information."
         datePublished="2026-04-11"
-        dateModified="2026-04-18"
+        dateModified="2026-08-13"
       />
       <LegalHero title="Privacy Policy" lastUpdated={lastUpdated} />
 
@@ -200,24 +200,39 @@ export default function PrivacyPage() {
               </a>
               .
             </li>
+            <li>
+              <strong>Google Analytics</strong> &mdash; with your consent,
+              to measure website visits, traffic sources, page use, and
+              completed booking enquiries. We do not send names, email
+              addresses, phone numbers, or form contents to Google
+              Analytics. Google&rsquo;s{" "}
+              <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                privacy policy
+              </a>
+              .
+            </li>
+            <li>
+              <strong>PostHog</strong> &mdash; with your consent, for website
+              analytics and session recordings. We use PostHog EU Cloud,
+              with data hosted in Frankfurt. PostHog processes data as a
+              processor on our behalf. Their{" "}
+              <a
+                href="https://posthog.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                privacy policy
+              </a>
+              .
+            </li>
           </ul>
           <p>
-            We do not use Google Analytics, Facebook Pixel, or any
-            advertising trackers.
-          </p>
-          <p>
-            <strong>PostHog</strong> &mdash; we use PostHog (EU Cloud,
-            data hosted in Frankfurt) for website analytics and session
-            recordings. PostHog processes data as a processor on our behalf.
-            Their{" "}
-            <a
-              href="https://posthog.com/privacy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              privacy policy
-            </a>
-            .
+            We do not use Facebook Pixel, advertising cookies, or retargeting
+            trackers.
           </p>
         </LegalSection>
 
@@ -242,9 +257,10 @@ export default function PrivacyPage() {
               future contact.
             </li>
             <li>
-              <strong>Analytics data</strong> &mdash; retained for 12
-              months, then automatically deleted. Session recordings
-              are retained for 30 days.
+              <strong>Analytics data</strong> &mdash; Google Analytics
+              event-level and user-level data is retained for 14 months.
+              PostHog analytics is retained for 12 months, and PostHog
+              session recordings are retained for 30 days.
             </li>
           </ul>
         </LegalSection>
@@ -300,17 +316,15 @@ export default function PrivacyPage() {
             <li>
               <strong>If you accept</strong> &mdash; we set cookies and use
               localStorage to track your session across pages and visits.
-              This enables session recordings (a replay of how you
-              interacted with the site, with passwords masked) and
-              persistent analytics that help us improve the website. We use
-              PostHog for this, hosted on EU infrastructure (Frankfurt).
+              Google Analytics measures visits, traffic sources, page use,
+              and completed booking enquiries. PostHog provides persistent
+              product analytics and session recordings (a replay of how you
+              interacted with the site, with passwords masked).
             </li>
             <li>
               <strong>If you reject</strong> &mdash; we do not set any
-              cookies or use localStorage for tracking. Analytics events
-              (page views, button clicks) are still captured in memory
-              during your visit but cannot be linked across sessions or
-              identified to you. Session recordings are disabled.
+              analytics cookies, load Google Analytics or PostHog tracking,
+              record analytics events, or create session recordings.
             </li>
           </ul>
           <p>

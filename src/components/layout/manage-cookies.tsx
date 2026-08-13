@@ -1,12 +1,12 @@
 "use client";
 
-import { POSTHOG_CONSENT_KEY } from "@/lib/posthog-config";
+import { ANALYTICS_CONSENT_KEY } from "@/lib/posthog-config";
 
 export function ManageCookies() {
   return (
     <button
       onClick={() => {
-        localStorage.removeItem(POSTHOG_CONSENT_KEY);
+        localStorage.removeItem(ANALYTICS_CONSENT_KEY);
         window.location.reload();
       }}
       className="inline-flex cursor-pointer items-center text-xs leading-none text-inherit transition-colors hover:text-ink"

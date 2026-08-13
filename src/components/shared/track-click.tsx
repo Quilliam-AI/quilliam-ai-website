@@ -1,10 +1,10 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { capturePostHogEvent } from "@/lib/posthog-client";
+import { captureAnalyticsEvent } from "@/lib/analytics";
 
 interface TrackClickProps {
-  /** PostHog event name */
+  /** Analytics event name */
   event: string;
   /** Event properties */
   properties?: Record<string, string>;
@@ -12,7 +12,7 @@ interface TrackClickProps {
 }
 
 /**
- * Client wrapper that fires a PostHog event on click.
+ * Client wrapper that fires a consented analytics event on click.
  * Use around Links/buttons in server components where you can't add onClick.
  * Renders as a transparent wrapper using CSS `display: contents`.
  */
@@ -20,7 +20,7 @@ export function TrackClick({ event, properties, children }: TrackClickProps) {
   return (
     <span
       onClick={() => {
-        void capturePostHogEvent(event, properties);
+        captureAnalyticsEvent(event, properties);
       }}
       className="contents"
     >

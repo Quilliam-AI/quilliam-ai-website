@@ -24,6 +24,10 @@ export const siteConfig = {
   ] as string[],
   founderSameAs: ["https://uk.linkedin.com/in/leviquilliam"] as string[],
   googleBusinessProfile: "https://maps.app.goo.gl/yfJuc3xMXfkRzHvu8",
+  analytics: {
+    googleAnalyticsMeasurementId:
+      process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID ?? "G-JWEKS61V3E",
+  },
   companiesHouseUrl:
     "https://find-and-update.company-information.service.gov.uk/company/17151006",
   companyNumber: "17151006" as string,

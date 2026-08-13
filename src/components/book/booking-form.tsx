@@ -10,7 +10,7 @@ import {
   trackBookingFormViewed,
 } from "@/lib/analytics";
 import { identifyPostHogUser } from "@/lib/posthog-client";
-import { hasAcceptedPostHogCookies } from "@/lib/posthog-config";
+import { hasAcceptedAnalyticsCookies } from "@/lib/posthog-config";
 import { submitBooking } from "./booking-action";
 
 const BUSINESS_TYPES = [
@@ -74,23 +74,22 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
     setErrorMessage("");
 
     const formData = new FormData(e.currentTarget);
-    const analyticsConsent = hasAcceptedPostHogCookies();
+    const analyticsConsent = hasAcceptedAnalyticsCookies();
     formData.set("analyticsConsent", analyticsConsent ? "accepted" : "rejected");
     formData.set("pageUrl", window.location.href);
 
     const businessType = formData.get("businessType") as string;
-
-    trackBookingFormSubmitted({
-      intent: interest,
-      interest: INTERESTS[interest].value,
-      business_type: businessType,
-    });
 
     try {
       const result = await submitBooking(formData);
 
       if (result.success) {
         setStatus("success");
+        trackBookingFormSubmitted({
+          intent: interest,
+          interest: INTERESTS[interest].value,
+          business_type: businessType,
+        });
 
         const email = formData.get("email") as string;
         const name = formData.get("name") as string;
