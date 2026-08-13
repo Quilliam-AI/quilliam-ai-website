@@ -95,20 +95,20 @@ export function FocusedServicePage({
     {
       href: "/service-areas",
       label: "Where we work",
-      description: "Cornwall-based, UK-wide and remote delivery.",
+      description: "Remote and in-person delivery from Cornwall throughout the UK.",
     },
     {
       href: "/ai-consultant-uk",
       label: "AI consultant UK",
-      description: "Practical AI consulting for UK businesses.",
+      description: "AI assessment, implementation and training for UK businesses.",
     },
     {
       href: "/ai-automation-cornwall",
       label: "AI automation Cornwall",
-      description: "Local AI automation support from Cornwall.",
+      description: "AI workflow and automation services based in Cornwall.",
     },
   ],
-  ctaLabel = "Find Where AI Can Help My Business",
+  ctaLabel = "Book Free AI Opportunity",
   ctaHref = "/book?intent=opportunity",
   serviceType,
 }: FocusedServicePageProps) {
@@ -120,7 +120,7 @@ export function FocusedServicePage({
         name={title}
         description={description}
         datePublished="2026-05-09"
-        dateModified="2026-05-26"
+        dateModified="2026-08-13"
       />
       <PageJsonLd
         path={path}
@@ -168,7 +168,7 @@ export function FocusedServicePage({
                 size="lg"
                 className="border-ink/25 text-sm font-bold tracking-normal text-ink normal-case hover:bg-ink hover:text-paper"
               >
-                <Link href="/#method">See how it works</Link>
+                <Link href="/#method">Review the delivery process</Link>
               </Button>
             </div>
           </div>
@@ -190,10 +190,10 @@ export function FocusedServicePage({
         <div className="mx-auto grid max-w-[1220px] gap-10 md:grid-cols-[0.75fr_1.25fr]">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-cyan-wire">
-              Best for
+              Suitable for
             </p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
-              Clear situations where AI can move from idea to operating habit.
+              Suitable circumstances for AI implementation.
             </h2>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -211,10 +211,10 @@ export function FocusedServicePage({
           <div className="grid gap-10 md:grid-cols-[0.75fr_1.25fr]">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
-                What you get
+                Deliverables
               </p>
               <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
-                Practical outputs with named owners and controls.
+                Defined deliverables, responsibilities and controls.
               </h2>
             </div>
             <div className="space-y-4">
@@ -266,7 +266,7 @@ export function FocusedServicePage({
               FAQ
             </p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
-              Before you book.
+              Service information.
             </h2>
           </div>
           <div className="divide-y divide-paper/10 border-y border-paper/10">
@@ -316,10 +316,10 @@ export function FocusedServicePage({
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-ink/5 px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-ink/70">
               <ShieldCheck size={16} />
-              Handoff-first
+              Documented handover
             </div>
             <h2 className="mt-5 max-w-[820px] text-5xl font-semibold leading-[0.98] tracking-tight text-balance md:text-7xl">
-              Know what to build before you spend.
+              Confirm the scope before committing to implementation.
             </h2>
           </div>
           <TrackClick

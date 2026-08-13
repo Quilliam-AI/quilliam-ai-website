@@ -9,7 +9,7 @@ import { services, siteConfig } from "@/lib/content";
 export const metadata: Metadata = {
   title: "AI Services for UK Businesses",
   description:
-    "AI opportunity analysis, team training, and implementation services for UK businesses. Handoff-first AI workflows, agents, and adoption support.",
+    "AI opportunity analysis, team training and implementation services for UK businesses, including workflows, supervised agents and documented handover.",
   alternates: { canonical: "/services" },
   openGraph: {
     title: "AI Services for UK Businesses | Quilliam AI",
@@ -36,17 +36,17 @@ const serviceLinks = [
   {
     href: "/ai-consultant-uk",
     title: "AI consultant UK",
-    text: "Founder-led AI consulting, workflow design, implementation, and handoff for UK businesses.",
+    text: "AI assessment, workflow design, implementation and documented handover for UK businesses.",
   },
   {
     href: "/ai-automation-cornwall",
     title: "AI automation Cornwall",
-    text: "Cornwall-based AI automation for repeated admin, follow-up, reporting, and support work.",
+    text: "Cornwall-based AI automation for recurring administration, follow-up, reporting and support processes.",
   },
   {
     href: "/service-areas",
     title: "Where we work",
-    text: "Based in Cornwall. Working UK-wide and remote, with in-person sessions where useful.",
+    text: "Based in Cornwall, with remote and in-person delivery available throughout the UK.",
   },
 ] as const;
 
@@ -87,7 +87,7 @@ export default function ServicesPage() {
         name="AI Services for UK Businesses | Quilliam AI"
         description="Quilliam AI provides AI opportunity analysis, team training, and AI implementation for UK businesses."
         datePublished="2026-05-26"
-        dateModified="2026-05-26"
+        dateModified="2026-08-13"
       />
       <ServicesJsonLd />
 
@@ -99,13 +99,13 @@ export default function ServicesPage() {
             Services
           </p>
           <h1 className="mt-6 max-w-[940px] text-5xl font-semibold leading-[0.98] tracking-tight text-balance md:text-7xl">
-            AI education and implementation under one roof.
+            AI assessment, training and implementation for UK businesses.
           </h1>
           <p className="mt-6 max-w-[74ch] text-base leading-relaxed text-paper/68 md:text-lg">
-            Quilliam AI helps UK businesses work out where AI is useful, train
-            the team to use it properly, and build the workflows or agents that
-            are worth owning. Start with the part that matches your problem:
-            clarity, adoption, or implementation.
+            Quilliam AI assesses suitable uses of AI, trains staff and
+            implements agreed workflows, automations and supervised agents.
+            Services may be commissioned separately or as a combined
+            engagement.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button
@@ -114,7 +114,7 @@ export default function ServicesPage() {
               className="max-w-full whitespace-normal text-center leading-tight tracking-normal normal-case sm:whitespace-nowrap"
             >
               <Link href="/book?intent=opportunity">
-                Find Where AI Can Help My Business
+                Book Free AI Opportunity
                 <ArrowRight size={18} />
               </Link>
             </Button>
@@ -124,7 +124,7 @@ export default function ServicesPage() {
               size="lg"
               className="text-sm font-bold tracking-normal text-paper normal-case"
             >
-              <Link href="/book?intent=training">Book AI Training</Link>
+              <Link href="/book?intent=training">Book Free AI Training</Link>
             </Button>
           </div>
         </div>

@@ -22,7 +22,7 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
 
   // Validate required fields
   if (!name?.trim() || !email?.trim() || !business?.trim() || !businessType?.trim()) {
-    return { success: false, error: "Please fill in all required fields." };
+    return { success: false, error: "Please complete all required fields." };
   }
 
   // Basic email validation
@@ -56,7 +56,7 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
       from: "Quilliam AI <bookings@quilliam.ai>",
       to: [siteConfig.email],
       replyTo: email.trim(),
-      subject: `New ${subjectTag} Booking: ${name.trim()} — ${business.trim()}`,
+      subject: `New ${subjectTag} booking: ${name.trim()} | ${business.trim()}`,
       html: `
         <h2>New ${escapeHtml(subjectTag)} Booking</h2>
         <table style="border-collapse:collapse;width:100%;max-width:500px">
@@ -99,10 +99,10 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
       replyTo: siteConfig.email,
       subject: `Your ${sessionLabel} with Quilliam AI is booked`,
       html: `
-        <p>Hi ${escapeHtml(name.trim().split(" ")[0])},</p>
-        <p>Thanks for booking a ${escapeHtml(sessionLabel)}. I'll get back to you within 24 hours to arrange a time.</p>
-        <p>In the meantime, if you have any questions, just reply to this email or <a href="https://wa.me/${siteConfig.whatsapp}">message me on WhatsApp</a>.</p>
-        <p>Speak soon,<br>Levi Quilliam<br>Quilliam AI</p>
+        <p>Dear ${escapeHtml(name.trim().split(" ")[0])},</p>
+        <p>Thank you for requesting a ${escapeHtml(sessionLabel)}. I will contact you within 24 hours to arrange a time.</p>
+        <p>If you have any questions, please reply to this email or <a href="https://wa.me/${siteConfig.whatsapp}">contact me on WhatsApp</a>.</p>
+        <p>Kind regards,<br>Levi Quilliam<br>Quilliam AI</p>
       `,
     }).catch((err) => console.error("Confirmation email failed:", err));
 
@@ -137,7 +137,7 @@ export async function submitBooking(formData: FormData): Promise<BookingResult> 
     console.error("Booking submission error:", error);
     return {
       success: false,
-      error: "Failed to send your booking. Please try WhatsApp instead.",
+      error: "We could not send your request. Please try again or contact us by WhatsApp.",
     };
   }
 }

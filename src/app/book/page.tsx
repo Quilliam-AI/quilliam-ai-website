@@ -29,36 +29,36 @@ const INTENT_CONTENT: Record<
   }
 > = {
   training: {
-    badge: "Team adoption",
-    title: "Book practical AI training for the workflows your team actually runs.",
+    badge: "AI training",
+    title: "Book a free introductory AI training session.",
     description:
-      "Use this if the team needs confidence, shared language, and hands-on practice before or during an AI workflow build.",
+      "This session is for teams requiring an introduction to the use of AI in their current roles and processes.",
   },
   opportunity: {
     badge: "AI Opportunity",
-    title: "Find the AI workflow worth building first.",
+    title: "Book a free AI Opportunity Session.",
     description:
-      "Use this if you want a practical answer on where AI can help, what to build first, and what to ignore for now.",
+      "This session reviews a current business process and identifies whether there is a suitable first AI project.",
   },
   either: {
-    badge: "First session",
-    title: "Work out whether training, workflows, or agents should come first.",
+    badge: "Initial consultation",
+    title: "Arrange an initial AI consultation.",
     description:
-      "Use this if you know AI should be useful but are not sure where the value sits yet.",
+      "Use this option to discuss whether assessment, training or implementation is the appropriate starting point.",
   },
 };
 
 export const metadata: Metadata = {
   title: "Book an AI Opportunity Session",
   description:
-    "Book an AI opportunity session with Quilliam AI. Find the workflow, automation, or training worth doing first for your UK business.",
+    "Book a free AI Opportunity Session with Quilliam AI to discuss a suitable workflow, automation or training requirement.",
   alternates: {
     canonical: "/book",
   },
   openGraph: {
     title: "Book an AI Opportunity Session | Quilliam AI",
     description:
-      "Find the workflow, automation, or training worth doing first.",
+      "Discuss a defined workflow, automation or training requirement with Quilliam AI.",
     url: "/book",
     images: ["/opengraph-image"],
   },
@@ -66,30 +66,30 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Book an AI Opportunity Session | Quilliam AI",
     description:
-      "Find the AI workflow worth building first with Quilliam AI.",
+      "Book a free initial session to discuss AI assessment, training or implementation.",
   },
 };
 
 const sessionPoints = [
   {
     icon: GitBranch,
-    title: "Map the drag",
-    description: "We identify repeated work, weak handoffs, and AI-ready processes.",
+    title: "Review the current process",
+    description: "We identify recurring work, dependencies and responsible staff.",
   },
   {
     icon: Bot,
-    title: "Choose the build",
-    description: "Workflow, agent, training, data prep, or nothing yet.",
+    title: "Identify the appropriate service",
+    description: "This may be assessment, training, data preparation, a workflow or a supervised agent.",
   },
   {
     icon: ShieldCheck,
-    title: "Name the controls",
-    description: "Approvals, fallback paths, risks, owners, and access boundaries.",
+    title: "Identify required controls",
+    description: "We consider approvals, fallback procedures, risks, owners and access restrictions.",
   },
   {
     icon: Clock,
-    title: "Leave with next steps",
-    description: "Clear recommendation, likely scope, and what I would do first.",
+    title: "Receive an initial recommendation",
+    description: "We set out the proposed next step and likely scope.",
   },
 ] as const;
 
@@ -103,10 +103,10 @@ export default async function BookPage({ searchParams }: BookPageProps) {
   const copy = INTENT_CONTENT[intent];
   const whatsappHref = getWhatsAppUrl(
     intent === "training"
-        ? "Hi Levi, I want to book practical AI training for my team."
+        ? "Hi Levi, I would like to book a free introductory AI training session for my team."
       : intent === "opportunity"
-        ? "Hi Levi, I want to book an AI opportunity session."
-        : "Hi Levi, I want to book a first AI session.",
+        ? "Hi Levi, I would like to book a free AI Opportunity Session."
+        : "Hi Levi, I would like to arrange an initial AI consultation.",
   );
 
   return (
@@ -115,9 +115,9 @@ export default async function BookPage({ searchParams }: BookPageProps) {
       <WebPageJsonLd
         path="/book"
         name="Book an AI Opportunity Session | Quilliam AI"
-        description="Book an AI opportunity session with Quilliam AI. Find the workflow, automation, or training worth doing first."
+        description="Book a free AI Opportunity Session with Quilliam AI to discuss assessment, training or implementation."
         datePublished="2026-04-11"
-        dateModified="2026-05-26"
+        dateModified="2026-08-13"
       />
 
       <div className="site-grid absolute inset-0 opacity-35" />
@@ -154,7 +154,7 @@ export default async function BookPage({ searchParams }: BookPageProps) {
               <MessageSquare size={20} className="mt-0.5 shrink-0 text-cyan-wire" />
               <div>
                 <p className="text-sm font-semibold text-paper">
-                  Prefer WhatsApp?
+                  Contact by WhatsApp
                 </p>
                 <a
                   href={whatsappHref}
@@ -170,7 +170,7 @@ export default async function BookPage({ searchParams }: BookPageProps) {
 
           <div className="mt-8 flex items-center gap-3 text-sm text-paper/55">
             <CheckCircle2 size={17} className="text-signal" />
-            Clear scope. Practical next step. Team-owned handoff.
+            Defined scope. Initial recommendation. Agreed next step.
           </div>
         </div>
 

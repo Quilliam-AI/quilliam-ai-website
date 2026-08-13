@@ -85,8 +85,9 @@ export function CookieConsentBanner() {
         >
           <div className="rounded-card-lg border border-paper/10 bg-panel/95 p-4 shadow-[0_18px_70px_-36px_rgba(0,0,0,0.9)] backdrop-blur-xl">
             <p className="text-xs leading-relaxed text-paper/70">
-              Optional Google Analytics and PostHog cookies help us improve
-              the site. Rejecting keeps tracking off.{" "}
+              With your consent, we use Google Analytics and PostHog to measure
+              use of this website. If you reject optional cookies, these
+              services will remain disabled.{" "}
               <a
                 href="/privacy#cookies"
                 className="text-signal underline underline-offset-4 transition-colors hover:text-paper"

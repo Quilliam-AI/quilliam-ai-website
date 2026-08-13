@@ -38,12 +38,12 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-5 max-w-[38ch] text-lg font-medium leading-snug text-ink/82 md:text-xl">
-              Practical AI consulting, workflow builds, and team training.
+              AI consulting, workflow implementation and staff training.
             </p>
             <p className="mt-3 max-w-[54ch] text-sm leading-relaxed text-ink/58">
-              We help UK businesses make sense of AI, build the useful bit, and
-              hand it to the team properly. Based in Cornwall. Working UK-wide
-              and remote.
+              Quilliam AI provides AI opportunity analysis, implementation and
+              training for UK businesses. Based in Cornwall, with remote and
+              in-person delivery available throughout the UK.
             </p>
           </div>
 
@@ -79,7 +79,7 @@ export function Footer() {
                   >
                     <a
                       href={getWhatsAppUrl(
-                        "Hi Levi, I want to talk about AI for my business.",
+                        "Hi Levi, I would like to discuss AI services for my business.",
                       )}
                       target="_blank"
                       rel="noopener noreferrer"

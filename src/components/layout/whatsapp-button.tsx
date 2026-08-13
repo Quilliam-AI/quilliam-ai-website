@@ -6,7 +6,7 @@ import { trackWhatsAppClicked } from "@/lib/analytics";
 
 export function WhatsAppButton() {
   const href = getWhatsAppUrl(
-    "Hi Levi, I want to talk about AI for my business."
+    "Hi Levi, I would like to discuss AI services for my business."
   );
 
   return (

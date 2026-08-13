@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const alt =
-  "Quilliam AI - practical AI consulting and implementation for UK businesses";
+  "Quilliam AI | AI consulting, training and implementation for UK businesses";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -119,7 +119,7 @@ export default async function Image() {
                     textTransform: "uppercase",
                   }}
                 >
-                  Workflows / Agents / Handoff
+                  Assessment / Training / Implementation
                 </div>
               </div>
             </div>
@@ -134,7 +134,7 @@ export default async function Image() {
                 fontFamily: "monospace",
               }}
             >
-              {"USEFUL AI AT WORK"}
+              {"AI SERVICES FOR BUSINESS"}
             </div>
           </div>
 
@@ -149,7 +149,7 @@ export default async function Image() {
                 color: "#12100c",
               }}
             >
-              We help real businesses use AI at work.
+              AI consulting and implementation for UK businesses.
             </div>
             <div
               style={{
@@ -160,7 +160,7 @@ export default async function Image() {
                 color: "rgba(18,16,12,0.68)",
               }}
             >
-              Practical AI consulting, workflow builds, and team training for UK businesses.
+              Process assessment, staff training and implementation with defined controls.
             </div>
           </div>
 
@@ -176,7 +176,7 @@ export default async function Image() {
               color: "rgba(18,16,12,0.56)",
             }}
           >
-            <span>Cornwall / UK-wide / Remote</span>
+            <span>Cornwall / United Kingdom / Remote</span>
             <span style={{ color: "#177245" }}>quilliam.ai</span>
           </div>
         </div>

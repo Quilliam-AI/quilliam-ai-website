@@ -1,18 +1,18 @@
-# Quilliam AI - Full Context
-> Practical AI consulting, workflow builds, and team training for UK businesses
+# Quilliam AI | Full Context
+> AI consulting, training and implementation for UK businesses
 
 > Short version: https://quilliam.ai/llms.txt
-> Last updated: 2026-05-26
+> Last updated: 2026-08-13
 
 ---
 
 ## Company Overview
 
-Quilliam AI is the trading name of Quilliam AI Ltd, a UK private limited company registered in England and Wales (Companies House number 17151006), incorporated on 2026-04-11. Registered office: 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB. Sole director and shareholder: Levi Lachlan Quilliam.
+Quilliam AI is the trading name of Quilliam AI Ltd, a UK private limited company registered in England and Wales under Companies House number 17151006. The company was incorporated on 2026-04-11. Its registered office is 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB. Levi Lachlan Quilliam is the founder, sole director and sole shareholder.
 
-Quilliam AI is based in Cornwall and works with UK businesses that want to move from scattered AI interest to working AI systems. The core positioning is simple: make AI clear, build the useful workflow, and train the team so the business owns the result.
+Quilliam AI is based in Cornwall and provides AI assessment, staff training and implementation services throughout the United Kingdom. The company reviews defined business processes, identifies suitable uses of AI, implements agreed workflows or supervised agents and trains the staff responsible for operating them.
 
-Quilliam AI is not a strategy consultancy selling decks, and it is not a software team building impressive demos that nobody uses. The practical work is: understand the business, identify where AI has a business case, design the workflow, build the system, add controls, train the team, document the runbook, and leave the client with ownership.
+Each paid engagement is governed by an agreed scope, deliverables, responsibilities, controls, timetable and fee. Documentation and handover requirements are included where applicable so that the client can operate and review the delivered system.
 
 ### Key Facts
 - Trading name: Quilliam AI
@@ -22,10 +22,10 @@ Quilliam AI is not a strategy consultancy selling decks, and it is not a softwar
 - Registered office: 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB
 - Founder and sole director: Levi Lachlan Quilliam
 - Location: Cornwall, UK
-- Delivery: UK-wide and remote, with in-person work where useful
-- Target client: UK businesses with repeated operational drag and a willingness to change how work gets done
-- Main services: AI Opportunity Analysis, Team Training, and AI Implementation
-- Budget guidance: training usually starts from £500; small implementation projects can sit around £2,000-£3,000; medium projects can range from £5,000-£50,000; larger programmes are usually £50,000+
+- Delivery: remote and in-person services throughout the UK
+- Typical client: a UK business with a recurring process, an accountable owner and a measurable requirement
+- Main services: AI Opportunity Analysis, Team Training and AI Implementation
+- Budget guidance: training usually starts from £500; small implementation projects may cost approximately £2,000 to £3,000; medium projects may range from £5,000 to £50,000; larger programmes are usually above £50,000
 - Phone: +447593121621
 - Email: levi@quilliam.ai
 - Website: https://quilliam.ai
@@ -35,109 +35,113 @@ Quilliam AI is not a strategy consultancy selling decks, and it is not a softwar
 
 ---
 
-## Positioning
+## Approach
 
-Most businesses do not need more AI noise. They need one real workflow improved: lead follow-up, admin, support triage, reporting, document handling, internal knowledge, or customer communication. The commercial opportunity is not to buy every new AI tool. The opportunity is to decide where AI can safely help with work the business already does.
+Quilliam AI begins with a defined business process. The assessment considers frequency, current cost, delay, system dependencies, available data, risk and responsible staff. A suitable project should have an accountable owner, representative test cases and measurable acceptance criteria.
 
-Quilliam AI turns AI into scoped, controlled business systems. That means choosing a workflow with a real owner, defining the trigger and context, connecting the right tools and data, building the automation or agent where useful, adding approval gates and logs, then training the team until the workflow becomes normal.
+Where implementation is justified, Quilliam AI defines the trigger, required context, permitted actions, approval requirements, access restrictions, logging, fallback procedures and responsibility for ongoing review. The first release is tested against representative cases before wider use. Staff training and handover documents cover the agreed operation, controls and maintenance procedures.
+
+An initial recommendation may include implementation, a supervised agent, staff training, data preparation or deferral. The recommendation depends on the evidence available and the expected business benefit.
 
 ---
 
 ## Services
 
 ### AI Opportunity Analysis
-AI Opportunity Analysis is for business owners who know AI should matter but do not know where to start. Quilliam AI reviews repeated work, current tools, team readiness, risks, and likely value. The output is a plain-English recommendation on what to do first, what needs preparation, and what should be ignored for now.
+
+AI Opportunity Analysis is an assessment of recurring business processes and their suitability for AI. Quilliam AI reviews the current method, systems, data, staff responsibilities, volume, delay, quality requirements and risk. The resulting recommendation identifies suitable opportunities in priority order and records any preparation required before implementation. It also states the proposed scope, controls, accountable owner and measure of success for the first project. The assessment may recommend a workflow, a supervised agent, staff training, data preparation or deferral. This service is intended for business owners and operational leads who require a reasoned basis for deciding whether to commit time and budget to AI work.
 
 ### Team Training
-Team Training is for staff who need practical confidence using AI in real work. Quilliam AI trains people on role-specific examples, useful prompts, checking output, privacy boundaries, internal rules, and when to keep a human in control. The aim is not generic prompt tips. The aim is that staff know how to use AI safely and effectively in the work they already do.
 
-### Supervised AI Agents and Automations
-Supervised AI Agents are agents with jobs, boundaries, and controls. They can read from the right sources, prepare the next action, and escalate when confidence or risk demands it. Typical agents include lead qualification agents, support triage agents, research agents, internal knowledge agents, CRM hygiene agents, and operations reporting agents.
-
-Quilliam AI does not treat autonomy as the starting point. Agents should earn trust before they earn autonomy. Controls can include limited permissions, scoped tool access, human approval for risky actions, test examples, logs, fallback paths, and named owners.
+Team Training provides role-specific instruction on the use of AI in current business processes. Training may cover approved tools, prompt preparation, source material, checking output, privacy, confidential information, internal policy, escalation and human approval. Examples are based on the roles and processes included in the agreed scope. Written guidance may include prompts, review checklists, process instructions and rules for permitted or restricted use. The objective is consistent and accountable use by the relevant staff. A free introductory AI training session is available to discuss the team, current level of use and proposed training requirement.
 
 ### AI Implementation
-AI Implementation is for turning the best opportunities into working business systems. Quilliam AI redesigns repeated processes so AI can handle judgement-light work and humans keep important decisions. Typical workflows include lead intake, sales follow-up, customer support triage, weekly reporting, research packs, internal briefing, document intake, and admin handoffs across email, docs, CRM, and spreadsheets.
 
-The workflow anatomy is: trigger, context, action, control. A trigger starts the process. Context pulls the right customer history, policy, examples, or documents. The action drafts, routes, classifies, updates, researches, or summarises. Control adds human approval, logging, and fallback paths.
+AI Implementation covers the design, implementation, testing and handover of AI workflows, automations, supervised agents, knowledge systems and internal tools. Typical processes include lead intake, customer follow-up, support triage, weekly reporting, research, document handling, internal knowledge and administration across email, documents, CRM systems and spreadsheets. The implementation is based on an agreed process and may use n8n, APIs, forms, databases and AI models such as Claude or ChatGPT. Controls may include restricted permissions, limited data access, human approval, audit logs, test cases and fallback procedures. The responsible staff receive the agreed training and handover documents before release.
 
----
+### Supervised AI Agents
 
-## Case Study - VetVision AI
-
-VetVision AI is a University of Nottingham spin-out using camera systems to monitor animal welfare across equine and dairy environments. Quilliam AI helped make the AI product easier to sell, onboard, operate, and improve through clearer positioning, website redesign, branded onboarding portals, farm and camera operations workflows, and internal AI implementation support.
-
-The project brought two brands together under the VetVision AI name and rebuilt the website so the product quality was reflected in the public presence. Quilliam AI also created a branded onboarding portal to give end users a clearer start-to-finish experience, plus an operations workflow to help map farms and plan camera placement or replacement more clearly.
-
-Reported outcomes include a site SEO score moving from roughly 40 to 95, stronger visibility across Google and AI search, increased visitor numbers, and increased lead flow.
+A supervised AI agent performs a defined task within stated permissions and approval requirements. It may retrieve authorised information, classify a request, prepare a proposed action or update an agreed system. Human approval is retained for actions carrying material risk. Typical examples include lead qualification, support triage, research, internal knowledge retrieval, CRM maintenance and operational reporting. Each agent requires an accountable owner, test cases, monitoring and a documented fallback procedure.
 
 ---
 
-## How It Works
+## Case Study | VetVision AI
 
-### 1. Find the work worth fixing
-Quilliam AI inspects repeated admin, slow handoffs, customer friction, reporting loops, and knowledge gaps that actually cost time or money. The output is a plain-English AI map: what to build now, what needs preparation, and what should be left alone.
+VetVision AI is a University of Nottingham spin-out that uses camera systems to monitor animal welfare in equine and dairy environments. Quilliam AI has supported the presentation of the AI product, search content, customer onboarding, farm and camera operations, and defined internal uses of AI.
 
-### 2. Choose the first useful build
-The best opportunity becomes a scoped build plan. This defines trigger, context, decision, action, approval, logging, fallback, owner, risk, and success measure. This prevents generic AI tool shopping and keeps the project tied to business value.
+The work included consolidating two brands under the VetVision AI name, revising the website, developing a branded onboarding portal and documenting processes for farm mapping, camera placement and camera replacement planning.
 
-### 3. Build it around existing tools
-Quilliam AI connects AI models to tools and data with supervision, permissions, tests, logs, and human approval where needed. The first version is intentionally focused, then hardened once it has been tested against real work.
-
-### 4. Hand it to the team
-The project is not finished when the demo works. Quilliam AI trains users, documents the workflow, names the owner, and reviews whether the system is being used. Success means the workflow becomes part of normal work.
+Reported outcomes include an approximate website SEO score change from 40 to 95 and increases in search visibility, visitor numbers and enquiries. These figures are reported as project outcomes and are not a guarantee of results for other clients.
 
 ---
 
-## Ideal Client Profile
+## Delivery Process
 
-Strong fits include:
-- Small and growing businesses with repeated admin, follow-up, reporting, or customer-support work
-- Agencies and consultancies trying to improve delivery operations
-- Startups and scale-ups building AI-native operating habits
-- Teams inside larger organisations piloting AI adoption
-- Founder-led businesses that want a senior person close to the work
+### 1. Assess current processes
+Quilliam AI reviews recurring administration, follow-up, customer enquiries, reporting, document handling and handovers. The assessment records the current process, cost or delay, responsible staff, systems, data and risk.
 
-The through-line is not industry or size. It is readiness to move from AI experiments to working systems.
+### 2. Define the first project
+The proposed scope states the trigger, required context, actions, approvals, permissions, logs, fallback procedures, owner, risk and success measures. A written scope and fee are provided before paid work begins.
 
-Good project signals:
-- The same kind of task happens every week
-- The work has examples, rules, policies, or repeated patterns
-- A real person owns the outcome
-- The cost of delay or manual effort is already visible
+### 3. Implement and test
+Quilliam AI connects the agreed models, tools and data, applies the required controls and tests the system against representative cases. Release depends on the agreed acceptance criteria.
+
+### 4. Train and hand over
+The responsible staff receive training and documentation covering operation, output review, controls, escalation, fallback procedures and agreed maintenance responsibilities.
 
 ---
 
-## Founder - Levi Quilliam
+## Suitable Engagements
 
-Levi Quilliam is the founder and sole director of Quilliam AI Ltd. He holds a Bachelor's degree in Economics and a Graduate Certificate in Computer Science. He began his career at Deloitte in turnaround and restructuring, where he developed a practical understanding of how businesses operate and where inefficiencies hide. He then moved into technology, including work at Halter and XGX.AI.
+Relevant clients may include:
+- Small and growing businesses with recurring administration, follow-up, reporting or customer support work
+- Agencies and consultancies seeking to improve delivery processes
+- Start-ups and scale-ups establishing defined AI operating procedures
+- Teams within larger organisations conducting an AI pilot
+- Owner-led businesses requiring direct access to the principal consultant
 
-Levi founded Quilliam AI because many businesses were buying AI tools, reading case studies, and watching webinars without turning that interest into usable systems. Quilliam AI closes that gap by identifying what matters, building it, and helping teams adopt it.
+Initial suitability indicators include:
+- The same type of task occurs regularly
+- Examples, policies, rules or repeated patterns are available
+- A named person is accountable for the outcome
+- The current time, cost, delay or quality issue can be measured
+- Representative cases are available for testing
+
+---
+
+## Founder | Levi Quilliam
+
+Levi Quilliam is the founder and sole director of Quilliam AI Ltd. He holds a Bachelor's degree in Economics and a Graduate Certificate in Computer Science. His professional experience includes turnaround and restructuring at Deloitte, followed by technology roles at Halter. He has more than eight years of experience in software, AI tools, integrations, automation and product workflows.
+
+This combination of business and technical experience informs the assessment of process, cost, responsibility, risk and implementation requirements for each engagement.
 
 ---
 
 ## Budget Guidance
 
-Quilliam AI quotes by scope because useful AI work depends on the workflow, data, systems, risk, and handoff needs. Training usually starts from £500. Small implementation projects can sit around £2,000-£3,000, medium projects can range from £5,000-£50,000, and larger programmes are usually £50,000+. Ongoing support is available where a system needs monitoring, iteration, or managed improvement. Every paid engagement is scoped clearly before work starts.
+Quilliam AI quotes against an agreed scope. The fee depends on the process, data, systems, risk, testing, training and handover requirements. Training usually starts from £500. Small implementation projects may cost approximately £2,000 to £3,000. Medium projects may range from £5,000 to £50,000. Larger programmes are usually above £50,000. Ongoing support may be agreed where a system requires monitoring, maintenance or further development.
 
 ---
 
-## FAQs
+## Frequently Asked Questions
 
-### What does Quilliam AI do?
-Quilliam AI helps UK businesses make sense of AI, build useful AI workflows, and train their teams to use them properly.
+### What services does Quilliam AI provide?
+Quilliam AI provides AI Opportunity Analysis, role-specific staff training and implementation of AI workflows, automations, supervised agents, knowledge systems and internal tools.
 
-### What is an AI opportunity session?
-An AI opportunity session is a focused first conversation where Quilliam AI looks at how a business works, where AI could remove drag, and which workflow is worth building first. The output is a practical recommendation, not a generic strategy deck.
+### What is an AI Opportunity Session?
+An AI Opportunity Session is a free initial discussion about a current business process and whether it may be suitable for AI. The session identifies the proposed next step and likely scope. A detailed assessment or implementation is subject to a separate written agreement.
 
-### Do you train teams?
-Yes. Training is tied to the workflows and agents being shipped. The aim is not generic AI literacy. The aim is that the team understands how to use, trust, and improve the system.
+### Does Quilliam AI train staff?
+Yes. Training is based on the roles, policies and business processes included in the agreed scope. It covers appropriate use, preparation, output review, privacy, controls and escalation.
 
-### Do you build automations?
-Yes. Quilliam AI builds AI workflows, n8n automations, custom tools, API integrations, knowledge systems, and supervised agents where there is a real business case.
+### Does Quilliam AI implement automations?
+Yes. Quilliam AI implements AI workflows, n8n automations, API integrations, knowledge systems, internal tools and supervised agents where there is an agreed business case.
 
-### How do you stop agents going wrong?
-By designing for supervision: limited permissions, scoped tool access, human approval for risky actions, test examples, logs, fallback paths, and named owners.
+### How are AI risks controlled?
+Controls are selected according to the process and risk. They may include restricted permissions, limited data access, human approval, representative test cases, audit logs, fallback procedures and named owners.
+
+### Where does Quilliam AI work?
+Quilliam AI is based in Cornwall and provides remote and in-person services throughout the United Kingdom. In-person sessions are available by agreement.
 
 ---
 

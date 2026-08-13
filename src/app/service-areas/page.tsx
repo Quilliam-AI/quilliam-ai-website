@@ -7,24 +7,24 @@ import { WebPageJsonLd } from "@/components/shared/webpage-jsonld";
 import { siteConfig } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Where We Work - Cornwall, UK and Remote",
+  title: "Where We Work | Cornwall and the UK",
   description:
-    "Quilliam AI works with UK businesses nationwide. Based in Cornwall, delivering AI workflow and agent implementation remotely and in person where useful.",
+    "Quilliam AI is based in Cornwall and provides AI assessment, training and implementation services remotely and in person throughout the UK.",
   alternates: {
     canonical: "/service-areas",
   },
   openGraph: {
-    title: "Where We Work - Cornwall, UK and Remote | Quilliam AI",
+    title: "Where We Work | Cornwall and the UK | Quilliam AI",
     description:
-      "AI workflow and agent implementation for UK businesses. Cornwall-based, UK-wide and remote.",
+      "AI assessment, training and implementation from Cornwall throughout the UK.",
     url: "/service-areas",
     images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Where We Work - Cornwall, UK and Remote | Quilliam AI",
+    title: "Where We Work | Cornwall and the UK | Quilliam AI",
     description:
-      "Cornwall-based AI workflow and agent implementation for UK businesses.",
+      "AI assessment, training and implementation from Cornwall throughout the UK.",
   },
 };
 
@@ -32,38 +32,38 @@ const regions = [
   {
     name: "Cornwall and South West",
     description:
-      "Our home base. Useful for discovery workshops, training, and local rollout sessions across Cornwall, Devon, Bristol, and the wider South West.",
+      "Assessment workshops, training and implementation sessions are available across Cornwall, Devon, Bristol and the wider South West.",
   },
   {
     name: "London and South East",
     description:
-      "Workshops and kick-offs available when in-person time improves alignment. Ongoing build work stays remote-first.",
+      "In-person assessment and commencement meetings are available by agreement. Ongoing implementation is generally delivered remotely.",
   },
   {
     name: "Midlands, North, Scotland, Wales and Northern Ireland",
     description:
-      "Full remote delivery for AI workflow mapping, agent builds, documentation, training, and adoption support.",
+      "Remote delivery is available for process assessment, implementation, documentation, training and adoption support.",
   },
 ] as const;
 
 const delivery = [
   {
     icon: Laptop,
-    title: "Remote-first",
+    title: "Remote delivery",
     description:
-      "Most workflow analysis, build work, testing, and handoff can happen quickly over video, shared docs, and async examples.",
+      "Process assessment, implementation, testing and handover can be completed through meetings, shared documents and supplied test cases.",
   },
   {
     icon: Users,
-    title: "In-person where it helps",
+    title: "In-person sessions",
     description:
-      "Discovery and adoption sessions can be run in person when a room full of people will move the work faster.",
+      "Assessment, training and implementation sessions can be held in person where agreed in the scope.",
   },
   {
     icon: MapPin,
     title: "Cornwall-based",
     description:
-      "Local context for South West businesses, with the same remote-friendly delivery for teams across the UK.",
+      "Local delivery is available to South West businesses, with remote delivery for teams throughout the UK.",
   },
 ] as const;
 
@@ -72,13 +72,13 @@ const areaLinks = [
     href: "/ai-automation-cornwall",
     title: "AI automation in Cornwall",
     description:
-      "Local implementation support for businesses in Newquay, Truro, Falmouth, St Austell, Bodmin, Wadebridge, and the wider South West.",
+      "AI workflow and automation services for businesses in Newquay, Truro, Falmouth, St Austell, Bodmin, Wadebridge and the wider South West.",
   },
   {
     href: "/ai-consultant-uk",
     title: "AI consultant for UK businesses",
     description:
-      "Remote-first AI consulting, workflow design, implementation, training, and handoff across the UK.",
+      "AI assessment, workflow design, implementation, training and documented handover throughout the UK.",
   },
 ] as const;
 
@@ -87,7 +87,7 @@ function ServiceAreasJsonLd() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${siteConfig.url}/service-areas#service-areas`,
-    name: "AI workflows and agents - UK-wide and remote",
+    name: "AI workflows and agents throughout the UK",
     provider: {
       "@id": `${siteConfig.url}/#organization`,
     },
@@ -96,7 +96,7 @@ function ServiceAreasJsonLd() {
       name: region.name,
     })),
     description:
-      "Quilliam AI provides AI workflow and supervised agent implementation to UK businesses nationwide. Based in Cornwall with remote-first delivery.",
+      "Quilliam AI provides AI workflow and supervised agent implementation to UK businesses from its base in Cornwall.",
   };
 
   return (
@@ -115,10 +115,10 @@ export default function ServiceAreasPage() {
       />
       <WebPageJsonLd
         path="/service-areas"
-        name="Where We Work - Cornwall, UK and Remote | Quilliam AI"
-        description="Quilliam AI works with UK businesses nationwide. Based in Cornwall, delivering AI workflows and agents remotely and in person where useful."
+        name="Where We Work | Cornwall and the UK | Quilliam AI"
+        description="Quilliam AI provides AI assessment, training and implementation services from Cornwall throughout the UK."
         datePublished="2026-04-11"
-        dateModified="2026-05-26"
+        dateModified="2026-08-13"
       />
       <ServiceAreasJsonLd />
 
@@ -130,12 +130,12 @@ export default function ServiceAreasPage() {
             Where we work
           </p>
           <h1 className="mt-6 max-w-[940px] text-5xl font-semibold leading-[0.98] tracking-tight text-balance md:text-7xl">
-            Based in Cornwall. Built for UK-wide AI implementation.
+            Based in Cornwall. Providing AI services throughout the UK.
           </h1>
           <p className="mt-6 max-w-[72ch] text-base leading-relaxed text-paper/68 md:text-lg">
-            AI workflow and agent projects do not need a room full of people
-            every week. They need real examples, quick feedback, clear owners,
-            and enough in-person time to build trust where it matters.
+            Delivery may be remote, in person or a combination of both. The
+            agreed format depends on the process, participants, systems and
+            training requirements.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button
@@ -144,7 +144,7 @@ export default function ServiceAreasPage() {
               className="max-w-full whitespace-normal text-center leading-tight tracking-normal normal-case sm:whitespace-nowrap"
             >
               <Link href="/book?intent=opportunity">
-                Find Where AI Can Help My Business
+                Book Free AI Opportunity
                 <ArrowRight size={18} />
               </Link>
             </Button>
@@ -154,7 +154,7 @@ export default function ServiceAreasPage() {
               size="lg"
               className="text-sm font-bold tracking-normal text-paper normal-case"
             >
-              <Link href="/contact">Ask about location</Link>
+              <Link href="/contact">Discuss delivery location</Link>
             </Button>
           </div>
         </div>
@@ -183,7 +183,7 @@ export default function ServiceAreasPage() {
               Coverage
             </p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              Geography should not decide whether the workflow gets fixed.
+              Service coverage across the United Kingdom.
             </h2>
           </div>
           <div className="space-y-4">
@@ -204,7 +204,7 @@ export default function ServiceAreasPage() {
       <section className="bg-[#080a08] px-6 py-16 text-paper md:py-20">
         <div className="mx-auto max-w-[1220px] border-t border-paper/10 pt-10">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
-            Local and national pages
+            Related service pages
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {areaLinks.map((item) => (

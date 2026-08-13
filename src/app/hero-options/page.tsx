@@ -43,7 +43,7 @@ function OptionCtas({ dark = false }: { dark?: boolean }) {
     <div className="flex flex-col gap-3 sm:flex-row">
       <Button asChild size="lg" className={ctaClass}>
         <Link href="/book?intent=opportunity">
-          Find Where AI Can Help My Business
+          Book Free AI Opportunity
           <ArrowRight size={18} />
         </Link>
       </Button>
@@ -53,7 +53,7 @@ function OptionCtas({ dark = false }: { dark?: boolean }) {
         size="lg"
         className={ctaClass}
       >
-        <Link href="/book?intent=training">Book AI Training</Link>
+        <Link href="/book?intent=training">Book Free AI Training</Link>
       </Button>
     </div>
   );
@@ -107,8 +107,8 @@ function HeroOption({
               dark ? "text-paper/48" : "text-ink/55"
             }`}
           >
-            Based in Cornwall. Working UK-wide. Plain English, useful builds,
-            and team handoff.
+            Based in Cornwall. Working throughout the UK. Defined scope,
+            implemented systems and documented handover.
           </p>
         </div>
         <div>{children}</div>
@@ -178,7 +178,7 @@ function OptionOne() {
             Local examples
           </p>
           <h3 className="mt-3 text-3xl font-semibold leading-none tracking-tight text-ink">
-            Pick a job. Make it easier.
+            Select a process for assessment.
           </h3>
         </div>
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[1.1rem] bg-ink text-paper">
@@ -275,7 +275,7 @@ function OptionThree() {
           </span>
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-signal-strong">
-              Your team gets
+              Proposed output
             </p>
             <p className="mt-1 text-xl font-semibold tracking-tight text-ink">
               A draft reply ready to approve.
@@ -303,9 +303,9 @@ function OptionFour() {
       </div>
       <div className="mt-8 divide-y divide-ink/10 border-y border-ink/10">
         {[
-          ["Where it hurts", "Staff copy details between inbox, notes, and CRM."],
-          ["Where AI helps", "Pulls the details together and drafts the next step."],
-          ["Where humans stay", "A person checks, edits, and sends."],
+          ["Current process", "Staff copy details between inbox, notes and CRM."],
+          ["Proposed use", "The system compiles the details and drafts the next step."],
+          ["Human control", "A member of staff checks, edits and sends the response."],
         ].map(([label, text]) => (
           <div key={label} className="grid gap-3 py-5 sm:grid-cols-[0.35fr_1fr]">
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-ink/42">
@@ -318,7 +318,7 @@ function OptionFour() {
         ))}
       </div>
       <p className="mt-5 rounded-full bg-signal/12 px-4 py-3 text-center text-xs font-bold uppercase tracking-[0.14em] text-signal-strong">
-        Fix one job first
+        Assess one process first
       </p>
     </div>
   );
@@ -358,8 +358,8 @@ function OptionFive() {
               index === 0 ? "text-paper/72" : "text-ink/64"
             }`}
           >
-            The repeated task gets mapped, drafted, checked, and handed back to
-            your team.
+            The recurring task is assessed, drafted, checked and handed over to
+            the responsible staff.
           </p>
         </article>
       ))}
@@ -403,7 +403,7 @@ function OptionSix() {
       </div>
       <div className="mt-4 rounded-card-lg bg-signal/12 p-5">
         <p className="text-3xl font-semibold leading-none tracking-tight text-ink">
-          That is where AI belongs.
+          This may be suitable for AI assistance.
         </p>
       </div>
     </div>
@@ -444,7 +444,7 @@ function OptionSeven() {
           First fix
         </p>
         <p className="mt-3 text-3xl font-semibold leading-none tracking-tight">
-          Clear the waiting replies.
+          Prepare outstanding replies.
         </p>
       </div>
     </div>
@@ -562,10 +562,10 @@ function OptionTen() {
         </div>
         <div className="inner-rounded bg-signal/12 p-4">
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-signal-strong">
-            First useful build
+            Proposed first implementation
           </p>
           <p className="mt-3 text-2xl font-semibold tracking-tight text-ink">
-            Faster lead replies
+            Draft lead responses
           </p>
         </div>
       </div>
@@ -585,7 +585,7 @@ function OptionTen() {
       </div>
       <p className="mt-5 flex items-center gap-3 text-sm font-semibold text-ink/70">
         <ShieldCheck size={18} className="text-signal-strong" />
-        Plain English plan before any build.
+        Defined scope before implementation.
       </p>
     </div>
   );
@@ -600,13 +600,12 @@ export default function HeroOptionsPage() {
             Internal hero exploration
           </p>
           <h1 className="mt-5 max-w-[900px] text-4xl font-semibold leading-[0.95] tracking-tight text-balance md:text-6xl">
-            Ten ways to make the right side obvious.
+            Ten options for presenting the service clearly.
           </h1>
           <p className="mt-5 max-w-[68ch] text-base leading-relaxed text-ink/68 md:text-lg">
-            Each section uses local-business examples instead of abstract
-            workflow language. The goal is instant recognition: the visitor
-            should see their own repeated admin, enquiry, report, or customer
-            question.
+            Each section uses examples from local businesses. The visitor
+            can identify a relevant recurring process, enquiry,
+            report or customer question.
           </p>
         </div>
       </section>
@@ -614,8 +613,8 @@ export default function HeroOptionsPage() {
       <HeroOption
         number="01"
         name="Use case stack"
-        headline="We find one job AI can help with."
-        body="Show several local business examples at once, then make one feel selected. This is simple, direct, and gives different visitors a way to recognise themselves."
+        headline="Identify a suitable process for AI."
+        body="Presents several local business examples and highlights one selected process. This allows visitors from different sectors to identify a relevant use."
       >
         <OptionOne />
       </HeroOption>
@@ -623,8 +622,8 @@ export default function HeroOptionsPage() {
       <HeroOption
         number="02"
         name="Choose your business"
-        headline="Pick the business. Pick the repeated job."
-        body="This turns the right side into a plain chooser. It makes Quilliam AI feel practical for trades, clinics, accountants, venues, agents, and agencies."
+        headline="Select a sector and recurring process."
+        body="Presents a sector selection followed by a defined process for trades, clinics, accountants, venues, agents and agencies."
       >
         <OptionTwo />
       </HeroOption>
@@ -632,8 +631,8 @@ export default function HeroOptionsPage() {
       <HeroOption
         number="03"
         name="Message in, reply out"
-        headline="Customer asks. Your team replies faster."
-        body="This is the clearest lead-follow-up version. It avoids the word workflow and shows the before and after as a simple business moment."
+        headline="Prepare customer replies for staff approval."
+        body="Shows a lead follow-up process from the initial customer question to a draft response prepared for approval."
       >
         <OptionThree />
       </HeroOption>
@@ -641,8 +640,8 @@ export default function HeroOptionsPage() {
       <HeroOption
         number="04"
         name="Job ticket"
-        headline="We turn repeated admin into a job card."
-        body="This makes the offer feel hands-on and consultative. It says: we inspect the work, find the painful bit, and decide what AI should and should not do."
+        headline="Define the role of AI in recurring administration."
+        body="Shows the current process, the proposed use of AI and the point at which a member of staff retains control."
       >
         <OptionFour />
       </HeroOption>
@@ -650,8 +649,8 @@ export default function HeroOptionsPage() {
       <HeroOption
         number="05"
         name="Sector tiles"
-        headline="Useful AI starts with work people already do."
-        body="This is bolder and more graphic. It makes the site feel confident while keeping the examples grounded in normal local business jobs."
+        headline="Apply AI to an established business process."
+        body="Uses sector-specific tiles to present examples of recurring work within local businesses."
       >
         <OptionFive />
       </HeroOption>
@@ -659,8 +658,8 @@ export default function HeroOptionsPage() {
       <HeroOption
         number="06"
         name="Repeat job finder"
-        headline="If it repeats, AI might help."
-        body="This is the strongest cave-man logic. It gives the visitor a simple test for whether their business has a good first AI project."
+        headline="Recurring processes may be suitable for AI."
+        body="Sets out four initial criteria for assessing whether a process may be suitable for an AI project."
       >
         <OptionSix />
       </HeroOption>
@@ -668,8 +667,8 @@ export default function HeroOptionsPage() {
       <HeroOption
         number="07"
         name="Owner's week"
-        headline="Clear the jobs that keep slipping."
-        body="This version speaks to the owner’s calendar. It makes AI feel like less pressure in the week, not another software project."
+        headline="Address recurring work that remains incomplete."
+        body="Uses a weekly schedule to show recurring enquiries, reporting and follow-up work requiring attention."
       >
         <OptionSeven />
       </HeroOption>
@@ -677,8 +676,8 @@ export default function HeroOptionsPage() {
       <HeroOption
         number="08"
         name="Local use case receipts"
-        headline="Show me where AI helps my business."
-        body="This is the cleanest version of the idea you liked. It reads fast and shows the visitor that the offer is not generic AI theatre."
+        headline="Identify where AI may assist the business."
+        body="Lists specific processes by sector to demonstrate that the assessment is based on defined business work."
         dark
       >
         <OptionEight />
@@ -688,7 +687,7 @@ export default function HeroOptionsPage() {
         number="09"
         name="Customer messages"
         headline="Turn repeat customer questions into approved replies."
-        body="This uses the thing every business understands: messages waiting for a response. It feels concrete, human, and low-risk."
+        body="Uses unanswered customer messages to show a defined drafting process with human approval."
       >
         <OptionNine />
       </HeroOption>
@@ -696,8 +695,8 @@ export default function HeroOptionsPage() {
       <HeroOption
         number="10"
         name="Opportunity sheet"
-        headline="Leave knowing what to build first."
-        body="This shifts the right side from example use cases to the actual deliverable. It still uses a local business example, but the main promise is clarity."
+        headline="Receive a recommendation for the first project."
+        body="Presents the initial assessment as a defined deliverable, using a local service business as the example."
       >
         <OptionTen />
       </HeroOption>

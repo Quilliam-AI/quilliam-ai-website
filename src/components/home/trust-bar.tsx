@@ -16,7 +16,7 @@ export function TrustBar() {
               key={company.name}
               href={company.href}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener"
               aria-label={`Visit ${company.name}`}
               className="group flex h-12 items-center justify-center px-3"
             >

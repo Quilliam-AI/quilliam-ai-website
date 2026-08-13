@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Practical AI Consulting and Implementation | Quilliam AI",
+    default: "AI Consulting, Training and Implementation | Quilliam AI",
     template: `%s | Quilliam AI`,
   },
   description: siteConfig.description,
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Practical AI Consulting and Implementation | Quilliam AI",
+    title: "AI Consulting, Training and Implementation | Quilliam AI",
     description:
-      "Quilliam AI helps UK businesses make sense of AI, build useful workflows, and train teams to use them properly.",
+      "AI opportunity analysis, staff training and implementation services for UK businesses.",
     url: siteConfig.url,
     siteName: siteConfig.name,
     images: ["/opengraph-image"],
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Practical AI Consulting and Implementation | Quilliam AI",
+    title: "AI Consulting, Training and Implementation | Quilliam AI",
     description:
-      "Practical AI consulting, workflow builds, and team training for UK businesses.",
+      "AI consulting, workflow implementation and staff training for UK businesses.",
     images: ["/opengraph-image"],
   },
   manifest: "/site.webmanifest",
@@ -62,7 +62,7 @@ function JsonLd() {
     name: "Levi Quilliam",
     jobTitle: "Founder & Principal Consultant",
     description:
-      "Founder of Quilliam AI, building practical AI workflows, supervised agents, and team training for UK businesses.",
+      "Founder of Quilliam AI, providing AI workflow implementation, supervised agents and staff training for UK businesses.",
     knowsAbout: [
       "AI workflow implementation",
       "Supervised AI agents",
@@ -135,7 +135,7 @@ function JsonLd() {
         closes: "17:00",
       },
     },
-    // UK Companies House registration number — published in the footer as required under
+    // UK Companies House registration number, published in the footer as required under
     // s.82 Companies Act 2006 for the trading name of a UK Ltd company.
     identifier: {
       "@type": "PropertyValue",

@@ -19,14 +19,14 @@ import { proofLogos, siteConfig } from "@/lib/content";
 export const metadata: Metadata = {
   title: "About Levi Quilliam",
   description:
-    "Meet Levi Quilliam, founder of Quilliam AI. Ex-Deloitte, Halter, and XGX.AI. Based in Cornwall, building AI workflows and agents for UK businesses.",
+    "Levi Quilliam is the founder of Quilliam AI. His experience includes Deloitte and Halter. He provides AI implementation services from Cornwall throughout the UK.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "About Levi Quilliam | Quilliam AI",
     description:
-      "Founder of Quilliam AI. Practical AI workflow and agent implementation for UK businesses.",
+      "Founder and principal consultant of Quilliam AI, providing AI workflow and supervised agent implementation for UK businesses.",
     url: "/about",
     images: ["/opengraph-image"],
   },
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Levi Quilliam | Quilliam AI",
     description:
-      "Founder-led AI workflow and agent implementation from Cornwall, UK.",
+      "AI workflow and supervised agent implementation from Cornwall throughout the UK.",
   },
 };
 
@@ -42,26 +42,26 @@ const timeline = [
   {
     icon: GraduationCap,
     label: "Foundation",
-    title: "Economics plus computer science",
-    text: "A Bachelor's degree in Economics plus a Graduate Certificate in Computer Science. The useful overlap: how businesses make decisions, where systems break, and how software can make work easier instead of noisier.",
+    title: "Economics and computer science",
+    text: "A Bachelor's degree in Economics and a Graduate Certificate in Computer Science, covering business decision-making and software systems.",
   },
   {
     icon: Building2,
     label: "Deloitte",
     title: "Turnaround and restructuring",
-    text: "Work in turnaround and restructuring, where constraints, cash, handoffs, incentives, and operating habits matter more than slogans.",
+    text: "Experience in turnaround and restructuring, including operational constraints, cash, responsibilities, incentives and working practices.",
   },
   {
     icon: Cpu,
     label: "Tech",
-    title: "Halter and XGX.AI",
-    text: "Eight-plus years shipping practical software, AI tooling, integrations, automation, and product workflows that real teams can understand, trust, and keep using.",
+    title: "Halter and technology delivery",
+    text: "More than eight years of experience delivering software, AI tools, integrations, automation and product workflows.",
   },
   {
     icon: Radar,
     label: "Now",
     title: "Quilliam AI",
-    text: "A founder-led AI implementation company built to make AI clear, useful, and usable inside real UK businesses.",
+    text: "An AI consulting, training and implementation company serving UK businesses from Cornwall.",
   },
 ] as const;
 
@@ -72,7 +72,7 @@ function AboutPersonJsonLd() {
     "@id": `${siteConfig.url}/#founder`,
     name: "Levi Quilliam",
     description:
-      "Levi Quilliam is the founder of Quilliam AI Ltd. He builds AI workflows, supervised agents, automations, and practical AI training for UK businesses.",
+      "Levi Quilliam is the founder of Quilliam AI Ltd. He provides AI workflows, supervised agents, automations and staff training for UK businesses.",
     jobTitle: "Founder & Principal Consultant",
     worksFor: { "@id": `${siteConfig.url}/#organization` },
     url: `${siteConfig.url}/about`,
@@ -106,9 +106,9 @@ export default function AboutPage() {
       <WebPageJsonLd
         path="/about"
         name="About Levi Quilliam | Quilliam AI"
-        description="Levi Quilliam is the founder of Quilliam AI, building practical AI workflows and supervised agents for UK businesses."
+        description="Levi Quilliam is the founder of Quilliam AI, providing AI workflows, supervised agents and staff training for UK businesses."
         datePublished="2026-04-11"
-        dateModified="2026-05-26"
+        dateModified="2026-08-13"
       />
       <AboutPersonJsonLd />
 
@@ -121,13 +121,12 @@ export default function AboutPage() {
               About the founder
             </p>
             <h1 className="mt-6 max-w-[860px] text-5xl font-semibold leading-[0.98] tracking-tight text-balance md:text-7xl">
-              I make AI practical for real business operations.
+              Levi Quilliam. Founder and principal consultant.
             </h1>
             <p className="mt-6 max-w-[70ch] text-base leading-relaxed text-paper/68 md:text-lg">
-              I am Levi Quilliam, founder of Quilliam AI. The work is not to
-              sell another AI tool. It is to understand where a business is
-              stuck, design the workflow, build the useful agent layer, and
-              hand it to the team in a way they can actually run.
+              Quilliam AI assesses business processes, defines suitable uses of
+              AI, implements the agreed system and trains the staff responsible
+              for operating it.
             </p>
             <div className="mt-7 flex items-center gap-4">
               <Image
@@ -148,19 +147,19 @@ export default function AboutPage() {
               </div>
             </div>
             <p className="mt-5 max-w-[70ch] text-base leading-relaxed text-paper/62 md:text-lg">
-              My background combines economics, turnaround and restructuring at
-              Deloitte, and eight-plus years building software and AI-enabled
-              products. The tools change quickly: Claude, ChatGPT, n8n,
-              embeddings, APIs, workflow engines, and internal knowledge
-              systems. The useful question stays the same: what work is stuck,
-              who owns it, and what would make the team more capable after the
-              handoff?
+              Levi&apos;s background includes economics, turnaround and
+              restructuring at Deloitte, and more than eight years of software
+              and AI product delivery. Relevant technologies include Claude,
+              ChatGPT, n8n, embeddings, APIs, workflow engines and internal
+              knowledge systems. Each engagement is assessed against the
+              process, accountable owner, expected benefit and handover
+              requirements.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               {[
-                { icon: Building2, text: "Deloitte turnaround" },
-                { icon: Cpu, text: "Halter and XGX.AI" },
-                { icon: MapPin, text: "Cornwall. UK-wide." },
+                { icon: Building2, text: "Deloitte restructuring experience" },
+                { icon: Cpu, text: "Halter technology experience" },
+                { icon: MapPin, text: "Cornwall. Throughout the UK." },
               ].map((item) => (
                 <span
                   key={item.text}
@@ -182,7 +181,7 @@ export default function AboutPage() {
                   className="max-w-full whitespace-normal text-center leading-tight tracking-normal normal-case sm:whitespace-nowrap"
                 >
                   <Link href="/book?intent=opportunity">
-                    Find Where AI Can Help My Business
+                    Book Free AI Opportunity
                     <ArrowRight size={18} />
                   </Link>
                 </Button>
@@ -207,7 +206,7 @@ export default function AboutPage() {
               Background
             </p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              The mix is business surgery plus software delivery.
+              Experience in restructuring and software delivery.
             </h2>
           </div>
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -236,23 +235,23 @@ export default function AboutPage() {
               Operating principles
             </p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              Handoff-first, workflow-first, no AI theatre.
+              Defined scope, controls and documented handover.
             </h2>
             <p className="mt-6 text-base leading-relaxed text-paper/65">
-              A useful system should make the client more capable, not more
-              dependent. That means standard tools where possible, clear
-              owners, visible controls, documentation, and training tied to the
-              exact workflow being shipped.
+              Each system is designed around a stated business case, an
+              accountable owner and agreed operating controls. We use
+              established tools where suitable and provide documentation and
+              training for the defined process.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
-              "Build only what has a business case.",
-              "Keep humans in the loop where risk is real.",
-              "Use the tools the team already understands.",
-              "Train the owner, not just the operator.",
-              "Document how the system fails, not just how it works.",
-              "Optimise for adoption, not demo value.",
+              "Require a stated business case before implementation.",
+              "Assign human approval according to the level of risk.",
+              "Use established systems where they meet the requirements.",
+              "Appoint an accountable owner for each process.",
+              "Document operating limits, failure conditions and fallback procedures.",
+              "Measure adoption against agreed criteria.",
             ].map((item) => (
               <div key={item} className="rounded-card flex gap-3 border border-paper/10 bg-paper/[0.025] p-4 text-sm leading-relaxed text-paper/70">
                 <Wrench size={17} className="mt-0.5 shrink-0 text-amber-wire" />
@@ -267,11 +266,11 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-[1220px] gap-10 border-t border-paper/10 pt-14 md:grid-cols-[0.7fr_1.3fr] md:items-center">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-signal">
-              Proof points
+              Professional experience
             </p>
             <p className="mt-5 max-w-[42ch] text-base leading-relaxed text-paper/62">
-              Experience across AI tooling, software, operations, and business
-              recovery informs the way Quilliam AI scopes work.
+              Experience in AI tools, software, operations and business
+              recovery informs the assessment and scope of each engagement.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-x-10 gap-y-8">
@@ -280,7 +279,7 @@ export default function AboutPage() {
                 key={company.name}
                 href={company.href}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 aria-label={`Visit ${company.name}`}
                 className="grayscale transition hover:grayscale-0"
               >
@@ -308,17 +307,17 @@ export default function AboutPage() {
               {
                 href: "/ai-consultant-uk",
                 title: "AI consultant UK",
-                text: "Practical consulting and implementation for UK businesses.",
+                text: "AI assessment, implementation and training for UK businesses.",
               },
               {
                 href: "/ai-automation-cornwall",
                 title: "AI automation Cornwall",
-                text: "Local workflow automation support from Cornwall.",
+                text: "AI workflow and automation services based in Cornwall.",
               },
               {
                 href: "/service-areas",
                 title: "Where we work",
-                text: "Remote-first delivery across the UK, with in-person sessions where useful.",
+                text: "Remote and in-person delivery from Cornwall throughout the UK.",
               },
             ].map((item) => (
               <Link
@@ -346,7 +345,7 @@ export default function AboutPage() {
               Based in {siteConfig.location}
             </p>
             <h2 className="mt-5 max-w-[820px] text-5xl font-semibold leading-[0.98] tracking-tight text-balance md:text-7xl">
-              Bring me the workflow that keeps wasting time.
+              Discuss a proposed AI project or training requirement.
             </h2>
           </div>
           <Button
@@ -356,7 +355,7 @@ export default function AboutPage() {
             className="max-w-full whitespace-normal bg-ink text-center leading-tight tracking-normal text-paper normal-case hover:bg-ink/90 sm:whitespace-nowrap"
           >
             <Link href="/book?intent=opportunity">
-              Find Where AI Can Help My Business
+              Book Free AI Opportunity
               <ArrowRight size={18} />
             </Link>
           </Button>

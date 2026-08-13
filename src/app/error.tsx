@@ -17,10 +17,10 @@ export default function Error({
   return (
     <div className="flex min-h-[70vh] flex-col items-center justify-center bg-ink px-6 text-center text-paper">
       <h1 className="text-3xl font-semibold tracking-tight">
-        Something went wrong
+        The page could not be displayed
       </h1>
       <p className="mt-3 max-w-[44ch] text-sm leading-relaxed text-paper/60">
-        An unexpected error occurred. You can try again or return to the
+        An unexpected error occurred. Please try again or return to the
         homepage.
       </p>
       <div className="mt-6 flex items-center gap-4">

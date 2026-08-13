@@ -10,14 +10,14 @@ import { getWhatsAppUrl, siteConfig } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Quilliam AI about AI workflows, supervised agents, and AI adoption for your UK business. Based in Cornwall, working UK-wide.",
+    "Contact Quilliam AI about AI consulting, staff training, workflows and supervised agents. Based in Cornwall and working throughout the UK.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Contact Quilliam AI",
     description:
-      "Talk to Quilliam AI about practical AI workflows and supervised agents.",
+      "Contact Quilliam AI about AI assessment, training, workflows and supervised agents.",
     url: "/contact",
     images: ["/opengraph-image"],
   },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contact Quilliam AI",
     description:
-      "Talk to Quilliam AI about practical AI workflows and supervised agents.",
+      "Contact Quilliam AI about AI assessment, training, workflows and supervised agents.",
   },
 };
 
@@ -34,8 +34,8 @@ const contactMethods = [
     icon: MessageCircle,
     label: "WhatsApp",
     value: "Message Levi",
-    description: "Fastest route for a practical first conversation.",
-    href: getWhatsAppUrl("Hi Levi, I want to talk about AI for my business."),
+    description: "Suitable for a brief initial enquiry.",
+    href: getWhatsAppUrl("Hi Levi, I would like to discuss AI services for my business."),
     method: "whatsapp",
     external: true,
   },
@@ -52,7 +52,7 @@ const contactMethods = [
     icon: Mail,
     label: "Email",
     value: siteConfig.email,
-    description: "Best for detailed context or procurement questions.",
+    description: "Suitable for detailed requirements or procurement enquiries.",
     href: `mailto:${siteConfig.email}`,
     method: "email",
     external: false,
@@ -78,7 +78,7 @@ function ContactPageJsonLd() {
         "@type": "CommunicateAction",
         name: "Message Quilliam AI on WhatsApp",
         target: getWhatsAppUrl(
-          "Hi Levi, I want to talk about AI for my business.",
+          "Hi Levi, I would like to discuss AI services for my business.",
         ),
       },
       {
@@ -104,9 +104,9 @@ export default function ContactPage() {
       <WebPageJsonLd
         path="/contact"
         name="Contact Quilliam AI"
-        description="Get in touch with Quilliam AI about AI workflows, supervised agents, and AI adoption."
+        description="Contact Quilliam AI about AI assessment, training, workflows and supervised agents."
         datePublished="2026-04-11"
-        dateModified="2026-05-26"
+        dateModified="2026-08-13"
       />
       <ContactPageJsonLd />
 
@@ -119,12 +119,12 @@ export default function ContactPage() {
               Contact
             </p>
             <h1 className="mt-6 max-w-[820px] text-5xl font-semibold leading-[0.98] tracking-tight text-balance md:text-7xl">
-              Bring the messy workflow. I will tell you what AI can do with it.
+              Contact Quilliam AI.
             </h1>
             <p className="mt-6 max-w-[64ch] text-base leading-relaxed text-paper/68 md:text-lg">
-              Ask about AI workflows, supervised agents, team training, or a
-              first AI opportunity session. You will get a practical answer,
-              not a sales sequence.
+              Set out the process, training requirement or proposed project.
+              Levi will review the information and respond with an initial view
+              on scope and the appropriate next step.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button
@@ -133,7 +133,7 @@ export default function ContactPage() {
                 className="max-w-full whitespace-normal text-center leading-tight tracking-normal normal-case sm:whitespace-nowrap"
               >
                 <Link href="/book?intent=opportunity">
-                  Find Where AI Can Help My Business
+                  Book Free AI Opportunity
                   <ArrowRight size={18} />
                 </Link>
               </Button>
@@ -143,7 +143,7 @@ export default function ContactPage() {
                 size="lg"
                 className="text-sm font-bold tracking-normal text-paper normal-case"
               >
-                <Link href="/#workflows">See workflow work</Link>
+                <Link href="/#workflows">Review the case study</Link>
               </Button>
             </div>
           </div>
@@ -190,18 +190,18 @@ export default function ContactPage() {
                   {siteConfig.location}
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-paper/60">
-                  Based in Cornwall. Working UK-wide and remote, with in-person
-                  sessions where they help.
+                  Based in Cornwall, with remote and in-person delivery
+                  available throughout the UK.
                 </p>
               </div>
               <div className="rounded-card-lg border border-paper/10 bg-paper/[0.025] p-5">
                 <Clock size={21} className="text-amber-wire" />
                 <h2 className="mt-6 text-xl font-semibold tracking-tight text-paper">
-                  24 hour reply
+                  Response time
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-paper/60">
-                  If the fit is poor or AI is not the right move yet, I will say
-                  so plainly.
+                  We usually respond within 24 hours and will state whether the
+                  proposed work appears suitable for further assessment.
                 </p>
               </div>
             </div>

@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "Quilliam AI",
   legalName: "Quilliam AI Ltd",
-  tagline: "Practical AI consulting and implementation for UK businesses",
+  tagline: "AI consulting, training and implementation for UK businesses",
   description:
-    "Quilliam AI helps UK businesses make sense of AI, build useful AI workflows, and train their teams to use them properly.",
+    "Quilliam AI provides AI opportunity analysis, team training and implementation services to UK businesses.",
   url: "https://quilliam.ai",
   whatsapp: "447593121621",
   phone: "+447593121621",
@@ -56,14 +56,6 @@ export const proofLogos = [
     className: "h-10",
   },
   {
-    name: "XGX.ai",
-    href: "https://xgx.ai/",
-    logo: "/logos/xgx-ai.svg",
-    width: 100,
-    height: 21,
-    className: "h-5 invert",
-  },
-  {
     name: "Deloitte",
     href: "https://www.deloitte.com/uk/en.html",
     logo: "/logos/deloitte.svg",
@@ -92,31 +84,31 @@ export const proofLogos = [
 export const bridgeSteps = [
   {
     number: "01",
-    title: "Find the work worth fixing",
+    title: "Assess current processes",
     description:
-      "We look at the repeated admin, slow follow-up, customer questions, reporting, and handoffs that already cost time or money.",
-    output: "Plain-English AI map",
+      "We review recurring administration, follow-up, customer enquiries, reporting and handovers to identify measurable cost or delay.",
+    output: "AI opportunity assessment",
   },
   {
     number: "02",
-    title: "Choose where AI helps",
+    title: "Define the first project",
     description:
-      "We pick one useful workflow, decide what AI should do, and agree what should be left alone.",
-    output: "Scoped build plan",
+      "We select a suitable process and agree the scope, responsibilities, controls and success measures before implementation.",
+    output: "Defined project scope",
   },
   {
     number: "03",
-    title: "Build it around your tools",
+    title: "Implement and test",
     description:
-      "We connect the workflow to the tools and data your team already uses, then test it against real examples before rollout.",
-    output: "Working workflow",
+      "We integrate the workflow with the agreed tools and data, then test it against representative examples before release.",
+    output: "Tested AI workflow",
   },
   {
     number: "04",
-    title: "Train your team to use it",
+    title: "Train and hand over",
     description:
-      "We show the people doing the work how to use the tools, check the output, and keep improving the system.",
-    output: "Team training and handoff",
+      "We train the relevant staff to operate the system, review its output and follow the agreed maintenance process.",
+    output: "Training and handover documents",
   },
 ] as const;
 
@@ -126,12 +118,12 @@ export const services = [
     title: "AI Opportunity Analysis",
     kicker: "For owners",
     description:
-      "We show you where AI can help, where it cannot, and what to do first without wasting money on random tools.",
+      "We assess where AI can improve a business process and recommend the appropriate first action.",
     outcomes: [
-      "Your best AI opportunities, ranked",
-      "What to train, build, or leave alone",
-      "Risks, controls, and ownership before work starts",
-      "A clear first move instead of tool shopping",
+      "A prioritised list of AI opportunities",
+      "A recommendation to train, implement or defer",
+      "Defined risks, controls and owners",
+      "A proposed scope for the first project",
     ],
   },
   {
@@ -139,25 +131,25 @@ export const services = [
     title: "Team Training",
     kicker: "For staff",
     description:
-      "We train your team to use AI properly in day-to-day work, using examples from their actual roles rather than generic prompt tips.",
+      "We train staff to use AI in routine work, based on their roles, responsibilities and current processes.",
     outcomes: [
-      "Hands-on training for real roles",
-      "Prompt, policy, and process playbooks",
-      "Clear rules on what AI can and cannot do",
-      "Confidence using AI without guessing",
+      "Role-specific training",
+      "Prompt, policy and process guidance",
+      "Rules for permitted and restricted use",
+      "A consistent method for reviewing AI output",
     ],
   },
   {
     id: "agents",
     title: "AI Implementation",
-    kicker: "For owners and operations",
+    kicker: "For owners and operations teams",
     description:
-      "We turn the best opportunities into working workflows, automations, and internal tools your team can own.",
+      "We design and implement AI workflows, automations and internal tools for agreed business processes.",
     outcomes: [
-      "Lead intake, qualification, and follow-up",
+      "Lead intake, qualification and follow-up",
       "Customer support triage and draft replies",
-      "Research, reporting, and briefing workflows",
-      "Admin between email, docs, CRM, and spreadsheets",
+      "Research, reporting and briefing workflows",
+      "Administration across email, documents, CRM and spreadsheets",
     ],
   },
 ] as const;
@@ -169,30 +161,30 @@ export const agentUseCases = [
   "Internal knowledge search",
   "Weekly operations reporting",
   "Research and briefing packs",
-  "CRM hygiene and next actions",
-  "Document intake and extraction",
+  "CRM data maintenance and next actions",
+  "Document receipt and data extraction",
 ] as const;
 
 export const fitSignals = [
   {
-    title: "You have repeated work",
+    title: "The process recurs",
     description:
-      "The same kind of email, decision, report, triage, update, or handoff happens every week.",
+      "The same type of email, decision, report, triage, update or handover occurs regularly.",
   },
   {
-    title: "The work has rules",
+    title: "The process has defined rules",
     description:
-      "People use judgement, but there are examples, policies, constraints, or patterns the system can learn.",
+      "Relevant examples, policies, constraints or decision patterns are available for review and testing.",
   },
   {
-    title: "Someone owns the outcome",
+    title: "An accountable owner is appointed",
     description:
-      "A real person can approve, test, improve, and be accountable for the workflow after launch.",
+      "A named person can approve, test and maintain the workflow after release.",
   },
   {
-    title: "The cost is visible",
+    title: "The current cost is measurable",
     description:
-      "Slow admin, missed follow-ups, inconsistent quality, or overloaded founders are already creating pain.",
+      "Time, delay, missed follow-up or inconsistent quality can be measured against an agreed baseline.",
   },
 ] as const;
 
@@ -200,38 +192,38 @@ export const sprintSteps = bridgeSteps;
 
 export const faqs = [
   {
-    question: "What does Quilliam AI actually do?",
+    question: "What services does Quilliam AI provide?",
     answer:
-      "We help UK businesses understand where AI is useful, build the workflows or tools that are worth building, and train the team so the work does not depend on one technical person.",
+      "Quilliam AI assesses suitable uses of AI, implements agreed workflows and tools, and trains the relevant staff to operate them.",
   },
   {
-    question: "Do you only advise, or do you implement?",
+    question: "Do you provide advisory and implementation services?",
     answer:
-      "Both. Advice without implementation creates more notes. Implementation without clear thinking creates fragile demos. We map the workflow, build the system, add controls, train the team, and hand it over properly.",
+      "We provide advisory and implementation services. A typical engagement may include process assessment, system design, implementation, controls, testing, training and documented handover.",
   },
   {
     question: "Do you work with small businesses?",
     answer:
-      "Yes. Small and growing UK businesses are often a strong fit because repeated admin, owner bottlenecks, and manual follow-up are easy to see and valuable to fix. You do not need an internal AI team before starting.",
+      "Yes. We work with small and growing UK businesses where recurring administration, owner dependencies or manual follow-up present a defined opportunity. An internal AI team is not required.",
   },
   {
-    question: "How quickly can we see something working?",
+    question: "What is the typical delivery period for a pilot?",
     answer:
-      "A focused workflow can usually reach a usable pilot in weeks rather than months. The first build is deliberately narrow: prove the work, test it with real examples, then harden and expand what works.",
+      "A focused workflow can often reach pilot stage within several weeks. Timing depends on scope, data access, system dependencies and the required controls. We confirm the delivery plan before work begins.",
   },
   {
     question: "What should we budget for AI work?",
     answer:
-      "We quote by scope because useful AI work depends on the workflow, data, systems, risk, and handoff needs. As a guide, training usually starts from £500. Small implementation projects can sit around £2,000-£3,000, medium projects can range from £5,000-£50,000, and larger programmes are usually £50,000+. Every paid engagement is scoped clearly before work starts.",
+      "We quote against an agreed scope, taking account of the process, data, systems, risk and handover requirements. As general guidance, training usually starts from £500. Small implementation projects may cost approximately £2,000 to £3,000. Medium projects may range from £5,000 to £50,000. Larger programmes are usually above £50,000. We provide a written scope and fee before paid work begins.",
   },
   {
-    question: "How do you stop AI going wrong?",
+    question: "How do you control AI-related risk?",
     answer:
-      "We design for supervision. That means limited permissions, scoped access, human approval for risky actions, test examples, logs, fallback paths, and clear owners. The goal is useful help, not reckless automation.",
+      "We agree controls according to the process and risk. These may include restricted permissions, limited data access, human approval, test cases, audit logs, fallback procedures and named owners.",
   },
   {
     question: "Where are you based?",
     answer:
-      "Quilliam AI is based in Cornwall and works UK-wide and remote. In-person discovery, workshops, or rollout sessions are available where they genuinely help.",
+      "Quilliam AI is based in Cornwall and works throughout the UK, including remote delivery. In-person assessment, training and implementation sessions are available where agreed.",
   },
 ] as const;

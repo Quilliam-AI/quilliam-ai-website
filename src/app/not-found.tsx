@@ -11,11 +11,11 @@ export default function NotFound() {
       <div className="relative max-w-2xl text-center">
         <p className="text-8xl font-bold tracking-tight text-signal/30">404</p>
         <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
-          This page is outside the workflow.
+          Page not found
         </h1>
         <p className="mx-auto mt-5 max-w-[56ch] text-base leading-relaxed text-paper/64">
-          The page does not exist or has moved. Head home, or book an AI Gap
-          Opportunity session if you were trying to start a conversation.
+          The requested page does not exist or has moved. Return to the
+          homepage or book an AI Opportunity Session.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Button
@@ -35,7 +35,7 @@ export default function NotFound() {
             className="max-w-full whitespace-normal text-center leading-tight tracking-normal text-paper normal-case sm:whitespace-nowrap"
           >
             <Link href="/book?intent=opportunity">
-              Find Where AI Can Help My Business
+              Book Free AI Opportunity
             </Link>
           </Button>
         </div>

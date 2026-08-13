@@ -11,12 +11,12 @@ import {
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How Quilliam AI collects, uses, and protects your personal data. GDPR-compliant privacy practices for AI workflow, agent, and adoption services.",
+    "How Quilliam AI collects, uses, retains and protects personal data in connection with its website and services.",
   alternates: { canonical: "/privacy" },
   openGraph: {
     title: "Privacy Policy | Quilliam AI",
     description:
-      "How Quilliam AI collects, uses, and protects your personal data. GDPR-compliant privacy practices.",
+      "How Quilliam AI collects, uses, retains and protects personal data.",
     url: "/privacy",
     images: ["/opengraph-image"],
   },
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Privacy Policy | Quilliam AI",
     description:
-      "How Quilliam AI collects, uses, and protects your personal data. GDPR-compliant privacy practices.",
+      "How Quilliam AI collects, uses, retains and protects personal data.",
   },
 };
 
@@ -72,22 +72,22 @@ export default function PrivacyPage() {
           <p>We collect the following information when you use our website or services:</p>
           <ul>
             <li>
-              <strong>Contact form submissions</strong> &mdash; your name,
+              <strong>Contact form submissions:</strong> your name,
               email address, phone number (if provided), business name, and
               message content.
             </li>
             <li>
-              <strong>Analytics data</strong> &mdash; usage data such as
+              <strong>Analytics data:</strong> usage data such as
               pages visited, buttons clicked, time on site, and referring
               URL. With your consent, we also record browsing sessions
               (with passwords masked). See the Cookies section below.
             </li>
             <li>
-              <strong>Communication records</strong> &mdash; emails,
+              <strong>Communication records:</strong> emails,
               WhatsApp messages, or other correspondence you send us.
             </li>
             <li>
-              <strong>Business contact information</strong> &mdash; when
+              <strong>Business contact information:</strong> when
               we research potential clients, we may collect publicly
               available business contact details such as name, job title,
               business email address, and company name from sources
@@ -112,9 +112,8 @@ export default function PrivacyPage() {
             </li>
           </ul>
           <p>
-            We will <strong>never</strong> sell your data to third parties
-            or use it for unsolicited marketing without your explicit
-            consent.
+            We do not sell your data to third parties. We do not use it for
+            unsolicited marketing without your explicit consent.
           </p>
         </LegalSection>
 
@@ -122,17 +121,17 @@ export default function PrivacyPage() {
           <p>Under UK GDPR, we process your data on the following bases:</p>
           <ul>
             <li>
-              <strong>Consent</strong> &mdash; when you submit a contact
+              <strong>Consent:</strong> when you submit a contact
               form or reach out to us directly.
             </li>
             <li>
-              <strong>Legitimate interests</strong> &mdash; to improve our
+              <strong>Legitimate interests:</strong> to improve our
               website, understand how our services are used, and to
               contact businesses that may benefit from our services (see
               below).
             </li>
             <li>
-              <strong>Contractual necessity</strong> &mdash; to deliver
+              <strong>Contractual necessity:</strong> to deliver
               services you have engaged us for.
             </li>
           </ul>
@@ -142,7 +141,7 @@ export default function PrivacyPage() {
           <p>
             We occasionally contact businesses we believe may benefit from
             our services. This is targeted, low-volume outreach to
-            specific companies &mdash; not bulk marketing.
+            specific companies. We do not send bulk marketing.
           </p>
           <p>
             <strong>Lawful basis:</strong> legitimate interests under UK
@@ -154,7 +153,7 @@ export default function PrivacyPage() {
           </p>
           <p>
             <strong>Data sources:</strong> we collect business contact
-            details from publicly available sources only &mdash; company
+            details from publicly available sources only, including company
             websites, LinkedIn profiles, Companies House filings, and
             business directories. We do not purchase contact lists or
             scrape personal email addresses.
@@ -178,7 +177,7 @@ export default function PrivacyPage() {
           </p>
           <ul>
             <li>
-              <strong>Resend</strong> &mdash; to deliver transactional
+              <strong>Resend:</strong> to deliver transactional
               emails (booking confirmations). Their{" "}
               <a
                 href="https://resend.com/legal/privacy-policy"
@@ -190,7 +189,7 @@ export default function PrivacyPage() {
               .
             </li>
             <li>
-              <strong>Vercel</strong> &mdash; to host this website. Their{" "}
+              <strong>Vercel:</strong> to host this website. Their{" "}
               <a
                 href="https://vercel.com/legal/privacy-policy"
                 target="_blank"
@@ -201,7 +200,7 @@ export default function PrivacyPage() {
               .
             </li>
             <li>
-              <strong>Google Analytics</strong> &mdash; with your consent,
+              <strong>Google Analytics:</strong> with your consent,
               to measure website visits, traffic sources, page use, and
               completed booking enquiries. We do not send names, email
               addresses, phone numbers, or form contents to Google
@@ -216,7 +215,7 @@ export default function PrivacyPage() {
               .
             </li>
             <li>
-              <strong>PostHog</strong> &mdash; with your consent, for website
+              <strong>PostHog:</strong> with your consent, for website
               analytics and session recordings. We use PostHog EU Cloud,
               with data hosted in Frankfurt. PostHog processes data as a
               processor on our behalf. Their{" "}
@@ -243,21 +242,21 @@ export default function PrivacyPage() {
           </p>
           <ul>
             <li>
-              <strong>Booking enquiries</strong> &mdash; retained for 12
+              <strong>Booking enquiries:</strong> retained for 12
               months after your last interaction, then deleted.
             </li>
             <li>
-              <strong>Client project data</strong> &mdash; retained for the
+              <strong>Client project data:</strong> retained for the
               duration of the engagement plus 24 months.
             </li>
             <li>
-              <strong>Prospecting data</strong> &mdash; if you ask us to
+              <strong>Prospecting data:</strong> if you ask us to
               stop contacting you, we delete your contact details within
               30 days and add your email to a suppression list to prevent
               future contact.
             </li>
             <li>
-              <strong>Analytics data</strong> &mdash; Google Analytics
+              <strong>Analytics data:</strong> Google Analytics
               event-level and user-level data is retained for 14 months.
               PostHog analytics is retained for 12 months, and PostHog
               session recordings are retained for 30 days.
@@ -283,7 +282,7 @@ export default function PrivacyPage() {
               processing.
             </li>
             <li>
-              <strong>Data portability</strong> &mdash; receive your data in
+              <strong>Data portability:</strong> receive your data in
               a structured, machine-readable format.
             </li>
           </ul>
@@ -314,7 +313,7 @@ export default function PrivacyPage() {
           </p>
           <ul>
             <li>
-              <strong>If you accept</strong> &mdash; we set cookies and use
+              <strong>If you accept:</strong> we set cookies and use
               localStorage to track your session across pages and visits.
               Google Analytics measures visits, traffic sources, page use,
               and completed booking enquiries. PostHog provides persistent
@@ -322,7 +321,7 @@ export default function PrivacyPage() {
               interacted with the site, with passwords masked).
             </li>
             <li>
-              <strong>If you reject</strong> &mdash; we do not set any
+              <strong>If you reject:</strong> we do not set any
               analytics cookies, load Google Analytics or PostHog tracking,
               record analytics events, or create session recordings.
             </li>
@@ -330,8 +329,7 @@ export default function PrivacyPage() {
           <p>
             Your preference is stored in your browser&rsquo;s localStorage.
             To change your preference, click &ldquo;Manage Cookies&rdquo;
-            in the footer of any page &mdash; the consent banner will
-            reappear.
+            in the footer of any page. The consent banner will then reappear.
           </p>
           <p>
             We do not use any advertising cookies, third-party tracking
@@ -351,7 +349,7 @@ export default function PrivacyPage() {
         <LegalSection title="Contact">
           <p>
             If you have any questions about this privacy policy or how we
-            handle your data, get in touch:
+            handle your data, contact us:
           </p>
           <ul>
             <li>

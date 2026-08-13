@@ -1,38 +1,38 @@
 # Quilliam AI
-> Practical AI consulting, workflow builds, and team training for UK businesses
+> AI consulting, training and implementation for UK businesses
 
 > Full version: https://quilliam.ai/llms-full.txt
-> Last updated: 2026-05-26
+> Last updated: 2026-08-13
 
 ## About
-Quilliam AI is the trading name of Quilliam AI Ltd (UK Companies House number 17151006, incorporated 2026-04-11, registered office in Cornwall, England). Founded by Levi Quilliam, it helps UK businesses make sense of AI, build useful AI workflows, and train their teams to use them properly.
+Quilliam AI is the trading name of Quilliam AI Ltd (UK Companies House number 17151006, incorporated on 2026-04-11, with its registered office in Cornwall, England). Levi Quilliam founded the company to provide AI assessment, staff training and implementation services to UK businesses.
 
-## Positioning
-Most businesses do not need more AI noise. They need one real workflow improved: lead follow-up, admin, support triage, reporting, document handling, or internal knowledge. Quilliam AI starts with the work, decides where AI is useful, adds human controls where needed, and hands the system to the team.
+## Approach
+Quilliam AI reviews recurring business processes, system dependencies, data, risk and staff responsibilities. Where AI is suitable, the company defines the scope, implements the agreed workflow or supervised agent, applies appropriate controls, tests representative cases and trains the responsible staff. Documentation and handover requirements are agreed before paid work begins.
 
 ## Services
-- AI Opportunity Analysis: plain-English advice on where AI can help, what to do first, and what to ignore.
-- Team Training: practical staff training, playbooks, and clear rules for using AI at work.
-- AI Implementation: practical AI workflows for repeated admin, follow-up, support, research, reporting, and handoffs.
+- AI Opportunity Analysis: a prioritised assessment of suitable AI uses, required preparation, risks, controls and the proposed first project.
+- Team Training: role-specific staff training covering permitted use, prompts, review procedures, privacy and internal policies.
+- AI Implementation: workflows, automations, supervised agents, knowledge systems and internal tools for defined business processes.
 
 ## Case Study
-VetVision AI is a University of Nottingham spin-out using camera systems to monitor animal welfare across equine and dairy environments. Quilliam AI helped make the AI product easier to sell, onboard, operate, and improve through clearer positioning, website redesign, branded onboarding portals, farm and camera operations workflows, and internal AI implementation support. The reported SEO score moved from roughly 40 to 95, with increased visibility, visitors, and leads.
+VetVision AI is a University of Nottingham spin-out that uses camera systems to monitor animal welfare in equine and dairy environments. Quilliam AI has supported product presentation, search content, a branded onboarding portal, farm and camera operations workflows, and internal AI implementation. Reported outcomes include an approximate SEO score change from 40 to 95 and increases in website visibility, visitor numbers and enquiries.
 
-## How It Works
-1. Find the work worth fixing: repeated admin, follow-up, triage, reporting, and knowledge-work bottlenecks.
-2. Choose the first useful build: define the workflow, controls, owner, and success measure.
-3. Build it around existing tools: connect AI to the places the team already works.
-4. Hand it to the team: train users, document the system, and tune against real examples.
+## Delivery Process
+1. Assess current processes, recurring work, systems, data, risk and ownership.
+2. Define the first project, including scope, controls, responsibilities and success measures.
+3. Implement and test the agreed system against representative cases.
+4. Train the responsible staff and provide the agreed handover documents.
 
 ## Budget Guidance
-Quilliam AI quotes by scope because useful AI work depends on the workflow, data, systems, risk, and handoff needs. Training usually starts from £500. Small implementation projects can sit around £2,000-£3,000, medium projects can range from £5,000-£50,000, and larger programmes are usually £50,000+. Every paid engagement is scoped clearly before work starts.
+Quilliam AI quotes against an agreed scope. Training usually starts from £500. Small implementation projects may cost approximately £2,000 to £3,000. Medium projects may range from £5,000 to £50,000. Larger programmes are usually above £50,000. A written scope and fee are provided before paid work begins.
 
 ## Contact
 - Web: https://quilliam.ai
 - Email: levi@quilliam.ai
 - Phone: +447593121621
 - WhatsApp: +447593121621
-- Location: Cornwall, UK (working UK-wide and remote)
+- Location: Cornwall, UK, with remote and in-person delivery throughout the UK
 - Registered office: 25 Red Cove Close, St. Eval, Wadebridge, PL27 7GB, England
 - Google Business Profile: https://maps.app.goo.gl/yfJuc3xMXfkRzHvu8
 - Companies House: https://find-and-update.company-information.service.gov.uk/company/17151006

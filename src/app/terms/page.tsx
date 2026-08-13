@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 export default function TermsPage() {
-  const lastUpdated = "11 April 2026";
+  const lastUpdated = "13 August 2026";
 
   return (
     <article className="min-h-screen">
@@ -40,7 +40,7 @@ export default function TermsPage() {
         name="Terms of Service | Quilliam AI"
         description="Terms of service for using the Quilliam AI website and services."
         datePublished="2026-04-11"
-        dateModified="2026-04-11"
+        dateModified="2026-08-13"
       />
       <LegalHero title="Terms of Service" lastUpdated={lastUpdated} />
 
@@ -79,7 +79,7 @@ export default function TermsPage() {
               integrations.
             </li>
             <li>
-              Bespoke ChatGPT, Claude, and Gemini tools configured for your
+              Custom ChatGPT, Claude, and Gemini tools configured for your
               team.
             </li>
             <li>
@@ -91,8 +91,8 @@ export default function TermsPage() {
           <p>
             Specific deliverables, timelines, and fees are agreed in
             writing before any paid work begins. Engagements are
-            handoff-first: the deliverable is a skill or system the
-            client&apos;s own team can run after the engagement ends.
+            designed for transfer: the deliverable is a skill or system the
+            client&apos;s own staff can operate after the engagement ends.
           </p>
         </LegalSection>
 
@@ -116,8 +116,8 @@ export default function TermsPage() {
 
         <LegalSection title="4. Intellectual property">
           <p>
-            <strong>Our IP:</strong> All content on this website &mdash;
-            including text, design, code, and graphics &mdash; is owned by
+            <strong>Our IP:</strong> All content on this website, including
+            text, design, code, and graphics, is owned by
             Quilliam AI and protected by UK copyright law. You may not
             reproduce, distribute, or modify any content without our
             written permission.
@@ -182,8 +182,8 @@ export default function TermsPage() {
             </li>
             <li>Downtime or outages of third-party services.</li>
             <li>
-              Data handling by third-party platforms &mdash; please review
-              their own terms and privacy policies.
+              Data handling by third-party platforms. You should review their
+              terms and privacy policies.
             </li>
           </ul>
         </LegalSection>
@@ -245,7 +245,7 @@ export default function TermsPage() {
 
         <LegalSection title="12. Contact">
           <p>
-            If you have questions about these terms, get in touch:
+            If you have questions about these terms, contact us:
           </p>
           <ul>
             <li>

@@ -34,65 +34,65 @@ const serviceIcons = {
 
 const problemCards = [
   {
-    title: "Everyone is trying tools",
-    text: "ChatGPT, Copilot, plugins, templates. Useful in pockets, messy as a business system.",
+    title: "Tool use is uncoordinated",
+    text: "Staff use ChatGPT, Copilot, plugins and templates without a common process or agreed controls.",
   },
   {
-    title: "The workflow is still manual",
-    text: "Leads, reports, support, documents, and admin still move by copy-paste and memory.",
+    title: "Processes remain manual",
+    text: "Lead management, reporting, support, document handling and administration still depend on copying information and individual memory.",
   },
   {
-    title: "No one owns the rules",
-    text: "People are unsure when AI is safe, when it needs approval, and who checks the output.",
+    title: "Responsibilities are unclear",
+    text: "The business has not defined permitted use, approval requirements or responsibility for checking output.",
   },
   {
-    title: "The value is vague",
-    text: "AI sounds important, but the first project has not been tied to time saved or work improved.",
+    title: "Benefits are unmeasured",
+    text: "Proposed AI work has no agreed baseline for time, cost, quality or service improvement.",
   },
 ] as const;
 
 const exampleWorkflows = [
-  "Lead enquiry comes in, gets qualified, and a draft reply is ready fast.",
-  "Support questions are triaged, matched to policy, and drafted for approval.",
-  "Weekly reports pull the right notes, numbers, and commentary into one place.",
-  "Internal knowledge is searchable without digging through old docs and messages.",
+  "An inbound enquiry is classified and a draft response is prepared for review.",
+  "A support request is triaged, checked against policy and drafted for approval.",
+  "A weekly report compiles the required notes, figures and commentary.",
+  "Approved internal documents and messages are made available through a searchable knowledge system.",
 ] as const;
 
 const vetVisionWork = [
   {
     title: "AI product positioning",
-    text: "Made the camera-based animal welfare product easier for equine and dairy buyers to understand and trust.",
+    text: "Revised the presentation of the camera-based animal welfare product for equine and dairy customers.",
   },
   {
-    title: "Branded onboarding workflow",
-    text: "Built a VetVision AI portal that gives customers a clearer journey from first setup through to rollout.",
+    title: "Customer onboarding portal",
+    text: "Developed a branded portal covering initial customer setup and implementation.",
   },
   {
-    title: "Operations workflow",
-    text: "Mapped the internal process for farms, camera placement, and camera replacement planning.",
+    title: "Operations planning",
+    text: "Documented the internal process for farm mapping, camera placement and replacement planning.",
   },
   {
     title: "Internal AI implementation",
-    text: "Supported internal AI use cases and workflow improvements around the way the team operates and delivers.",
+    text: "Supported defined internal AI uses and improvements to operating processes.",
   },
 ] as const;
 
 const vetVisionResults = [
-  { value: "40 -> 95", label: "SEO score moved from roughly 40 to 95" },
-  { value: "AI product", label: "equine and dairy welfare monitoring made clearer" },
-  { value: "Live portal", label: "branded onboarding and operations workflows launched" },
-  { value: "More leads", label: "visitor numbers, visibility, and lead flow have increased" },
+  { value: "40 to 95", label: "Approximate change in the recorded SEO score" },
+  { value: "AI product", label: "Revised presentation for equine and dairy welfare monitoring" },
+  { value: "Live portal", label: "Branded onboarding and operations workflows released" },
+  { value: "Increase", label: "Reported website visibility, visitor numbers and enquiries" },
 ] as const;
 const heroCoastImage = "/fistral-hero-ai.avif";
 
 const definitionLetter = [
-  "Dear business owner,",
-  "Your team is probably already using AI. The real question is whether the business is actually changing.",
-  "Leads still need chasing. Reports still need stitching together. Support replies still need checking. Useful knowledge is still buried in docs, emails, and people’s heads.",
-  "That gap is where Quilliam AI fits.",
-  "We help UK businesses turn scattered AI use into one useful workflow at a time: find the work worth fixing, build the system around your existing tools, add the controls, and train the team to own it.",
-  "You do not get a black-box system that depends on us forever.",
-  "You get a practical AI workflow your team understands, uses, and improves.",
+  "Most UK businesses already have access to AI tools.",
+  "The relevant commercial issue is whether those tools improve a defined business process.",
+  "Quilliam AI reviews recurring work, system dependencies, data, risk and staff responsibilities.",
+  "Each engagement begins with a specific process and an accountable owner.",
+  "We design and implement the agreed system, apply appropriate controls and test it against representative examples.",
+  "Training, documentation and handover requirements are included in the agreed scope.",
+  "The intended result is a controlled system that your team can operate and review.",
 ] as const;
 
 function HomeJsonLd() {
@@ -163,7 +163,7 @@ function CtaRow({ location }: { location: string }) {
           className="max-w-full whitespace-normal px-5 text-center text-sm font-bold leading-tight tracking-normal normal-case sm:whitespace-nowrap md:px-8"
         >
           <Link href="/book?intent=opportunity">
-            Find Where AI Can Help My Business
+            Book Free AI Opportunity
             <ArrowRight size={18} />
           </Link>
         </Button>
@@ -178,7 +178,7 @@ function CtaRow({ location }: { location: string }) {
           size="lg"
           className="border-ink/25 bg-transparent text-sm font-bold tracking-normal text-ink normal-case hover:bg-ink hover:text-paper"
         >
-          <Link href="/book?intent=training">Book AI Training</Link>
+          <Link href="/book?intent=training">Book Free AI Training</Link>
         </Button>
       </TrackClick>
     </div>
@@ -202,10 +202,10 @@ function HeroCoastImage() {
       </p>
       <div className="absolute inset-x-5 bottom-5 rounded-card-lg border border-paper/16 bg-ink/54 p-5 text-paper shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] backdrop-blur-2xl">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-paper/58">
-          Cornwall based. UK-wide.
+          Based in Cornwall. Available throughout the UK.
         </p>
         <h2 className="mt-3 max-w-[16ch] text-3xl font-semibold leading-none tracking-tight">
-          Useful AI, built into real work.
+          AI systems for defined business processes.
         </h2>
       </div>
     </aside>
@@ -283,10 +283,10 @@ function DefinitionLetter() {
     >
       <div className="mx-auto grid max-w-[1220px] gap-12 border-y border-ink/10 py-14 md:grid-cols-[0.36fr_0.64fr] md:py-20">
         <FadeIn className="md:sticky md:top-32 md:self-start">
-          <SectionLabel>A note from Levi</SectionLabel>
+          <SectionLabel>Scope and approach</SectionLabel>
           <div className="mt-5 h-px w-40 bg-signal" />
           <p className="mt-5 max-w-[24ch] text-sm font-medium leading-relaxed text-ink/52">
-            Cornwall-based. Working UK-wide and remote.
+            Based in Cornwall. Working throughout the UK and remotely.
           </p>
         </FadeIn>
 
@@ -317,7 +317,7 @@ function FaqSection() {
         <div>
           <SectionLabel>FAQ</SectionLabel>
           <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-            Straight answers before you book.
+            Frequently asked questions.
           </h2>
         </div>
         <div className="divide-y divide-ink/10 border-y border-ink/10">
@@ -345,10 +345,10 @@ export default function HomePage() {
     <>
       <WebPageJsonLd
         path="/"
-        name="Quilliam AI - Practical AI consulting and implementation"
+        name="Quilliam AI | AI consulting, training and implementation"
         description={siteConfig.description}
         datePublished="2026-04-11"
-        dateModified="2026-05-26"
+        dateModified="2026-08-13"
       />
       <HomeJsonLd />
 
@@ -357,12 +357,12 @@ export default function HomePage() {
         <div className="relative mx-auto grid max-w-[1400px] gap-10 px-6 pb-12 pt-28 md:pt-32 lg:min-h-[82dvh] lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
           <div className="animate-appear-up">
             <h1 className="max-w-[940px] text-[3rem] font-semibold leading-[0.94] tracking-tight text-balance md:text-[5.25rem] lg:text-[5.85rem]">
-              We make AI useful for real businesses.
+              AI consulting and implementation for UK businesses.
             </h1>
             <p className="mt-6 max-w-[64ch] text-base leading-relaxed text-ink/68 md:text-xl">
-              With all the noise, news, and tools around AI, we help you
-              understand what matters, where it fits in your business, and how
-              to implement it properly.
+              Quilliam AI assesses where AI can improve a defined process,
+              implements the agreed system and trains the relevant staff to
+              operate it.
             </p>
             <div className="mt-8">
               <CtaRow location="hero" />
@@ -384,14 +384,14 @@ export default function HomePage() {
           <div className="grid gap-10 md:grid-cols-[0.92fr_1.08fr] md:items-end">
             <div>
               <h2 className="text-4xl font-semibold leading-tight tracking-tight text-balance md:text-6xl">
-                You do not need another AI tool. You need a clearer way to use
-                the ones you already have.
+                Effective AI use requires a defined process, appropriate
+                controls and accountable ownership.
               </h2>
             </div>
             <p className="max-w-[68ch] text-base leading-relaxed text-paper/68 md:text-lg">
-              Most teams already have access to powerful AI. The hard part is
-              knowing where it fits and how to turn experiments into useful
-              working habits.
+              Many teams already have access to AI tools. Business value
+              depends on selecting an appropriate use, setting measurable
+              objectives and integrating the system into normal operations.
             </p>
           </div>
 
@@ -415,11 +415,11 @@ export default function HomePage() {
           <div>
             <SectionLabel>What we do</SectionLabel>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              We show you what AI can do. Then we help you use it.
+              Assessment, implementation and training.
             </h2>
             <p className="mt-6 max-w-[54ch] text-base leading-relaxed text-ink/65 md:text-lg">
-              You get plain-English training, a clear plan, and practical help
-              turning AI into everyday work.
+              Each engagement has a defined scope, stated deliverables and an
+              agreed handover to the responsible team.
             </p>
           </div>
           <div>
@@ -436,13 +436,13 @@ export default function HomePage() {
             <div>
               <SectionLabel>Services</SectionLabel>
               <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-                Three ways to get AI out of theory.
+                Services for assessment, training and implementation.
               </h2>
             </div>
             <p className="max-w-[64ch] text-base leading-relaxed text-ink/64 md:text-lg">
-              Start with an opportunity analysis if you are unsure. Start with
-              team training if staff need confidence. Start with implementation
-              if the workflow is obvious.
+              Opportunity analysis identifies a suitable first project. Team
+              training establishes consistent use. Implementation delivers an
+              agreed workflow, automation or internal tool.
             </p>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -475,12 +475,11 @@ export default function HomePage() {
             <div>
               <SectionLabel>Case study</SectionLabel>
               <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-                Helping VetVision AI turn a strong AI product into a clearer system.
+                AI product, onboarding and operations support for VetVision AI.
               </h2>
               <p className="mt-6 max-w-[62ch] text-base leading-relaxed text-ink/66 md:text-lg">
-                VetVision AI is a University of Nottingham spin-out using camera
-                systems to monitor animal welfare across equine and dairy
-                environments.
+                VetVision AI is a University of Nottingham spin-out. Its camera
+                systems monitor animal welfare in equine and dairy environments.
               </p>
             </div>
             <div className="rounded-card-lg border border-ink/10 bg-white/85 p-6 text-ink shadow-[0_0_0_1px_rgba(18,16,12,0.08)]">
@@ -502,11 +501,10 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="mt-8 max-w-[74ch] text-lg leading-relaxed text-ink/66">
-                They already had the hard part: a serious AI product. Our work
-                was to make it easier to sell, onboard, operate, and improve.
-                That meant clearer positioning and search, but also branded
-                onboarding and operations workflows around farm mapping, camera
-                setup, and internal implementation.
+                Quilliam AI was engaged to improve product presentation,
+                customer onboarding and operating processes. The work included
+                search content, a branded onboarding portal, farm mapping,
+                camera setup and defined internal AI implementation support.
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {vetVisionResults.map((result) => (
@@ -544,7 +542,7 @@ export default function HomePage() {
           <div>
             <SectionLabel light>Use cases</SectionLabel>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              Practical jobs AI can help with now.
+              Examples of suitable AI-assisted processes.
             </h2>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
@@ -564,13 +562,13 @@ export default function HomePage() {
       <section className="bg-paper px-6 py-20 text-ink md:py-28">
         <div className="mx-auto grid max-w-[1220px] gap-10 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
-            <SectionLabel>Good fit</SectionLabel>
+            <SectionLabel>Suitability</SectionLabel>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              Strong AI projects have boring signals.
+              Suitable AI projects share four characteristics.
             </h2>
             <p className="mt-6 text-base leading-relaxed text-ink/65">
-              The best opportunities are repeated, owned, bounded, and painful
-              enough that fixing them matters.
+              The process should recur, operate within defined limits, have an
+              accountable owner and carry a measurable current cost.
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
@@ -592,10 +590,9 @@ export default function HomePage() {
       <section id="founder" className="scroll-mt-24 bg-ink px-6 py-20 text-paper md:py-28">
         <div className="mx-auto max-w-[1220px] border-t border-paper/10 pt-14">
           <div className="max-w-[980px]">
-            <SectionLabel light>Founder-led</SectionLabel>
+            <SectionLabel light>Principal consultant</SectionLabel>
             <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              Built by someone who understands broken operations and shipping
-              software.
+              Experience in business restructuring, software and AI delivery.
             </h2>
             <div className="mt-7 flex items-center gap-4">
               <Image
@@ -613,15 +610,15 @@ export default function HomePage() {
               </div>
             </div>
             <p className="mt-6 max-w-[72ch] text-base leading-relaxed text-paper/68 md:text-lg">
-              Quilliam AI is led by Levi. He started in turnaround and
-              restructuring at Deloitte, then moved into technology through
-              Halter and XGX.AI.
+              Quilliam AI is led by Levi Quilliam. His experience includes
+              turnaround and restructuring at Deloitte, followed by technology
+              roles at Halter.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               {[
-                { icon: Wrench, text: "Workflow-first implementation" },
-                { icon: FileText, text: "Plain-English training and handoff" },
-                { icon: MessageSquareText, text: "Direct founder access" },
+                { icon: Wrench, text: "Process assessment and implementation" },
+                { icon: FileText, text: "Training and documented handover" },
+                { icon: MessageSquareText, text: "Direct access to the principal consultant" },
               ].map((item) => (
                 <span
                   key={item.text}
@@ -642,10 +639,10 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-[1220px] gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-ink/60">
-              Start simple
+              Initial assessment
             </p>
             <h2 className="mt-5 max-w-[900px] text-5xl font-semibold leading-[0.96] tracking-tight text-balance md:text-7xl">
-              Bring one messy workflow. Leave with a clear AI next step.
+              Discuss one defined process and receive an initial recommendation.
             </h2>
           </div>
           <div className="flex flex-col gap-3">
@@ -656,7 +653,7 @@ export default function HomePage() {
               className="max-w-full whitespace-normal bg-ink px-6 text-center leading-tight tracking-normal text-paper normal-case hover:bg-ink/90 sm:whitespace-nowrap md:h-14"
             >
               <Link href="/book?intent=opportunity">
-                Find Where AI Can Help My Business
+                Book Free AI Opportunity
                 <ArrowRight size={18} />
               </Link>
             </Button>

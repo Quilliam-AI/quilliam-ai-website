@@ -14,27 +14,30 @@ import { hasAcceptedAnalyticsCookies } from "@/lib/posthog-config";
 import { submitBooking } from "./booking-action";
 
 const BUSINESS_TYPES = [
-  "Small business (1-10)",
-  "Growing business (10-50)",
-  "Agency / consultancy",
-  "Startup / scale-up",
-  "University spin-out",
-  "Team inside a larger organisation",
-  "Other",
+  { value: "Small business (1-10)", label: "Small business (1 to 10 staff)" },
+  { value: "Growing business (10-50)", label: "Growing business (10 to 50 staff)" },
+  { value: "Agency / consultancy", label: "Agency or consultancy" },
+  { value: "Startup / scale-up", label: "Start-up or scale-up" },
+  { value: "University spin-out", label: "University spin-out" },
+  {
+    value: "Team inside a larger organisation",
+    label: "Team within a larger organisation",
+  },
+  { value: "Other", label: "Other" },
 ] as const;
 
 const INTERESTS = {
   training: {
     value: "AI Training / Team Adoption",
-    label: "Training",
+    label: "AI training",
   },
   opportunity: {
     value: "AI Opportunity / Implementation",
-    label: "Opportunity",
+    label: "AI opportunity",
   },
   either: {
     value: "Not sure yet / both",
-    label: "Not sure",
+    label: "Initial advice",
   },
 } as const;
 
@@ -56,14 +59,14 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
 
   const submitLabel =
     interest === "training"
-      ? "Book team training"
+      ? "Book Free AI Training"
       : interest === "opportunity"
-        ? "Find Where AI Can Help My Business"
-        : "Book first session";
+        ? "Book Free AI Opportunity"
+        : "Arrange an Initial Consultation";
 
   const successLabel =
     interest === "training"
-      ? "team training session"
+      ? "introductory AI training session"
       : interest === "opportunity"
         ? "AI Opportunity session"
         : "AI session";
@@ -104,12 +107,12 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
           });
         }
       } else {
-        setErrorMessage(result.error || "Something went wrong. Please try again.");
+        setErrorMessage(result.error || "We could not submit your request. Please try again.");
         setStatus("error");
         trackBookingFormError({ intent: interest, error: result.error || "unknown" });
       }
     } catch {
-      setErrorMessage("Something went wrong. Please try again or message on WhatsApp.");
+      setErrorMessage("We could not submit your request. Please try again or contact us by WhatsApp.");
       setStatus("error");
       trackBookingFormError({ intent: interest, error: "network_error" });
     }
@@ -125,11 +128,11 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
           <CheckCircle2 size={34} />
         </div>
         <h2 className="mt-7 text-3xl font-semibold tracking-tight text-paper">
-          Request received
+          Your request has been received
         </h2>
         <p className="mt-4 max-w-[40ch] text-sm leading-relaxed text-paper/65">
-          I will get back to you within 24 hours to arrange your {successLabel}.
-          A confirmation email is on the way.
+          I will contact you within 24 hours to arrange your {successLabel}. A
+          confirmation email has been sent to the address provided.
         </p>
       </div>
     );
@@ -149,21 +152,21 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
       <div className="flex items-start justify-between gap-4 border-b border-paper/10 pb-5">
         <div>
           <p className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-signal">
-            Intake
+            Enquiry details
           </p>
           <h2 className="mt-2 text-2xl font-semibold tracking-tight text-paper">
-            Tell me what is dragging
+            Tell us about your requirements
           </h2>
         </div>
         <div className="hidden border border-paper/10 bg-ink/70 px-3 py-2 text-xs font-semibold text-paper/45 sm:block">
-          24h reply
+          Response within 24 hours
         </div>
       </div>
 
       <div className="mt-6 space-y-5">
         <fieldset>
           <legend className="mb-2 block text-xs font-bold uppercase tracking-[0.16em] text-paper/50">
-            Starting point
+            Service required
           </legend>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
             {(Object.keys(INTERESTS) as InterestKey[]).map((key) => (
@@ -244,19 +247,19 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
               Select the closest match
             </option>
             {BUSINESS_TYPES.map((type) => (
-              <option key={type} value={type} className="bg-ink">
-                {type}
+              <option key={type.value} value={type.value} className="bg-ink">
+                {type.label}
               </option>
             ))}
           </select>
         </Field>
 
-        <Field label="Where is AI getting stuck?" id="message" optional>
+        <Field label="What would you like to improve?" id="message" optional>
           <textarea
             id="message"
             name="message"
             rows={4}
-            placeholder="Example: leads are not followed up, support tickets pile up, reporting is manual, or the team is using AI inconsistently."
+            placeholder="For example: delayed lead follow-up, a support backlog, manual reporting or inconsistent use of AI across the team."
             className={`${inputClassName} min-h-28 resize-y`}
           />
         </Field>
@@ -279,7 +282,7 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
           className="mt-1 h-4 w-4 shrink-0 accent-signal"
         />
         <label htmlFor="privacy" className="text-xs leading-relaxed text-paper/55">
-          I agree to Quilliam AI&apos;s{" "}
+          I have read Quilliam AI&apos;s{" "}
           <a href="/privacy" className="text-paper underline underline-offset-4 hover:text-signal">
             Privacy Policy
           </a>
@@ -296,7 +299,7 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
         {status === "submitting" ? (
           <>
             <Loader2 size={18} className="animate-spin" />
-            Sending
+            Submitting
           </>
         ) : (
           <>
@@ -307,7 +310,8 @@ export function BookingForm({ defaultInterest = "either" }: BookingFormProps) {
       </Button>
 
       <p className="mt-4 text-center text-xs leading-relaxed text-paper/40">
-        No spam. No generic nurture sequence. Just a practical reply from Levi.
+        Levi will respond directly. We use your details in accordance with the
+        Privacy Policy.
       </p>
     </form>
   );
